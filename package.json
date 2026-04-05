@@ -1,6 +1,6 @@
 {
   "name": "@jjlmoya/utils-drones",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -8,8 +8,12 @@
     ".": "./src/index.ts",
     "./data": "./src/data.ts"
   },
-  "files": ["src"],
-  "publishConfig": { "access": "public" },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -27,7 +31,9 @@
     "major": "npm version major"
   },
   "lint-staged": {
-    "*.{ts,tsx,astro}": ["eslint --fix"]
+    "*.{ts,tsx,astro}": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
@@ -53,4 +59,3 @@
     "vitest": "^4.1.2"
   }
 }
-
