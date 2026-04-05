@@ -4,7 +4,6 @@ import { droneFlightTime } from '../tool/drone-flight-time';
 import { antennaLengthCalculator } from '../tool/antenna-length-calculator';
 import { gpsCoordinatesConverter } from '../tool/gps-coordinates-converter';
 
-// All supported SEO section types that should be rendered
 const SUPPORTED_TYPES = new Set([
   'title',
   'paragraph',
@@ -39,7 +38,7 @@ describe('SEO Section Types Validation', () => {
           const content = await loader();
 
           if (!content.seo || !Array.isArray(content.seo)) {
-            return; // Skip if no SEO content
+            return;
           }
 
           const foundTypes = new Set<string>();
@@ -59,7 +58,6 @@ describe('SEO Section Types Validation', () => {
             }
           });
 
-          // Report what we found
           if (unsupportedTypes.length > 0) {
             const typesList = unsupportedTypes.map((u) => `"${u.type}"`).join(', ');
             expect.fail(
@@ -69,7 +67,6 @@ describe('SEO Section Types Validation', () => {
             );
           }
 
-          // Verify we found at least one section
           expect(foundTypes.size).toBeGreaterThan(0);
         });
       });

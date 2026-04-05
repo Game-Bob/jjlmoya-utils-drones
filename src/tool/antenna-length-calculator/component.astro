@@ -173,7 +173,7 @@ const materials = [
     </div>
 </div>
 
-<script>
+<script lang="ts">
     const freqInput = document.getElementById('freqInput') as HTMLInputElement;
     const vfInput = document.getElementById('vfInput') as HTMLSelectElement;
     const waveRadios = document.getElementsByName('waveType') as NodeListOf<HTMLInputElement>;
@@ -196,36 +196,39 @@ const materials = [
         verticalMeasure: document.getElementById('verticalMeasure') as SVGLineElement | null
     };
 
+    function getWaveType(): string {
+        let waveType = 'half';
+        waveRadios.forEach(r => { if(r.checked) waveType = r.value; });
+        return waveType;
+    }
+
+    function updateLayerVisibility(waveType: string): void {
+        if (waveType === 'half') {
+            if (elements.branchCard) elements.branchCard.style.display = 'flex';
+            if (elements.dipoleLayer) elements.dipoleLayer.style.display = 'block';
+            if (elements.whipLayer) elements.whipLayer.style.display = 'none';
+        } else {
+            if (elements.branchCard) elements.branchCard.style.display = 'none';
+            if (elements.dipoleLayer) elements.dipoleLayer.style.display = 'none';
+            if (elements.whipLayer) elements.whipLayer.style.display = 'block';
+        }
+    }
+
     function calculate() {
         const freq = parseFloat(freqInput.value);
         const vf = parseFloat(vfInput.value);
-        let waveType = 'half';
-
-        waveRadios.forEach(r => { if(r.checked) waveType = r.value; });
+        const waveType = getWaveType();
 
         if (!freq || freq <= 0) return;
 
         const lambda = 300000 / freq;
         const totalPhysicalLambda = lambda * vf;
 
-        let totalLen = 0;
-        let branchLen = 0;
+        const totalLen = waveType === 'half' ? totalPhysicalLambda / 2 : totalPhysicalLambda / 4;
+        const branchLen = waveType === 'half' ? totalLen / 2 : totalLen;
 
-        if (waveType === 'half') {
-            totalLen = totalPhysicalLambda / 2;
-            branchLen = totalLen / 2;
-            if (elements.branchCard) elements.branchCard.style.display = 'flex';
-            if (elements.dipoleLayer) elements.dipoleLayer.style.display = 'block';
-            if (elements.whipLayer) elements.whipLayer.style.display = 'none';
-            updateVisuals('half', branchLen);
-        } else {
-            totalLen = totalPhysicalLambda / 4;
-            branchLen = totalLen;
-            if (elements.branchCard) elements.branchCard.style.display = 'none';
-            if (elements.dipoleLayer) elements.dipoleLayer.style.display = 'none';
-            if (elements.whipLayer) elements.whipLayer.style.display = 'block';
-            updateVisuals('quarter', totalLen);
-        }
+        updateLayerVisibility(waveType);
+        updateVisuals(waveType, waveType === 'half' ? branchLen : totalLen);
 
         if (elements.total) elements.total.textContent = Math.round(totalLen).toString();
         if (elements.branch) elements.branch.textContent = Math.round(branchLen).toString();
@@ -233,29 +236,39 @@ const materials = [
         updateHarmonics(freq);
     }
 
+    function setArmAttributes(x: number, isLeft: boolean): void {
+        const arm = isLeft ? elements.leftArm : elements.rightArm;
+        const startX = isLeft ? '195' : '205';
+        arm?.setAttribute('x1', startX);
+        arm?.setAttribute('x2', x.toString());
+        const tick = isLeft ? elements.leftTick : elements.rightTick;
+        tick?.setAttribute('x1', x.toString());
+        tick?.setAttribute('x2', x.toString());
+    }
+
+    function updateDipoleVisuals(visualLen: number): void {
+        const x1 = 200 - visualLen;
+        const x2 = 200 + visualLen;
+        setArmAttributes(x1, true);
+        setArmAttributes(x2, false);
+        elements.measureLine?.setAttribute('x1', x1.toString());
+        elements.measureLine?.setAttribute('x2', x2.toString());
+    }
+
+    function updateWhipVisuals(visualLen: number): void {
+        const y2 = 250 - visualLen;
+        elements.verticalWhip?.setAttribute('y2', y2.toString());
+        elements.verticalMeasure?.setAttribute('y1', y2.toString());
+        elements.topTick?.setAttribute('y1', y2.toString());
+        elements.topTick?.setAttribute('y2', y2.toString());
+    }
+
     function updateVisuals(type: string, len: number) {
         const visualLen = Math.min(Math.max(len / 4, 30), 160);
-
         if (type === 'half') {
-            const x1 = 200 - visualLen;
-            const x2 = 200 + visualLen;
-            elements.leftArm?.setAttribute('x1', '195');
-            elements.leftArm?.setAttribute('x2', x1.toString());
-            elements.rightArm?.setAttribute('x1', '205');
-            elements.rightArm?.setAttribute('x2', x2.toString());
-
-            elements.measureLine?.setAttribute('x1', x1.toString());
-            elements.measureLine?.setAttribute('x2', x2.toString());
-            elements.leftTick?.setAttribute('x1', x1.toString());
-            elements.leftTick?.setAttribute('x2', x1.toString());
-            elements.rightTick?.setAttribute('x1', x2.toString());
-            elements.rightTick?.setAttribute('x2', x2.toString());
+            updateDipoleVisuals(visualLen);
         } else {
-            const y2 = 250 - visualLen;
-            elements.verticalWhip?.setAttribute('y2', y2.toString());
-            elements.verticalMeasure?.setAttribute('y1', y2.toString());
-            elements.topTick?.setAttribute('y1', y2.toString());
-            elements.topTick?.setAttribute('y2', y2.toString());
+            updateWhipVisuals(visualLen);
         }
     }
 

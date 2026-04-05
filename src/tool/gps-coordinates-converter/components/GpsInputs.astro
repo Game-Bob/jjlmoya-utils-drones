@@ -14,7 +14,7 @@ import { Icon } from "astro-icon/components";
         </button>
     </div>
 
-    <div id="ddInputs" class="compact-inputs">
+    <div id="dd-inputs" class="compact-inputs">
         <div class="input-block">
             <label class="field-label">{ui.lat}</label>
             <input type="text" id="latDD" class="tech-input" placeholder="40.4168" />
@@ -25,7 +25,7 @@ import { Icon } from "astro-icon/components";
         </div>
     </div>
 
-    <div id="gmsInputs" class="tech-section" style="display: none;">
+    <div id="gms-inputs" class="tech-section" style="display: none;">
         <div class="gms-group">
             <label class="field-label">{ui.latGMS}</label>
             <div class="compact-inputs">
@@ -86,7 +86,7 @@ import { Icon } from "astro-icon/components";
         grid-template-columns: repeat(4, 1fr);
         gap: 0.5rem;
     }
-    #ddInputs.compact-inputs {
+    #dd-inputs.compact-inputs {
         grid-template-columns: 1fr 1fr;
     }
 </style>

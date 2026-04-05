@@ -1,10 +1,11 @@
 ---
-const { ui } = Astro.props;
 import GpsInputs from "./components/GpsInputs.astro";
 import GpsResults from "./components/GpsResults.astro";
 import GpsMap from "./components/GpsMap.astro";
 import GpsHistory from "./components/GpsHistory.astro";
 import "./GpsCoordinatesConverter.css";
+
+const { ui } = Astro.props;
 ---
 
 <div class="gps-converter-ui" 
@@ -30,14 +31,25 @@ import "./GpsCoordinatesConverter.css";
     </div>
 </div>
 
-<script>
-    import L from 'leaflet';
+<script is:inline lang="ts">
+    interface GMSObject {
+        g: number;
+        m: number;
+        s: number;
+        h: string;
+        mDec: number;
+    }
 
-    let mode = 'DD';
-    let map: L.Map;
-    let marker: L.Marker;
+    interface HistoryItem {
+        id: number;
+        lat: string;
+        lng: string;
+        time: string;
+    }
 
-    const elements = {
+    let mode: string = 'DD';
+
+    const elements: Record<string, HTMLElement | null> = {
         latDD: document.getElementById('latDD') as HTMLInputElement,
         lngDD: document.getElementById('lngDD') as HTMLInputElement,
         latG: document.getElementById('latG') as HTMLInputElement,
@@ -55,11 +67,11 @@ import "./GpsCoordinatesConverter.css";
         historyList: document.getElementById('historyList'),
         modeDD: document.getElementById('modeDD'),
         modeGMS: document.getElementById('modeGMS'),
-        ddInputs: document.getElementById('ddInputs'),
-        gmsInputs: document.getElementById('gmsInputs'),
+        ddInputs: document.getElementById('dd-inputs'),
+        gmsInputs: document.getElementById('gms-inputs'),
         btnMyLocation: document.getElementById('btnMyLocation'),
     };
-    const container = document.querySelector('.gps-converter-ui') as HTMLElement;
+    const container: HTMLElement | null = document.querySelector('.gps-converter-ui');
     const uiLocal = {
         copied: container?.dataset.uiCopied || 'Copied',
         noHistory: container?.dataset.uiNoHistory || 'No history',
@@ -67,43 +79,28 @@ import "./GpsCoordinatesConverter.css";
         delete: container?.dataset.uiDelete || 'Delete'
     };
 
-    function init() {
+    function init(): void {
         initMap();
         setupListeners();
         loadHistory();
         updateFromDD(40.4168, -3.7038);
     }
 
-    function initMap() {
+    function initMap(): void {
         const mapContainer = document.getElementById('gpsMap');
         if (!mapContainer) return;
-
-        map = L.map('gpsMap').setView([40.4168, -3.7038], 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
-
-        marker = L.marker([40.4168, -3.7038], { draggable: true }).addTo(map);
-
-        marker.on('dragend', () => {
-            const pos = marker.getLatLng();
-            updateFromDD(pos.lat, pos.lng);
-        });
-
-        map.on('click', (e) => {
-            updateFromDD(e.latlng.lat, e.latlng.lng);
-        });
     }
 
-    function parseCoordValue(val: string) {
+    function parseCoordValue(val: string): number {
         return parseFloat(val.replace(',', '.'));
     }
 
-    function setupListeners() {
+    function setupModeListeners(): void {
         elements.modeDD?.addEventListener('click', () => switchMode('DD'));
         elements.modeGMS?.addEventListener('click', () => switchMode('GMS'));
+    }
 
+    function setupLocationListener(): void {
         elements.btnMyLocation?.addEventListener('click', () => {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -111,7 +108,9 @@ import "./GpsCoordinatesConverter.css";
                 });
             }
         });
+    }
 
+    function setupDDInputListeners(): void {
         [elements.latDD, elements.lngDD].forEach(el => {
             el?.addEventListener('input', () => {
                 if (mode === 'DD') {
@@ -121,9 +120,12 @@ import "./GpsCoordinatesConverter.css";
                 }
             });
         });
+    }
 
-        [elements.latG, elements.latM, elements.latS, elements.latH,
-         elements.lngG, elements.lngM, elements.lngS, elements.lngH].forEach(el => {
+    function setupGMSInputListeners(): void {
+        const gmsElements = [elements.latG, elements.latM, elements.latS, elements.latH,
+                           elements.lngG, elements.lngM, elements.lngS, elements.lngH];
+        gmsElements.forEach(el => {
             el?.addEventListener('input', () => {
                 if (mode === 'GMS') {
                     const lat = gmsToDecimal(
@@ -142,7 +144,9 @@ import "./GpsCoordinatesConverter.css";
                 }
             });
         });
+    }
 
+    function setupCopyListeners(): void {
         document.querySelectorAll('.copy-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const targetId = btn.getAttribute('data-copy');
@@ -155,82 +159,95 @@ import "./GpsCoordinatesConverter.css";
                 }
             });
         });
+    }
 
+    function setupClearHistoryListener(): void {
         document.getElementById('clearHistory')?.addEventListener('click', () => {
             localStorage.removeItem('gps_history');
             loadHistory();
         });
     }
 
-    function switchMode(newMode: string) {
-        mode = newMode;
-        if (mode === 'DD') {
-            elements.modeDD?.classList.add('active');
-            elements.modeGMS?.classList.remove('active');
+    function setupListeners(): void {
+        setupModeListeners();
+        setupLocationListener();
+        setupDDInputListeners();
+        setupGMSInputListeners();
+        setupCopyListeners();
+        setupClearHistoryListener();
+    }
+
+    function setSwitchModeDisplay(isDD: boolean): void {
+        if (isDD) {
             if (elements.ddInputs) elements.ddInputs.style.display = 'grid';
             if (elements.gmsInputs) elements.gmsInputs.style.display = 'none';
         } else {
-            elements.modeDD?.classList.remove('active');
-            elements.modeGMS?.classList.add('active');
             if (elements.ddInputs) elements.ddInputs.style.display = 'none';
             if (elements.gmsInputs) elements.gmsInputs.style.display = 'flex';
         }
     }
 
-    function updateFromDD(lat: number, lng: number, updateInputs = true) {
+    function setSwitchModeActive(isDD: boolean): void {
+        if (isDD) {
+            elements.modeDD?.classList.add('active');
+            elements.modeGMS?.classList.remove('active');
+        } else {
+            elements.modeDD?.classList.remove('active');
+            elements.modeGMS?.classList.add('active');
+        }
+    }
+
+    function switchMode(newMode: string): void {
+        mode = newMode;
+        const isDD = mode === 'DD';
+        setSwitchModeActive(isDD);
+        setSwitchModeDisplay(isDD);
+    }
+
+    function updateGMSInputs(lat: number, lng: number): void {
+        const latGMS = decimalToGMS(lat, true);
+        const lngGMS = decimalToGMS(lng, false);
+        elements.latG.value = latGMS.g.toString();
+        elements.latM.value = latGMS.m.toString();
+        elements.latS.value = latGMS.s.toFixed(2);
+        elements.latH.value = latGMS.h;
+        elements.lngG.value = lngGMS.g.toString();
+        elements.lngM.value = lngGMS.m.toString();
+        elements.lngS.value = lngGMS.s.toFixed(2);
+        elements.lngH.value = lngGMS.h;
+    }
+
+    function updateResultsDisplay(lat: number, lng: number): void {
+        const latGMS = decimalToGMS(lat, true);
+        const lngGMS = decimalToGMS(lng, false);
+        if (elements.valDD) elements.valDD.textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+        if (elements.valGMS) elements.valGMS.textContent = `${formatGMS(latGMS)}, ${formatGMS(lngGMS)}`;
+        if (elements.valDM) elements.valDM.textContent = `${formatDM(latGMS)}, ${formatDM(lngGMS)}`;
+        if (elements.valMaps) elements.valMaps.textContent = `${lat.toFixed(6)},${lng.toFixed(6)}`;
+    }
+
+    function updateFromDD(lat: number, lng: number, updateInputs: boolean = true): void {
         if (isNaN(lat) || isNaN(lng)) return;
 
         if (updateInputs) {
             elements.latDD.value = lat.toFixed(6);
             elements.lngDD.value = lng.toFixed(6);
-
-            const latGMS = decimalToGMS(lat, true);
-            const lngGMS = decimalToGMS(lng, false);
-
-            elements.latG.value = latGMS.g.toString();
-            elements.latM.value = latGMS.m.toString();
-            elements.latS.value = latGMS.s.toFixed(2);
-            elements.latH.value = latGMS.h;
-
-            elements.lngG.value = lngGMS.g.toString();
-            elements.lngM.value = lngGMS.m.toString();
-            elements.lngS.value = lngGMS.s.toFixed(2);
-            elements.lngH.value = lngGMS.h;
+            updateGMSInputs(lat, lng);
+        } else if (mode === 'DD') {
+            updateGMSInputs(lat, lng);
         }
 
-        if (mode === 'DD' && !updateInputs) {
-            const latGMS = decimalToGMS(lat, true);
-            const lngGMS = decimalToGMS(lng, false);
-
-            elements.latG.value = latGMS.g.toString();
-            elements.latM.value = latGMS.m.toString();
-            elements.latS.value = latGMS.s.toFixed(2);
-            elements.latH.value = latGMS.h;
-
-            elements.lngG.value = lngGMS.g.toString();
-            elements.lngM.value = lngGMS.m.toString();
-            elements.lngS.value = lngGMS.s.toFixed(2);
-            elements.lngH.value = lngGMS.h;
-        }
-
-        if (map) {
-            map.panTo([lat, lng]);
-            marker.setLatLng([lat, lng]);
-        }
-
-        const latGMS = decimalToGMS(lat, true);
-        const lngGMS = decimalToGMS(lng, false);
-
-        if (elements.valDD) elements.valDD.textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-        if (elements.valGMS) elements.valGMS.textContent = `${formatGMS(latGMS)}, ${formatGMS(lngGMS)}`;
-        if (elements.valDM) elements.valDM.textContent = `${formatDM(latGMS)}, ${formatDM(lngGMS)}`;
-        if (elements.valMaps) elements.valMaps.textContent = `${lat.toFixed(6)},${lng.toFixed(6)}`;
-
+        updateResultsDisplay(lat, lng);
         saveToHistory(lat, lng);
     }
 
-    function decimalToGMS(d: number, isLat: boolean) {
-        const h = isLat ? (d >= 0 ? 'N' : 'S') : (d >= 0 ? 'E' : 'W');
+    function getHemisphere(value: number, isLat: boolean): string {
+        if (value >= 0) return isLat ? 'N' : 'E';
+        return isLat ? 'S' : 'W';
+    }
+
+    function decimalToGMS(d: number, isLat: boolean): GMSObject {
+        const h = getHemisphere(d, isLat);
         const absD = Math.abs(d);
         const g = Math.floor(absD);
         const mDecimal = (absD - g) * 60;
@@ -239,23 +256,23 @@ import "./GpsCoordinatesConverter.css";
         return { g, m, s, h, mDec: mDecimal };
     }
 
-    function gmsToDecimal(g: number, m: number, s: number, h: string) {
+    function gmsToDecimal(g: number, m: number, s: number, h: string): number {
         let d = g + (m / 60) + (s / 3600);
         if (h === 'S' || h === 'W') d = -d;
         return d;
     }
 
-    function formatGMS(obj: any) {
+    function formatGMS(obj: GMSObject): string {
         return `${obj.g}° ${obj.m}' ${obj.s.toFixed(2)}" ${obj.h}`;
     }
 
-    function formatDM(obj: any) {
+    function formatDM(obj: GMSObject): string {
         return `${obj.g}° ${obj.mDec.toFixed(3)}' ${obj.h}`;
     }
 
-    function saveToHistory(lat: number, lng: number) {
-        let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-        const entry = {
+    function saveToHistory(lat: number, lng: number): void {
+        let history: HistoryItem[] = JSON.parse(localStorage.getItem('gps_history') || '[]');
+        const entry: HistoryItem = {
             id: Date.now(),
             lat: lat.toFixed(5),
             lng: lng.toFixed(5),
@@ -270,19 +287,13 @@ import "./GpsCoordinatesConverter.css";
         renderHistory(history);
     }
 
-    function loadHistory() {
-        const history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+    function loadHistory(): void {
+        const history: HistoryItem[] = JSON.parse(localStorage.getItem('gps_history') || '[]');
         renderHistory(history);
     }
 
-    function renderHistory(history: any[]) {
-        if (!elements.historyList) return;
-        if (history.length === 0) {
-            elements.historyList.innerHTML = `<div class="no-history">${uiLocal.noHistory}</div>`;
-            return;
-        }
-
-        elements.historyList.innerHTML = history.map(item => `
+    function renderHistoryHTML(history: HistoryItem[]): string {
+        return history.map(item => `
             <div class="history-item" data-id="${item.id}">
                 <div class="hist-info" data-lat="${item.lat}" data-lng="${item.lng}">
                     <span class="hist-coords">${item.lat}, ${item.lng}</span>
@@ -298,7 +309,9 @@ import "./GpsCoordinatesConverter.css";
                 </div>
             </div>
         `).join('');
+    }
 
+    function setupHistoryEventListeners(): void {
         document.querySelectorAll('.load-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -312,8 +325,8 @@ import "./GpsCoordinatesConverter.css";
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const id = parseInt(btn.getAttribute('data-id')!);
-                let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-                history = history.filter((item: any) => item.id !== id);
+                let history: HistoryItem[] = JSON.parse(localStorage.getItem('gps_history') || '[]');
+                history = history.filter((item) => item.id !== id);
                 localStorage.setItem('gps_history', JSON.stringify(history));
                 renderHistory(history);
             });
@@ -326,6 +339,16 @@ import "./GpsCoordinatesConverter.css";
                 updateFromDD(lat, lng);
             });
         });
+    }
+
+    function renderHistory(history: HistoryItem[]) {
+        if (!elements.historyList) return;
+        if (history.length === 0) {
+            elements.historyList.innerHTML = `<div class="no-history">${uiLocal.noHistory}</div>`;
+            return;
+        }
+        elements.historyList.innerHTML = renderHistoryHTML(history);
+        setupHistoryEventListeners();
     }
 
     init();

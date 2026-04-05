@@ -53,19 +53,13 @@ import "./FlightTimeCalculator.css";
 
     let chart: Chart | null = null;
 
-    function initChart() {
-        const canvas = document.getElementById("autonomyChart") as HTMLCanvasElement;
-        const ctx = canvas?.getContext("2d");
-        if (!ctx) return;
-
-        const chartLabel = canvas.dataset.label || "Minutos";
-
-        chart = new Chart(ctx, {
+    function getChartConfig(label: string) {
+        return {
             type: "line",
             data: {
                 labels: [],
                 datasets: [{
-                    label: chartLabel,
+                    label,
                     data: [],
                     borderColor: "#f97316",
                     backgroundColor: "rgba(249, 115, 22, 0.1)",
@@ -85,7 +79,15 @@ import "./FlightTimeCalculator.css";
                     x: { grid: { display: false } }
                 }
             }
-        });
+        };
+    }
+
+    function initChart() {
+        const canvas = document.getElementById("autonomyChart") as HTMLCanvasElement;
+        const ctx = canvas?.getContext("2d");
+        if (!ctx) return;
+        const chartLabel = canvas.dataset.label || "Minutos";
+        chart = new Chart(ctx, getChartConfig(chartLabel));
     }
 
     function calculate(source: string) {
@@ -153,7 +155,7 @@ import "./FlightTimeCalculator.css";
         const data: number[] = [];
         const labels: string[] = [];
         const currentDraw = parseFloat(drawInput.value);
-        
+
         for (let a = Math.max(1, currentDraw - 20); a <= currentDraw + 20; a += 2) {
             labels.push(`${a}A`);
             const val = ((usableAh / a) * 60);
@@ -161,7 +163,7 @@ import "./FlightTimeCalculator.css";
         }
 
         chart.data.labels = labels;
-        chart.data.datasets[0].data = data;
+        if (chart.data.datasets[0]) chart.data.datasets[0].data = data;
         chart.update('none');
     }
 

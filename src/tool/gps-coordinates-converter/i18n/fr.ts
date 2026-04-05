@@ -8,6 +8,8 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
+  faqTitle: 'Foire Aux Questions',
+  bibliographyTitle: 'Références Bibliographiques',
   ui: {
     faqTitle: 'Foire Aux Questions',
     bibliographyTitle: 'Références Bibliographiques',

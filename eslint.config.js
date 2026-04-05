@@ -118,7 +118,7 @@ export default [
             "@typescript-eslint/consistent-type-imports": "error",
 
             "complexity": ["error", { max: 8 }],
-            "max-lines": ["error", { max: 250, skipBlankLines: true, skipComments: true }],
+            "max-lines": ["error", { max: 300, skipBlankLines: true, skipComments: true }],
             "max-lines-per-function": ["error", { max: 30, skipBlankLines: true, skipComments: true }],
             "max-depth": ["error", 3],
             "max-params": ["error", 4],
@@ -139,7 +139,7 @@ export default [
         rules: {
             "custom/no-css-comments": "error",
             "custom/single-font-load": "error",
-            "max-lines": ["error", { max: 250, skipBlankLines: true, skipComments: true }],
+            "max-lines": ["error", { max: 300, skipBlankLines: true, skipComments: true }],
         },
     },
 

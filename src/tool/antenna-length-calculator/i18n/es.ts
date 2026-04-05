@@ -8,6 +8,8 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
+  faqTitle: 'Preguntas Frecuentes',
+  bibliographyTitle: 'Referencias Bibliográficas',
   ui: {
     faqTitle: 'Preguntas Frecuentes',
     bibliographyTitle: 'Referencias Bibliográficas',
