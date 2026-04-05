@@ -1,0 +1,36 @@
+---
+const { ui } = Astro.props;
+---
+
+<div class="tech-section">
+    <div class="header-row">
+        <h3 class="section-title">{ui.recentHistory}</h3>
+        <button id="clearHistory" class="text-btn">{ui.clear}</button>
+    </div>
+    <div id="historyList" class="history-list">
+        <div class="no-history">{ui.noHistory}</div>
+    </div>
+</div>
+
+<style>
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .text-btn {
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        font-size: 0.7rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    .text-btn:hover { color: #ef4444; }
+    .no-history {
+        font-size: 0.8rem;
+        color: #94a3b8;
+        font-style: italic;
+    }
+</style>

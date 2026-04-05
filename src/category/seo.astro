@@ -1,5 +1,21 @@
 ---
-import { SEORenderer } from '@jjlmoya/utils-shared';
+import {
+  SEOArticle,
+  SEOTitle,
+  SEOList,
+  SEOTable,
+  SEOTip,
+  SEOCard,
+  SEOStats,
+  SEOGlossary,
+  SEOCode,
+  SEOComparative,
+  SEODiagnostic,
+  SEOProsCons,
+  SEOSummary,
+  SEOGrid,
+  SEOMessageTemplate,
+} from '@jjlmoya/utils-shared';
 import { dronesCategory } from './index';
 import type { KnownLocale } from '../types';
 
@@ -9,7 +25,68 @@ interface Props {
 
 const { locale = 'es' } = Astro.props;
 const content = await dronesCategory.i18n[locale]?.();
+if (!content) return null;
 ---
 
-{content && <SEORenderer content={{ locale, sections: content.seo }} />}
-
+<SEOArticle>
+  {content.seo.map((section: any) => {
+    if (section.type === 'title') {
+      return <SEOTitle title={section.text} level={section.level ?? 2} />;
+    }
+    if (section.type === 'paragraph') {
+      return <p set:html={section.html} />;
+    }
+    if (section.type === 'list') {
+      return <SEOList items={section.items} icon={section.icon} />;
+    }
+    if (section.type === 'table') {
+      return (
+        <SEOTable headers={section.headers}>
+          {section.rows.map((row: any) => (
+            <tr>
+              {row.map((cell: string) => <td set:html={cell} />)}
+            </tr>
+          ))}
+        </SEOTable>
+      );
+    }
+    if (section.type === 'tip') {
+      return <SEOTip title={section.title}><div set:html={section.html} /></SEOTip>;
+    }
+    if (section.type === 'card') {
+      return <SEOCard icon={section.icon} title={section.title}><div set:html={section.html} /></SEOCard>;
+    }
+    if (section.type === 'stats') {
+      return <SEOStats stats={section.items} columns={section.columns} />;
+    }
+    if (section.type === 'glossary') {
+      return <SEOGlossary items={section.items} />;
+    }
+    if (section.type === 'code') {
+      return <SEOCode code={section.code} ariaLabel={section.ariaLabel} />;
+    }
+    if (section.type === 'comparative') {
+      return <SEOComparative items={section.items} columns={section.columns} />;
+    }
+    if (section.type === 'diagnostic') {
+      return (
+        <SEODiagnostic title={section.title} icon={section.icon} type={section.variant} badge={section.badge}>
+          <div set:html={section.html} />
+        </SEODiagnostic>
+      );
+    }
+    if (section.type === 'proscons') {
+      return <SEOProsCons title={section.title} items={section.items} proTitle={section.proTitle} conTitle={section.conTitle} />;
+    }
+    if (section.type === 'summary') {
+      return <SEOSummary title={section.title} items={section.items} />;
+    }
+    if (section.type === 'grid') {
+      return <SEOGrid columns={section.columns} />;
+    }
+    if (section.type === 'message') {
+      return <SEOMessageTemplate title={section.title} ariaLabel={section.ariaLabel}><div set:html={section.html} /></SEOMessageTemplate>;
+    }
+    return null;
+  })}
+</SEOArticle>

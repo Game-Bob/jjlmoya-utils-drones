@@ -1,0 +1,46 @@
+---
+const { ui } = Astro.props;
+---
+
+<div class="tech-section">
+    <h3 class="section-title">{ui.batterySpecs}</h3>
+
+    <div class="input-group">
+        <div class="label-row">
+            <label for="capacityInput">{ui.capacity}</label>
+            <div class="value-badge"><span id="capDisplay">1500</span> mAh</div>
+        </div>
+        <input type="range" id="capacityInput" min="300" max="10000" step="50" value="1500" class="tech-slider" />
+        <div class="presets">
+            <button class="preset-btn" data-val="450">450</button>
+            <button class="preset-btn" data-val="1300">1300</button>
+            <button class="preset-btn" data-val="1550">1550</button>
+            <button class="preset-btn" data-val="5000">5000</button>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <div class="label-row">
+            <label for="cellsInput">{ui.voltage}</label>
+            <div class="value-badge"><span id="cellsDisplay">4</span>S (<span id="voltsDisplay">14.8</span>V)</div>
+        </div>
+        <select id="cellsInput" class="tech-select">
+            <option value="1">1S (3.7V)</option>
+            <option value="2">2S (7.4V)</option>
+            <option value="3">3S (11.1V)</option>
+            <option value="4" selected>4S (14.8V)</option>
+            <option value="6">6S (22.2V)</option>
+            <option value="8">8S (29.6V)</option>
+            <option value="12">12S (44.4V)</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <div class="label-row">
+            <label for="safetyInput">{ui.safetyMargin}</label>
+            <div class="value-badge"><span id="safetyDisplay">80</span>%</div>
+        </div>
+        <input type="range" id="safetyInput" min="50" max="100" step="5" value="80" class="tech-slider" />
+        <small class="hint">{ui.landingHint}</small>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+---
+const { ui } = Astro.props;
+---
+
+<div class="dashboard-section">
+    <div class="main-result">
+        <div class="radial-container">
+            <svg viewBox="0 0 100 100" class="radial-svg">
+                <circle cx="50" cy="50" r="45" class="bg-circle"></circle>
+                <circle cx="50" cy="50" r="45" class="fg-circle" id="timeCircle"></circle>
+            </svg>
+            <div class="result-text">
+                <span id="timeMainDisplay" class="time-primary">0:00</span>
+                <span class="time-label">{ui.safeFlight}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="secondary-stats">
+        <div class="stat-box">
+            <span class="stat-label">{ui.totalEnergy}</span>
+            <span id="whDisplay" class="stat-value">0 Wh</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">{ui.theoreticalTime}</span>
+            <span id="timeTotalDisplay" class="stat-value">0:00</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">{ui.co2Footprint}</span>
+            <span id="co2Display" class="stat-value">0 g</span>
+        </div>
+    </div>
+</div>

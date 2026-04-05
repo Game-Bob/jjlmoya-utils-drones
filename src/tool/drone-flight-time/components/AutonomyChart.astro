@@ -1,0 +1,13 @@
+---
+const { ui } = Astro.props;
+---
+
+<div class="tech-section">
+    <div class="chart-header">
+        <h3 class="section-title">{ui.autonomyChart}</h3>
+        <span class="chart-subtitle">{ui.chartSubtitle}</span>
+    </div>
+    <div class="chart-body">
+        <canvas id="autonomyChart" data-label={ui.chartLabel}></canvas>
+    </div>
+</div>
