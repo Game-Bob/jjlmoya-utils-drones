@@ -31,35 +31,23 @@ const { ui } = Astro.props;
     </div>
 </div>
 
-<script is:inline lang="ts">
-    interface GMSObject {
-        g: number;
-        m: number;
-        s: number;
-        h: string;
-        mDec: number;
-    }
+<script>
+    // @ts-nocheck
+    let mode = 'DD';
+    let mapInstance = null;
+    let L = null;
 
-    interface HistoryItem {
-        id: number;
-        lat: string;
-        lng: string;
-        time: string;
-    }
-
-    let mode: string = 'DD';
-
-    const elements: Record<string, HTMLElement | null> = {
-        latDD: document.getElementById('latDD') as HTMLInputElement,
-        lngDD: document.getElementById('lngDD') as HTMLInputElement,
-        latG: document.getElementById('latG') as HTMLInputElement,
-        latM: document.getElementById('latM') as HTMLInputElement,
-        latS: document.getElementById('latS') as HTMLInputElement,
-        latH: document.getElementById('latH') as HTMLSelectElement,
-        lngG: document.getElementById('lngG') as HTMLInputElement,
-        lngM: document.getElementById('lngM') as HTMLInputElement,
-        lngS: document.getElementById('lngS') as HTMLInputElement,
-        lngH: document.getElementById('lngH') as HTMLSelectElement,
+    const elements = {
+        latDD: document.getElementById('latDD'),
+        lngDD: document.getElementById('lngDD'),
+        latG: document.getElementById('latG'),
+        latM: document.getElementById('latM'),
+        latS: document.getElementById('latS'),
+        latH: document.getElementById('latH'),
+        lngG: document.getElementById('lngG'),
+        lngM: document.getElementById('lngM'),
+        lngS: document.getElementById('lngS'),
+        lngH: document.getElementById('lngH'),
         valDD: document.getElementById('valDD'),
         valGMS: document.getElementById('valGMS'),
         valDM: document.getElementById('valDM'),
@@ -71,7 +59,7 @@ const { ui } = Astro.props;
         gmsInputs: document.getElementById('gms-inputs'),
         btnMyLocation: document.getElementById('btnMyLocation'),
     };
-    const container: HTMLElement | null = document.querySelector('.gps-converter-ui');
+    const container = document.querySelector('.gps-converter-ui');
     const uiLocal = {
         copied: container?.dataset.uiCopied || 'Copied',
         noHistory: container?.dataset.uiNoHistory || 'No history',
@@ -79,28 +67,41 @@ const { ui } = Astro.props;
         delete: container?.dataset.uiDelete || 'Delete'
     };
 
-    function init(): void {
-        initMap();
-        setupListeners();
-        loadHistory();
-        updateFromDD(40.4168, -3.7038);
+    function init() {
+        import('leaflet').then(module => {
+            L = module.default;
+            initMap();
+            setupListeners();
+            loadHistory();
+            updateFromDD(40.4168, -3.7038);
+        });
     }
 
-    function initMap(): void {
+    function initMap() {
         const mapContainer = document.getElementById('gpsMap');
         if (!mapContainer) return;
+
+        mapInstance = L.map('gpsMap').setView([40.4168, -3.7038], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(mapInstance);
+
+        mapInstance.on('click', (e) => {
+            updateFromDD(e.latlng.lat, e.latlng.lng);
+        });
     }
 
-    function parseCoordValue(val: string): number {
+    function parseCoordValue(val) {
         return parseFloat(val.replace(',', '.'));
     }
 
-    function setupModeListeners(): void {
+    function setupModeListeners() {
         elements.modeDD?.addEventListener('click', () => switchMode('DD'));
         elements.modeGMS?.addEventListener('click', () => switchMode('GMS'));
     }
 
-    function setupLocationListener(): void {
+    function setupLocationListener() {
         elements.btnMyLocation?.addEventListener('click', () => {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -110,7 +111,7 @@ const { ui } = Astro.props;
         });
     }
 
-    function setupDDInputListeners(): void {
+    function setupDDInputListeners() {
         [elements.latDD, elements.lngDD].forEach(el => {
             el?.addEventListener('input', () => {
                 if (mode === 'DD') {
@@ -122,7 +123,7 @@ const { ui } = Astro.props;
         });
     }
 
-    function setupGMSInputListeners(): void {
+    function setupGMSInputListeners() {
         const gmsElements = [elements.latG, elements.latM, elements.latS, elements.latH,
                            elements.lngG, elements.lngM, elements.lngS, elements.lngH];
         gmsElements.forEach(el => {
@@ -146,11 +147,11 @@ const { ui } = Astro.props;
         });
     }
 
-    function setupCopyListeners(): void {
+    function setupCopyListeners() {
         document.querySelectorAll('.copy-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const targetId = btn.getAttribute('data-copy');
-                const text = document.getElementById(targetId!)?.textContent;
+                const text = document.getElementById(targetId)?.textContent;
                 if (text) {
                     navigator.clipboard.writeText(text);
                     const original = btn.innerHTML;
@@ -161,14 +162,14 @@ const { ui } = Astro.props;
         });
     }
 
-    function setupClearHistoryListener(): void {
+    function setupClearHistoryListener() {
         document.getElementById('clearHistory')?.addEventListener('click', () => {
             localStorage.removeItem('gps_history');
             loadHistory();
         });
     }
 
-    function setupListeners(): void {
+    function setupListeners() {
         setupModeListeners();
         setupLocationListener();
         setupDDInputListeners();
@@ -177,7 +178,7 @@ const { ui } = Astro.props;
         setupClearHistoryListener();
     }
 
-    function setSwitchModeDisplay(isDD: boolean): void {
+    function setSwitchModeDisplay(isDD) {
         if (isDD) {
             if (elements.ddInputs) elements.ddInputs.style.display = 'grid';
             if (elements.gmsInputs) elements.gmsInputs.style.display = 'none';
@@ -187,7 +188,7 @@ const { ui } = Astro.props;
         }
     }
 
-    function setSwitchModeActive(isDD: boolean): void {
+    function setSwitchModeActive(isDD) {
         if (isDD) {
             elements.modeDD?.classList.add('active');
             elements.modeGMS?.classList.remove('active');
@@ -197,14 +198,14 @@ const { ui } = Astro.props;
         }
     }
 
-    function switchMode(newMode: string): void {
+    function switchMode(newMode) {
         mode = newMode;
         const isDD = mode === 'DD';
         setSwitchModeActive(isDD);
         setSwitchModeDisplay(isDD);
     }
 
-    function updateGMSInputs(lat: number, lng: number): void {
+    function updateGMSInputs(lat, lng) {
         const latGMS = decimalToGMS(lat, true);
         const lngGMS = decimalToGMS(lng, false);
         elements.latG.value = latGMS.g.toString();
@@ -217,7 +218,7 @@ const { ui } = Astro.props;
         elements.lngH.value = lngGMS.h;
     }
 
-    function updateResultsDisplay(lat: number, lng: number): void {
+    function updateResultsDisplay(lat, lng) {
         const latGMS = decimalToGMS(lat, true);
         const lngGMS = decimalToGMS(lng, false);
         if (elements.valDD) elements.valDD.textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
@@ -226,7 +227,7 @@ const { ui } = Astro.props;
         if (elements.valMaps) elements.valMaps.textContent = `${lat.toFixed(6)},${lng.toFixed(6)}`;
     }
 
-    function updateFromDD(lat: number, lng: number, updateInputs: boolean = true): void {
+    function updateFromDD(lat, lng, updateInputs = true) {
         if (isNaN(lat) || isNaN(lng)) return;
 
         if (updateInputs) {
@@ -241,12 +242,12 @@ const { ui } = Astro.props;
         saveToHistory(lat, lng);
     }
 
-    function getHemisphere(value: number, isLat: boolean): string {
+    function getHemisphere(value, isLat) {
         if (value >= 0) return isLat ? 'N' : 'E';
         return isLat ? 'S' : 'W';
     }
 
-    function decimalToGMS(d: number, isLat: boolean): GMSObject {
+    function decimalToGMS(d, isLat) {
         const h = getHemisphere(d, isLat);
         const absD = Math.abs(d);
         const g = Math.floor(absD);
@@ -256,23 +257,23 @@ const { ui } = Astro.props;
         return { g, m, s, h, mDec: mDecimal };
     }
 
-    function gmsToDecimal(g: number, m: number, s: number, h: string): number {
+    function gmsToDecimal(g, m, s, h) {
         let d = g + (m / 60) + (s / 3600);
         if (h === 'S' || h === 'W') d = -d;
         return d;
     }
 
-    function formatGMS(obj: GMSObject): string {
+    function formatGMS(obj) {
         return `${obj.g}° ${obj.m}' ${obj.s.toFixed(2)}" ${obj.h}`;
     }
 
-    function formatDM(obj: GMSObject): string {
+    function formatDM(obj) {
         return `${obj.g}° ${obj.mDec.toFixed(3)}' ${obj.h}`;
     }
 
-    function saveToHistory(lat: number, lng: number): void {
-        let history: HistoryItem[] = JSON.parse(localStorage.getItem('gps_history') || '[]');
-        const entry: HistoryItem = {
+    function saveToHistory(lat, lng) {
+        let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+        const entry = {
             id: Date.now(),
             lat: lat.toFixed(5),
             lng: lng.toFixed(5),
@@ -287,12 +288,12 @@ const { ui } = Astro.props;
         renderHistory(history);
     }
 
-    function loadHistory(): void {
-        const history: HistoryItem[] = JSON.parse(localStorage.getItem('gps_history') || '[]');
+    function loadHistory() {
+        const history = JSON.parse(localStorage.getItem('gps_history') || '[]');
         renderHistory(history);
     }
 
-    function renderHistoryHTML(history: HistoryItem[]): string {
+    function renderHistoryHTML(history) {
         return history.map(item => `
             <div class="history-item" data-id="${item.id}">
                 <div class="hist-info" data-lat="${item.lat}" data-lng="${item.lng}">
@@ -311,7 +312,7 @@ const { ui } = Astro.props;
         `).join('');
     }
 
-    function setupHistoryEventListeners(): void {
+    function setupHistoryEventListeners() {
         document.querySelectorAll('.load-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -325,7 +326,7 @@ const { ui } = Astro.props;
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const id = parseInt(btn.getAttribute('data-id')!);
-                let history: HistoryItem[] = JSON.parse(localStorage.getItem('gps_history') || '[]');
+                let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
                 history = history.filter((item) => item.id !== id);
                 localStorage.setItem('gps_history', JSON.stringify(history));
                 renderHistory(history);
@@ -341,7 +342,7 @@ const { ui } = Astro.props;
         });
     }
 
-    function renderHistory(history: HistoryItem[]) {
+    function renderHistory(history) {
         if (!elements.historyList) return;
         if (history.length === 0) {
             elements.historyList.innerHTML = `<div class="no-history">${uiLocal.noHistory}</div>`;

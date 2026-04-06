@@ -42,12 +42,16 @@
     "astro-icon": "^1.1.0",
     "chart.js": "^4.5.1"
   },
+  "peerDependencies": {
+    "leaflet": "^1.9.4"
+  },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "eslint": "^9.39.4",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-no-comments": "^1.1.10",
     "husky": "^9.1.7",
+    "leaflet": "^1.9.4",
     "lint-staged": "^16.4.0",
     "postcss-html": "^1.8.1",
     "schema-dts": "^1.1.2",

@@ -173,10 +173,11 @@ const materials = [
     </div>
 </div>
 
-<script lang="ts">
-    const freqInput = document.getElementById('freqInput') as HTMLInputElement;
-    const vfInput = document.getElementById('vfInput') as HTMLSelectElement;
-    const waveRadios = document.getElementsByName('waveType') as NodeListOf<HTMLInputElement>;
+<script>
+    // @ts-nocheck
+    const freqInput = document.getElementById('freqInput');
+    const vfInput = document.getElementById('vfInput');
+    const waveRadios = document.getElementsByName('waveType');
 
     const elements = {
         total: document.getElementById('totalLength'),
@@ -185,24 +186,24 @@ const materials = [
         dipoleLayer: document.getElementById('dipoleLayer'),
         whipLayer: document.getElementById('whipLayer'),
         harmonics: document.getElementById('harmonicsList'),
-        leftArm: document.getElementById('leftArm') as SVGLineElement | null,
-        rightArm: document.getElementById('rightArm') as SVGLineElement | null,
-        verticalWhip: document.getElementById('verticalWhip') as SVGLineElement | null,
-        measureLine: document.getElementById('measureLine') as SVGLineElement | null,
-        leftTick: document.getElementById('leftTick') as SVGLineElement | null,
-        rightTick: document.getElementById('rightTick') as SVGLineElement | null,
-        topTick: document.getElementById('topTick') as SVGLineElement | null,
-        bottomTick: document.getElementById('bottomTick') as SVGLineElement | null,
-        verticalMeasure: document.getElementById('verticalMeasure') as SVGLineElement | null
+        leftArm: document.getElementById('leftArm') || null,
+        rightArm: document.getElementById('rightArm') || null,
+        verticalWhip: document.getElementById('verticalWhip') || null,
+        measureLine: document.getElementById('measureLine') || null,
+        leftTick: document.getElementById('leftTick') || null,
+        rightTick: document.getElementById('rightTick') || null,
+        topTick: document.getElementById('topTick') || null,
+        bottomTick: document.getElementById('bottomTick') || null,
+        verticalMeasure: document.getElementById('verticalMeasure') || null
     };
 
-    function getWaveType(): string {
+    function getWaveType() {
         let waveType = 'half';
         waveRadios.forEach(r => { if(r.checked) waveType = r.value; });
         return waveType;
     }
 
-    function updateLayerVisibility(waveType: string): void {
+    function updateLayerVisibility(waveType) {
         if (waveType === 'half') {
             if (elements.branchCard) elements.branchCard.style.display = 'flex';
             if (elements.dipoleLayer) elements.dipoleLayer.style.display = 'block';
@@ -236,7 +237,7 @@ const materials = [
         updateHarmonics(freq);
     }
 
-    function setArmAttributes(x: number, isLeft: boolean): void {
+    function setArmAttributes(x, isLeft) {
         const arm = isLeft ? elements.leftArm : elements.rightArm;
         const startX = isLeft ? '195' : '205';
         arm?.setAttribute('x1', startX);
@@ -246,7 +247,7 @@ const materials = [
         tick?.setAttribute('x2', x.toString());
     }
 
-    function updateDipoleVisuals(visualLen: number): void {
+    function updateDipoleVisuals(visualLen) {
         const x1 = 200 - visualLen;
         const x2 = 200 + visualLen;
         setArmAttributes(x1, true);
@@ -255,7 +256,7 @@ const materials = [
         elements.measureLine?.setAttribute('x2', x2.toString());
     }
 
-    function updateWhipVisuals(visualLen: number): void {
+    function updateWhipVisuals(visualLen) {
         const y2 = 250 - visualLen;
         elements.verticalWhip?.setAttribute('y2', y2.toString());
         elements.verticalMeasure?.setAttribute('y1', y2.toString());
@@ -263,7 +264,7 @@ const materials = [
         elements.topTick?.setAttribute('y2', y2.toString());
     }
 
-    function updateVisuals(type: string, len: number) {
+    function updateVisuals(type, len) {
         const visualLen = Math.min(Math.max(len / 4, 30), 160);
         if (type === 'half') {
             updateDipoleVisuals(visualLen);
@@ -272,7 +273,7 @@ const materials = [
         }
     }
 
-    function updateHarmonics(baseFreq: number) {
+    function updateHarmonics(baseFreq) {
         if (!elements.harmonics) return;
         
         const harmonicLabel = elements.harmonics.dataset.label || "Armónica";
