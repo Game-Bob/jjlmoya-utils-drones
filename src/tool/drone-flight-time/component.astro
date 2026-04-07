@@ -187,7 +187,7 @@ import AutonomyChart from "./components/AutonomyChart.astro";
 .flight-calculator-ui {
     --dft-accent: #f59e0b;
     --dft-accent-rgb: 245, 158, 11;
-    --dft-bg: #ffffff;
+    --dft-bg: #fff;
     --dft-bg-muted: #f8fafc;
     --dft-bg-surface: #f1f5f9;
     --dft-bg-overlay: #fdfdfd;
@@ -440,7 +440,7 @@ import AutonomyChart from "./components/AutonomyChart.astro";
 
 .flight-calculator-ui :global(.fg-circle) {
     fill: none;
-    stroke: url(#statGradient);
+    stroke: url("#statGradient");
     stroke-width: 10;
     stroke-linecap: round;
     stroke-dasharray: 283;
@@ -547,7 +547,10 @@ import AutonomyChart from "./components/AutonomyChart.astro";
 @media (max-width: 600px) {
     .flight-calculator-ui { padding: 0.5rem; }
     .flight-calculator-ui :global(.secondary-stats) { grid-template-columns: 1fr; }
-    .flight-calculator-ui :global(.radial-container) { width: 240px; height: 240px; }
+    .flight-calculator-ui :global(.radial-container) {
+        width: 240px;
+        height: 240px;
+    }
     .flight-calculator-ui :global(.time-primary) { font-size: 4.5rem; }
     .flight-calculator-ui :global(.stat-box) { padding: 1.5rem; }
 }

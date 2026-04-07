@@ -34,346 +34,241 @@ const { ui } = Astro.props;
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" is:inline></script>
 
 <script is:inline>
-    function init() {
-        const elements = {
-            latDD: document.getElementById('latDD'),
-            lngDD: document.getElementById('lngDD'),
-            latG: document.getElementById('latG'),
-            latM: document.getElementById('latM'),
-            latS: document.getElementById('latS'),
-            latH: document.getElementById('latH'),
-            lngG: document.getElementById('lngG'),
-            lngM: document.getElementById('lngM'),
-            lngS: document.getElementById('lngS'),
-            lngH: document.getElementById('lngH'),
-            valDD: document.getElementById('valDD'),
-            valGMS: document.getElementById('valGMS'),
-            valDM: document.getElementById('valDM'),
-            valMaps: document.getElementById('valMaps'),
-            historyList: document.getElementById('historyList'),
-            modeDD: document.getElementById('modeDD'),
-            modeGMS: document.getElementById('modeGMS'),
-            ddInputs: document.getElementById('dd-inputs'),
-            gmsInputs: document.getElementById('gms-inputs'),
-            btnMyLocation: document.getElementById('btnMyLocation'),
+    function getHemisphere(val, isLat) {
+        if (val >= 0) return isLat ? 'N' : 'E';
+        return isLat ? 'S' : 'W';
+    }
+    function decimalToGMS(d, isLat) {
+        const h = getHemisphere(d, isLat);
+        const absD = Math.abs(d);
+        const g = Math.floor(absD);
+        const m = Math.floor((absD - g) * 60);
+        const s = ((absD - g) * 60 - m) * 60;
+        return {g, m, s, h, mDec: (absD - g) * 60};
+    }
+    function formatGMS(obj) {
+        return `${obj.g}° ${obj.m}' ${obj.s.toFixed(2)}" ${obj.h}`;
+    }
+    function formatDM(obj) {
+        return `${obj.g}° ${obj.mDec.toFixed(3)}' ${obj.h}`;
+    }
+    function id(name) {
+        return document.getElementById(name);
+    }
+    const state={el:{}, ui:{}, mode:'DD', map:null, L:window.L};
+    function initElements() {
+        state.el = {
+            latDD:id('latDD'),lngDD:id('lngDD'),latG:id('latG'),latM:id('latM'),
+            latS:id('latS'),latH:id('latH'),lngG:id('lngG'),lngM:id('lngM'),
+            lngS:id('lngS'),lngH:id('lngH'),valDD:id('valDD'),valGMS:id('valGMS'),
+            valDM:id('valDM'),valMaps:id('valMaps'),historyList:id('historyList'),
+            modeDD:id('modeDD'),modeGMS:id('modeGMS'),ddInputs:id('dd-inputs'),
+            gmsInputs:id('gms-inputs'),btnMyLocation:id('btnMyLocation')
         };
-        const container = document.querySelector('.gps-converter-ui');
-        const uiLocal = {
-            copied: container?.dataset.uiCopied || 'Copied',
-            noHistory: container?.dataset.uiNoHistory || 'No history',
-            load: container?.dataset.uiLoad || 'Load',
-            delete: container?.dataset.uiDelete || 'Delete'
+    }
+    function getUIValue(attr, def) {
+        const ct = document.querySelector('.gps-converter-ui');
+        return ct?.dataset[attr] || def;
+    }
+    function initUI() {
+        state.ui = {
+            copied: getUIValue('uiCopied', 'Copied'),
+            noHistory: getUIValue('uiNoHistory', 'No history'),
+            load: getUIValue('uiLoad', 'Load'),
+            delete: getUIValue('uiDelete', 'Delete')
         };
-
-        let mode = 'DD';
-        let mapInstance = null;
-        let L = window.L;
-
-        function checkLeaflet() {
-            if (window.L) {
-                L = window.L;
-                initMap();
-                setupListeners();
-                loadHistory();
-                updateFromDD(40.4168, -3.7038);
-            } else {
-                setTimeout(checkLeaflet, 100);
-            }
+    }
+    function initState() {
+        initElements();
+        initUI();
+    }
+    function setLatGMS(gms) {
+        if (state.el.latG) state.el.latG.value = gms.g.toString();
+        if (state.el.latM) state.el.latM.value = gms.m.toString();
+        if (state.el.latS) state.el.latS.value = gms.s.toFixed(2);
+        if (state.el.latH) state.el.latH.value = gms.h;
+    }
+    function setLngGMS(gms) {
+        if (state.el.lngG) state.el.lngG.value = gms.g.toString();
+        if (state.el.lngM) state.el.lngM.value = gms.m.toString();
+        if (state.el.lngS) state.el.lngS.value = gms.s.toFixed(2);
+        if (state.el.lngH) state.el.lngH.value = gms.h;
+    }
+    function updateGMSDisplay(lat, lng) {
+        const lGMS = decimalToGMS(lat, true);
+        const nGMS = decimalToGMS(lng, false);
+        setLatGMS(lGMS);
+        setLngGMS(nGMS);
+    }
+    function updateResultDisplay(lat, lng) {
+        const lGMS = decimalToGMS(lat, true);
+        const nGMS = decimalToGMS(lng, false);
+        if (state.el.valDD) {
+            state.el.valDD.textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
         }
-
-        checkLeaflet();
-
-        function initMap() {
-            const mapContainer = document.getElementById('gpsMap');
-            if (!mapContainer || !L) return;
-
-            mapInstance = L.map('gpsMap').setView([40.4168, -3.7038], 13);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                maxZoom: 19
-            }).addTo(mapInstance);
-
-            mapInstance.on('click', (e) => {
-                updateFromDD(e.latlng.lat, e.latlng.lng);
-            });
+        if (state.el.valGMS) {
+            state.el.valGMS.textContent = `${formatGMS(lGMS)}, ${formatGMS(nGMS)}`;
         }
-
-        function parseCoordValue(val) {
-            return parseFloat((val || "").replace(',', '.'));
+        if (state.el.valDM) {
+            state.el.valDM.textContent = `${formatDM(lGMS)}, ${formatDM(nGMS)}`;
         }
-
-        function setupModeListeners() {
-            elements.modeDD?.addEventListener('click', () => switchMode('DD'));
-            elements.modeGMS?.addEventListener('click', () => switchMode('GMS'));
-        }
-
-        function setupLocationListener() {
-            elements.btnMyLocation?.addEventListener('click', () => {
-                if ("geolocation" in navigator) {
-                    navigator.geolocation.getCurrentPosition((position) => {
-                        updateFromDD(position.coords.latitude, position.coords.longitude);
-                    });
-                }
-            });
-        }
-
-        function setupDDInputListeners() {
-            [elements.latDD, elements.lngDD].forEach(el => {
-                el?.addEventListener('input', () => {
-                    if (mode === 'DD' && elements.latDD && elements.lngDD) {
-                        const lat = parseCoordValue(elements.latDD.value);
-                        const lng = parseCoordValue(elements.lngDD.value);
-                        updateFromDD(lat, lng, false);
-                    }
-                });
-            });
-        }
-
-        function setupGMSInputListeners() {
-            const gmsElements = [elements.latG, elements.latM, elements.latS, elements.latH,
-                               elements.lngG, elements.lngM, elements.lngS, elements.lngH];
-            gmsElements.forEach(el => {
-                el?.addEventListener('input', () => {
-                    if (mode === 'GMS' && elements.latG && elements.latM && elements.latS && elements.latH && elements.lngG && elements.lngM && elements.lngS && elements.lngH) {
-                        const lat = gmsToDecimal(
-                            parseFloat(elements.latG.value) || 0,
-                            parseFloat(elements.latM.value) || 0,
-                            parseFloat(elements.latS.value) || 0,
-                            elements.latH.value
-                        );
-                        const lng = gmsToDecimal(
-                            parseFloat(elements.lngG.value) || 0,
-                            parseFloat(elements.lngM.value) || 0,
-                            parseFloat(elements.lngS.value) || 0,
-                            elements.lngH.value
-                        );
-                        updateFromDD(lat, lng, false);
-                    }
-                });
-            });
-        }
-
-        function setupCopyListeners() {
-            document.querySelectorAll('.copy-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const targetId = btn.getAttribute('data-copy');
-                    const text = targetId ? document.getElementById(targetId)?.textContent : null;
-                    if (text) {
-                        navigator.clipboard.writeText(text);
-                        const original = btn.innerHTML;
-                        btn.innerHTML = uiLocal.copied;
-                        setTimeout(() => btn.innerHTML = original, 2000);
-                    }
-                });
-            });
-        }
-
-        function setupClearHistoryListener() {
-            document.getElementById('clearHistory')?.addEventListener('click', () => {
-                localStorage.removeItem('gps_history');
-                loadHistory();
-            });
-        }
-
-        function setupListeners() {
-            setupModeListeners();
-            setupLocationListener();
-            setupDDInputListeners();
-            setupGMSInputListeners();
-            setupCopyListeners();
-            setupClearHistoryListener();
-        }
-
-        function setSwitchModeDisplay(isDD) {
-            if (modeDD && elements.ddInputs && elements.gmsInputs) {
-                if (isDD) {
-                    elements.ddInputs.style.display = 'grid';
-                    elements.gmsInputs.style.display = 'none';
-                } else {
-                    elements.ddInputs.style.display = 'none';
-                    elements.gmsInputs.style.display = 'flex';
-                }
-            }
-        }
-
-        function setSwitchModeActive(isDD) {
-            if (isDD) {
-                elements.modeDD?.classList.add('active');
-                elements.modeGMS?.classList.remove('active');
-            } else {
-                elements.modeDD?.classList.remove('active');
-                elements.modeGMS?.classList.add('active');
-            }
-        }
-
-        function switchMode(newMode) {
-            mode = newMode;
-            const isDD = mode === 'DD';
-            setSwitchModeActive(isDD);
-            setSwitchModeDisplay(isDD);
-        }
-
-        function updateGMSInputs(lat, lng) {
-            if (!elements.latG || !elements.latM || !elements.latS || !elements.latH || !elements.lngG || !elements.lngM || !elements.lngS || !elements.lngH) return;
-            const latGMS = decimalToGMS(lat, true);
-            const lngGMS = decimalToGMS(lng, false);
-            elements.latG.value = latGMS.g.toString();
-            elements.latM.value = latGMS.m.toString();
-            elements.latS.value = latGMS.s.toFixed(2);
-            elements.latH.value = latGMS.h;
-            elements.lngG.value = lngGMS.g.toString();
-            elements.lngM.value = lngGMS.m.toString();
-            elements.lngS.value = lngGMS.s.toFixed(2);
-            elements.lngH.value = lngGMS.h;
-        }
-
-        function updateResultsDisplay(lat, lng) {
-            const latGMS = decimalToGMS(lat, true);
-            const lngGMS = decimalToGMS(lng, false);
-            if (elements.valDD) elements.valDD.textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-            if (elements.valGMS) elements.valGMS.textContent = `${formatGMS(latGMS)}, ${formatGMS(lngGMS)}`;
-            if (elements.valDM) elements.valDM.textContent = `${formatDM(latGMS)}, ${formatDM(lngGMS)}`;
-            if (elements.valMaps) elements.valMaps.textContent = `${lat.toFixed(6)},${lng.toFixed(6)}`;
-        }
-
-        function updateFromDD(lat, lng, updateInputs = true) {
-            if (isNaN(lat) || isNaN(lng)) return;
-
-            if (updateInputs) {
-                if (elements.latDD) elements.latDD.value = lat.toFixed(6);
-                if (elements.lngDD) elements.lngDD.value = lng.toFixed(6);
-                updateGMSInputs(lat, lng);
-            } else if (mode === 'DD') {
-                updateGMSInputs(lat, lng);
-            }
-
-            updateResultsDisplay(lat, lng);
-            saveToHistory(lat, lng);
-        }
-
-        function getHemisphere(value, isLat) {
-            if (value >= 0) return isLat ? 'N' : 'E';
-            return isLat ? 'S' : 'W';
-        }
-
-        function decimalToGMS(d, isLat) {
-            const h = getHemisphere(d, isLat);
-            const absD = Math.abs(d);
-            const g = Math.floor(absD);
-            const mDecimal = (absD - g) * 60;
-            const m = Math.floor(mDecimal);
-            const s = (mDecimal - m) * 60;
-            return { g, m, s, h, mDec: mDecimal };
-        }
-
-        function gmsToDecimal(g, m, s, h) {
-            let d = g + (m / 60) + (s / 3600);
-            if (h === 'S' || h === 'W') d = -d;
-            return d;
-        }
-
-        function formatGMS(obj) {
-            return `${obj.g}° ${obj.m}' ${obj.s.toFixed(2)}" ${obj.h}`;
-        }
-
-        function formatDM(obj) {
-            return `${obj.g}° ${obj.mDec.toFixed(3)}' ${obj.h}`;
-        }
-
-        function saveToHistory(lat, lng) {
-            let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-            const entry = {
-                id: Date.now(),
-                lat: lat.toFixed(5),
-                lng: lng.toFixed(5),
-                time: new Date().toLocaleTimeString()
-            };
-
-            if (history.length > 0 && history[0].lat === entry.lat && history[0].lng === entry.lng) return;
-
-            history.unshift(entry);
-            history = history.slice(0, 5);
-            localStorage.setItem('gps_history', JSON.stringify(history));
-            renderHistory(history);
-        }
-
-        function loadHistory() {
-            const history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-            renderHistory(history);
-        }
-
-        function renderHistoryHTML(history) {
-            return history.map(item => `
-                <div class="history-item" data-id="${item.id}">
-                    <div class="hist-info" data-lat="${item.lat}" data-lng="${item.lng}">
-                        <span class="hist-coords">${item.lat}, ${item.lng}</span>
-                        <span class="hist-time">${item.time}</span>
-                    </div>
-                    <div class="hist-actions">
-                        <button class="action-btn load-btn" title="${uiLocal.load}" data-lat="${item.lat}" data-lng="${item.lng}">
-                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                        </button>
-                        <button class="action-btn delete-btn" title="${uiLocal.delete}" data-id="${item.id}">
-                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function setupHistoryEventListeners() {
-            document.querySelectorAll('.load-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const latAttr = btn.getAttribute('data-lat');
-                    const lngAttr = btn.getAttribute('data-lng');
-                    if (latAttr && lngAttr) {
-                        const lat = parseFloat(latAttr);
-                        const lng = parseFloat(lngAttr);
-                        updateFromDD(lat, lng);
-                    }
-                });
-            });
-
-            document.querySelectorAll('.delete-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const idAttr = btn.getAttribute('data-id');
-                    if (idAttr) {
-                        const id = parseInt(idAttr);
-                        let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-                        history = history.filter((item) => item.id !== id);
-                        localStorage.setItem('gps_history', JSON.stringify(history));
-                        renderHistory(history);
-                    }
-                });
-            });
-
-            document.querySelectorAll('.hist-info').forEach(info => {
-                info.addEventListener('click', () => {
-                    const latAttr = info.getAttribute('data-lat');
-                    const lngAttr = info.getAttribute('data-lng');
-                    if (latAttr && lngAttr) {
-                        const lat = parseFloat(latAttr);
-                        const lng = parseFloat(lngAttr);
-                        updateFromDD(lat, lng);
-                    }
-                });
-            });
-        }
-
-        function renderHistory(history) {
-            if (!elements.historyList) return;
-            if (history.length === 0) {
-                elements.historyList.innerHTML = `<div class="no-history">${uiLocal.noHistory}</div>`;
-                return;
-            }
-            elements.historyList.innerHTML = renderHistoryHTML(history);
-            setupHistoryEventListeners();
+        if (state.el.valMaps) {
+            state.el.valMaps.textContent = `${lat.toFixed(6)},${lng.toFixed(6)}`;
         }
     }
-
-    init();
+    function setDDInputs(lat, lng) {
+        if (state.el.latDD) state.el.latDD.value = lat.toFixed(6);
+        if (state.el.lngDD) state.el.lngDD.value = lng.toFixed(6);
+    }
+    function updateFromDD(lat, lng, upd=true) {
+        if (isNaN(lat) || isNaN(lng)) return;
+        if (upd) setDDInputs(lat, lng);
+        if (!upd && state.mode !== 'DD') return;
+        updateGMSDisplay(lat, lng);
+        updateResultDisplay(lat, lng);
+        saveHistory(lat, lng);
+    }
+    function createHistoryItem(item) {
+        return `<div class="history-item" data-id="${item.id}"><div class="hist-info" data-lat="${item.lat}" data-lng="${item.lng}">
+            <span class="hist-coords">${item.lat}, ${item.lng}</span><span class="hist-time">${item.time}</span></div><div class="hist-actions">
+            <button class="action-btn load-btn" data-lat="${item.lat}" data-lng="${item.lng}"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></button>
+            <button class="action-btn delete-btn" data-id="${item.id}"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div></div>`;
+    }
+    function setupHistoryListeners() {
+        document.querySelectorAll('.load-btn').forEach(btn => {
+            btn.addEventListener('click', (evt) => {
+                evt.stopPropagation();
+                const lat = btn.getAttribute('data-lat');
+                const lng = btn.getAttribute('data-lng');
+                if (lat && lng) updateFromDD(parseFloat(lat), parseFloat(lng));
+            });
+        });
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', (evt) => {
+                evt.stopPropagation();
+                const itemId = btn.getAttribute('data-id');
+                if (itemId) {
+                    let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+                    history = history.filter(it => it.id !== parseInt(itemId));
+                    localStorage.setItem('gps_history', JSON.stringify(history));
+                    renderHistory(history);
+                }
+            });
+        });
+        document.querySelectorAll('.hist-info').forEach(info => {
+            info.addEventListener('click', () => {
+                const lat = info.getAttribute('data-lat');
+                const lng = info.getAttribute('data-lng');
+                if (lat && lng) updateFromDD(parseFloat(lat), parseFloat(lng));
+            });
+        });
+    }
+    function renderHistory(history) {
+        if (!state.el.historyList) return;
+        if (history.length === 0) {
+            state.el.historyList.innerHTML = `<div class="no-history">${state.ui.noHistory}</div>`;
+        } else {
+            state.el.historyList.innerHTML = history.map(createHistoryItem).join('');
+        }
+        setupHistoryListeners();
+    }
+    function saveHistory(lat, lng) {
+        let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+        const entry = {
+            id: Date.now(),
+            lat: lat.toFixed(5),
+            lng: lng.toFixed(5),
+            time: new Date().toLocaleTimeString()
+        };
+        if (history.length > 0 && history[0].lat === entry.lat && history[0].lng === entry.lng) return;
+        history.unshift(entry);
+        history = history.slice(0, 5);
+        localStorage.setItem('gps_history', JSON.stringify(history));
+        renderHistory(history);
+    }
+    function loadHistory() {
+        const history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+        renderHistory(history);
+    }
+    function initMap() {
+        const mapEl = id('gpsMap');
+        if (!mapEl || !state.L) return;
+        state.map = state.L.map('gpsMap').setView([40.4168, -3.7038], 13);
+        state.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(state.map);
+        state.map.on('click', (evt) => updateFromDD(evt.latlng.lat, evt.latlng.lng));
+    }
+    function setupModeListeners() {
+        state.el.modeDD?.addEventListener('click', () => {
+            state.mode = 'DD';
+            state.el.modeDD?.classList.add('active');
+            state.el.modeGMS?.classList.remove('active');
+            if (state.el.ddInputs) state.el.ddInputs.style.display = 'grid';
+            if (state.el.gmsInputs) state.el.gmsInputs.style.display = 'none';
+        });
+        state.el.modeGMS?.addEventListener('click', () => {
+            state.mode = 'GMS';
+            state.el.modeGMS?.classList.add('active');
+            state.el.modeDD?.classList.remove('active');
+            if (state.el.ddInputs) state.el.ddInputs.style.display = 'none';
+            if (state.el.gmsInputs) state.el.gmsInputs.style.display = 'flex';
+        });
+    }
+    function setupInputListeners() {
+        state.el.btnMyLocation?.addEventListener('click', () => {
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(pos => {
+                    updateFromDD(pos.coords.latitude, pos.coords.longitude);
+                });
+            }
+        });
+        [state.el.latDD, state.el.lngDD].forEach(el => {
+            el?.addEventListener('input', () => {
+                if (state.mode === 'DD' && state.el.latDD && state.el.lngDD) {
+                    updateFromDD(parseFloat(state.el.latDD.value), parseFloat(state.el.lngDD.value), false);
+                }
+            });
+        });
+    }
+    function setupCopyListeners() {
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-copy');
+                const text = targetId ? id(targetId)?.textContent : null;
+                if (text) {
+                    navigator.clipboard.writeText(text);
+                    const original = btn.innerHTML;
+                    btn.innerHTML = state.ui.copied;
+                    setTimeout(() => { btn.innerHTML = original; }, 2000);
+                }
+            });
+        });
+        id('clearHistory')?.addEventListener('click', () => {
+            localStorage.removeItem('gps_history');
+            loadHistory();
+        });
+    }
+    function setupAll() {
+        setupModeListeners();
+        setupInputListeners();
+        setupCopyListeners();
+        setupHistoryListeners();
+    }
+    function checkLeaflet() {
+        if (window.L) {
+            state.L = window.L;
+            initMap();
+            setupAll();
+            loadHistory();
+            updateFromDD(40.4168, -3.7038);
+        } else {
+            setTimeout(checkLeaflet, 100);
+        }
+    }
+    initState();
+    checkLeaflet();
 </script>
 
 <style>
@@ -381,7 +276,7 @@ const { ui } = Astro.props;
     --gps-accent: #0ea5e9;
     --gps-accent-rgb: 14, 165, 233;
     --gps-accent-glow: rgba(14, 165, 233, 0.15);
-    --gps-bg: #ffffff;
+    --gps-bg: #fff;
     --gps-bg-muted: #f8fafc;
     --gps-bg-surface: #f1f5f9;
     --gps-bg-overlay: #fdfdfd;

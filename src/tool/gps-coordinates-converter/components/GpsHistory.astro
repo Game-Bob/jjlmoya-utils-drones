@@ -7,12 +7,17 @@ const { ui } = Astro.props;
         <h3 class="section-title">{ui.recentHistory}</h3>
         <button id="clearHistory" class="text-btn">{ui.clear}</button>
     </div>
-    <div id="historyList" class="history-list">
+<div id="historyList" class="history-list">
         <div class="no-history">{ui.noHistory}</div>
     </div>
 </div>
 
 <style>
+    .history-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
     .header-row {
         display: flex;
         justify-content: space-between;

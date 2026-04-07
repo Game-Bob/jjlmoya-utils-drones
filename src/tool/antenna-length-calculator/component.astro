@@ -213,27 +213,35 @@ const materials = [
         }
     }
 
-    function calculate() {
-        if (!freqInput || !(freqInput as HTMLInputElement).value || !vfInput) return;
+    function validateInputs() {
+        if (!freqInput || !(freqInput as HTMLInputElement).value || !vfInput) return null;
         const freq = parseFloat((freqInput as HTMLInputElement).value);
         const vf = parseFloat((vfInput as HTMLSelectElement).value);
-        const waveType = getWaveType();
+        return freq > 0 ? { freq, vf } : null;
+    }
 
-        if (!freq || freq <= 0) return;
-
+    function calculateLengths(freq, vf, waveType) {
         const lambda = 300000 / freq;
         const totalPhysicalLambda = lambda * vf;
-
         const totalLen = waveType === 'half' ? totalPhysicalLambda / 2 : totalPhysicalLambda / 4;
         const branchLen = waveType === 'half' ? totalLen / 2 : totalLen;
+        return { totalLen, branchLen };
+    }
 
-        updateLayerVisibility(waveType);
-        updateVisuals(waveType, waveType === 'half' ? branchLen : totalLen);
-
+    function displayLengths(totalLen, branchLen) {
         if (elements.total) elements.total.textContent = Math.round(totalLen).toString();
         if (elements.branch) elements.branch.textContent = Math.round(branchLen).toString();
+    }
 
-        updateHarmonics(freq);
+    function calculate() {
+        const inputs = validateInputs();
+        if (!inputs) return;
+        const waveType = getWaveType();
+        const { totalLen, branchLen } = calculateLengths(inputs.freq, inputs.vf, waveType);
+        updateLayerVisibility(waveType);
+        updateVisuals(waveType, waveType === 'half' ? branchLen : totalLen);
+        displayLengths(totalLen, branchLen);
+        updateHarmonics(inputs.freq);
     }
 
     function setArmAttributes(x, isLeft) {
