@@ -31,41 +31,41 @@ const { ui } = Astro.props;
 </div>
 
 <script is:inline>
-    let mode = 'DD';
-    let mapInstance = null;
-    let L = null;
-
-    const elements = {
-        latDD: document.getElementById('latDD'),
-        lngDD: document.getElementById('lngDD'),
-        latG: document.getElementById('latG'),
-        latM: document.getElementById('latM'),
-        latS: document.getElementById('latS'),
-        latH: document.getElementById('latH'),
-        lngG: document.getElementById('lngG'),
-        lngM: document.getElementById('lngM'),
-        lngS: document.getElementById('lngS'),
-        lngH: document.getElementById('lngH'),
-        valDD: document.getElementById('valDD'),
-        valGMS: document.getElementById('valGMS'),
-        valDM: document.getElementById('valDM'),
-        valMaps: document.getElementById('valMaps'),
-        historyList: document.getElementById('historyList'),
-        modeDD: document.getElementById('modeDD'),
-        modeGMS: document.getElementById('modeGMS'),
-        ddInputs: document.getElementById('dd-inputs'),
-        gmsInputs: document.getElementById('gms-inputs'),
-        btnMyLocation: document.getElementById('btnMyLocation'),
-    };
-    const container = document.querySelector('.gps-converter-ui');
-    const uiLocal = {
-        copied: container?.dataset.uiCopied || 'Copied',
-        noHistory: container?.dataset.uiNoHistory || 'No history',
-        load: container?.dataset.uiLoad || 'Load',
-        delete: container?.dataset.uiDelete || 'Delete'
-    };
-
     function init() {
+        const elements = {
+            latDD: document.getElementById('latDD'),
+            lngDD: document.getElementById('lngDD'),
+            latG: document.getElementById('latG'),
+            latM: document.getElementById('latM'),
+            latS: document.getElementById('latS'),
+            latH: document.getElementById('latH'),
+            lngG: document.getElementById('lngG'),
+            lngM: document.getElementById('lngM'),
+            lngS: document.getElementById('lngS'),
+            lngH: document.getElementById('lngH'),
+            valDD: document.getElementById('valDD'),
+            valGMS: document.getElementById('valGMS'),
+            valDM: document.getElementById('valDM'),
+            valMaps: document.getElementById('valMaps'),
+            historyList: document.getElementById('historyList'),
+            modeDD: document.getElementById('modeDD'),
+            modeGMS: document.getElementById('modeGMS'),
+            ddInputs: document.getElementById('dd-inputs'),
+            gmsInputs: document.getElementById('gms-inputs'),
+            btnMyLocation: document.getElementById('btnMyLocation'),
+        };
+        const container = document.querySelector('.gps-converter-ui');
+        const uiLocal = {
+            copied: container?.dataset.uiCopied || 'Copied',
+            noHistory: container?.dataset.uiNoHistory || 'No history',
+            load: container?.dataset.uiLoad || 'Load',
+            delete: container?.dataset.uiDelete || 'Delete'
+        };
+
+        let mode = 'DD';
+        let mapInstance = null;
+        let L = null;
+
         import('leaflet').then(module => {
             L = module.default;
             initMap();
@@ -73,281 +73,293 @@ const { ui } = Astro.props;
             loadHistory();
             updateFromDD(40.4168, -3.7038);
         });
-    }
 
-    function initMap() {
-        const mapContainer = document.getElementById('gpsMap');
-        if (!mapContainer) return;
+        function initMap() {
+            const mapContainer = document.getElementById('gpsMap');
+            if (!mapContainer || !L) return;
 
-        mapInstance = L.map('gpsMap').setView([40.4168, -3.7038], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
-            maxZoom: 19
-        }).addTo(mapInstance);
+            mapInstance = L.map('gpsMap').setView([40.4168, -3.7038], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(mapInstance);
 
-        mapInstance.on('click', (e) => {
-            updateFromDD(e.latlng.lat, e.latlng.lng);
-        });
-    }
+            mapInstance.on('click', (e) => {
+                updateFromDD(e.latlng.lat, e.latlng.lng);
+            });
+        }
 
-    function parseCoordValue(val) {
-        return parseFloat(val.replace(',', '.'));
-    }
+        function parseCoordValue(val) {
+            return parseFloat((val || "").replace(',', '.'));
+        }
 
-    function setupModeListeners() {
-        elements.modeDD?.addEventListener('click', () => switchMode('DD'));
-        elements.modeGMS?.addEventListener('click', () => switchMode('GMS'));
-    }
+        function setupModeListeners() {
+            elements.modeDD?.addEventListener('click', () => switchMode('DD'));
+            elements.modeGMS?.addEventListener('click', () => switchMode('GMS'));
+        }
 
-    function setupLocationListener() {
-        elements.btnMyLocation?.addEventListener('click', () => {
-            if ("geolocation" in navigator) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    updateFromDD(position.coords.latitude, position.coords.longitude);
+        function setupLocationListener() {
+            elements.btnMyLocation?.addEventListener('click', () => {
+                if ("geolocation" in navigator) {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        updateFromDD(position.coords.latitude, position.coords.longitude);
+                    });
+                }
+            });
+        }
+
+        function setupDDInputListeners() {
+            [elements.latDD, elements.lngDD].forEach(el => {
+                el?.addEventListener('input', () => {
+                    if (mode === 'DD' && elements.latDD && elements.lngDD) {
+                        const lat = parseCoordValue(elements.latDD.value);
+                        const lng = parseCoordValue(elements.lngDD.value);
+                        updateFromDD(lat, lng, false);
+                    }
                 });
+            });
+        }
+
+        function setupGMSInputListeners() {
+            const gmsElements = [elements.latG, elements.latM, elements.latS, elements.latH,
+                               elements.lngG, elements.lngM, elements.lngS, elements.lngH];
+            gmsElements.forEach(el => {
+                el?.addEventListener('input', () => {
+                    if (mode === 'GMS' && elements.latG && elements.latM && elements.latS && elements.latH && elements.lngG && elements.lngM && elements.lngS && elements.lngH) {
+                        const lat = gmsToDecimal(
+                            parseFloat(elements.latG.value) || 0,
+                            parseFloat(elements.latM.value) || 0,
+                            parseFloat(elements.latS.value) || 0,
+                            elements.latH.value
+                        );
+                        const lng = gmsToDecimal(
+                            parseFloat(elements.lngG.value) || 0,
+                            parseFloat(elements.lngM.value) || 0,
+                            parseFloat(elements.lngS.value) || 0,
+                            elements.lngH.value
+                        );
+                        updateFromDD(lat, lng, false);
+                    }
+                });
+            });
+        }
+
+        function setupCopyListeners() {
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-copy');
+                    const text = targetId ? document.getElementById(targetId)?.textContent : null;
+                    if (text) {
+                        navigator.clipboard.writeText(text);
+                        const original = btn.innerHTML;
+                        btn.innerHTML = uiLocal.copied;
+                        setTimeout(() => btn.innerHTML = original, 2000);
+                    }
+                });
+            });
+        }
+
+        function setupClearHistoryListener() {
+            document.getElementById('clearHistory')?.addEventListener('click', () => {
+                localStorage.removeItem('gps_history');
+                loadHistory();
+            });
+        }
+
+        function setupListeners() {
+            setupModeListeners();
+            setupLocationListener();
+            setupDDInputListeners();
+            setupGMSInputListeners();
+            setupCopyListeners();
+            setupClearHistoryListener();
+        }
+
+        function setSwitchModeDisplay(isDD) {
+            if (isDD) {
+                if (elements.ddInputs) elements.ddInputs.style.display = 'grid';
+                if (elements.gmsInputs) elements.gmsInputs.style.display = 'none';
+            } else {
+                if (elements.ddInputs) elements.ddInputs.style.display = 'none';
+                if (elements.gmsInputs) elements.gmsInputs.style.display = 'flex';
             }
-        });
-    }
-
-    function setupDDInputListeners() {
-        [elements.latDD, elements.lngDD].forEach(el => {
-            el?.addEventListener('input', () => {
-                if (mode === 'DD') {
-                    const lat = parseCoordValue(elements.latDD.value);
-                    const lng = parseCoordValue(elements.lngDD.value);
-                    updateFromDD(lat, lng, false);
-                }
-            });
-        });
-    }
-
-    function setupGMSInputListeners() {
-        const gmsElements = [elements.latG, elements.latM, elements.latS, elements.latH,
-                           elements.lngG, elements.lngM, elements.lngS, elements.lngH];
-        gmsElements.forEach(el => {
-            el?.addEventListener('input', () => {
-                if (mode === 'GMS') {
-                    const lat = gmsToDecimal(
-                        parseFloat(elements.latG.value) || 0,
-                        parseFloat(elements.latM.value) || 0,
-                        parseFloat(elements.latS.value) || 0,
-                        elements.latH.value
-                    );
-                    const lng = gmsToDecimal(
-                        parseFloat(elements.lngG.value) || 0,
-                        parseFloat(elements.lngM.value) || 0,
-                        parseFloat(elements.lngS.value) || 0,
-                        elements.lngH.value
-                    );
-                    updateFromDD(lat, lng, false);
-                }
-            });
-        });
-    }
-
-    function setupCopyListeners() {
-        document.querySelectorAll('.copy-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const targetId = btn.getAttribute('data-copy');
-                const text = document.getElementById(targetId)?.textContent;
-                if (text) {
-                    navigator.clipboard.writeText(text);
-                    const original = btn.innerHTML;
-                    btn.innerHTML = uiLocal.copied;
-                    setTimeout(() => btn.innerHTML = original, 2000);
-                }
-            });
-        });
-    }
-
-    function setupClearHistoryListener() {
-        document.getElementById('clearHistory')?.addEventListener('click', () => {
-            localStorage.removeItem('gps_history');
-            loadHistory();
-        });
-    }
-
-    function setupListeners() {
-        setupModeListeners();
-        setupLocationListener();
-        setupDDInputListeners();
-        setupGMSInputListeners();
-        setupCopyListeners();
-        setupClearHistoryListener();
-    }
-
-    function setSwitchModeDisplay(isDD) {
-        if (isDD) {
-            if (elements.ddInputs) elements.ddInputs.style.display = 'grid';
-            if (elements.gmsInputs) elements.gmsInputs.style.display = 'none';
-        } else {
-            if (elements.ddInputs) elements.ddInputs.style.display = 'none';
-            if (elements.gmsInputs) elements.gmsInputs.style.display = 'flex';
-        }
-    }
-
-    function setSwitchModeActive(isDD) {
-        if (isDD) {
-            elements.modeDD?.classList.add('active');
-            elements.modeGMS?.classList.remove('active');
-        } else {
-            elements.modeDD?.classList.remove('active');
-            elements.modeGMS?.classList.add('active');
-        }
-    }
-
-    function switchMode(newMode) {
-        mode = newMode;
-        const isDD = mode === 'DD';
-        setSwitchModeActive(isDD);
-        setSwitchModeDisplay(isDD);
-    }
-
-    function updateGMSInputs(lat, lng) {
-        const latGMS = decimalToGMS(lat, true);
-        const lngGMS = decimalToGMS(lng, false);
-        elements.latG.value = latGMS.g.toString();
-        elements.latM.value = latGMS.m.toString();
-        elements.latS.value = latGMS.s.toFixed(2);
-        elements.latH.value = latGMS.h;
-        elements.lngG.value = lngGMS.g.toString();
-        elements.lngM.value = lngGMS.m.toString();
-        elements.lngS.value = lngGMS.s.toFixed(2);
-        elements.lngH.value = lngGMS.h;
-    }
-
-    function updateResultsDisplay(lat, lng) {
-        const latGMS = decimalToGMS(lat, true);
-        const lngGMS = decimalToGMS(lng, false);
-        if (elements.valDD) elements.valDD.textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-        if (elements.valGMS) elements.valGMS.textContent = `${formatGMS(latGMS)}, ${formatGMS(lngGMS)}`;
-        if (elements.valDM) elements.valDM.textContent = `${formatDM(latGMS)}, ${formatDM(lngGMS)}`;
-        if (elements.valMaps) elements.valMaps.textContent = `${lat.toFixed(6)},${lng.toFixed(6)}`;
-    }
-
-    function updateFromDD(lat, lng, updateInputs = true) {
-        if (isNaN(lat) || isNaN(lng)) return;
-
-        if (updateInputs) {
-            elements.latDD.value = lat.toFixed(6);
-            elements.lngDD.value = lng.toFixed(6);
-            updateGMSInputs(lat, lng);
-        } else if (mode === 'DD') {
-            updateGMSInputs(lat, lng);
         }
 
-        updateResultsDisplay(lat, lng);
-        saveToHistory(lat, lng);
-    }
+        function setSwitchModeActive(isDD) {
+            if (isDD) {
+                elements.modeDD?.classList.add('active');
+                elements.modeGMS?.classList.remove('active');
+            } else {
+                elements.modeDD?.classList.remove('active');
+                elements.modeGMS?.classList.add('active');
+            }
+        }
 
-    function getHemisphere(value, isLat) {
-        if (value >= 0) return isLat ? 'N' : 'E';
-        return isLat ? 'S' : 'W';
-    }
+        function switchMode(newMode) {
+            mode = newMode;
+            const isDD = mode === 'DD';
+            setSwitchModeActive(isDD);
+            setSwitchModeDisplay(isDD);
+        }
 
-    function decimalToGMS(d, isLat) {
-        const h = getHemisphere(d, isLat);
-        const absD = Math.abs(d);
-        const g = Math.floor(absD);
-        const mDecimal = (absD - g) * 60;
-        const m = Math.floor(mDecimal);
-        const s = (mDecimal - m) * 60;
-        return { g, m, s, h, mDec: mDecimal };
-    }
+        function updateGMSInputs(lat, lng) {
+            if (!elements.latG || !elements.latM || !elements.latS || !elements.latH || !elements.lngG || !elements.lngM || !elements.lngS || !elements.lngH) return;
+            const latGMS = decimalToGMS(lat, true);
+            const lngGMS = decimalToGMS(lng, false);
+            elements.latG.value = latGMS.g.toString();
+            elements.latM.value = latGMS.m.toString();
+            elements.latS.value = latGMS.s.toFixed(2);
+            elements.latH.value = latGMS.h;
+            elements.lngG.value = lngGMS.g.toString();
+            elements.lngM.value = lngGMS.m.toString();
+            elements.lngS.value = lngGMS.s.toFixed(2);
+            elements.lngH.value = lngGMS.h;
+        }
 
-    function gmsToDecimal(g, m, s, h) {
-        let d = g + (m / 60) + (s / 3600);
-        if (h === 'S' || h === 'W') d = -d;
-        return d;
-    }
+        function updateResultsDisplay(lat, lng) {
+            const latGMS = decimalToGMS(lat, true);
+            const lngGMS = decimalToGMS(lng, false);
+            if (elements.valDD) elements.valDD.textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+            if (elements.valGMS) elements.valGMS.textContent = `${formatGMS(latGMS)}, ${formatGMS(lngGMS)}`;
+            if (elements.valDM) elements.valDM.textContent = `${formatDM(latGMS)}, ${formatDM(lngGMS)}`;
+            if (elements.valMaps) elements.valMaps.textContent = `${lat.toFixed(6)},${lng.toFixed(6)}`;
+        }
 
-    function formatGMS(obj) {
-        return `${obj.g}° ${obj.m}' ${obj.s.toFixed(2)}" ${obj.h}`;
-    }
+        function updateFromDD(lat, lng, updateInputs = true) {
+            if (isNaN(lat) || isNaN(lng)) return;
 
-    function formatDM(obj) {
-        return `${obj.g}° ${obj.mDec.toFixed(3)}' ${obj.h}`;
-    }
+            if (updateInputs) {
+                if (elements.latDD) elements.latDD.value = lat.toFixed(6);
+                if (elements.lngDD) elements.lngDD.value = lng.toFixed(6);
+                updateGMSInputs(lat, lng);
+            } else if (mode === 'DD') {
+                updateGMSInputs(lat, lng);
+            }
 
-    function saveToHistory(lat, lng) {
-        let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-        const entry = {
-            id: Date.now(),
-            lat: lat.toFixed(5),
-            lng: lng.toFixed(5),
-            time: new Date().toLocaleTimeString()
-        };
+            updateResultsDisplay(lat, lng);
+            saveToHistory(lat, lng);
+        }
 
-        if (history.length > 0 && history[0].lat === entry.lat && history[0].lng === entry.lng) return;
+        function getHemisphere(value, isLat) {
+            if (value >= 0) return isLat ? 'N' : 'E';
+            return isLat ? 'S' : 'W';
+        }
 
-        history.unshift(entry);
-        history = history.slice(0, 5);
-        localStorage.setItem('gps_history', JSON.stringify(history));
-        renderHistory(history);
-    }
+        function decimalToGMS(d, isLat) {
+            const h = getHemisphere(d, isLat);
+            const absD = Math.abs(d);
+            const g = Math.floor(absD);
+            const mDecimal = (absD - g) * 60;
+            const m = Math.floor(mDecimal);
+            const s = (mDecimal - m) * 60;
+            return { g, m, s, h, mDec: mDecimal };
+        }
 
-    function loadHistory() {
-        const history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-        renderHistory(history);
-    }
+        function gmsToDecimal(g, m, s, h) {
+            let d = g + (m / 60) + (s / 3600);
+            if (h === 'S' || h === 'W') d = -d;
+            return d;
+        }
 
-    function renderHistoryHTML(history) {
-        return history.map(item => `
-            <div class="history-item" data-id="${item.id}">
-                <div class="hist-info" data-lat="${item.lat}" data-lng="${item.lng}">
-                    <span class="hist-coords">${item.lat}, ${item.lng}</span>
-                    <span class="hist-time">${item.time}</span>
+        function formatGMS(obj) {
+            return `${obj.g}° ${obj.m}' ${obj.s.toFixed(2)}" ${obj.h}`;
+        }
+
+        function formatDM(obj) {
+            return `${obj.g}° ${obj.mDec.toFixed(3)}' ${obj.h}`;
+        }
+
+        function saveToHistory(lat, lng) {
+            let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+            const entry = {
+                id: Date.now(),
+                lat: lat.toFixed(5),
+                lng: lng.toFixed(5),
+                time: new Date().toLocaleTimeString()
+            };
+
+            if (history.length > 0 && history[0].lat === entry.lat && history[0].lng === entry.lng) return;
+
+            history.unshift(entry);
+            history = history.slice(0, 5);
+            localStorage.setItem('gps_history', JSON.stringify(history));
+            renderHistory(history);
+        }
+
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+            renderHistory(history);
+        }
+
+        function renderHistoryHTML(history) {
+            return history.map(item => `
+                <div class="history-item" data-id="${item.id}">
+                    <div class="hist-info" data-lat="${item.lat}" data-lng="${item.lng}">
+                        <span class="hist-coords">${item.lat}, ${item.lng}</span>
+                        <span class="hist-time">${item.time}</span>
+                    </div>
+                    <div class="hist-actions">
+                        <button class="action-btn load-btn" title="${uiLocal.load}" data-lat="${item.lat}" data-lng="${item.lng}">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                        </button>
+                        <button class="action-btn delete-btn" title="${uiLocal.delete}" data-id="${item.id}">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="hist-actions">
-                    <button class="action-btn load-btn" title="${uiLocal.load}" data-lat="${item.lat}" data-lng="${item.lng}">
-                        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                    </button>
-                    <button class="action-btn delete-btn" title="${uiLocal.delete}" data-id="${item.id}">
-                        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                    </button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function setupHistoryEventListeners() {
-        document.querySelectorAll('.load-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const lat = parseFloat(btn.getAttribute('data-lat')!);
-                const lng = parseFloat(btn.getAttribute('data-lng')!);
-                updateFromDD(lat, lng);
-            });
-        });
-
-        document.querySelectorAll('.delete-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const id = parseInt(btn.getAttribute('data-id')!);
-                let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
-                history = history.filter((item) => item.id !== id);
-                localStorage.setItem('gps_history', JSON.stringify(history));
-                renderHistory(history);
-            });
-        });
-
-        document.querySelectorAll('.hist-info').forEach(info => {
-            info.addEventListener('click', () => {
-                const lat = parseFloat(info.getAttribute('data-lat')!);
-                const lng = parseFloat(info.getAttribute('data-lng')!);
-                updateFromDD(lat, lng);
-            });
-        });
-    }
-
-    function renderHistory(history) {
-        if (!elements.historyList) return;
-        if (history.length === 0) {
-            elements.historyList.innerHTML = `<div class="no-history">${uiLocal.noHistory}</div>`;
-            return;
+            `).join('');
         }
-        elements.historyList.innerHTML = renderHistoryHTML(history);
-        setupHistoryEventListeners();
+
+        function setupHistoryEventListeners() {
+            document.querySelectorAll('.load-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const latAttr = btn.getAttribute('data-lat');
+                    const lngAttr = btn.getAttribute('data-lng');
+                    if (latAttr && lngAttr) {
+                        const lat = parseFloat(latAttr);
+                        const lng = parseFloat(lngAttr);
+                        updateFromDD(lat, lng);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const idAttr = btn.getAttribute('data-id');
+                    if (idAttr) {
+                        const id = parseInt(idAttr);
+                        let history = JSON.parse(localStorage.getItem('gps_history') || '[]');
+                        history = history.filter((item) => item.id !== id);
+                        localStorage.setItem('gps_history', JSON.stringify(history));
+                        renderHistory(history);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.hist-info').forEach(info => {
+                info.addEventListener('click', () => {
+                    const latAttr = info.getAttribute('data-lat');
+                    const lngAttr = info.getAttribute('data-lng');
+                    if (latAttr && lngAttr) {
+                        const lat = parseFloat(latAttr);
+                        const lng = parseFloat(lngAttr);
+                        updateFromDD(lat, lng);
+                    }
+                });
+            });
+        }
+
+        function renderHistory(history) {
+            if (!elements.historyList) return;
+            if (history.length === 0) {
+                elements.historyList.innerHTML = `<div class="no-history">${uiLocal.noHistory}</div>`;
+                return;
+            }
+            elements.historyList.innerHTML = renderHistoryHTML(history);
+            setupHistoryEventListeners();
+        }
     }
 
     init();
@@ -355,304 +367,309 @@ const { ui } = Astro.props;
 
 <style>
 .gps-converter-ui {
-  --gps-accent: #0ea5e9;
-  --gps-accent-glow: rgba(14, 165, 233, 0.15);
-  --gps-bg: #fff;
-  --gps-bg-muted: #f5f5f5;
-  --gps-bg-surface: #eee;
-  --gps-bg-overlay: #f0f0f0;
-  --gps-text: #1a1a1a;
-  --gps-text-muted: #4a4a4a;
-  --gps-text-dim: #707070;
-  --gps-border: #d0d0d0;
-  --gps-border-light: #e8e8e8;
-  --gps-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-  --gps-danger: #ef4444;
-  --gps-danger-bg: rgba(239, 68, 68, 0.1);
+    --gps-accent: #0ea5e9;
+    --gps-accent-rgb: 14, 165, 233;
+    --gps-accent-glow: rgba(14, 165, 233, 0.15);
+    --gps-bg: #ffffff;
+    --gps-bg-muted: #f8fafc;
+    --gps-bg-surface: #f1f5f9;
+    --gps-bg-overlay: #fdfdfd;
+    --gps-text: #1e293b;
+    --gps-text-muted: #64748b;
+    --gps-text-dim: #94a3b8;
+    --gps-border: #e2e8f0;
+    --gps-border-light: #f1f5f9;
+    --gps-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
+    --gps-danger: #ef4444;
+    --gps-danger-bg: rgba(239, 68, 68, 0.1);
 
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
 }
 
 :global([data-theme="dark"]) .gps-converter-ui,
 :global(.theme-dark) .gps-converter-ui {
-  --gps-bg: #1a1a1a;
-  --gps-bg-muted: #2d2d2d;
-  --gps-bg-surface: #3a3a3a;
-  --gps-bg-overlay: #292929;
-  --gps-text: #f5f5f5;
-  --gps-text-muted: #b0b0b0;
-  --gps-text-dim: #888;
-  --gps-border: #4a4a4a;
-  --gps-border-light: #525252;
-  --gps-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    --gps-bg: #0f172a;
+    --gps-bg-muted: #1e293b;
+    --gps-bg-surface: #334155;
+    --gps-bg-overlay: #1e293b;
+    --gps-text: #f1f5f9;
+    --gps-text-muted: #94a3b8;
+    --gps-text-dim: #64748b;
+    --gps-border: #334155;
+    --gps-border-light: #1e293b;
+    --gps-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.4);
 }
 
 .gps-converter-ui .tech-mega-card {
-  background: var(--gps-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--gps-border);
-  border-radius: 32px;
-  box-shadow: var(--gps-shadow);
-  overflow: hidden;
+    background: var(--gps-bg);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--gps-border);
+    border-radius: 40px;
+    box-shadow: var(--gps-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.gps-converter-ui .tech-mega-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0ea5e9, #6366f1, #0ea5e9);
+    background-size: 200% 100%;
+    animation: gradient-shift-gps 4s linear infinite;
+    z-index: 10;
+}
+
+@keyframes gradient-shift-gps {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
 }
 
 .gps-converter-ui .card-grid {
-  display: grid;
-  grid-template-columns: 420px 1fr;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    min-height: 700px;
 }
 
 .gps-converter-ui .config-sidebar {
-  padding: 2rem;
-  background: var(--gps-bg-overlay);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  border-right: 1px solid var(--gps-border-light);
-}
-
-:global([data-theme="dark"]) .gps-converter-ui .config-sidebar,
-:global(.theme-dark) .gps-converter-ui .config-sidebar {
-  background: var(--gps-bg-surface);
-  border-right-color: var(--gps-border-light);
+    padding: 3.5rem 3rem;
+    background: var(--gps-bg-overlay);
+    border-right: 1px solid var(--gps-border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 .gps-converter-ui .main-display {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background: var(--gps-bg);
-}
-
-.gps-converter-ui .tech-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.gps-converter-ui .section-title {
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--gps-text);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0;
+    padding: 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background: var(--gps-bg);
 }
 
 .gps-converter-ui .divider {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(90deg, transparent, var(--gps-border-light), transparent);
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, var(--gps-border-light), transparent);
 }
 
-.gps-converter-ui .compact-inputs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+.gps-converter-ui :global(.tech-section) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.gps-converter-ui .input-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.gps-converter-ui :global(.section-title) {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--gps-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
 }
 
-.gps-converter-ui .field-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--gps-text-muted);
-  text-transform: uppercase;
+.gps-converter-ui :global(.field-label) {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--gps-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
-.gps-converter-ui .tech-input {
-  width: 100%;
-  padding: 0.75rem;
-  background: var(--gps-bg-surface);
-  border: 1px solid var(--gps-border);
-  border-radius: 12px;
-  font-weight: 600;
-  color: var(--gps-text);
+.gps-converter-ui :global(.tech-input) {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--gps-bg-surface);
+    border: 1px solid var(--gps-border);
+    border-radius: 16px;
+    font-weight: 700;
+    color: var(--gps-text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-.gps-converter-ui .mode-switch {
-  display: flex;
-  background: var(--gps-bg-surface);
-  padding: 0.3rem;
-  border-radius: 14px;
+.gps-converter-ui :global(.tech-input:focus) {
+    outline: none;
+    border-color: var(--gps-accent);
+    box-shadow: 0 0 0 4px var(--gps-accent-glow);
+    background: var(--gps-bg);
 }
 
-.gps-converter-ui .mode-btn {
-  flex: 1;
-  padding: 0.6rem;
-  border-radius: 10px;
-  border: none;
-  background: transparent;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--gps-text-muted);
-  cursor: pointer;
-  transition: all 0.2s;
+.gps-converter-ui :global(.mode-switch) {
+    display: flex;
+    background: var(--gps-bg-surface);
+    padding: 0.4rem;
+    border-radius: 18px;
+    gap: 0.25rem;
 }
 
-.gps-converter-ui .mode-btn.active {
-  background: var(--gps-bg);
-  color: var(--gps-accent);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+.gps-converter-ui :global(.mode-btn) {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 14px;
+    border: none;
+    background: transparent;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--gps-text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.gps-converter-ui .map-container {
-  width: 100%;
-  height: 350px;
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--gps-bg-surface);
-  border: 1px solid var(--gps-border-light);
+.gps-converter-ui :global(.mode-btn.active) {
+    background: var(--gps-bg);
+    color: var(--gps-accent);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-.gps-converter-ui .results-area {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+.gps-converter-ui :global(.map-container) {
+    width: 100%;
+    height: 400px;
+    border-radius: 32px;
+    overflow: hidden;
+    background: var(--gps-bg-surface);
+    border: 1px solid var(--gps-border-light);
 }
 
-.gps-converter-ui .result-box {
-  background: var(--gps-bg-overlay);
-  border: 1px solid var(--gps-border-light);
-  border-radius: 20px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.gps-converter-ui :global(.results-area) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
-.gps-converter-ui .res-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.gps-converter-ui :global(.result-box) {
+    background: var(--gps-bg-overlay);
+    border: 1px solid var(--gps-border-light);
+    border-radius: 28px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.3s ease;
 }
 
-.gps-converter-ui .res-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--gps-text-dim);
-  text-transform: uppercase;
+.gps-converter-ui :global(.result-box:hover) {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    border-color: var(--gps-accent);
 }
 
-.gps-converter-ui .copy-btn {
-  background: transparent;
-  border: 1px solid var(--gps-border);
-  color: var(--gps-text-muted);
-  padding: 0.3rem 0.6rem;
-  border-radius: 8px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: all 0.2s;
+.gps-converter-ui :global(.res-header) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.gps-converter-ui .copy-btn:hover {
-  background: var(--gps-accent);
-  color: white;
-  border-color: var(--gps-accent);
+.gps-converter-ui :global(.copy-btn) {
+    background: var(--gps-bg-surface);
+    border: 1px solid var(--gps-border);
+    color: var(--gps-text-muted);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
 }
 
-.gps-converter-ui .val-display {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--gps-text);
+.gps-converter-ui :global(.copy-btn:hover) {
+    background: var(--gps-accent);
+    color: white;
+    border-color: var(--gps-accent);
 }
 
-.gps-converter-ui .history-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.gps-converter-ui :global(.val-display) {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gps-text);
+    word-break: break-all;
+    letter-spacing: -0.01em;
 }
 
-.gps-converter-ui .history-item {
-  padding: 0.75rem 1rem;
-  background: var(--gps-bg-surface);
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.2s;
+.gps-converter-ui :global(.history-item) {
+    padding: 1.25rem 1.5rem;
+    background: var(--gps-bg-surface);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
-.gps-converter-ui .history-item:hover {
-  background: var(--gps-border);
+.gps-converter-ui :global(.history-item:hover) {
+    background: var(--gps-bg);
+    border-color: var(--gps-accent);
+    transform: translateX(5px);
 }
 
-.gps-converter-ui .hist-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  cursor: pointer;
-  flex: 1;
+.gps-converter-ui :global(.hist-info) {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    flex: 1;
 }
 
-.gps-converter-ui .hist-coords {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--gps-text);
+.gps-converter-ui :global(.hist-coords) {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--gps-text);
 }
 
-.gps-converter-ui .hist-time {
-  font-size: 0.65rem;
-  color: var(--gps-text-dim);
-  text-transform: uppercase;
-  font-weight: 600;
+.gps-converter-ui :global(.hist-time) {
+    font-size: 0.7rem;
+    color: var(--gps-text-dim);
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.gps-converter-ui .hist-actions {
-  display: flex;
-  gap: 0.5rem;
+.gps-converter-ui :global(.action-btn) {
+    background: var(--gps-bg-overlay);
+    border: 1px solid var(--gps-border);
+    padding: 0.6rem;
+    border-radius: 12px;
+    color: var(--gps-text-dim);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
 }
 
-.gps-converter-ui .action-btn {
-  background: transparent;
-  border: none;
-  padding: 0.4rem;
-  border-radius: 8px;
-  color: var(--gps-text-dim);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
+.gps-converter-ui :global(.no-history) {
+    text-align: center;
+    padding: 3rem;
+    color: var(--gps-text-dim);
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
-.gps-converter-ui .load-btn:hover {
-  color: var(--gps-accent);
-  background: var(--gps-accent-glow);
+@media (max-width: 1200px) {
+    .gps-converter-ui .card-grid {
+        grid-template-columns: 1fr;
+    }
+    .gps-converter-ui .config-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--gps-border-light);
+    }
 }
 
-.gps-converter-ui .delete-btn:hover {
-  color: var(--gps-danger);
-  background: var(--gps-danger-bg);
-}
-
-@media (max-width: 992px) {
-  .gps-converter-ui .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gps-converter-ui .config-sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--gps-border-light);
-  }
-
-  :global([data-theme="dark"]) .gps-converter-ui .config-sidebar,
-  :global(.theme-dark) .gps-converter-ui .config-sidebar {
-    border-bottom-color: var(--gps-border-light);
-  }
-
-  .gps-converter-ui .results-area {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 600px) {
+    .gps-converter-ui { padding: 0.5rem; }
+    .gps-converter-ui .config-sidebar, 
+    .gps-converter-ui .main-display { padding: 2rem 1.5rem; }
+    .gps-converter-ui :global(.results-area) { grid-template-columns: 1fr; }
 }
 </style>

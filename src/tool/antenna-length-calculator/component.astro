@@ -214,8 +214,9 @@ const materials = [
     }
 
     function calculate() {
-        const freq = parseFloat(freqInput.value);
-        const vf = parseFloat(vfInput.value);
+        if (!freqInput || !(freqInput as HTMLInputElement).value || !vfInput) return;
+        const freq = parseFloat((freqInput as HTMLInputElement).value);
+        const vf = parseFloat((vfInput as HTMLSelectElement).value);
         const waveType = getWaveType();
 
         if (!freq || freq <= 0) return;
@@ -1005,7 +1006,8 @@ const materials = [
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
-:global(.dark) .custom-select-premium {
+:global([data-theme="dark"]) .custom-select-premium,
+:global(.theme-dark) .custom-select-premium {
     background-color: rgba(15, 23, 42, 0.4);
     border-color: rgba(255,255,255,0.1);
     color: white;
@@ -1024,7 +1026,54 @@ const materials = [
     letter-spacing: 0.1em;
 }
 
-:global(.dark) .svg-label-text {
+:global([data-theme="dark"]) .svg-label-text,
+:global(.theme-dark) .svg-label-text {
     fill: #666;
+}
+.antenna-calculator-ui .security-warning {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-left: 4px solid #ef4444;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+:global([data-theme="dark"]) .antenna-calculator-ui .security-warning,
+:global(.theme-dark) .antenna-calculator-ui .security-warning {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.antenna-calculator-ui .security-warning:hover {
+    transform: translateY(-2px);
+    background: rgba(239, 68, 68, 0.08);
+    box-shadow: 0 15px 30px rgba(239, 68, 68, 0.1);
+}
+
+.antenna-calculator-ui .security-warning [data-icon] {
+    width: 24px;
+    height: 24px;
+    color: #ef4444;
+    flex-shrink: 0;
+}
+
+.antenna-calculator-ui .security-warning p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--antenna-text);
+    font-weight: 500;
+}
+
+.antenna-calculator-ui .security-warning strong {
+    color: #ef4444;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 </style>
