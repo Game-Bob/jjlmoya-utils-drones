@@ -4,7 +4,6 @@ import BatterySpecs from "./components/BatterySpecs.astro";
 import ConsumptionStats from "./components/ConsumptionStats.astro";
 import FlightDashboard from "./components/FlightDashboard.astro";
 import AutonomyChart from "./components/AutonomyChart.astro";
-import "./FlightTimeCalculator.css";
 ---
 
 <div class="flight-calculator-ui">
@@ -185,78 +184,374 @@ import "./FlightTimeCalculator.css";
 </script>
 
 <style>
-    .flight-calculator-ui {
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;
-    }
+.flight-calculator-ui {
+  --dft-accent: #f97316;
+  --dft-accent-glow: rgba(249, 115, 22, 0.15);
+  --dft-bg: #fff;
+  --dft-bg-muted: #f5f5f5;
+  --dft-bg-surface: #eee;
+  --dft-bg-overlay: #f0f0f0;
+  --dft-text: #1a1a1a;
+  --dft-text-muted: #4a4a4a;
+  --dft-text-dim: #707070;
+  --dft-border: #d0d0d0;
+  --dft-border-light: #e8e8e8;
+  --dft-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  --dft-success: #15803d;
+  --dft-success-bg: #dcfce7;
+  --dft-warning: #a16207;
+  --dft-warning-bg: #fef9c3;
+  --dft-danger: #b91c1c;
+  --dft-danger-bg: #fee2e2;
 
-    .tech-mega-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        border-radius: 32px;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-        overflow: hidden;
-    }
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-    [data-theme="dark"] .tech-mega-card,
-    .theme-dark .tech-mega-card {
-        background: rgba(15, 23, 42, 0.7);
-        border-color: rgba(255, 255, 255, 0.05);
-    }
+:global([data-theme="dark"]) .flight-calculator-ui,
+:global(.theme-dark) .flight-calculator-ui {
+  --dft-bg: #1a1a1a;
+  --dft-bg-muted: #2d2d2d;
+  --dft-bg-surface: #3a3a3a;
+  --dft-bg-overlay: #292929;
+  --dft-text: #f5f5f5;
+  --dft-text-muted: #b0b0b0;
+  --dft-text-dim: #888;
+  --dft-border: #4a4a4a;
+  --dft-border-light: #525252;
+  --dft-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  --dft-success: #4ade80;
+  --dft-success-bg: rgba(21, 128, 61, 0.15);
+  --dft-warning: #facc15;
+  --dft-warning-bg: rgba(161, 98, 7, 0.15);
+  --dft-danger: #f87171;
+  --dft-danger-bg: rgba(185, 28, 28, 0.15);
+}
 
-    .card-grid {
-        display: grid;
-        grid-template-columns: 380px 1fr;
-    }
+.flight-calculator-ui .tech-mega-card {
+  background: var(--dft-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--dft-border);
+  border-radius: 32px;
+  box-shadow: var(--dft-shadow);
+  overflow: hidden;
+}
 
-    .config-sidebar {
-        padding: 2.5rem;
-        background: rgba(255, 255, 255, 0.3);
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        border-right: 1px solid rgba(0, 0, 0, 0.05);
-    }
+.flight-calculator-ui .card-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+}
 
-     [data-theme="dark"],
-    .theme-dark .config-sidebar {
-        background: rgba(255, 255, 255, 0.02);
-        border-right-color: rgba(255, 255, 255, 0.05);
-    }
+.flight-calculator-ui .config-sidebar {
+  padding: 2.5rem;
+  background: var(--dft-bg-overlay);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border-right: 1px solid var(--dft-border-light);
+}
 
-    .main-display {
-        padding: 2.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-    }
+:global([data-theme="dark"]) .flight-calculator-ui .config-sidebar,
+:global(.theme-dark) .flight-calculator-ui .config-sidebar {
+  background: var(--dft-bg-surface);
+  border-right-color: var(--dft-border-light);
+}
 
-    .divider {
-        height: 1px;
-        width: 100%;
-        background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
-    }
+.flight-calculator-ui .main-display {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  background: var(--dft-bg);
+}
 
-     [data-theme="dark"],
-    .theme-dark .divider {
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-    }
+:global([data-theme="dark"]) .flight-calculator-ui .main-display,
+:global(.theme-dark) .flight-calculator-ui .main-display {
+  background: var(--dft-bg);
+}
 
-    @media (max-width: 992px) {
-        .card-grid {
-            grid-template-columns: 1fr;
-        }
+.flight-calculator-ui .divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--dft-border-light), transparent);
+}
 
-        .config-sidebar {
-            border-right: none;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
+:global([data-theme="dark"]) .flight-calculator-ui .divider,
+:global(.theme-dark) .flight-calculator-ui .divider {
+  background: linear-gradient(90deg, transparent, var(--dft-border-light), transparent);
+}
 
-         [data-theme="dark"],
-    .theme-dark .config-sidebar {
-            border-bottom-color: rgba(255, 255, 255, 0.05);
-        }
-    }
+.flight-calculator-ui .tech-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.flight-calculator-ui .section-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--dft-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.flight-calculator-ui .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flight-calculator-ui .label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-calculator-ui .input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dft-text-muted);
+}
+
+.flight-calculator-ui .value-badge {
+  padding: 0.25rem 0.75rem;
+  background: var(--dft-accent-glow);
+  border-radius: 12px;
+  color: var(--dft-accent);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.flight-calculator-ui .tech-slider {
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  background: var(--dft-border);
+  border-radius: 3px;
+  outline: none;
+}
+
+.flight-calculator-ui .tech-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--dft-accent);
+  border: 3px solid var(--dft-bg);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.flight-calculator-ui .tech-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--dft-accent);
+  border: 3px solid var(--dft-bg);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.flight-calculator-ui .tech-select {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--dft-bg-surface);
+  border: 1px solid var(--dft-border);
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--dft-text);
+}
+
+.flight-calculator-ui .tech-input {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--dft-bg-surface);
+  border: 1px solid var(--dft-border);
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--dft-text);
+}
+
+.flight-calculator-ui .presets {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.flight-calculator-ui .preset-btn {
+  padding: 0.35rem 0.65rem;
+  background: var(--dft-bg-surface);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--dft-text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.flight-calculator-ui .preset-btn:hover {
+  background: var(--dft-border);
+  color: var(--dft-text);
+}
+
+.flight-calculator-ui .hint {
+  font-size: 0.75rem;
+  color: var(--dft-text-dim);
+}
+
+.flight-calculator-ui .dashboard-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.flight-calculator-ui .main-result {
+  display: flex;
+  justify-content: center;
+}
+
+.flight-calculator-ui .radial-container {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flight-calculator-ui .radial-svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.flight-calculator-ui .bg-circle {
+  fill: none;
+  stroke: var(--dft-bg-surface);
+  stroke-width: 8;
+}
+
+.flight-calculator-ui .fg-circle {
+  fill: none;
+  stroke: var(--dft-accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flight-calculator-ui .result-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.flight-calculator-ui .time-primary {
+  font-size: 4.5rem;
+  font-weight: 950;
+  color: var(--dft-text);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.flight-calculator-ui .time-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--dft-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.flight-calculator-ui .secondary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.flight-calculator-ui .stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1.25rem;
+  background: var(--dft-bg-overlay);
+  border: 1px solid var(--dft-border-light);
+  border-radius: 20px;
+}
+
+:global([data-theme="dark"]) .flight-calculator-ui .stat-box,
+:global(.theme-dark) .flight-calculator-ui .stat-box {
+  background: var(--dft-bg-muted);
+  border-color: var(--dft-border);
+}
+
+.flight-calculator-ui .stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--dft-text-dim);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.flight-calculator-ui .stat-value {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--dft-text);
+}
+
+.flight-calculator-ui .chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.flight-calculator-ui .chart-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dft-text-muted);
+}
+
+.flight-calculator-ui .chart-body {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .flight-calculator-ui .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flight-calculator-ui .config-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--dft-border-light);
+  }
+
+  :global([data-theme="dark"]) .flight-calculator-ui .config-sidebar,
+  :global(.theme-dark) .flight-calculator-ui .config-sidebar {
+    border-bottom-color: var(--dft-border-light);
+  }
+}
+
+@media (max-width: 600px) {
+  .flight-calculator-ui .secondary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .flight-calculator-ui .radial-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .flight-calculator-ui .time-primary {
+    font-size: 3.5rem;
+  }
+}
 </style>
