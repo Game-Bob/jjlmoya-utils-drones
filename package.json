@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
-    "@jjlmoya/utils-shared": "1.0.2",
+    "@jjlmoya/utils-shared": "^1.1.0",
     "astro": "^6.1.2",
     "astro-icon": "^1.1.0",
     "chart.js": "^4.5.1"
