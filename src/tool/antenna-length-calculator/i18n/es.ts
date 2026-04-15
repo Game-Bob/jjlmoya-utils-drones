@@ -1,8 +1,80 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'calculadora-longitud-antena';
-const title = 'Calculadora de Longitud de Antena RF | Dipolos y Látigos FPV';
+const title = 'Calculadora de Longitud de Antena RF para Dipolos y Látigos FPV';
 const description = 'Calcula la medida exacta para tus antenas de 868MHz, 2.4GHz y 5.8GHz. Mejora el alcance de tu dron y evita quemar tu transmisor con un SWR optimizado.';
+
+const faqItems = [
+  {
+    question: '¿Por qué el cable de mi antena debe tener una longitud específica?',
+    answer: 'Las ondas de radio resuenan en múltiplos de su longitud de onda. Si el cable no coincide con esta resonancia, la energía se refleja hacia el transmisor en lugar de irradiarse, lo que puede quemar el equipo.',
+  },
+  {
+    question: '¿Qué es el Factor de Velocidad (Vf)?',
+    answer: 'Es la relación entre la velocidad a la que viaja la señal por un conductor y la velocidad de la luz. En el cobre suele ser 0.95, lo que significa que la onda viaja un 5% más lento y la antena debe ser un 5% más corta.',
+  },
+  {
+    question: '¿Es mejor un dipolo o una antena de látigo?',
+    answer: 'Un dipolo (1/2 onda) es más eficiente y predecible, pero más voluminoso. Un látigo (1/4 onda) es compacto e ideal para receptores pequeños, aunque requiere un plano de tierra para funcionar bien.',
+  },
+  {
+    question: '¿Cómo afecta el grosor del cable a la antena?',
+    answer: 'Cables más gruesos tienen un ancho de banda mayor (son menos críticos con la frecuencia exacta), pero su factor de velocidad cambia ligeramente. Para la mayoría de drones FPV, el cable estándar de 20-22AWG es ideal.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Selecciona la Frecuencia',
+    text: 'Introduce la frecuencia exacta en MHz o usa uno de los botones rápidos para 5.8GHz, 2.4GHz o 868MHz.',
+  },
+  {
+    name: 'Elige el Tipo de Antena',
+    text: 'Decide si vas a fabricar un dipolo completo (1/2 onda) o una antena vertical de látigo (1/4 onda).',
+  },
+  {
+    name: 'Ajusta el Material',
+    text: 'Elige el tipo de cable que vas a usar para que la calculadora aplique el factor de velocidad correcto.',
+  },
+  {
+    name: 'Corta con Precisión',
+    text: 'Usa la medida "Longitud por brazo" para cortar cada elemento. Recuerda medir desde el punto de soldadura.',
+  },
+];
+
+const schemas: AntennaLengthCalculatorLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
@@ -160,45 +232,11 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       html: 'Esto es vital saberlo porque, aunque tu antena esté emitiendo en 868MHz, podrías estar generando "ruido" o interferencias en frecuencias superiores si el transmisor no está bien filtrado. La calculadora de armónicos te ayuda a predecir dónde podrían aparecer estas señales fantasma.',
     },
   ],
-  faq: [
-    {
-      question: '¿Por qué el cable de mi antena debe tener una longitud específica?',
-      answer: 'Las ondas de radio resuenan en múltiplos de su longitud de onda. Si el cable no coincide con esta resonancia, la energía se refleja hacia el transmisor en lugar de irradiarse, lo que puede quemar el equipo.',
-    },
-    {
-      question: '¿Qué es el Factor de Velocidad (Vf)?',
-      answer: 'Es la relación entre la velocidad a la que viaja la señal por un conductor y la velocidad de la luz. En el cobre suele ser 0.95, lo que significa que la onda viaja un 5% más lento y la antena debe ser un 5% más corta.',
-    },
-    {
-      question: '¿Es mejor un dipolo o una antena de látigo?',
-      answer: 'Un dipolo (1/2 onda) es más eficiente y predecible, pero más voluminoso. Un látigo (1/4 onda) es compacto e ideal para receptores pequeños, aunque requiere un plano de tierra para funcionar bien.',
-    },
-    {
-      question: '¿Cómo afecta el grosor del cable a la antena?',
-      answer: 'Cables más gruesos tienen un ancho de banda mayor (son menos críticos con la frecuencia exacta), pero su factor de velocidad cambia ligeramente. Para la mayoría de drones FPV, el cable estándar de 20-22AWG es ideal.',
-    },
-  ],
+  faq: faqItems,
   bibliography: [
     { name: 'The Quarter-Wave Monopole', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
     { name: 'Velocity Factor of Transmission Lines', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
   ],
-  howTo: [
-    {
-      name: 'Selecciona la Frecuencia',
-      text: 'Introduce la frecuencia exacta en MHz o usa uno de los botones rápidos para 5.8GHz, 2.4GHz o 868MHz.',
-    },
-    {
-      name: 'Elige el Tipo de Antena',
-      text: 'Decide si vas a fabricar un dipolo completo (1/2 onda) o una antena vertical de látigo (1/4 onda).',
-    },
-    {
-      name: 'Ajusta el Material',
-      text: 'Elige el tipo de cable que vas a usar para que la calculadora aplique el factor de velocidad correcto.',
-    },
-    {
-      name: 'Corta con Precisión',
-      text: 'Usa la medida "Longitud por brazo" para cortar cada elemento. Recuerda medir desde el punto de soldadura.',
-    },
-  ],
-  schemas: [],
+  howTo: howToSteps,
+  schemas,
 };

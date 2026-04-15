@@ -1,8 +1,81 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'conversor-coordenadas-gps';
-const title = 'Conversor Coordenadas GPS | Decimal a GMS Online Gratis';
+const title = 'Conversor Coordenadas GPS de Decimal a GMS Online Gratis';
 const description = 'Convierte coordenadas GPS de Decimal a Grados, Minutos y Segundos (GMS) al instante. Herramienta visual con mapa para drones, náutica y geolocalización.';
+
+const faqItems = [
+  {
+    question: '¿Qué diferencia hay entre DD y GMS?',
+    answer: `DD (Grados Decimales) usa un solo número con decimales (ej. 40.41). GMS (Grados, Minutos, Segundos) divide el grado en fracciones sexagesimales (ej. 40° 25' 0").`,
+  },
+  {
+    question: '¿Por qué se usan coordenadas negativas?',
+    answer: 'En el sistema Decimal (DD), las latitudes al sur del Ecuador y las longitudes al oeste de Greenwich se indican con signo negativo para facilitar el cálculo matemático.',
+  },
+  {
+    question: '¿Cuánta precisión pierdo al convertir?',
+    answer: 'Nuestra herramienta usa precisión de doble coma flotante. Con 6 decimales en DD, la precisión es de unos 11 centímetros, más que suficiente para drones y navegación civil.',
+  },
+  {
+    question: '¿Funciona esta herramienta sin conexión?',
+    answer: 'Sí, una vez cargada la página, toda la lógica de conversión es local (client-side). Solo el mapa requiere conexión para descargar las nuevas teselas (tiles).',
+  },
+];
+
+const schemas: GpsCoordinatesConverterLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Introduce Coordenadas',
+        text: 'Introduce tus coordenadas en formato Grados Decimales (DD) o Grados, Minutos, Segundos (GMS).',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Revisa la Conversión',
+        text: 'La herramienta muestra instantáneamente las coordenadas convertidas en todos los formatos soportados.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Verifica en el Mapa',
+        text: 'Comprueba la visualización en el mapa para asegurarte de que las coordenadas señalan la ubicación correcta.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Copia el Resultado',
+        text: 'Copia las coordenadas convertidas al portapapeles para usarlas en sistemas de navegación o planificación de misiones.',
+      },
+    ],
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
@@ -168,24 +241,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
       html: 'En resumen, dominar las coordenadas es dominar tu entorno. Ya sea que estés configurando el Failsafe de tu dron o trazando una ruta de navegación marítima, nuestra herramienta está aquí para asegurarte de que cada grado, minuto y segundo cuente. ¡Explora el mundo con la precisión que tus misiones merecen!',
     },
   ],
-  faq: [
-    {
-      question: '¿Qué diferencia hay entre DD y GMS?',
-      answer: 'DD (Grados Decimales) usa un solo número con decimales (ej. 40.41). GMS (Grados, Minutos, Segundos) divide el grado en fracciones sexagesimales (ej. 40° 25\' 0"").',
-    },
-    {
-      question: '¿Por qué se usan coordenadas negativas?',
-      answer: 'En el sistema Decimal (DD), las latitudes al sur del Ecuador y las longitudes al oeste de Greenwich se indican con signo negativo para facilitar el cálculo matemático.',
-    },
-    {
-      question: '¿Cuánta precisión pierdo al convertir?',
-      answer: 'Nuestra herramienta usa precisión de doble coma flotante. Con 6 decimales en DD, la precisión es de unos 11 centímetros, más que suficiente para drones y navegación civil.',
-    },
-    {
-      question: '¿Funciona esta herramienta sin conexión?',
-      answer: 'Sí, una vez cargada la página, toda la lógica de conversión es local (client-side). Solo el mapa requiere conexión para descargar las nuevas teselas (tiles).',
-    },
-  ],
+  faq: faqItems,
   bibliography: [
     {
       name: 'WGS 84 (World Geodetic System 1984): El estándar técnico global para cartografía y GPS.',
@@ -197,5 +253,5 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   howTo: [],
-  schemas: [],
+  schemas,
 };

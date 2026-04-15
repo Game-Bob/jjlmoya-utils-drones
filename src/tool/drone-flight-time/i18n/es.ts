@@ -1,8 +1,80 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'calculadora-tiempo-vuelo-dron';
-const title = 'Calculadora Tiempo de Vuelo Drones | Estima autonomía LiPo/Li-Ion';
+const title = 'Calculadora Tiempo de Vuelo Drones para Estimación de Autonomía LiPo LiIon';
 const description = 'Calcula cuánto tiempo puede volar tu dron basado en la capacidad mAh y consumo. Optimiza tus baterías LiPo para vuelos seguros y máxima duración.';
+
+const faqItems = [
+  {
+    question: '¿Por qué el tiempo real es menor al calculado?',
+    answer: 'La calculadora estima un consumo constante. Las maniobras bruscas, el viento en contra y el desgaste de la batería pueden reducir el tiempo real hasta en un 30%.',
+  },
+  {
+    question: '¿A qué voltaje debo aterrizar mi dron?',
+    answer: 'Lo ideal es aterrizar cuando el voltaje baje a 3.5V - 3.6V por celda (en reposo). Esto equivale aproximadamente al 20% de capacidad restante recomendada.',
+  },
+  {
+    question: '¿Son mejores las baterías LiPo o Li-Ion para drones?',
+    answer: 'Las LiPo ofrecen mucha potencia instantánea (ideal para carreras y acrobacias). Las Li-Ion tienen más duración pero menos potencia (ideal para vuelos largos y tranquilos).',
+  },
+  {
+    question: '¿Cómo afecta el número de celdas (S) al tiempo de vuelo?',
+    answer: 'Más celdas aumentan el voltaje y la potencia, pero también el peso. Si los motores están optimizados para ese voltaje, pueden ser más eficientes, pero no garantizan más tiempo por sí solas.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Identifica la capacidad',
+    text: 'Mira la etiqueta de tu batería y busca el valor en mAh (ej. 1500, 2200, 4500).',
+  },
+  {
+    name: 'Estima el consumo',
+    text: 'Introduce el amperaje medio que consume tu dron. Puedes verlo en la telemetría del OSD tras un vuelo de prueba.',
+  },
+  {
+    name: 'Ajusta el margen',
+    text: 'Recomendamos dejar un 20% (ajustar al 80%) para proteger la batería y tener margen de aterrizaje.',
+  },
+  {
+    name: 'Obtén el resultado',
+    text: 'Visualiza el tiempo exacto en minutos y segundos que puedes permanecer en el aire con seguridad.',
+  },
+];
+
+const schemas: DroneFlightTimeLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: DroneFlightTimeLocaleContent = {
   slug,
@@ -155,46 +227,12 @@ export const content: DroneFlightTimeLocaleContent = {
       html: 'En conclusión, la gestión de la energía es el arte de equilibrar la física, la química y las matemáticas. Usa nuestra calculadora de forma regular para planificar tus sesiones de vuelo y nunca olvides que, en el aire, el tiempo es el recurso más valioso. ¡Buenos vuelos y aterrizajes seguros!',
     },
   ],
-  faq: [
-    {
-      question: '¿Por qué el tiempo real es menor al calculado?',
-      answer: 'La calculadora estima un consumo constante. Las maniobras bruscas, el viento en contra y el desgaste de la batería pueden reducir el tiempo real hasta en un 30%.',
-    },
-    {
-      question: '¿A qué voltaje debo aterrizar mi dron?',
-      answer: 'Lo ideal es aterrizar cuando el voltaje baje a 3.5V - 3.6V por celda (en reposo). Esto equivale aproximadamente al 20% de capacidad restante recomendada.',
-    },
-    {
-      question: '¿Son mejores las baterías LiPo o Li-Ion para drones?',
-      answer: 'Las LiPo ofrecen mucha potencia instantánea (ideal para carreras y acrobacias). Las Li-Ion tienen más duración pero menos potencia (ideal para vuelos largos y tranquilos).',
-    },
-    {
-      question: '¿Cómo afecta el número de celdas (S) al tiempo de vuelo?',
-      answer: 'Más celdas aumentan el voltaje y la potencia, pero también el peso. Si los motores están optimizados para ese voltaje, pueden ser más eficientes, pero no garantizan más tiempo por sí solas.',
-    },
-  ],
+  faq: faqItems,
   bibliography: [
     { name: 'EASA - Drone Regulations', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
     { name: 'ArduPilot Wiki', url: 'https://ardupilot.org/copter/' },
     { name: 'Battery University', url: 'https://batteryuniversity.com/' },
   ],
-  howTo: [
-    {
-      name: 'Identifica la capacidad',
-      text: 'Mira la etiqueta de tu batería y busca el valor en mAh (ej. 1500, 2200, 4500).',
-    },
-    {
-      name: 'Estima el consumo',
-      text: 'Introduce el amperaje medio que consume tu dron. Puedes verlo en la telemetría del OSD tras un vuelo de prueba.',
-    },
-    {
-      name: 'Ajusta el margen',
-      text: 'Recomendamos dejar un 20% (ajustar al 80%) para proteger la batería y tener margen de aterrizaje.',
-    },
-    {
-      name: 'Obtén el resultado',
-      text: 'Visualiza el tiempo exacto en minutos y segundos que puedes permanecer en el aire con seguridad.',
-    },
-  ],
-  schemas: [],
+  howTo: howToSteps,
+  schemas,
 };

@@ -1,8 +1,80 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'antenna-length-calculator';
-const title = 'RF Antenna Length Calculator | FPV Dipoles and Whips';
+const title = 'RF Antenna Length Calculator for FPV Dipoles and Whips';
 const description = 'Calculate the exact measurement for your 868MHz, 2.4GHz, and 5.8GHz antennas. Improve your drone\'s range and avoid burning your transmitter with optimized SWR.';
+
+const faqItems = [
+  {
+    question: 'Why must my antenna wire have a specific length?',
+    answer: 'Radio waves resonate at multiples of their wavelength. If the wire doesn\'t match this resonance, energy reflects back to the transmitter instead of radiating, which can burn the equipment.',
+  },
+  {
+    question: 'What is the Velocity Factor (Vf)?',
+    answer: 'It is the ratio between the speed at which a signal travels through a conductor and the speed of light. In copper, it is typically 0.95, meaning the wave travels 5% slower and the antenna must be 5% shorter.',
+  },
+  {
+    question: 'Is a dipole or a whip antenna better?',
+    answer: 'A dipole (1/2 wave) is more efficient and predictable but bulkier. A whip (1/4 wave) is compact and ideal for small receivers, though it requires a ground plane to function well.',
+  },
+  {
+    question: 'How does wire thickness affect the antenna?',
+    answer: 'Thicker wires have a wider bandwidth (they are less critical regarding exact frequency), but their velocity factor changes slightly. For most FPV drones, standard 20-22AWG wire is ideal.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Select Frequency',
+    text: 'Enter the exact frequency in MHz or use one of the quick buttons for 5.8GHz, 2.4GHz, or 868MHz.',
+  },
+  {
+    name: 'Choose Antenna Type',
+    text: 'Decide whether you will make a full dipole (1/2 wave) or a vertical whip antenna (1/4 wave).',
+  },
+  {
+    name: 'Adjust Material',
+    text: 'Choose the type of wire you will use so the calculator applies the correct velocity factor.',
+  },
+  {
+    name: 'Cut with Precision',
+    text: 'Use the "Length per arm" measurement to cut each element. Remember to measure from the solder point.',
+  },
+];
+
+const schemas: AntennaLengthCalculatorLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
@@ -160,45 +232,11 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       html: 'This is vital to know because even if your antenna is emitting at 868MHz, you could be generating "noise" or interference at higher frequencies if the transmitter is not well-filtered. The harmonics calculator helps you predict where these ghost signals might appear.',
     },
   ],
-  faq: [
-    {
-      question: 'Why must my antenna wire have a specific length?',
-      answer: 'Radio waves resonate at multiples of their wavelength. If the wire doesn\'t match this resonance, energy reflects back to the transmitter instead of radiating, which can burn the equipment.',
-    },
-    {
-      question: 'What is the Velocity Factor (Vf)?',
-      answer: 'It is the ratio between the speed at which a signal travels through a conductor and the speed of light. In copper, it is typically 0.95, meaning the wave travels 5% slower and the antenna must be 5% shorter.',
-    },
-    {
-      question: 'Is a dipole or a whip antenna better?',
-      answer: 'A dipole (1/2 wave) is more efficient and predictable but bulkier. A whip (1/4 wave) is compact and ideal for small receivers, though it requires a ground plane to function well.',
-    },
-    {
-      question: 'How does wire thickness affect the antenna?',
-      answer: 'Thicker wires have a wider bandwidth (they are less critical regarding exact frequency), but their velocity factor changes slightly. For most FPV drones, standard 20-22AWG wire is ideal.',
-    },
-  ],
+  faq: faqItems,
   bibliography: [
     { name: 'The Quarter-Wave Monopole', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
     { name: 'Velocity Factor of Transmission Lines', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
   ],
-  howTo: [
-    {
-      name: 'Select Frequency',
-      text: 'Enter the exact frequency in MHz or use one of the quick buttons for 5.8GHz, 2.4GHz, or 868MHz.',
-    },
-    {
-      name: 'Choose Antenna Type',
-      text: 'Decide whether you will make a full dipole (1/2 wave) or a vertical whip antenna (1/4 wave).',
-    },
-    {
-      name: 'Adjust Material',
-      text: 'Choose the type of wire you will use so the calculator applies the correct velocity factor.',
-    },
-    {
-      name: 'Cut with Precision',
-      text: 'Use the "Length per arm" measurement to cut each element. Remember to measure from the solder point.',
-    },
-  ],
-  schemas: [],
+  howTo: howToSteps,
+  schemas,
 };

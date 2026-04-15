@@ -1,8 +1,80 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'drone-flight-time-calculator';
-const title = 'Drone Flight Time Calculator | Estimate LiPo/Li-Ion Endurance';
+const title = 'Drone Flight Time Calculator for LiPo LiIon Endurance Estimation';
 const description = 'Calculate how long your drone can fly based on mAh capacity and current draw. Optimize your LiPo batteries for safe flights and maximum duration.';
+
+const faqItems = [
+  {
+    question: 'Why is actual flight time lower than calculated?',
+    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+  },
+  {
+    question: 'At what voltage should I land my drone?',
+    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+  },
+  {
+    question: 'Are LiPo or Li-Ion batteries better for drones?',
+    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+  },
+  {
+    question: 'How does the cell count (S) affect flight time?',
+    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Identify Capacity',
+    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+  },
+  {
+    name: 'Estimate Current Draw',
+    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+  },
+  {
+    name: 'Adjust Safety Margin',
+    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+  },
+  {
+    name: 'Get the Result',
+    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+  },
+];
+
+const schemas: DroneFlightTimeLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: DroneFlightTimeLocaleContent = {
   slug,
@@ -155,46 +227,12 @@ export const content: DroneFlightTimeLocaleContent = {
       html: 'In conclusion, energy management is the art of balancing physics, chemistry, and mathematics. Use our calculator regularly to plan your flight sessions, and never forget that in the air, time is your most precious resource. Happy flying and safe landings!',
     },
   ],
-  faq: [
-    {
-      question: 'Why is actual flight time lower than calculated?',
-      answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
-    },
-    {
-      question: 'At what voltage should I land my drone?',
-      answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
-    },
-    {
-      question: 'Are LiPo or Li-Ion batteries better for drones?',
-      answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
-    },
-    {
-      question: 'How does the cell count (S) affect flight time?',
-      answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
-    },
-  ],
+  faq: faqItems,
   bibliography: [
     { name: 'EASA - Drone Regulations', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
     { name: 'ArduPilot Wiki', url: 'https://ardupilot.org/copter/' },
     { name: 'Battery University', url: 'https://batteryuniversity.com/' },
   ],
-  howTo: [
-    {
-      name: 'Identify Capacity',
-      text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
-    },
-    {
-      name: 'Estimate Current Draw',
-      text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
-    },
-    {
-      name: 'Adjust Safety Margin',
-      text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
-    },
-    {
-      name: 'Get the Result',
-      text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
-    },
-  ],
-  schemas: [],
+  howTo: howToSteps,
+  schemas,
 };

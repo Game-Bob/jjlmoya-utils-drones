@@ -1,8 +1,80 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'calculateur-longueur-antenne';
-const title = 'Calculateur de Longueur d\'Antenne RF | Dipôles et Fouets FPV';
+const title = 'Calculateur de Longueur d\'Antenne RF pour Dipôles et Fouets FPV';
 const description = 'Calculez la mesure exacte de vos antennes 868MHz, 2.4GHz et 5.8GHz. Améliorez la portée de votre drone et évitez de brûler votre émetteur avec un SWR optimisé.';
+
+const faqItems = [
+  {
+    question: 'Pourquoi mon câble d\'antenne doit-il avoir une longueur spécifique ?',
+    answer: 'Les ondes radio résonnent à des multiples de leur longueur d\'onde. Si le câble ne correspond pas à cette résonance, l\'énergie est réfléchie vers l\'émetteur au lieu d\'être rayonnée, ce qui peut brûler l\'équipement.',
+  },
+  {
+    question: 'Qu\'est-ce que le Facteur de Vélocité (Vf) ?',
+    answer: 'C\'est le rapport entre la vitesse à laquelle le signal voyage dans un conducteur et la vitesse de la lumière. Dans le cuivre, il est généralement de 0,95, ce qui signifie que l\'onde voyage 5% plus lentement et l\'antenne doit être 5% plus courte.',
+  },
+  {
+    question: 'Est-il préférable d\'utiliser un dipôle ou une antenne fouet ?',
+    answer: 'Un dipôle (1/2 onde) est plus efficace et prévisible, mais plus volumineux. Un fouet (1/4 onde) est compact et idéal pour les petits récepteurs, bien qu\'il nécessite un plan de masse pour bien fonctionner.',
+  },
+  {
+    question: 'Comment l\'épaisseur du câble affecte-t-elle l\'antenne ?',
+    answer: 'Les câbles plus épais ont une bande passante plus large (ils sont moins critiques vis-à-vis de la fréquence exacte), mais leur facteur de vélocité change légèrement. Pour la plupart des drones FPV, le câble standard 20-22AWG est idéal.',
+  },
+];
+
+const howToSteps = [
+  {
+    name: 'Sélectionnez la Fréquence',
+    text: 'Entrez la fréquence exacte en MHz ou utilisez l\'un des boutons rapides pour 5.8GHz, 2.4GHz ou 868MHz.',
+  },
+  {
+    name: 'Choisissez le Type d\'Antenne',
+    text: 'Décidez si vous allez fabriquer un dipôle complet (1/2 onde) ou une antenne verticale fouet (1/4 onde).',
+  },
+  {
+    name: 'Ajustez le Matériau',
+    text: 'Choisissez le type de câble que vous allez utiliser pour que le calculateur applique le bon facteur de vélocité.',
+  },
+  {
+    name: 'Coupez avec Précision',
+    text: 'Utilisez la mesure "Longueur par branche" pour couper chaque élément. N\'oubliez pas de mesurer à partir du point de soudure.',
+  },
+];
+
+const schemas: AntennaLengthCalculatorLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
@@ -160,45 +232,11 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       html: 'Il est essentiel de le savoir car, même si votre antenne émet à 868MHz, vous pourriez générer du "bruit" ou des interférences sur des fréquences plus élevées si l\'émetteur n\'est pas bien filtré. Le calculateur d\'harmoniques vous aide à prédire où ces signaux fantômes pourraient apparaître.',
     },
   ],
-  faq: [
-    {
-      question: 'Pourquoi mon câble d\'antenne doit-il avoir une longueur spécifique ?',
-      answer: 'Les ondes radio résonnent à des multiples de leur longueur d\'onde. Si le câble ne correspond pas à cette résonance, l\'énergie est réfléchie vers l\'émetteur au lieu d\'être rayonnée, ce qui peut brûler l\'équipement.',
-    },
-    {
-      question: 'Qu\'est-ce que le Facteur de Vélocité (Vf) ?',
-      answer: 'C\'est le rapport entre la vitesse à laquelle le signal voyage dans un conducteur et la vitesse de la lumière. Dans le cuivre, il est généralement de 0,95, ce qui signifie que l\'onde voyage 5% plus lentement et l\'antenne doit être 5% plus courte.',
-    },
-    {
-      question: 'Est-il préférable d\'utiliser un dipôle ou une antenne fouet ?',
-      answer: 'Un dipôle (1/2 onde) est plus efficace et prévisible, mais plus volumineux. Un fouet (1/4 onde) est compact et idéal pour les petits récepteurs, bien qu\'il nécessite un plan de masse pour bien fonctionner.',
-    },
-    {
-      question: 'Comment l\'épaisseur du câble affecte-t-elle l\'antenne ?',
-      answer: 'Les câbles plus épais ont une bande passante plus large (ils sont moins critiques vis-à-vis de la fréquence exacte), mais leur facteur de vélocité change légèrement. Pour la plupart des drones FPV, le câble standard 20-22AWG est idéal.',
-    },
-  ],
+  faq: faqItems,
   bibliography: [
     { name: 'Le Monopole Quart d\'Onde', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
     { name: 'Facteur de Vélocité des Lignes de Transmission', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
   ],
-  howTo: [
-    {
-      name: 'Sélectionnez la Fréquence',
-      text: 'Entrez la fréquence exacte en MHz ou utilisez l\'un des boutons rapides pour 5.8GHz, 2.4GHz ou 868MHz.',
-    },
-    {
-      name: 'Choisissez le Type d\'Antenne',
-      text: 'Décidez si vous allez fabriquer un dipôle complet (1/2 onde) ou une antenne verticale fouet (1/4 onde).',
-    },
-    {
-      name: 'Ajustez le Matériau',
-      text: 'Choisissez le type de câble que vous allez utiliser pour que le calculateur applique le bon facteur de vélocité.',
-    },
-    {
-      name: 'Coupez avec Précision',
-      text: 'Utilisez la mesure "Longueur par branche" pour couper chaque élément. N\'oubliez pas de mesurer à partir du point de soudure.',
-    },
-  ],
-  schemas: [],
+  howTo: howToSteps,
+  schemas,
 };

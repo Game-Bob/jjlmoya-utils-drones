@@ -1,8 +1,81 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'gps-coordinates-converter';
-const title = 'GPS Coordinates Converter | Decimal to DMS Online Free';
+const title = 'GPS Coordinates Converter from Decimal to DMS Online Free';
 const description = 'Convert GPS coordinates from Decimal to Degrees, Minutes, and Seconds (DMS) instantly. Visual tool with map for drones, sailing, and geolocation.';
+
+const faqItems = [
+  {
+    question: 'What is the difference between DD and DMS?',
+    answer: `DD (Decimal Degrees) uses a single number with decimals (e.g., 51.50). DMS (Degrees, Minutes, Seconds) divides the degree into sexagesimal fractions (e.g., 51° 30' 0").`,
+  },
+  {
+    question: 'Why are negative coordinates used?',
+    answer: 'In the Decimal system (DD), latitudes south of the Equator and longitudes west of Greenwich are indicated with a negative sign to facilitate mathematical calculations.',
+  },
+  {
+    question: 'How much precision do I lose when converting?',
+    answer: 'Our tool uses double-precision floating point. With 6 decimals in DD, the precision is about 11 centimeters, which is more than enough for drones and civil navigation.',
+  },
+  {
+    question: 'Does this tool work offline?',
+    answer: 'Yes, once the page is loaded, all conversion logic is local (client-side). Only the map requires a connection to download new tiles.',
+  },
+];
+
+const schemas: GpsCoordinatesConverterLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Input Coordinates',
+        text: 'Enter your coordinates in either Decimal Degrees (DD) or Degrees, Minutes, Seconds (DMS) format.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Review Conversion',
+        text: 'The tool instantly displays the converted coordinates in all supported formats.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Verify on Map',
+        text: 'Check the map visualization to ensure the coordinates point to the correct location.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Copy Result',
+        text: 'Copy the converted coordinates to your clipboard for use in navigation systems or mission planning.',
+      },
+    ],
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
@@ -168,24 +241,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
       html: 'In summary, mastering coordinates is mastering your environment. Whether you are configuring your drone\'s Failsafe or plotting a maritime navigation route, our tool is here to ensure that every degree, minute, and second counts. Explore the world with the precision your missions deserve!',
     },
   ],
-  faq: [
-    {
-      question: 'What is the difference between DD and DMS?',
-      answer: 'DD (Decimal Degrees) uses a single number with decimals (e.g., 51.50). DMS (Degrees, Minutes, Seconds) divides the degree into sexagesimal fractions (e.g., 51° 30\' 0").',
-    },
-    {
-      question: 'Why are negative coordinates used?',
-      answer: 'In the Decimal system (DD), latitudes south of the Equator and longitudes west of Greenwich are indicated with a negative sign to facilitate mathematical calculations.',
-    },
-    {
-      question: 'How much precision do I lose when converting?',
-      answer: 'Our tool uses double-precision floating point. With 6 decimals in DD, the precision is about 11 centimeters, which is more than enough for drones and civil navigation.',
-    },
-    {
-      question: 'Does this tool work offline?',
-      answer: 'Yes, once the page is loaded, all conversion logic is local (client-side). Only the map requires a connection to download new tiles.',
-    },
-  ],
+  faq: faqItems,
   bibliography: [
     {
       name: 'WGS 84 (World Geodetic System 1984): The global technical standard for mapping and GPS.',
@@ -197,5 +253,5 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   howTo: [],
-  schemas: [],
+  schemas,
 };

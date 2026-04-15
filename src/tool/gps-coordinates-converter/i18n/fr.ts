@@ -1,8 +1,81 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
+import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 
 const slug = 'conversisseur-coordonnees-gps';
-const title = 'Convertisseur de Coordonnées GPS | Décimal vers DMS en Ligne Gratuit';
+const title = 'Convertisseur de Coordonnées GPS de Décimal vers DMS en Ligne Gratuit';
 const description = 'Convertissez instantanément vos coordonnées GPS du format décimal vers le format Degrés, Minutes et Secondes (DMS). Outil visuel avec carte pour drones, navigation et géolocalisation.';
+
+const faqItems = [
+  {
+    question: 'Quelle est la différence entre DD et DMS ?',
+    answer: `DD (Degrés Décimaux) utilise un seul nombre avec décimales (ex. 51,50). DMS (Degrés, Minutes, Secondes) divise le degré en fractions sexagésimales (ex. 51° 30' 0").`,
+  },
+  {
+    question: 'Pourquoi utilise-t-on des coordonnées négatives ?',
+    answer: 'Dans le système Décimal (DD), les latitudes au sud de l\'équateur et les longitudes à l\'ouest de Greenwich sont indiquées par un signe négatif pour faciliter les calculs mathématiques.',
+  },
+  {
+    question: 'Quelle précision est perdue lors de la conversion ?',
+    answer: 'Notre outil utilise la double précision flottante. Avec 6 décimales en DD, la précision est d\'environ 11 centimètres, plus que suffisant pour les drones et la navigation civile.',
+  },
+  {
+    question: 'Cet outil fonctionne-t-il hors ligne ?',
+    answer: 'Oui, une fois la page chargée, toute la logique de conversion est locale (côté client). Seule la carte nécessite une connexion pour télécharger les nouvelles tuiles.',
+  },
+];
+
+const schemas: GpsCoordinatesConverterLocaleContent['schemas'] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  } as WithContext<FAQPage>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Entrez les Coordonnées',
+        text: 'Entrez vos coordonnées au format Degrés Décimaux (DD) ou Degrés, Minutes, Secondes (DMS).',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Examinez la Conversion',
+        text: 'L\'outil affiche instantanément les coordonnées converties dans tous les formats supportés.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Vérifiez sur la Carte',
+        text: 'Vérifiez la visualisation sur la carte pour vous assurer que les coordonnées pointent vers la bonne localisation.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Copiez le Résultat',
+        text: 'Copiez les coordonnées converties dans le presse-papiers pour les utiliser dans les systèmes de navigation ou la planification de missions.',
+      },
+    ],
+  } as WithContext<HowTo>,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description: description,
+    applicationCategory: 'OtherApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  } as WithContext<SoftwareApplication>,
+];
 
 export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
@@ -197,5 +270,5 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   howTo: [],
-  schemas: [],
+  schemas,
 };
