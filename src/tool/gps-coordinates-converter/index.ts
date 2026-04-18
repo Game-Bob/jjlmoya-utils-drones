@@ -1,3 +1,4 @@
+import { gpsCoordinatesConverter } from './entry';
 export * from './entry';
 export const GPS_COORDINATES_CONVERTER_TOOL: ToolDefinition = {
   entry: gpsCoordinatesConverter,

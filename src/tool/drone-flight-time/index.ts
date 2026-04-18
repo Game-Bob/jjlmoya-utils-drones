@@ -1,3 +1,4 @@
+import { droneFlightTime } from './entry';
 export * from './entry';
 export const DRONE_FLIGHT_TIME_TOOL: ToolDefinition = {
   entry: droneFlightTime,
