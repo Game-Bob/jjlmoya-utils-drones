@@ -15,7 +15,7 @@ export type {
   ToolDefinition,
 } from './types';
 
-export { ALL_TOOLS } from './tools';
+export { ALL_ENTRIES, ALL_TOOLS } from './tools';
 export { DRONE_FLIGHT_TIME_TOOL } from './tool/drone-flight-time/index';
 export { ANTENNA_LENGTH_CALCULATOR_TOOL } from './tool/antenna-length-calculator/index';
 export { GPS_COORDINATES_CONVERTER_TOOL } from './tool/gps-coordinates-converter/index';

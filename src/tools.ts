@@ -14,3 +14,5 @@ export {
   ANTENNA_LENGTH_CALCULATOR_TOOL,
   GPS_COORDINATES_CONVERTER_TOOL,
 };
+
+export const ALL_ENTRIES = ALL_TOOLS.map(t => t.entry);
