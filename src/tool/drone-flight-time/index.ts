@@ -1,7 +1,4 @@
 import type { DronesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import DroneFlightTimeComponent from './component.astro';
-import DroneFlightTimeSEO from './seo.astro';
-import DroneFlightTimeBibliography from './bibliography.astro';
 
 export interface DroneFlightTimeUI {
   [key: string]: string;
@@ -33,7 +30,7 @@ export const droneFlightTime: DronesToolEntry<DroneFlightTimeUI> = {
 
 export const DRONE_FLIGHT_TIME_TOOL: ToolDefinition = {
   entry: droneFlightTime,
-  Component: DroneFlightTimeComponent,
-  SEOComponent: DroneFlightTimeSEO,
-  BibliographyComponent: DroneFlightTimeBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

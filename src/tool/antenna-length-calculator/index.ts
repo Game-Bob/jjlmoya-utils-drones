@@ -1,7 +1,4 @@
 import type { DronesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import AntennaLengthCalculatorComponent from './component.astro';
-import AntennaLengthCalculatorSEO from './seo.astro';
-import AntennaLengthCalculatorBibliography from './bibliography.astro';
 
 export interface AntennaLengthCalculatorUI {
   [key: string]: string;
@@ -33,7 +30,7 @@ export const antennaLengthCalculator: DronesToolEntry<AntennaLengthCalculatorUI>
 
 export const ANTENNA_LENGTH_CALCULATOR_TOOL: ToolDefinition = {
   entry: antennaLengthCalculator,
-  Component: AntennaLengthCalculatorComponent,
-  SEOComponent: AntennaLengthCalculatorSEO,
-  BibliographyComponent: AntennaLengthCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

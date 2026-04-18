@@ -1,7 +1,4 @@
 import type { DronesToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import GpsCoordinatesConverterComponent from './component.astro';
-import GpsCoordinatesConverterSEO from './seo.astro';
-import GpsCoordinatesConverterBibliography from './bibliography.astro';
 
 export interface GpsCoordinatesConverterUI {
   [key: string]: string;
@@ -33,7 +30,7 @@ export const gpsCoordinatesConverter: DronesToolEntry<GpsCoordinatesConverterUI>
 
 export const GPS_COORDINATES_CONVERTER_TOOL: ToolDefinition = {
   entry: gpsCoordinatesConverter,
-  Component: GpsCoordinatesConverterComponent,
-  SEOComponent: GpsCoordinatesConverterSEO,
-  BibliographyComponent: GpsCoordinatesConverterBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };
