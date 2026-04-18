@@ -1,0 +1,11 @@
+export { antennaLengthCalculator } from './tool/antenna-length-calculator/entry';
+export type { AntennaLengthCalculatorUI, AntennaLengthCalculatorLocaleContent } from './tool/antenna-length-calculator/entry';
+export { droneFlightTime } from './tool/drone-flight-time/entry';
+export type { DroneFlightTimeUI, DroneFlightTimeLocaleContent } from './tool/drone-flight-time/entry';
+export { gpsCoordinatesConverter } from './tool/gps-coordinates-converter/entry';
+export type { GpsCoordinatesConverterUI, GpsCoordinatesConverterLocaleContent } from './tool/gps-coordinates-converter/entry';
+export { dronesCategory } from './category';
+import { antennaLengthCalculator } from './tool/antenna-length-calculator/entry';
+import { droneFlightTime } from './tool/drone-flight-time/entry';
+import { gpsCoordinatesConverter } from './tool/gps-coordinates-converter/entry';
+export const ALL_ENTRIES = [antennaLengthCalculator, droneFlightTime, gpsCoordinatesConverter];
