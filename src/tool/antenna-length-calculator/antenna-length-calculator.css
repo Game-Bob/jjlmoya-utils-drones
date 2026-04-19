@@ -20,8 +20,8 @@
     padding: 2.5rem 1.5rem;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui,
-:global(.theme-dark) .antenna-calculator-ui {
+[data-theme="dark"] .antenna-calculator-ui,
+.theme-dark .antenna-calculator-ui {
     --antenna-bg: #1a1a1a;
     --antenna-bg-muted: #2d2d2d;
     --antenna-bg-surface: #3a3a3a;
@@ -80,8 +80,8 @@
     gap: 2.5rem;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .config-sidebar,
-:global(.theme-dark) .antenna-calculator-ui .config-sidebar {
+[data-theme="dark"] .antenna-calculator-ui .config-sidebar,
+.theme-dark .antenna-calculator-ui .config-sidebar {
     background: var(--antenna-bg-overlay);
     border-right-color: var(--antenna-border-light);
 }
@@ -97,8 +97,8 @@
     background: var(--antenna-bg);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .main-display,
-:global(.theme-dark) .antenna-calculator-ui .main-display {
+[data-theme="dark"] .antenna-calculator-ui .main-display,
+.theme-dark .antenna-calculator-ui .main-display {
     background: var(--antenna-bg);
 }
 
@@ -150,8 +150,8 @@
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .input-with-unit input,
-:global(.theme-dark) .antenna-calculator-ui .input-with-unit input {
+[data-theme="dark"] .antenna-calculator-ui .input-with-unit input,
+.theme-dark .antenna-calculator-ui .input-with-unit input {
     background: var(--antenna-input-bg);
     border-color: var(--antenna-border);
     color: var(--antenna-text);
@@ -210,15 +210,15 @@
     font-weight: 600;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui select,
-:global(.theme-dark) .antenna-calculator-ui select {
+[data-theme="dark"] .antenna-calculator-ui select,
+.theme-dark .antenna-calculator-ui select {
     background: var(--antenna-bg-surface);
     color: var(--antenna-text);
     border-color: var(--antenna-border);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui select option,
-:global(.theme-dark) .antenna-calculator-ui select option {
+[data-theme="dark"] .antenna-calculator-ui select option,
+.theme-dark .antenna-calculator-ui select option {
     background: var(--antenna-bg-surface);
     color: var(--antenna-text);
 }
@@ -242,8 +242,8 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .preset-btn,
-:global(.theme-dark) .antenna-calculator-ui .preset-btn {
+[data-theme="dark"] .antenna-calculator-ui .preset-btn,
+.theme-dark .antenna-calculator-ui .preset-btn {
     background: var(--antenna-bg-surface);
     border-color: var(--antenna-border);
     color: var(--antenna-text);
@@ -257,8 +257,8 @@
     box-shadow: 0 10px 20px rgba(var(--antenna-primary-rgb), 0.1);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .preset-btn:hover,
-:global(.theme-dark) .antenna-calculator-ui .preset-btn:hover {
+[data-theme="dark"] .antenna-calculator-ui .preset-btn:hover,
+.theme-dark .antenna-calculator-ui .preset-btn:hover {
     background: var(--antenna-bg-muted);
     border-color: var(--antenna-primary);
     color: var(--antenna-primary);
@@ -293,8 +293,8 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .radio-content,
-:global(.theme-dark) .antenna-calculator-ui .radio-content {
+[data-theme="dark"] .antenna-calculator-ui .radio-content,
+.theme-dark .antenna-calculator-ui .radio-content {
     background: var(--antenna-bg-surface);
     color: var(--antenna-text);
 }
@@ -308,8 +308,8 @@
     transform: scale(1.02);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .radio-card input:checked + .radio-content,
-:global(.theme-dark) .antenna-calculator-ui .radio-card input:checked + .radio-content {
+[data-theme="dark"] .antenna-calculator-ui .radio-card input:checked + .radio-content,
+.theme-dark .antenna-calculator-ui .radio-card input:checked + .radio-content {
     background: linear-gradient(135deg, rgba(58, 58, 58, 0.8), rgba(245, 158, 11, 0.1));
     color: var(--antenna-text);
 }
@@ -363,8 +363,8 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .mega-result.glass,
-:global(.theme-dark) .antenna-calculator-ui .mega-result.glass {
+[data-theme="dark"] .antenna-calculator-ui .mega-result.glass,
+.theme-dark .antenna-calculator-ui .mega-result.glass {
     background: var(--antenna-bg-surface);
     border-color: var(--antenna-border);
     color: var(--antenna-text);
@@ -411,8 +411,8 @@
     overflow: hidden;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .visualizer-stage,
-:global(.theme-dark) .antenna-calculator-ui .visualizer-stage {
+[data-theme="dark"] .antenna-calculator-ui .visualizer-stage,
+.theme-dark .antenna-calculator-ui .visualizer-stage {
     background: radial-gradient(circle at center, rgba(255,255,255,0.03), transparent);
     border-color: var(--antenna-border);
 }
@@ -454,8 +454,8 @@
     stroke-dasharray: 4 4;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .measuring-line,
-:global(.theme-dark) .antenna-calculator-ui .measuring-line {
+[data-theme="dark"] .antenna-calculator-ui .measuring-line,
+.theme-dark .antenna-calculator-ui .measuring-line {
     stroke: rgba(255, 255, 255, 0.2);
 }
 
@@ -465,8 +465,8 @@
     border-radius: 24px;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .harmonics-container,
-:global(.theme-dark) .antenna-calculator-ui .harmonics-container {
+[data-theme="dark"] .antenna-calculator-ui .harmonics-container,
+.theme-dark .antenna-calculator-ui .harmonics-container {
     background: var(--antenna-bg-surface);
 }
 
@@ -488,8 +488,8 @@
     border: 1px solid var(--antenna-border-light);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .harmonic-card,
-:global(.theme-dark) .antenna-calculator-ui .harmonic-card {
+[data-theme="dark"] .antenna-calculator-ui .harmonic-card,
+.theme-dark .antenna-calculator-ui .harmonic-card {
     background: var(--antenna-bg-muted);
     border-color: var(--antenna-border);
 }
@@ -540,8 +540,8 @@
     transition: all 0.3s ease;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .ref-card,
-:global(.theme-dark) .antenna-calculator-ui .ref-card {
+[data-theme="dark"] .antenna-calculator-ui .ref-card,
+.theme-dark .antenna-calculator-ui .ref-card {
     background: var(--antenna-bg-surface);
     border-color: var(--antenna-border);
 }
@@ -582,8 +582,8 @@
     background: linear-gradient(90deg, transparent, var(--antenna-border-light), transparent);
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .divider,
-:global(.theme-dark) .antenna-calculator-ui .divider {
+[data-theme="dark"] .antenna-calculator-ui .divider,
+.theme-dark .antenna-calculator-ui .divider {
     background: linear-gradient(90deg, transparent, var(--antenna-border), transparent);
 }
 
@@ -685,8 +685,8 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
-:global([data-theme="dark"]) .custom-select-premium,
-:global(.theme-dark) .custom-select-premium {
+[data-theme="dark"] .custom-select-premium,
+.theme-dark .custom-select-premium {
     background-color: rgba(15, 23, 42, 0.4);
     border-color: rgba(255,255,255,0.1);
     color: white;
@@ -705,8 +705,8 @@
     letter-spacing: 0.1em;
 }
 
-:global([data-theme="dark"]) .svg-label-text,
-:global(.theme-dark) .svg-label-text {
+[data-theme="dark"] .svg-label-text,
+.theme-dark .svg-label-text {
     fill: #666;
 }
 .antenna-calculator-ui .security-warning {
@@ -722,8 +722,8 @@
     transition: all 0.3s ease;
 }
 
-:global([data-theme="dark"]) .antenna-calculator-ui .security-warning,
-:global(.theme-dark) .antenna-calculator-ui .security-warning {
+[data-theme="dark"] .antenna-calculator-ui .security-warning,
+.theme-dark .antenna-calculator-ui .security-warning {
     background: rgba(239, 68, 68, 0.1);
     border-color: rgba(239, 68, 68, 0.3);
 }
