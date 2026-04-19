@@ -304,3 +304,73 @@
     .gps-converter-ui .main-display { padding: 2rem 1.5rem; }
     .gps-converter-ui .results-area { grid-template-columns: 1fr; }
 }
+/* GpsHistory.astro */
+.history-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .text-btn {
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        font-size: 0.7rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+    .text-btn:hover { color: #ef4444; }
+    .no-history {
+        font-size: 0.8rem;
+        color: #94a3b8;
+        font-style: italic;
+    }
+
+/* GpsInputs.astro */
+.row-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+    .loc-btn {
+        background: #0ea5e910;
+        border: 1px solid #0ea5e930;
+        color: #0ea5e9;
+        padding: 0.6rem;
+        border-radius: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+    .loc-btn:hover {
+        background: #0ea5e920;
+        transform: scale(1.05);
+    }
+    .gms-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .compact-inputs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    #dd-inputs.compact-inputs {
+        grid-template-columns: 1fr 1fr;
+    }
+
+/* GpsMap.astro */
+.hint {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        margin-top: -0.5rem;
+    }
