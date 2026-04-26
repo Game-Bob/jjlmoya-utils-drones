@@ -93,6 +93,8 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     gmsTraditional: 'Traditional DMS',
     nauticalDM: 'Degrees & Dec. Min. (Nautical)',
     googleMapsFormat: 'Google Maps Format',
+    mapVisualization: 'Map Visualization',
+    mapHint: 'Click on the map to capture coordinates directly.',
     copy: 'Copy',
     copied: 'Copied!',
     recentHistory: 'Recent History',

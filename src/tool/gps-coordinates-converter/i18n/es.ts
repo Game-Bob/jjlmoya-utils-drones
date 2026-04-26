@@ -93,6 +93,8 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     gmsTraditional: 'GMS Tradicional',
     nauticalDM: 'Grados y Min. Dec. (Náutica)',
     googleMapsFormat: 'Formato Google Maps',
+    mapVisualization: 'Visualización en Mapas',
+    mapHint: 'Haz clic en el mapa para capturar coordenadas directamente.',
     copy: 'Copiar',
     copied: '¡Copiado!',
     recentHistory: 'Historial Reciente',
