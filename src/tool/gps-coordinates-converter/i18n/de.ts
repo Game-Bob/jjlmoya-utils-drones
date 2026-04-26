@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'gps-koordinaten-umrechner';
 const title = 'GPS Koordinaten Umrechner fur Breitengrad und Laengengrad';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Häufig gestellte Fragen',
-  bibliographyTitle: 'Referenzhandbücher',
   ui: {
-    faqTitle: 'Häufig gestellte Fragen',
-    bibliographyTitle: 'Referenzhandbücher',
     latitude: 'Breitengrad',
     longitude: 'Längengrad',
     decimalDegrees: 'Dezimalgrad (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'ArduPilot GPS Integration', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: 'Dezimalgrad vs DMS (Wikipedia)', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Format identifizieren',

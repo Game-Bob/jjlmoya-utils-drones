@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'antenna-length-calculator';
 const title = 'FPVダイポールおよびホイップ用RFアンテナ長計算機';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'よくある質問',
-  bibliographyTitle: '参考文献',
   ui: {
-    faqTitle: 'よくある質問',
-    bibliographyTitle: '参考文献',
     signalParameters: '信号パラメータ',
     antennaType: 'アンテナタイプ',
     dipole: 'ダイポール (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: '太い線は帯域幅が広くなります（より広い周波数で機能します）が、短縮率がわずかに変化します。ほとんどのFPVドローンにとっては、標準的な20-22AWGの線材が最適です。',
     },
   ],
-  bibliography: [
-    { name: '1/4波長モノポールアンテナ理論', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: '伝送路の速度係数(Velocity factor)', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: '周波数を選択',

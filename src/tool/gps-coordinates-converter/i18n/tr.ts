@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'gps-koordinat-donusturucu';
 const title = 'ArduPilot ve INAV Icin GPS Koordinat Donusturucu';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Sıkça Sorulan Sorular',
-  bibliographyTitle: 'Referans Kılavuzları',
   ui: {
-    faqTitle: 'Sıkça Sorulan Sorular',
-    bibliographyTitle: 'Referans Kılavuzları',
     latitude: 'Enlem',
     longitude: 'Boylam',
     decimalDegrees: 'Ondalık Derece (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'ArduPilot GPS Entagrasyon Belgesi', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: 'Ondalık Yüzdeler (Decimal Degrees) ve Dönüşüm (Wikipedia)', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Formatı Tanımlayın',

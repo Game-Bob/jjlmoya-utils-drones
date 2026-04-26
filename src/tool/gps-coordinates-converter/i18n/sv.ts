@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'gps-koordinat-omvandlare';
 const title = 'GPS Koordinat Omvandlare for ArduPilot och INAV Waypoints';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Vanliga Frågor',
-  bibliographyTitle: 'Referenser',
   ui: {
-    faqTitle: 'Vanliga Frågor',
-    bibliographyTitle: 'Referenser',
     latitude: 'Latitud',
     longitude: 'Longitud',
     decimalDegrees: 'Decimalgrader (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'ArduPilot Officiell GPS handbok.', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: 'Förstå decimala värden. DD wikipedia.', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Börja Med Att Bestämma Indata Formatet.',

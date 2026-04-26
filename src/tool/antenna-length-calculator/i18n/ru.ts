@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'kalkulyator-dliny-antenny';
 const title = 'Калькулятор длины антенны RF для диполей и штырей FPV';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Часто задаваемые вопросы',
-  bibliographyTitle: 'Библиографические ссылки',
   ui: {
-    faqTitle: 'Часто задаваемые вопросы',
-    bibliographyTitle: 'Библиографические ссылки',
     signalParameters: 'Параметры сигнала',
     antennaType: 'Тип антенны',
     dipole: 'Диполь (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'Более толстые провода имеют более широкую полосу пропускания (они менее критичны к точной частоте), но их коэффициент скорости немного меняется. Для большинства дронов FPV идеально подходит стандартный провод 20-22AWG.',
     },
   ],
-  bibliography: [
-    { name: 'Четвертьволновой монополь', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Коэффициент укорочения линий передачи', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Выберите частоту',

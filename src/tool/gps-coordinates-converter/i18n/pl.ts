@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'konwerter-wspolrzednych-gps';
 const title = 'Konwerter Wspolrzednych GPS Nawigacji po Punktach Trasy';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Często Zadawane Pytania',
-  bibliographyTitle: 'Materiały Źródłowe',
   ui: {
-    faqTitle: 'Często Zadawane Pytania',
-    bibliographyTitle: 'Materiały Źródłowe',
     latitude: 'Szerokość Geograficzna',
     longitude: 'Długość Geograficzna',
     decimalDegrees: 'Stopnie Dziesiętne (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'Ardupilot – Oficjalny przewodnik Dokumentujący o Integracjach Lotu Autonomousnych .', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: 'Encyklopedyczne objaśnienie notatek wymiaru Współrzędnej u Wikipedia o formie DD', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Rzetelnie zweryfikuj posiadany Format jako Źródło',

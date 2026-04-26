@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'rf-anten-uzunlugu-hesaplayici';
 const title = 'FPV Dipol ve Kamci Icin RF Anten Uzunlugu Hesaplayici';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Sıkça Sorulan Sorular',
-  bibliographyTitle: 'Bibliyografik Referanslar',
   ui: {
-    faqTitle: 'Sıkça Sorulan Sorular',
-    bibliographyTitle: 'Bibliyografik Referanslar',
     signalParameters: 'Sinyal Parametreleri',
     antennaType: 'Anten Tipi',
     dipole: 'Dipol (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'Tabiki  daha tok, geniş ve kalın yapılı olması iletilen frekansı bir az da olsa esnetme yapar yani ufak milimetrelik traşlama hatanızı da o esneklikle telafisini yedirmeye de yardımcı olabildiği üzere hafifçenden o iletken yüzü  Vf nize de dokunur oynatır.  Çoğu amatör ve maker 20 ve  22 numara ( Awg çap türüyle) gayet stabil neticeler barındırırlar',
     },
   ],
-  bibliography: [
-    { name: 'Çeyrek Dalga Teorik Bakış Açısı', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Transmisyon hatları Hız Faktörü Wiki ', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Pek Tabi Önce Frekans',

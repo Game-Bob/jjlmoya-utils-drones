@@ -1,5 +1,6 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'kalkulator-waktu-terbang-drone';
 const title = 'Kalkulator Waktu Terbang Drone untuk Estimasi Autonomi LiPo LiIon';
@@ -80,11 +81,7 @@ export const content: DroneFlightTimeLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Pertanyaan yang Sering Diajukan',
-  bibliographyTitle: 'Referensi Bibliografi',
   ui: {
-    faqTitle: 'Pertanyaan yang Sering Diajukan',
-    bibliographyTitle: 'Referensi Bibliografi',
     batterySpecs: 'Spesifikasi Baterai',
     capacity: 'Kapasitas',
     voltage: 'Tegangan (Sel S)',
@@ -228,11 +225,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'EASA - Regulasi Drone', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
-    { name: 'ArduPilot Wiki', url: 'https://ardupilot.org/copter/' },
-    { name: 'Battery University', url: 'https://batteryuniversity.com/' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

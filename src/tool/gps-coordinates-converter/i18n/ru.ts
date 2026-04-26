@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'konverter-gps-koordinat';
 const title = 'Конвертер GPS координат для путевых точек Ardupilot и INAV';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Часто задаваемые вопросы',
-  bibliographyTitle: 'Библиографические ссылки',
   ui: {
-    faqTitle: 'Часто задаваемые вопросы',
-    bibliographyTitle: 'Библиографические ссылки',
     latitude: 'Широта',
     longitude: 'Долгота',
     decimalDegrees: 'Десятичные градусы (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'Интеграция GPS в ArduPilot', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: 'Десятичные градусы (Википедия)', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Определите текущий формат',

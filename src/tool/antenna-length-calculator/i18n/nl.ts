@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'rf-antenne-lengte-calculator';
 const title = 'RF Antenne Lengte Calculator voor FPV Dipolen en Zwepen';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Veelgestelde Vragen',
-  bibliographyTitle: 'Bibliografische Referenties',
   ui: {
-    faqTitle: 'Veelgestelde Vragen',
-    bibliographyTitle: 'Bibliografische Referenties',
     signalParameters: 'Signaalparameters',
     antennaType: 'Antenne Type',
     dipole: 'Dipool (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'Zeker weten, zo breder dan hoe meer een band kan uit rekken qua zending op het spectrum. Meeste mensen gaan in de racerij en vliegerij het meest courante vinden met een doorsnee 20 tot 22 Amerikaanse Gauge kabeling met wat bijgaande snelheid variabelen.',
     },
   ],
-  bibliography: [
-    { name: 'Kwartgolf antenne en Monopolen in de theorie', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Impact en vertaling van kabel Snelheids factor op wiki.', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Stel jouw juiste Hertz ratio (Frequentie) in.',

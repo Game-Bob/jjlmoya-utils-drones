@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'gps-coordinates-converter';
 const title = 'GPS Coordinates Converter from Decimal to DMS Online Free';
@@ -81,11 +82,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Frequently Asked Questions',
-  bibliographyTitle: 'Bibliographic References',
   ui: {
-    faqTitle: 'Frequently Asked Questions',
-    bibliographyTitle: 'Bibliographic References',
     decimalDD: 'Decimal (DD)',
     degreesGMS: 'Degrees (DMS)',
     useLocation: 'Use my location',
@@ -242,16 +239,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    {
-      name: 'WGS 84 (World Geodetic System 1984): The global technical standard for mapping and GPS.',
-      url: 'https://en.wikipedia.org/wiki/World_Geodetic_System',
-    },
-    {
-      name: 'USGS: Using GPS and Coordinate Systems.',
-      url: 'https://www.usgs.gov/faqs/how-do-i-find-latitude-and-longitude-a-location',
-    },
-  ],
+  bibliography,
   howTo: [],
   schemas,
 };

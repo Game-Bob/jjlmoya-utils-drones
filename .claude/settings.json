@@ -10,7 +10,12 @@
       "Bash(/tmp/update_schemas.sh)",
       "Bash(find src/tool/gps-coordinates-converter/i18n -name \"*.ts\" -type f -exec sed -i 's/faq: faqItems,,/faq: faqItems,/g' {} \\\\;)",
       "Bash(find src/tool/drone-flight-time/i18n -name \"*.ts\" -type f -exec sed -i 's/faq: faqItems,,/faq: faqItems,/g' {} \\\\;)",
-      "Bash(find src/tool/drone-flight-time/i18n -name \"*.ts\" -type f -exec sed -i 's/howTo: howToSteps,,/howTo: howToSteps,/g' {} \\\\;)"
+      "Bash(find src/tool/drone-flight-time/i18n -name \"*.ts\" -type f -exec sed -i 's/howTo: howToSteps,,/howTo: howToSteps,/g' {} \\\\;)",
+      "Bash(node scripts/refactor-bibliography.js)",
+      "Bash(node scripts/fix-imports.js)",
+      "Bash(node scripts/remove-duplicate-imports.js)",
+      "Bash(node scripts/cleanup-final-imports.js)",
+      "Bash(node scripts/fix-all-imports.js)"
     ]
   }
 }

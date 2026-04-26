@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'gps-coordinates-converter';
 const title = 'ArduPilot 및 INAV 웨이포인트용 GPS 좌표 변환기';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: '자주 묻는 질문',
-  bibliographyTitle: '참고 문헌',
   ui: {
-    faqTitle: '자주 묻는 질문',
-    bibliographyTitle: '참고 문헌',
     latitude: '위도',
     longitude: '경도',
     decimalDegrees: '십진 도수 (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'ArduPilot GPS 연동 기초', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: '십진 도 대 DMS (위키백과)', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: '형식 확인',

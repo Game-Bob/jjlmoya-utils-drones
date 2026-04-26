@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'konverter-koordinat-gps';
 const title = 'Konverter Koordinat GPS untuk Waypoint ArduPilot dan INAV';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Pertanyaan yang Sering Diajukan',
-  bibliographyTitle: 'Referensi Bibliografi',
   ui: {
-    faqTitle: 'Pertanyaan yang Sering Diajukan',
-    bibliographyTitle: 'Referensi Bibliografi',
     latitude: 'Garis Lintang',
     longitude: 'Garis Bujur',
     decimalDegrees: 'Derajat Desimal (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'Ardupilot Panduan Pemetaan Posisi Standart.', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: 'Pemahaman Degrees decimal Dalam Catatan Wiki', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Meneliti Asal Usul Format.',

@@ -1,5 +1,6 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'drohnen-flugzeit-rechner';
 const title = 'Drohnen Flugzeit Rechner zur Schätzung der LiPo LiIon Autonomie';
@@ -80,11 +81,7 @@ export const content: DroneFlightTimeLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Häufig gestellte Fragen',
-  bibliographyTitle: 'Literaturhinweise',
   ui: {
-    faqTitle: 'Häufig gestellte Fragen',
-    bibliographyTitle: 'Literaturhinweise',
     batterySpecs: 'Akku-Spezifikationen',
     capacity: 'Kapazität',
     voltage: 'Spannung (S-Zellen)',
@@ -228,11 +225,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'EASA - Drohnen-Regulierungen', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
-    { name: 'ArduPilot Wiki', url: 'https://ardupilot.org/copter/' },
-    { name: 'Battery University', url: 'https://batteryuniversity.com/' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

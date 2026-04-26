@@ -1,5 +1,6 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'drone-flight-time-calculator';
 const title = '드론 비행 시간 계산기로 LiPo LiIon 비행 시간 예측';
@@ -81,11 +82,7 @@ export const content: DroneFlightTimeLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: '자주 묻는 질문',
-  bibliographyTitle: '참고 문헌',
   ui: {
-    faqTitle: '자주 묻는 질문',
-    bibliographyTitle: '참고 문헌',
     batterySpecs: '배터리 사양',
     capacity: '용량',
     voltage: '전압 (S 셀)',
@@ -229,11 +226,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'EASA - 무인 항공기 규정', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
-    { name: 'ArduPilot 위키', url: 'https://ardupilot.org/copter/' },
-    { name: '배터리 유니버시티', url: 'https://batteryuniversity.com/' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

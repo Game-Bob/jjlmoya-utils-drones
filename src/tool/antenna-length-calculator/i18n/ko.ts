@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'antenna-length-calculator';
 const title = 'FPV 다이폴 및 휩용 RF 안테나 길이 계산기';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: '자주 묻는 질문',
-  bibliographyTitle: '참고 문헌',
   ui: {
-    faqTitle: '자주 묻는 질문',
-    bibliographyTitle: '참고 문헌',
     signalParameters: '신호 매개변수',
     antennaType: '안테나 유형',
     dipole: '다이폴 (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: '더 두꺼운 전선은 대역폭이 더 넓고(정확한 주파수 의존성이 덜 중요함) 단축 속도 계수가 약간 변경됩니다. 대부분의 FPV 드론에는 표준 20-22AWG 와이어가 이상적입니다.',
     },
   ],
-  bibliography: [
-    { name: '1/4 파장 모노폴 기초 지식', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: '전송선로의 속도 계수', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: '주파수 선택',

@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'gps-coordinates-converter';
 const title = 'Ardupilot及INAV航点模式用GPS坐标转换器';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: '常见问题解答',
-  bibliographyTitle: '参考文献与指南',
   ui: {
-    faqTitle: '常见问题解答',
-    bibliographyTitle: '参考文献与指南',
     latitude: '纬度',
     longitude: '经度',
     decimalDegrees: '十进制度 (DD / Decimal Degrees)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: '官方权威基石：ArduPilot 全体系与定位模组的基础构筑知识库及导入准则。', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: '知识宝库扩充: 十进制算法 与 经纬制图（维基百科源学术资料）。', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: '甄别与判定手上信息的归路归属',

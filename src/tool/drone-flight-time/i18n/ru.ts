@@ -1,5 +1,6 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'kalkulyator-vremeni-polyota-drona';
 const title = 'Калькулятор времени полета дрона для оценки автономности LiPo LiIon';
@@ -81,11 +82,7 @@ export const content: DroneFlightTimeLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Часто задаваемые вопросы',
-  bibliographyTitle: 'Библиографические ссылки',
   ui: {
-    faqTitle: 'Часто задаваемые вопросы',
-    bibliographyTitle: 'Библиографические ссылки',
     batterySpecs: 'Характеристики аккумулятора',
     capacity: 'Емкость',
     voltage: 'Напряжение (S ячеек)',
@@ -229,11 +226,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'EASA - Правила использования дронов', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
-    { name: 'ArduPilot Wiki', url: 'https://ardupilot.org/copter/' },
-    { name: 'Battery University', url: 'https://batteryuniversity.com/' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

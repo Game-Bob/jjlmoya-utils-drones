@@ -1,5 +1,6 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'drone-flight-time-calculator';
 const title = '无人机飞行时间计算器用于评估LiPo LiIon续航';
@@ -81,11 +82,7 @@ export const content: DroneFlightTimeLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: '常见问题解答',
-  bibliographyTitle: '参考文献',
   ui: {
-    faqTitle: '常见问题解答',
-    bibliographyTitle: '参考文献',
     batterySpecs: '电池规格',
     capacity: '电池容量',
     voltage: '电压 (S 电芯)',
@@ -229,11 +226,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: '欧洲航空局 (EASA) 有关于各种类民用级航空守则', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
-    { name: 'ArduPilot 全面百科', url: 'https://ardupilot.org/copter/' },
-    { name: '关于电池系统大科普学术指南网', url: 'https://batteryuniversity.com/' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

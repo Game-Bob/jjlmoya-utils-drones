@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'calculadora-comprimento-antena';
 const title = 'Calculadora de Comprimento de Antena RF para Dipolos e Chicotes FPV';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Perguntas Frequentes',
-  bibliographyTitle: 'Referências Bibliográficas',
   ui: {
-    faqTitle: 'Perguntas Frequentes',
-    bibliographyTitle: 'Referências Bibliográficas',
     signalParameters: 'Parâmetros de Sinal',
     antennaType: 'Tipo de Antena',
     dipole: 'Dipolo (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'Total e perfeitamente, dado ser cabos muito grossos ajudam sim no aumento tolerável numa faixa de transmissão ou canal do recetor... Não fujas das limitações do usual cabo awg em 22 de espessura.',
     },
   ],
-  bibliography: [
-    { name: 'Em prol do Estudo Cientifico - Antenna Theory', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Detalhes Acerca de Velocity ou do Fator', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Regulação por Defasagem na Casa Alvo das Medidas (Mhz)',

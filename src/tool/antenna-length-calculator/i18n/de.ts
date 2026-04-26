@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'rf-antennenlaenge-rechner';
 const title = 'RF Antennenlaenge Rechner fur FPV Dipole und Peitschen';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Häufig gestellte Fragen',
-  bibliographyTitle: 'Literaturhinweise',
   ui: {
-    faqTitle: 'Häufig gestellte Fragen',
-    bibliographyTitle: 'Literaturhinweise',
     signalParameters: 'Signalparameter',
     antennaType: 'Antennentyp',
     dipole: 'Dipol (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'Dickere Drähte haben eine größere Bandbreite (sie sind weniger kritisch hinsichtlich der genauen Frequenz), aber ihr Verkürzungsfaktor ändert sich leicht. Für die meisten FPV-Drohnen ist handelsüblicher 20-22AWG-Draht ideal.',
     },
   ],
-  bibliography: [
-    { name: 'Der Viertelwellen-Monopol', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Verkürzungsfaktor von Übertragungsleitungen', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Frequenz auswählen',

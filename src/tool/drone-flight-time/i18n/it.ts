@@ -1,5 +1,6 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'calcolatore-tempo-volo-drone';
 const title = 'Calcolatore Tempo di Volo Drone per Stima Autonomia LiPo LiIon';
@@ -80,11 +81,7 @@ export const content: DroneFlightTimeLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Domande Frequenti',
-  bibliographyTitle: 'Riferimenti Bibliografici',
   ui: {
-    faqTitle: 'Domande Frequenti',
-    bibliographyTitle: 'Riferimenti Bibliografici',
     batterySpecs: 'Specifiche Batteria',
     capacity: 'Capacità',
     voltage: 'Voltaggio (Celle S)',
@@ -228,11 +225,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'EASA - Drone Regulations', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
-    { name: 'ArduPilot Wiki', url: 'https://ardupilot.org/copter/' },
-    { name: 'Battery University', url: 'https://batteryuniversity.com/' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

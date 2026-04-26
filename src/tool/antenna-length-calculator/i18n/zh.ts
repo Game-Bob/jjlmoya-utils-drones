@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'antenna-length-calculator';
 const title = 'FPV偶极子和鞭状射频天线长度计算器';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: '常见问题解答',
-  bibliographyTitle: '参考文献',
   ui: {
-    faqTitle: '常见问题解答',
-    bibliographyTitle: '参考文献',
     signalParameters: '信号参数',
     antennaType: '天线类型',
     dipole: '偶极子天线 (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: '还别说确确实实带有挺有说法的门道！如果用上了那些很“壮硕粗壮”线皮线板这就让这可通行宽大河床也就是拥有更好的抗敏感包容那游走微偏宽差额更放肆的大频段（就不太死抠那丁点小数字了）然而在此同时也偷偷稍微影响那我们讲到的减速因子的微妙结果；话虽如此但是通常在各道无人FPV载机大众玩家手里还是那个老规矩使用标准尺寸也就是拿捏那处于 20 以迄至22 AWG美标这一大规格口径便属大好良宵无可挑剔的不二通吃之极佳搭配！',
     },
   ],
-  bibliography: [
-    { name: '关于这深居简出常闻那神秘（四分之一体形单极为王的知识理论基石）学术论库', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: '对于传输线路导向当中这让人抓狂纠结头痛的波因速度阻隔削减数值因子的渊源探讨考据文（维基网文参考百科）', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: '抉择并锁定使用频道层段',

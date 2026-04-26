@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'calcolatore-lunghezza-antenna';
 const title = 'Calcolatore di Lunghezza Antenna RF per Dipoli e Stili FPV';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Domande Frequenti',
-  bibliographyTitle: 'Riferimenti Bibliografici',
   ui: {
-    faqTitle: 'Domande Frequenti',
-    bibliographyTitle: 'Riferimenti Bibliografici',
     signalParameters: 'Parametri del Segnale',
     antennaType: 'Tipo di Antenna',
     dipole: 'Dipolo (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'I fili più spessi hanno una larghezza di banda maggiore (sono meno critici riguardo alla frequenza esatta), ma il loro fattore di velocità cambia leggermente. Per la maggior parte dei droni FPV, un filo standard da 20-22AWG è l\'ideale.',
     },
   ],
-  bibliography: [
-    { name: 'Il Monopolo Quarto d\'Onda', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Fattore di Velocità nelle Linee di Trasmissione', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Seleziona Frequenza',

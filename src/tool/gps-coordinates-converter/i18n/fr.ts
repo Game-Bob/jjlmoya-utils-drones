@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'conversisseur-coordonnees-gps';
 const title = 'Convertisseur de Coordonnées GPS de Décimal vers DMS en Ligne Gratuit';
@@ -81,11 +82,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Foire Aux Questions',
-  bibliographyTitle: 'Références Bibliographiques',
   ui: {
-    faqTitle: 'Foire Aux Questions',
-    bibliographyTitle: 'Références Bibliographiques',
     decimalDD: 'Décimal (DD)',
     degreesGMS: 'Degrés (DMS)',
     useLocation: 'Utiliser ma position',
@@ -259,16 +256,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
       answer: 'Oui, une fois la page chargée, toute la logique de conversion est locale (côté client). Seule la carte nécessite une connexion pour télécharger les nouvelles tuiles.',
     },
   ],
-  bibliography: [
-    {
-      name: 'WGS 84 (World Geodetic System 1984) : La norme technique globale pour la cartographie et le GPS.',
-      url: 'https://fr.wikipedia.org/wiki/WGS_84',
-    },
-    {
-      name: 'IGN (Institut national de l\'information géographique et forestière) : Guides sur les coordonnées et projections.',
-      url: 'https://www.ign.fr',
-    },
-  ],
+  bibliography,
   howTo: [],
   schemas,
 };

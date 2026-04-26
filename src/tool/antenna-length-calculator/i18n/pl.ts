@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'kalkulator-dlugosci-anteny';
 const title = 'Kalkulator Dlugosci Anteny RF dla Dipoli i Batow FPV';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Często Zadawane Pytania',
-  bibliographyTitle: 'Bibliografia',
   ui: {
-    faqTitle: 'Często Zadawane Pytania',
-    bibliographyTitle: 'Bibliografia',
     signalParameters: 'Parametry Sygnału',
     antennaType: 'Typ Anteny',
     dipole: 'Dipol (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'Szerokość pomaga zatuszować niedokładną amatorkę w zrobionej długości , aczkolwiek spowalnia też w pewnych obszarach przepust w Velocity - a więc pożądana jakość wyrobienia by awg było w ramach w strefie u standart ok . 22.',
     },
   ],
-  bibliography: [
-    { name: 'Opracowanie Badawcze Należytego Odbicia, tzw. Ćwierćfalowa (1/4 ) jako monopol', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Zależności Faktorów oraz Zmian o Velocity jako opór prędkość.', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Rzetelny Wybór Potrzeb',

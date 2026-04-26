@@ -1,5 +1,6 @@
 import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'drone-ucus-suresi-hesaplayici';
 const title = 'LiPo LiIon Otonomisi Tahmini icin Drone Ucus Suresi Hesaplayici';
@@ -81,11 +82,7 @@ export const content: DroneFlightTimeLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Sıkça Sorulan Sorular',
-  bibliographyTitle: 'Bibliyografik Referanslar',
   ui: {
-    faqTitle: 'Sıkça Sorulan Sorular',
-    bibliographyTitle: 'Bibliyografik Referanslar',
     batterySpecs: 'Pil Özellikleri',
     capacity: 'Kapasite',
     voltage: 'Voltaj (S Hücre)',
@@ -229,11 +226,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'EASA - Drone Yönetmelikleri', url: 'https://www.easa.europa.eu/en/domains/civil-drones' },
-    { name: 'ArduPilot Wiki', url: 'https://ardupilot.org/copter/' },
-    { name: 'Battery University', url: 'https://batteryuniversity.com/' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

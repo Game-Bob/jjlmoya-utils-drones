@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'rf-antennlangd-kalkylator';
 const title = 'RF Antennlangd Kalkylator for FPV Dipol och Piska';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Vanliga Frågor',
-  bibliographyTitle: 'Bibliografiska Referenser',
   ui: {
-    faqTitle: 'Vanliga Frågor',
-    bibliographyTitle: 'Bibliografiska Referenser',
     signalParameters: 'Signalparametrar',
     antennaType: 'Antenntyp',
     dipole: 'Dipol (1/2 λ)',
@@ -250,10 +247,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
       answer: 'Tjockare trådar har högre bandbredd (de är mindre känsliga för exakt frekvensavvikelse), men deras hastighetsfaktor förändras något. För de flesta FPV-drönare är standard 20-22AWG tråd perfekt.',
     },
   ],
-  bibliography: [
-    { name: 'Teorin om kvartsvågsmonopoler', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Hastighetsfaktor i transmissionsledningar', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Välj frekvens',

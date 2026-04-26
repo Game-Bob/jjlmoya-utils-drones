@@ -1,14 +1,6 @@
 ---
-import { Bibliography } from '@jjlmoya/utils-shared';
-import { gpsCoordinatesConverter } from './index';
-import type { KnownLocale } from '../../types';
-
-interface Props {
-  locale?: KnownLocale;
-}
-
-const { locale = 'es' } = Astro.props;
-const content = await gpsCoordinatesConverter.i18n[locale]?.();
+import { Bibliography as BibliographyComponent } from '@jjlmoya/utils-shared';
+import { bibliography } from './bibliography';
 ---
 
-{content && <Bibliography links={content.bibliography} />}
+<BibliographyComponent links={bibliography} />

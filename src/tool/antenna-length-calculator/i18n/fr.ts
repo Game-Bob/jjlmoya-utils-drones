@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'calculateur-longueur-antenne';
 const title = 'Calculateur de Longueur d\'Antenne RF pour Dipôles et Fouets FPV';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Foire Aux Questions',
-  bibliographyTitle: 'Références Bibliographiques',
   ui: {
-    faqTitle: 'Foire Aux Questions',
-    bibliographyTitle: 'Références Bibliographiques',
     signalParameters: 'Paramètres du Signal',
     antennaType: 'Type d\'Antenne',
     dipole: 'Dipôle (1/2 λ)',
@@ -233,10 +230,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'Le Monopole Quart d\'Onde', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Facteur de Vélocité des Lignes de Transmission', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };

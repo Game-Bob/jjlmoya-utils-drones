@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'convertitore-coordinate-gps';
 const title = 'Convertitore di Coordinate GPS per Navigazione Waypoint';
@@ -82,11 +83,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Domande Frequenti',
-  bibliographyTitle: 'Manuali di Riferimento',
   ui: {
-    faqTitle: 'Domande Frequenti',
-    bibliographyTitle: 'Manuali di Riferimento',
     latitude: 'Latitudine',
     longitude: 'Longitudine',
     decimalDegrees: 'Gradi Decimali (DD)',
@@ -196,10 +193,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'Ardupilot Documentazioni ed integrazione in Volo Autonomo .', url: 'https://ardupilot.org/copter/docs/common-positioning-landing-page.html' },
-    { name: 'Spazio, Geografia in wikipedia gradi e forme decimale', url: 'https://en.wikipedia.org/wiki/Decimal_degrees' },
-  ],
+  bibliography,
   howTo: [
     {
       name: 'Identificazione della Lingua / Formato Sorgente',

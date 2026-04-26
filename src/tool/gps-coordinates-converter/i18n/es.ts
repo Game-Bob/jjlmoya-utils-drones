@@ -1,5 +1,6 @@
 import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'conversor-coordenadas-gps';
 const title = 'Conversor Coordenadas GPS de Decimal a GMS Online Gratis';
@@ -81,11 +82,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Preguntas Frecuentes',
-  bibliographyTitle: 'Referencias Bibliográficas',
   ui: {
-    faqTitle: 'Preguntas Frecuentes',
-    bibliographyTitle: 'Referencias Bibliográficas',
     decimalDD: 'Decimal (DD)',
     degreesGMS: 'Grados (GMS)',
     useLocation: 'Usar mi ubicación',
@@ -242,16 +239,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    {
-      name: 'WGS 84 (World Geodetic System 1984): El estándar técnico global para cartografía y GPS.',
-      url: 'https://es.wikipedia.org/wiki/WGS84',
-    },
-    {
-      name: 'IGN (Instituto Geográfico Nacional): Guía sobre sistemas de coordenadas y proyecciones en España.',
-      url: 'https://www.ign.es/web/resources/cartografiaEnsenanza/conceptosCarto/descargas/Conceptos_Cartograficos_def.pdf',
-    },
-  ],
+  bibliography,
   howTo: [],
   schemas,
 };

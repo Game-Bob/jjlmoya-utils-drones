@@ -1,5 +1,6 @@
 import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
+import { bibliography } from '../bibliography';
 
 const slug = 'kalkulator-panjang-antena';
 const title = 'Kalkulator Panjang Antena RF untuk FPV Dipol dan Whip';
@@ -80,11 +81,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
   slug,
   title,
   description,
-  faqTitle: 'Pertanyaan yang Sering Diajukan',
-  bibliographyTitle: 'Referensi Bibliografi',
   ui: {
-    faqTitle: 'Pertanyaan yang Sering Diajukan',
-    bibliographyTitle: 'Referensi Bibliografi',
     signalParameters: 'Parameter Sinyal',
     antennaType: 'Jenis Antena',
     dipole: 'Dipol (1/2 λ)',
@@ -233,10 +230,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     },
   ],
   faq: faqItems,
-  bibliography: [
-    { name: 'The Quarter-Wave Monopole', url: 'https://www.antenna-theory.com/antennas/monopole.php' },
-    { name: 'Velocity Factor of Transmission Lines', url: 'https://en.wikipedia.org/wiki/Velocity_factor' },
-  ],
+  bibliography,
   howTo: howToSteps,
   schemas,
 };
