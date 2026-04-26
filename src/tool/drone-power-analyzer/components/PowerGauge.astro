@@ -1,0 +1,48 @@
+---
+interface Props {
+  ui: Record<string, string>;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="gauge-container">
+  <div class="unit-toggle-global">
+    <input id="unitToggle" type="checkbox" class="unit-checkbox" />
+    <label for="unitToggle" class="unit-label-global">g / lbs</label>
+  </div>
+
+  <div class="gauge-wrapper">
+    <svg viewBox="0 0 200 160" class="gauge-svg">
+      <defs>
+        <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ef4444" />
+          <stop offset="33%" stop-color="#f97316" />
+          <stop offset="66%" stop-color="#22c55e" />
+          <stop offset="100%" stop-color="#6366f1" />
+        </linearGradient>
+      </defs>
+
+      <path d="M 40 70 A 60 60 0 1 1 160 70" fill="none" stroke="url(#gaugeGradient)" stroke-width="14" stroke-linecap="round" opacity="0.6" />
+
+      <g id="needleGroup">
+        <line id="gaugeNeedle" x1="100" y1="70" x2="160" y2="70" stroke="var(--pa-primary)" stroke-width="3" stroke-linecap="round" />
+      </g>
+
+      <circle cx="100" cy="70" r="8" fill="var(--pa-primary)" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.3))" />
+    </svg>
+  </div>
+
+  <div class="ratio-display-main">
+    <span id="ratioDisplay" class="ratio-number-large">0.00</span>
+    <span class="ratio-label-large">:1</span>
+    <span id="ratioBadge" class="ratio-badge">Unstable</span>
+  </div>
+
+  <div class="gauge-info">
+    <div class="thrust-display">
+      <span class="thrust-label">{ui.totalThrust || "Total Thrust"}</span>
+      <span id="totalThrust" class="thrust-value">0g</span>
+    </div>
+  </div>
+</div>

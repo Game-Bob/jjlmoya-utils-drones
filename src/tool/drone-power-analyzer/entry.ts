@@ -1,12 +1,14 @@
-import type { DronesCategoryEntry } from '../types';
-import { droneFlightTime } from '../tool/drone-flight-time/index';
-import { antennaLengthCalculator } from '../tool/antenna-length-calculator/index';
-import { gpsCoordinatesConverter } from '../tool/gps-coordinates-converter/index';
-import { dronePowerAnalyzer } from '../tool/drone-power-analyzer/index';
+import type { DronesToolEntry, ToolLocaleContent } from '../../types';
 
-export const dronesCategory: DronesCategoryEntry = {
-  icon: 'mdi:drone',
-  tools: [droneFlightTime, antennaLengthCalculator, gpsCoordinatesConverter, dronePowerAnalyzer],
+export interface DronePowerAnalyzerUI {
+  [key: string]: string;
+}
+
+export type DronePowerAnalyzerLocaleContent = ToolLocaleContent<DronePowerAnalyzerUI>;
+
+export const dronePowerAnalyzer: DronesToolEntry<DronePowerAnalyzerUI> = {
+  id: 'drone-power-analyzer',
+  icons: { bg: 'mdi:drone', fg: 'mdi:lightning-bolt' },
   i18n: {
     es: () => import('./i18n/es').then((m) => m.content),
     en: () => import('./i18n/en').then((m) => m.content),
@@ -25,4 +27,3 @@ export const dronesCategory: DronesCategoryEntry = {
     id: () => import('./i18n/id').then((m) => m.content),
   },
 };
-

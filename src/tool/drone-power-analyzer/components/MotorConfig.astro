@@ -1,0 +1,46 @@
+---
+interface Props {
+  ui: Record<string, string>;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="config-section">
+  <h3 class="section-title">
+    {ui.motorConfiguration || "Motor Configuration"}
+  </h3>
+
+  <div class="input-group">
+    <label for="motorCount">{ui.motorCount || "Motor Count"}</label>
+    <select id="motorCount">
+      <option value="4">{ui.quad || "Quad (4)"}</option>
+      <option value="6">{ui.hexa || "Hexa (6)"}</option>
+      <option value="8">{ui.octo || "Octo (8)"}</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <label for="thrustPerMotor">{ui.thrustPerMotor || "Thrust per Motor"}</label>
+    <div class="input-with-unit">
+      <input
+        id="thrustPerMotor"
+        type="number"
+        min="100"
+        max="5000"
+        step="10"
+        value="600"
+      />
+      <span class="unit">{ui.thrustUnit || "g"}</span>
+    </div>
+    <input
+      type="range"
+      min="100"
+      max="5000"
+      step="10"
+      value="600"
+      class="thrust-slider"
+      onchange="document.getElementById('thrustPerMotor').value = this.value; document.getElementById('thrustPerMotor').dispatchEvent(new Event('input'));"
+    />
+  </div>
+</div>

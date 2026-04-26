@@ -1,0 +1,37 @@
+---
+interface Props {
+  ui: Record<string, string>;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="flight-section">
+  <h3 class="flight-title">
+    {ui.flightProfiles || "Flight Profile Assessment"}
+  </h3>
+
+  <div id="profilesContainer" class="profiles-grid">
+    <div class="profile-card suitable">
+      <div class="profile-name">{ui.cinematicLabel || "Cinematic"}</div>
+    </div>
+    <div class="profile-card suitable">
+      <div class="profile-name">{ui.freestyleLabel || "Freestyle"}</div>
+    </div>
+    <div class="profile-card suitable">
+      <div class="profile-name">{ui.racingLabel || "Racing"}</div>
+    </div>
+    <div class="profile-card suitable">
+      <div class="profile-name">{ui.proRacingLabel || "Pro Racing"}</div>
+    </div>
+  </div>
+
+  <div class="recommendation-section">
+    <p class="recommendation-title">
+      {ui.recommendationLabel || "Flying Style Recommendation"}
+    </p>
+    <p id="recommendation-text" class="recommendation-text">
+      With a ratio of 2.00:1, this is ideal for heavy-lift cinematography with smooth, controlled movements.
+    </p>
+  </div>
+</div>

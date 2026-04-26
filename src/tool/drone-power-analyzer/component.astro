@@ -1,0 +1,210 @@
+---
+const { ui } = Astro.props;
+import PowerGauge from "./components/PowerGauge.astro";
+import MotorConfig from "./components/MotorConfig.astro";
+import WeightConfig from "./components/WeightConfig.astro";
+import FlightProfile from "./components/FlightProfile.astro";
+---
+
+<div class="power-analyzer-ui" data-ui={JSON.stringify(ui)}>
+  <div class="tech-mega-card">
+    <div class="card-grid">
+      <div class="config-sidebar">
+        <MotorConfig {ui} />
+        <WeightConfig {ui} />
+      </div>
+      <div class="main-display">
+        <PowerGauge {ui} />
+        <FlightProfile {ui} />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const container = document.querySelector(".power-analyzer-ui") as HTMLElement;
+  const uiData = JSON.parse(container.getAttribute("data-ui") || "{}") as Record<string, string>;
+
+  const motorCountSelect = document.getElementById("motorCount") as HTMLSelectElement;
+  const thrustInput = document.getElementById("thrustPerMotor") as HTMLInputElement;
+  const auwInput = document.getElementById("auw") as HTMLInputElement;
+  const unitToggle = document.getElementById("unitToggle") as HTMLInputElement;
+  const ratioDisplay = document.getElementById("ratioDisplay") as HTMLElement;
+  const ratioBadge = document.getElementById("ratioBadge") as HTMLElement;
+  const totalThrustDisplay = document.getElementById("totalThrust") as HTMLElement;
+  const gaugeNeedle = document.getElementById("gaugeNeedle") as unknown as SVGLineElement;
+  const profilesContainer = document.getElementById("profilesContainer") as HTMLElement;
+  const recommendationText = document.getElementById("recommendation-text") as HTMLElement;
+  const unitLabels = document.querySelectorAll(".unit") as NodeListOf<HTMLElement>;
+  const batteryChips = document.querySelectorAll(".battery-chip") as NodeListOf<HTMLElement>;
+
+  let currentUnit: "g" | "lbs" = "g";
+  const LBS_TO_G = 453.592;
+
+  const batteryWeightToKey: Record<string, string> = {
+    "182": "batteryName_tattu4s",
+    "231": "batteryName_tattu6s",
+    "118": "batteryName_gnb4s",
+    "205": "batteryName_gnb6s",
+  };
+
+  const addedBatteries: Set<string> = new Set();
+
+  const badgeMap: Record<number, { text: string; classes: string }> = {
+    0: { text: "badge_unstable", classes: "" },
+    3: { text: "badge_cinematic", classes: "optimal" },
+    5: { text: "badge_sweetSpot", classes: "optimal" },
+    7: { text: "badge_racing", classes: "racing" },
+    8: { text: "badge_extreme", classes: "racing" },
+  };
+
+  const recommendationMap: Record<number, string> = {
+    2: "recommendation_low",
+    4: "recommendation_cinematic",
+    5: "recommendation_freestyle",
+    7: "recommendation_racing",
+    99: "recommendation_extreme",
+  };
+
+  function calculate() {
+    const motorCount = parseInt(motorCountSelect.value);
+    let thrust = parseFloat(thrustInput.value) || 0;
+    let auw = parseFloat(auwInput.value) || 0;
+
+    if (currentUnit === "lbs") {
+      thrust *= LBS_TO_G;
+      auw *= LBS_TO_G;
+    }
+
+    const totalThrust = thrust * motorCount;
+    const ratio = auw > 0 ? totalThrust / auw : 0;
+
+    ratioDisplay.textContent = ratio.toFixed(2);
+    totalThrustDisplay.textContent = currentUnit === "lbs" ? `${(totalThrust / LBS_TO_G).toFixed(1)} lbs` : `${totalThrust.toFixed(0)} g`;
+
+    updateGauge(ratio);
+    updateProfiles(ratio);
+    updateRecommendation(ratio);
+  }
+
+  function updateGauge(ratio: number) {
+    const clampedRatio = Math.max(1, Math.min(ratio, 10));
+    let angle = 180 + ((clampedRatio - 1) / 9) * 180;
+    angle = Math.max(180, Math.min(angle, 360));
+    const rad = (angle * Math.PI) / 180;
+    const needleLength = 52;
+    const x2 = 100 + needleLength * Math.cos(rad);
+    const y2 = 70 + needleLength * Math.sin(rad);
+    gaugeNeedle.setAttribute("x2", x2.toString());
+    gaugeNeedle.setAttribute("y2", y2.toString());
+
+    ratioBadge.classList.remove("optimal", "racing");
+    const badgeThreshold = Object.keys(badgeMap).map(Number).sort((a, b) => b - a).find(t => ratio >= t) || 0;
+    const badge = badgeMap[badgeThreshold];
+    ratioBadge.textContent = uiData[badge.text] || "";
+    if (badge.classes) ratioBadge.classList.add(...badge.classes.split(" "));
+  }
+
+  function updateProfiles(ratio: number) {
+    const profiles = [
+      { key: "cinematicLabel", suitable: ratio > 2.0 },
+      { key: "freestyleLabel", suitable: ratio > 4.0 },
+      { key: "racingLabel", suitable: ratio > 5.5 },
+      { key: "proRacingLabel", suitable: ratio > 7.5 },
+    ];
+
+    profilesContainer.innerHTML = profiles
+      .map(p => `<div class="profile-card ${p.suitable ? "suitable" : "not-suitable"}"><div class="profile-name">${uiData[p.key] || ""}</div></div>`)
+      .join("");
+  }
+
+  function updateRecommendation(ratio: number) {
+    const threshold = Object.keys(recommendationMap).map(Number).sort((a, b) => a - b).find(t => ratio < t) || 99;
+    const key = recommendationMap[threshold];
+    const text = (uiData[key] || "").replace("{ratio}", ratio.toFixed(2));
+    recommendationText.textContent = text;
+  }
+
+  function toggleUnit() {
+    currentUnit = currentUnit === "g" ? "lbs" : "g";
+
+    const thrustVal = parseFloat(thrustInput.value) || 0;
+    const auwVal = parseFloat(auwInput.value) || 0;
+
+    if (currentUnit === "lbs") {
+      thrustInput.value = (thrustVal / LBS_TO_G).toFixed(1);
+      auwInput.value = (auwVal / LBS_TO_G).toFixed(1);
+    } else {
+      thrustInput.value = (thrustVal * LBS_TO_G).toFixed(0);
+      auwInput.value = (auwVal * LBS_TO_G).toFixed(0);
+    }
+
+    unitLabels.forEach(label => {
+      label.textContent = currentUnit === "g" ? "g" : "lbs";
+    });
+
+    batteryChips.forEach(chip => {
+      const weightG = parseFloat(chip.getAttribute("data-battery-weight")!);
+      const uiKey = batteryWeightToKey[weightG.toString()];
+      const batteryName = uiKey ? (uiData[uiKey] || "") : "";
+      chip.textContent = currentUnit === "lbs"
+        ? `${batteryName} (+${(weightG / LBS_TO_G).toFixed(1)} lbs)`
+        : `${batteryName} (+${weightG}g)`;
+    });
+
+    calculate();
+  }
+
+  motorCountSelect.addEventListener("change", calculate);
+  thrustInput.addEventListener("input", calculate);
+  auwInput.addEventListener("input", calculate);
+  unitToggle.addEventListener("change", toggleUnit);
+
+  const thrustSlider = document.querySelector('input[type="range"][min="100"][max="5000"]') as HTMLInputElement;
+  const auwSlider = document.querySelector('input[type="range"][min="50"][max="5000"]:last-of-type') as HTMLInputElement;
+
+  if (thrustSlider) {
+    thrustSlider.addEventListener("input", () => {
+      thrustInput.value = thrustSlider.value;
+      calculate();
+    });
+    thrustInput.addEventListener("input", () => {
+      thrustSlider.value = thrustInput.value;
+    });
+  }
+
+  if (auwSlider) {
+    auwSlider.addEventListener("input", () => {
+      auwInput.value = auwSlider.value;
+      calculate();
+    });
+    auwInput.addEventListener("input", () => {
+      auwSlider.value = auwInput.value;
+    });
+  }
+
+  document.querySelectorAll(".battery-chip").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const weightG = parseFloat(btn.getAttribute("data-battery-weight")!);
+      const weight = currentUnit === "lbs" ? weightG / LBS_TO_G : weightG;
+      const currentVal = parseFloat(auwInput.value) || 0;
+      const isAdded = addedBatteries.has(weightG.toString());
+
+      if (isAdded) {
+        auwInput.value = (currentVal - weight).toFixed(currentUnit === "lbs" ? 1 : 0);
+        addedBatteries.delete(weightG.toString());
+        btn.classList.remove("battery-chip-active");
+      } else {
+        auwInput.value = (currentVal + weight).toFixed(currentUnit === "lbs" ? 1 : 0);
+        addedBatteries.add(weightG.toString());
+        btn.classList.add("battery-chip-active");
+        auwInput.classList.add("pulse");
+        setTimeout(() => auwInput.classList.remove("pulse"), 600);
+      }
+
+      calculate();
+    });
+  });
+
+  calculate();
+</script>

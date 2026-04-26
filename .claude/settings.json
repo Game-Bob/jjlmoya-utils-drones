@@ -15,7 +15,8 @@
       "Bash(node scripts/fix-imports.js)",
       "Bash(node scripts/remove-duplicate-imports.js)",
       "Bash(node scripts/cleanup-final-imports.js)",
-      "Bash(node scripts/fix-all-imports.js)"
+      "Bash(node scripts/fix-all-imports.js)",
+      "Bash(bash /tmp/fix_slugs.sh)"
     ]
   }
 }

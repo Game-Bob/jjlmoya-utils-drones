@@ -1,0 +1,49 @@
+---
+interface Props {
+  ui: Record<string, string>;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="config-section">
+  <h3 class="section-title">
+    {ui.weightConfiguration || "Weight"}
+  </h3>
+
+  <div class="input-group">
+    <label for="auw">{ui.auwLabel || "All-Up Weight (AUW)"}</label>
+    <div class="input-with-unit">
+      <input
+        id="auw"
+        type="number"
+        min="50"
+        max="5000"
+        step="10"
+        value="800"
+      />
+      <span class="unit">{ui.weightUnit || "g"}</span>
+    </div>
+    <input
+      type="range"
+      min="50"
+      max="5000"
+      step="10"
+      value="800"
+      class="auw-slider"
+      onchange="document.getElementById('auw').value = this.value; document.getElementById('auw').dispatchEvent(new Event('input'));"
+    />
+  </div>
+
+  <div class="battery-presets">
+    <p class="battery-title">
+      {ui.batteryPresets || "Quick Add"}
+    </p>
+    <div class="battery-chips">
+      <button class="battery-chip" data-battery-weight="182">{ui.presetTattu4s || "Tattu 4S"}</button>
+      <button class="battery-chip" data-battery-weight="231">{ui.presetTattu6s || "Tattu 6S"}</button>
+      <button class="battery-chip" data-battery-weight="118">{ui.presetGnb4s || "GNB 4S"}</button>
+      <button class="battery-chip" data-battery-weight="205">{ui.presetGnb6s || "GNB 6S"}</button>
+    </div>
+  </div>
+</div>
