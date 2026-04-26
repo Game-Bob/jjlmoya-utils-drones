@@ -3,7 +3,7 @@ import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dt
 import { bibliography } from '../bibliography';
 
 const slug = 'gsd-flygplanerare';
-const title = 'GSD Flygplanerare: Markupplösnings-kalkylator för drönare';
+const title = 'GSD Flygplanerare: Markupplösnings kalkylator för drönare';
 const description = 'Beräkna markupplösningsavstånd (GSD) för fotogrammetriuppdrag. Stöd för DJI, Autel och anpassade kameror. Flygplanering i realtid med visuella kvalitetsindikatorer.';
 
 const faqItems = [
