@@ -3,6 +3,7 @@ import { DRONE_FLIGHT_TIME_TOOL } from './tool/drone-flight-time/index';
 import { ANTENNA_LENGTH_CALCULATOR_TOOL } from './tool/antenna-length-calculator/index';
 import { GPS_COORDINATES_CONVERTER_TOOL } from './tool/gps-coordinates-converter/index';
 import { DRONE_POWER_ANALYZER_TOOL } from './tool/drone-power-analyzer/index';
+import { GSD_FLIGHT_PLANNER_TOOL } from './tool/gsd-flight-planner/index';
 import type { ToolDefinition } from './types';
 
 export const ALL_TOOLS: ToolDefinition[] = [
@@ -10,6 +11,7 @@ export const ALL_TOOLS: ToolDefinition[] = [
   ANTENNA_LENGTH_CALCULATOR_TOOL,
   GPS_COORDINATES_CONVERTER_TOOL,
   DRONE_POWER_ANALYZER_TOOL,
+  GSD_FLIGHT_PLANNER_TOOL,
 ];
 
 export {
@@ -17,5 +19,6 @@ export {
   ANTENNA_LENGTH_CALCULATOR_TOOL,
   GPS_COORDINATES_CONVERTER_TOOL,
   DRONE_POWER_ANALYZER_TOOL,
+  GSD_FLIGHT_PLANNER_TOOL,
 };
 

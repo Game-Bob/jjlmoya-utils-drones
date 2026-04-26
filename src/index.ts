@@ -20,4 +20,5 @@ export { DRONE_FLIGHT_TIME_TOOL } from './tool/drone-flight-time/index';
 export { ANTENNA_LENGTH_CALCULATOR_TOOL } from './tool/antenna-length-calculator/index';
 export { GPS_COORDINATES_CONVERTER_TOOL } from './tool/gps-coordinates-converter/index';
 export { DRONE_POWER_ANALYZER_TOOL } from './tool/drone-power-analyzer/index';
+export { GSD_FLIGHT_PLANNER_TOOL } from './tool/gsd-flight-planner/index';
 
