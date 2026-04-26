@@ -2,10 +2,10 @@
     --gps-accent: #6366f1;
     --gps-accent-rgb: 99, 102, 241;
     --gps-accent-glow: rgba(99, 102, 241, 0.15);
-    --gps-bg: #ffffff;
+    --gps-bg: #fff;
     --gps-bg-muted: #f8fafc;
     --gps-bg-surface: #f1f5f9;
-    --gps-bg-overlay: #ffffff;
+    --gps-bg-overlay: #fff;
     --gps-text: #0f172a;
     --gps-text-muted: #475569;
     --gps-text-dim: #94a3b8;
@@ -258,7 +258,6 @@
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--gps-text);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     word-break: break-all;
 }
 
