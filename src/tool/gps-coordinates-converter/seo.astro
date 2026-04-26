@@ -1,5 +1,5 @@
 ---
-import { SEOArticle, SEOTitle, SEOList, SEOTable } from '@jjlmoya/utils-shared';
+import { SEORenderer } from '@jjlmoya/utils-shared';
 import { gpsCoordinatesConverter } from './index';
 import type { KnownLocale } from '../../types';
 
@@ -12,28 +12,4 @@ const content = await gpsCoordinatesConverter.i18n[locale]?.();
 if (!content) return null;
 ---
 
-<SEOArticle>
-  {content.seo.map((section: any) => {
-    if (section.type === 'title') {
-      return <SEOTitle title={section.text} level={section.level || 2} />;
-    }
-    if (section.type === 'paragraph') {
-      return <p set:html={section.html} />;
-    }
-    if (section.type === 'list') {
-      return <SEOList items={section.items} />;
-    }
-    if (section.type === 'table') {
-      return (
-        <SEOTable headers={section.headers}>
-          {section.rows.map((row: string[]) => (
-            <tr>
-              {row.map((cell: string) => <td set:html={cell} />)}
-            </tr>
-          ))}
-        </SEOTable>
-      );
-    }
-    return null;
-  })}
-</SEOArticle>
+{content.seo?.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}
