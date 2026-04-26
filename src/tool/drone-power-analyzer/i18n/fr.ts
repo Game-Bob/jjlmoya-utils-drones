@@ -2,7 +2,7 @@ import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
-const slug = 'analyseur-puissance-dron';
+const slug = 'analyseur-puissance-drone';
 const title = 'Analyseur de Puissance de Drone : Calculateur de Rapport Poussée/Poids pour FPV';
 const description = 'Calculez le rapport poussée/poids critique pour votre drone FPV. Obtenez des recommandations de profil de vol instantanées, une jauge de puissance visuelle et optimisez pour le cinématique, le freestyle ou la course.';
 

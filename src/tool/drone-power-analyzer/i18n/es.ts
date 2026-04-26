@@ -3,7 +3,7 @@ import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dt
 import { bibliography } from '../bibliography';
 
 const slug = 'analizador-potencia-dron';
-const title = 'Analizador de Potencia de Drone: Calculadora de Relación Empuje y Peso para FPV';
+const title = 'Analizador de Potencia de Dron: Calculadora de Relación Empuje y Peso para FPV';
 const description = 'Calcula la relación empuje-peso crítica para tu montaje de drone FPV. Obtén recomendaciones instantáneas de perfil de vuelo, medidor de potencia visual y optimiza para cine, freestyle o carreras.';
 
 const faqItems = [

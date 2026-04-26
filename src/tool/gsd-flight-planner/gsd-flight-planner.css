@@ -3,11 +3,13 @@
 .gsd-flight-planner-ui {
   --gsd-primary: #0891b2;
   --gsd-border: #e5e7eb;
-  --gsd-bg: #ffffff;
+  --gsd-bg: #fff;
   --gsd-bg-alt: #f9fafb;
   --gsd-text: #1f2937;
   --gsd-text-muted: #6b7280;
   --gsd-shadow: rgba(0, 0, 0, 0.05);
+
+  color: var(--gsd-text);
 }
 
 .theme-dark .gsd-flight-planner-ui {
@@ -18,11 +20,6 @@
   --gsd-text: #f3f4f6;
   --gsd-text-muted: #9ca3af;
   --gsd-shadow: rgba(0, 0, 0, 0.2);
-}
-
-.gsd-flight-planner-ui {
-  font-family: inherit;
-  color: var(--gsd-text);
 }
 
 /* Main Card */
@@ -94,7 +91,7 @@
 }
 
 .gsd-flight-planner-ui .column-title {
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;

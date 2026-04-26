@@ -190,9 +190,9 @@ export default [
         },
     },
     {
-        files: ["**/tool/**/component.astro"],
+        files: ["**/tool/**/*.{js,astro}"],
         rules: {
-            "max-lines": "off",
+            "max-lines": ["error", { max: 350, skipBlankLines: true, skipComments: true }],
             "max-lines-per-function": "off",
             "complexity": "off",
         },

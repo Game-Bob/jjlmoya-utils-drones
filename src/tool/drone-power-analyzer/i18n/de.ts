@@ -2,7 +2,7 @@ import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
-const slug = 'drohnen-leistungsanalyzer';
+const slug = 'drohnen-leistungs-analysator';
 const title = 'Drohnen Leistungsanalysator: Schub und Gewichts Verhältnis Rechner für FPV';
 const description = 'Berechnen Sie das kritische Schub-Gewichts-Verhältnis für Ihren FPV-Drohnenbau. Erhalten Sie sofortige Flugprofil-Empfehlungen, eine visuelle Leistungsanzeige und optimieren Sie für Cinematic, Freestyle oder Racing.';
 

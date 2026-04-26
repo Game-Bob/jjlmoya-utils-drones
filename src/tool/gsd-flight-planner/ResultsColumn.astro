@@ -1,0 +1,90 @@
+---
+const { ui } = Astro.props;
+---
+
+<div class="column column-results">
+  <h2 class="column-title">{ui.results || "Results"}</h2>
+
+  <div class="result-section">
+    <div class="result-header">{ui.gsdResult || "Ground Sample Distance"}</div>
+    <div class="gsd-large">
+      <div class="gsd-number" id="gsdNumberLarge">0.00</div>
+      <div class="gsd-label" id="gsdUnitLabel">{ui.gsdUnit || "cm/px"}</div>
+    </div>
+
+    <div class="precision-bar">
+      <div class="bar-track">
+        <div class="bar-fill" id="scaleFill"></div>
+      </div>
+      <div class="bar-labels">
+        <span class="bar-label-item" title={ui.classHighPrecision}>{ui.highPrec || "High Prec."}</span>
+        <span class="bar-label-item" title={ui.classStandard}>{ui.standard || "Standard"}</span>
+        <span class="bar-label-item" title={ui.classInspection}>{ui.inspection || "Inspection"}</span>
+        <span class="bar-label-item" title={ui.classVisual}>{ui.visual || "Visual"}</span>
+      </div>
+    </div>
+
+    <div class="classification" id="classificationBadge">—</div>
+  </div>
+
+  <div class="result-section">
+    <div class="result-header">{ui.coveragePerImage || "Coverage per Image"}</div>
+    <div class="coverage-display">
+      <div class="coverage-stat">
+        <span class="stat-label">{ui.area || "Area"}</span>
+        <span class="stat-value" id="areaDisplay">0</span>
+        <span class="stat-unit" id="areaUnit">m²</span>
+      </div>
+      <div class="coverage-stat">
+        <span class="stat-label">{ui.spacing || "Spacing"}</span>
+        <span class="stat-value" id="spacingDisplay">0</span>
+        <span class="stat-unit" id="spacingUnit">m</span>
+      </div>
+    </div>
+
+    <svg class="coverage-visual" viewBox="0 0 220 100">
+      <defs>
+        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.1"/>
+        </pattern>
+      </defs>
+      <rect width="220" height="100" fill="url(#grid)"/>
+      <text x="10" y="95" font-size="8" opacity="0.4">{ui.flightDir || "Flight →"}</text>
+      <rect id="photo1Rect" x="20" y="30" width="80" height="40" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2,2"/>
+      <rect id="photo2Rect" x="70" y="30" width="80" height="40" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+      <rect id="overlapRect" x="70" y="30" width="30" height="40" fill="currentColor" opacity="0.4" stroke="none"/>
+      <text id="overlapText" x="85" y="58" font-size="9" text-anchor="middle" fill="currentColor" font-weight="bold" opacity="0.8">70%</text>
+    </svg>
+  </div>
+
+  <div class="result-section">
+    <div class="result-header">{ui.missionMetrics || "Mission Metrics"}</div>
+    <div class="metrics-display">
+      <div class="metric-item">
+        <span class="metric-label">{ui.images || "Images"}</span>
+        <span class="metric-number" id="totalImages">0</span>
+        <span class="metric-unit">{ui.shots || "shots"}</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">{ui.flightLines || "Flight Lines"}</span>
+        <span class="metric-number" id="flightLines">0</span>
+        <span class="metric-unit">{ui.lines || "lines"}</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">{ui.flightTime || "Flight Time"}</span>
+        <span class="metric-number" id="flightTime">0</span>
+        <span class="metric-unit">{ui.min || "min"}</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">{ui.dataVolume || "Data Volume"}</span>
+        <span class="metric-number" id="dataVolume">0</span>
+        <span class="metric-unit">{ui.gb || "GB"}</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="alertsContainer" class="alerts-container"></div>
+
+  <button id="shareBtn" class="btn-primary" style="margin-bottom: 0.75rem;">{ui.copyShareLink || "Copy Share Link"}</button>
+  <button id="exportBtn" class="btn-secondary">{ui.downloadReport || "Download Report"}</button>
+</div>
