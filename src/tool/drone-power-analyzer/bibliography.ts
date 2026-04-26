@@ -1,7 +1,7 @@
 import type { BibliographyEntry } from '../../types';
 
 export const bibliography: BibliographyEntry[] = [
-  { name: 'GetFPV - Understanding Thrust to Weight Ratio', url: 'https://www.getfpv.com/learn/fpv-guide/thrust-to-weight-ratio' },
-  { name: 'Oscar Liang - Drone Motor Database & Specs', url: 'https://oscarliang.com/quadcopter-motor-database/' },
-  { name: 'ArduPilot - Multirotor Power & Efficiency', url: 'https://ardupilot.org/copter/docs/common-autopilot-selection-between-pixhawk-and-erle.html' },
+  { name: 'GetFPV - Understanding Thrust to Weight Ratio', url: 'https://rcdrone.top/blogs/articles/fpv-compute-thrust-to-weight' },
+  { name: 'Oscar Liang - Drone Motor Database & Specs', url: 'https://oscarliang.com/table-prop-motor-lipo-weight/' },
+  { name: 'ArduPilot - Multirotor Power & Efficiency', url: 'https://ardupilot.org/plane/docs/drivecalculator-guide.html' },
 ];
