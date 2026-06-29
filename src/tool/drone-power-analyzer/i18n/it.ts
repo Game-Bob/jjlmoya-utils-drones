@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -25,7 +25,7 @@ const faqItems = [
   },
   {
     question: 'Devo includere il peso della batteria nell\'AUW?',
-    answer: 'Sì. L\'AUW (All-Up Weight) è il peso totale del tuo drone con tutti i componenti installati: telaio, motori, ESC, controller di volo, fotocamera, batteria, eliche — tutto. Usa i pulsanti predefiniti della batteria per un calcolo istantaneo.',
+    answer: 'Sì. L\'AUW (All-Up Weight) è il peso totale del tuo drone con tutti i componenti installati: telaio, motori, ESC, controller di volo, fotocamera, batteria, eliche - tutto. Usa i pulsanti predefiniti della batteria per un calcolo istantaneo.',
   },
 ];
 
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Con un rapporto di {ratio}:1, questo è ideale per cinematografia heavy-lift con movimenti fluidi e controllati. Perfetto per lavori video lenti e precisi.',
     recommendation_freestyle: 'Con un rapporto di {ratio}:1, questo è il punto ideale per il volo freestyle. Eccellente agilità mantenendo la stabilità per i trick.',
     recommendation_racing: 'Con un rapporto di {ratio}:1, siamo in territorio performance freestyle. La gestione del gas è critica in spazi stretti e manovre ad alta velocità.',
-    recommendation_extreme: 'Con un rapporto di {ratio}:1, questa è una macchina da corsa. Estremamente reattiva — solo per piloti esperti in aree aperte.',
+    recommendation_extreme: 'Con un rapporto di {ratio}:1, questa è una macchina da corsa. Estremamente reattiva - solo per piloti esperti in aree aperte.',
     compareMode: 'Confronta Build',
     scenario1: 'Build A',
     scenario2: 'Build B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinematic (2:1 – 4:1)</strong>: Pesante, stabile, lento. Ideale per movimenti fluidi della fotocamera e build con carichi elevati.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: Il punto di equilibrio ideale. Abbastanza reattivo per i trick, abbastanza stabile per il controllo.',
-        '<strong>Racing (5:1 – 8:1)</strong>: Veloce e agile. Progettato per gate di velocità e manovre aggressive.',
+        '<strong>Cinematic (2:1 - 4:1)</strong>: Pesante, stabile, lento. Ideale per movimenti fluidi della fotocamera e build con carichi elevati.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: Il punto di equilibrio ideale. Abbastanza reattivo per i trick, abbastanza stabile per il controllo.',
+        '<strong>Racing (5:1 - 8:1)</strong>: Veloce e agile. Progettato per gate di velocità e manovre aggressive.',
         '<strong>Pro Racing (7:1+)</strong>: Prestazioni estreme. Solo per piloti esperti in aree aperte.',
       ],
     },

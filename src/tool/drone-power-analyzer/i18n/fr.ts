@@ -1,15 +1,15 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
 const slug = 'analyseur-puissance-drone';
-const title = 'Analyseur de Puissance de Drone : Calculateur de Rapport Poussée/Poids pour FPV';
+const title = 'Analyseur de Puissance de Drone: Calculateur de Rapport Poussée/Poids pour FPV';
 const description = 'Calculez le rapport poussée/poids critique pour votre drone FPV. Obtenez des recommandations de profil de vol instantanées, une jauge de puissance visuelle et optimisez pour le cinématique, le freestyle ou la course.';
 
 const faqItems = [
   {
     question: 'Qu\'est-ce que le rapport poussée/poids et pourquoi est-ce important ?',
-    answer: 'Le rapport poussée/poids est la poussée totale que votre drone peut produire divisée par son poids total au décollage (AUW). C\'est l\'indicateur le plus important qui détermine comment votre drone se comportera en vol — de lent et stable (cinématographique) à ultra-réactif (course).',
+    answer: 'Le rapport poussée/poids est la poussée totale que votre drone peut produire divisée par son poids total au décollage (AUW). C\'est l\'indicateur le plus important qui détermine comment votre drone se comportera en vol - de lent et stable (cinématographique) à ultra-réactif (course).',
   },
   {
     question: 'Quel est le rapport idéal ("sweet spot") pour le vol freestyle ?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Que se passe-t-il si mon rapport est supérieur à 8:1 ?',
-    answer: 'Au-dessus de 8:1, votre drone est effectivement une machine de course — extrêmement réactif et exigeant à piloter. Seuls les pilotes expérimentés devraient tenter ces configurations. Idéal pour les portes de course et la vitesse, mais dangereux en intérieur.',
+    answer: 'Au-dessus de 8:1, votre drone est effectivement une machine de course - extrêmement réactif et exigeant à piloter. Seuls les pilotes expérimentés devraient tenter ces configurations. Idéal pour les portes de course et la vitesse, mais dangereux en intérieur.',
   },
   {
     question: 'Dois-je inclure le poids de la batterie dans l\'AUW ?',
-    answer: 'Oui. L\'AUW (All-Up Weight) est le poids total de votre drone avec tous les composants installés : châssis, moteurs, ESC, contrôleur de vol, caméra, batterie, hélices — tout. Utilisez les boutons de préréglage de batterie pour un ajout de poids instantané.',
+    answer: 'Oui. L\'AUW (All-Up Weight) est le poids total de votre drone avec tous les composants installés: châssis, moteurs, ESC, contrôleur de vol, caméra, batterie, hélices - tout. Utilisez les boutons de préréglage de batterie pour un ajout de poids instantané.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Définir le poids total',
-    text: 'Saisissez le poids total au décollage (AUW) de votre drone — châssis, moteurs, batterie, caméra, tout. Utilisez les préréglages de batterie pour un ajustement instantané.',
+    text: 'Saisissez le poids total au décollage (AUW) de votre drone - châssis, moteurs, batterie, caméra, tout. Utilisez les préréglages de batterie pour un ajustement instantané.',
   },
   {
     name: 'Lire vos résultats',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Avec un rapport de {ratio}:1, c\'est idéal pour la cinématographie lourde avec des mouvements fluides et contrôlés. Parfait pour un travail de caméra lent et délibéré.',
     recommendation_freestyle: 'Avec un rapport de {ratio}:1, c\'est le point idéal pour le vol freestyle. Excellente agilité tout en maintenant la stabilité pour les figures.',
     recommendation_racing: 'Avec un rapport de {ratio}:1, nous sommes dans le domaine du freestyle de performance. La gestion des gaz est critique dans les espaces restreints et les manœuvres à haute vitesse.',
-    recommendation_extreme: 'Avec un rapport de {ratio}:1, c\'est une machine de course. Extrêmement réactif — uniquement pour les pilotes expérimentés dans des zones ouvertes.',
+    recommendation_extreme: 'Avec un rapport de {ratio}:1, c\'est une machine de course. Extrêmement réactif - uniquement pour les pilotes expérimentés dans des zones ouvertes.',
     compareMode: 'Comparer les Montages',
     scenario1: 'Montage A',
     scenario2: 'Montage B',
@@ -157,7 +157,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Le rapport de votre drone détermine trois choses fondamentales : la <strong>stabilité</strong>, la <strong>réactivité</strong> et la <strong>vitesse</strong>. Un rapport de 2:1 semble lent et stable. Un rapport de 6:1 semble nerveux et agile. Un rapport de 10:1 est une machine de course. Comprendre où se situe votre montage sur ce spectre vous aide à choisir le bon style de vol et à fixer des attentes réalistes.',
+      html: 'Le rapport de votre drone détermine trois choses fondamentales: la <strong>stabilité</strong>, la <strong>réactivité</strong> et la <strong>vitesse</strong>. Un rapport de 2:1 semble lent et stable. Un rapport de 6:1 semble nerveux et agile. Un rapport de 10:1 est une machine de course. Comprendre où se situe votre montage sur ce spectre vous aide à choisir le bon style de vol et à fixer des attentes réalistes.',
     },
     {
       type: 'title',
@@ -167,10 +167,10 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinématique (2:1 – 4:1)</strong> : Lourd, stable, lent. Idéal pour des mouvements de caméra fluides et des configurations transportant une charge utile.',
-        '<strong>Freestyle (3,5:1 – 6,5:1)</strong> : Le point d\'équilibre idéal. Suffisamment réactif pour les figures, suffisamment stable pour le contrôle.',
-        '<strong>Course (5:1 – 8:1)</strong> : Rapide et agile. Conçu pour les portes de vitesse et les manœuvres agressives.',
-        '<strong>Course Pro (7:1+)</strong> : Performances extrêmes. Uniquement pour les pilotes experts dans des zones ouvertes.',
+        '<strong>Cinématique (2:1 - 4:1)</strong>: Lourd, stable, lent. Idéal pour des mouvements de caméra fluides et des configurations transportant une charge utile.',
+        '<strong>Freestyle (3,5:1 - 6,5:1)</strong>: Le point d\'équilibre idéal. Suffisamment réactif pour les figures, suffisamment stable pour le contrôle.',
+        '<strong>Course (5:1 - 8:1)</strong>: Rapide et agile. Conçu pour les portes de vitesse et les manœuvres agressives.',
+        '<strong>Course Pro (7:1+)</strong>: Performances extrêmes. Uniquement pour les pilotes experts dans des zones ouvertes.',
       ],
     },
     {
@@ -180,7 +180,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'La formule est simple : <strong>rapport = (Poussée par Moteur × Nombre de Moteurs) / Poids Total au Décollage</strong>. Par exemple, un Quad avec des moteurs de 600g (2 400g de poussée totale) pesant 800g produit un rapport de 3:1. C\'est le territoire du freestyle.',
+      html: 'La formule est simple: <strong>rapport = (Poussée par Moteur × Nombre de Moteurs) / Poids Total au Décollage</strong>. Par exemple, un Quad avec des moteurs de 600g (2 400g de poussée totale) pesant 800g produit un rapport de 3:1. C\'est le territoire du freestyle.',
     },
     {
       type: 'title',
@@ -189,11 +189,11 @@ export const content: DronePowerAnalyzerLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Posez-vous la question : <em>Que vais-je piloter ?</em> Des prises de vue cinématographiques lentes ? Des figures freestyle agressives ? Des courses à haute vitesse ? Votre réponse détermine votre rapport idéal. La plupart des pilotes FPV finissent entre 4:1 et 6:1 car cela offre le meilleur compromis entre contrôle et sensations.',
+      html: 'Posez-vous la question: <em>Que vais-je piloter ?</em> Des prises de vue cinématographiques lentes ? Des figures freestyle agressives ? Des courses à haute vitesse ? Votre réponse détermine votre rapport idéal. La plupart des pilotes FPV finissent entre 4:1 et 6:1 car cela offre le meilleur compromis entre contrôle et sensations.',
     },
     {
       type: 'paragraph',
-      html: 'Rappelez-vous : un rapport plus élevé ne signifie pas "meilleur". Cela signifie "plus réactif". Sur un quad de course, c\'est essentiel. Sur un montage cinématographique, c\'est un inconvénient. Choisissez délibérément.',
+      html: 'Rappelez-vous: un rapport plus élevé ne signifie pas "meilleur". Cela signifie "plus réactif". Sur un quad de course, c\'est essentiel. Sur un montage cinématographique, c\'est un inconvénient. Choisissez délibérément.',
     },
   ],
   faq: faqItems,

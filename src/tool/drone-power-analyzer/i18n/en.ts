@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'Calculate the critical thrust-to-weight ratio for your FPV 
 const faqItems = [
   {
     question: 'What is the thrust-to-weight ratio and why does it matter?',
-    answer: 'The thrust-to-weight ratio is the total thrust your drone can produce divided by its all-up weight (AUW). It\'s the single most important metric that determines how your drone will feel to fly — from slow and stable (cinematography) to ultra-responsive (racing).',
+    answer: 'The thrust-to-weight ratio is the total thrust your drone can produce divided by its all-up weight (AUW). It\'s the single most important metric that determines how your drone will feel to fly - from slow and stable (cinematography) to ultra-responsive (racing).',
   },
   {
     question: 'What is the "sweet spot" ratio for freestyle flying?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'What happens if my ratio is above 8:1?',
-    answer: 'Above 8:1, your drone is effectively a racing machine — extremely reactive and demanding to fly. Only experienced pilots should attempt these builds. Great for racing gates and speed runs, but dangerous indoors.',
+    answer: 'Above 8:1, your drone is effectively a racing machine - extremely reactive and demanding to fly. Only experienced pilots should attempt these builds. Great for racing gates and speed runs, but dangerous indoors.',
   },
   {
     question: 'Do I include the battery weight in AUW?',
-    answer: 'Yes. AUW (All-Up Weight) is the total weight of your drone with all components installed: frame, motors, ESCs, flight controller, camera, battery, props — everything. Use the battery preset buttons for instant weight addition.',
+    answer: 'Yes. AUW (All-Up Weight) is the total weight of your drone with all components installed: frame, motors, ESCs, flight controller, camera, battery, props - everything. Use the battery preset buttons for instant weight addition.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Set Total Weight',
-    text: 'Input your drone\'s all-up weight (AUW) — frame, motors, battery, camera, everything. Use battery presets for instant weight adjustment.',
+    text: 'Input your drone\'s all-up weight (AUW) - frame, motors, battery, camera, everything. Use battery presets for instant weight adjustment.',
   },
   {
     name: 'Read Your Results',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'With a {ratio}:1 ratio, this is ideal for heavy-lift cinematography with smooth, controlled movements. Perfect for slow, deliberate camera work.',
     recommendation_freestyle: 'With a {ratio}:1 ratio, this is the sweet spot for freestyle flying. Excellent agility with maintained stability for tricks and tricks.',
     recommendation_racing: 'With a {ratio}:1 ratio, this is performance freestyle territory. Throttle management is critical in tight spaces and high-speed maneuvers.',
-    recommendation_extreme: 'With a {ratio}:1 ratio, this is a racing machine. Extremely reactive — only for experienced pilots in open areas.',
+    recommendation_extreme: 'With a {ratio}:1 ratio, this is a racing machine. Extremely reactive - only for experienced pilots in open areas.',
     compareMode: 'Compare Builds',
     scenario1: 'Build A',
     scenario2: 'Build B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinematic (2:1 – 4:1)</strong>: Heavy, stable, slow. Ideal for smooth camera movements and payload-carrying builds.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: The balanced sweet spot. Responsive enough for tricks, stable enough for control.',
-        '<strong>Racing (5:1 – 8:1)</strong>: Fast and agile. Designed for speed gates and aggressive maneuvers.',
+        '<strong>Cinematic (2:1 - 4:1)</strong>: Heavy, stable, slow. Ideal for smooth camera movements and payload-carrying builds.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: The balanced sweet spot. Responsive enough for tricks, stable enough for control.',
+        '<strong>Racing (5:1 - 8:1)</strong>: Fast and agile. Designed for speed gates and aggressive maneuvers.',
         '<strong>Pro Racing (7:1+)</strong>: Extreme performance. Only for expert pilots in open areas.',
       ],
     },

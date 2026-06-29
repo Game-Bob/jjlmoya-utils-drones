@@ -1,4 +1,4 @@
-import type { CategoryLocaleContent } from '../../types';
+﻿import type { CategoryLocaleContent } from '../../types';
 
 export const content: CategoryLocaleContent = {
   slug: 'drones',
@@ -7,7 +7,7 @@ export const content: CategoryLocaleContent = {
   seo: [
     {
       type: 'title',
-      text: 'Ingénierie RF et Vol de Précision : Outils pour Pilotes et Radio-opérateurs',
+      text: 'Ingénierie RF et Vol de Précision: Outils pour Pilotes et Radio-opérateurs',
       level: 2,
     },
     {
@@ -20,7 +20,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Planification de Vol : Temps de Vol et Autonomie de Batterie (mAh / Amps)',
+      text: 'Planification de Vol: Temps de Vol et Autonomie de Batterie (mAh / Amps)',
       level: 2,
     },
     {
@@ -29,7 +29,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Ingénierie d\'Antenne : Longueur d\'Onde et Fréquence Radio',
+      text: 'Ingénierie d\'Antenne: Longueur d\'Onde et Fréquence Radio',
       level: 2,
     },
     {
@@ -38,7 +38,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Navigation de Précision : Convertisseur de Coordonnées GPS',
+      text: 'Navigation de Précision: Convertisseur de Coordonnées GPS',
       level: 2,
     },
     {
@@ -69,7 +69,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Applications Commerciales : Cartographie Photogrammétrique et Inspection',
+      text: 'Applications Commerciales: Cartographie Photogrammétrique et Inspection',
       level: 2,
     },
     {
@@ -78,11 +78,11 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Chaque application nécessite une autonomie, une charge utile et des plages de fonctionnement différentes. Une mission de photogrammétrie à 100 mètres sur un terrain de 10 hectares peut nécessiter plus de 20 minutes de vol autonome. Nos calculateurs d\'autonomie vous permettent de modéliser : le poids de la charge (caméra, capteur), le nombre de batteries et les cycles de vol par jour. De là, vous calculez le ROI : si vous avez besoin de 5 batteries de 4500 mAh à 50 € chacune, votre investissement initial en batteries est de 250 €. La mission le justifie-t-elle ? Nos outils vous aident à faire ce calcul.',
+      html: 'Chaque application nécessite une autonomie, une charge utile et des plages de fonctionnement différentes. Une mission de photogrammétrie à 100 mètres sur un terrain de 10 hectares peut nécessiter plus de 20 minutes de vol autonome. Nos calculateurs d\'autonomie vous permettent de modéliser: le poids de la charge (caméra, capteur), le nombre de batteries et les cycles de vol par jour. De là, vous calculez le ROI: si vous avez besoin de 5 batteries de 4500 mAh à 50 € chacune, votre investissement initial en batteries est de 250 €. La mission le justifie-t-elle ? Nos outils vous aident à faire ce calcul.',
     },
     {
       type: 'title',
-      text: 'Communauté Radioamateur : Bandes HF, VHF, UHF et Satellites',
+      text: 'Communauté Radioamateur: Bandes HF, VHF, UHF et Satellites',
       level: 2,
     },
     {
@@ -91,7 +91,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Comprendre comment calculer les antennes pour votre bande est essentiel. Un amateur souhaitant opérer sur 2 mètres (144-146 MHz) a besoin d\'une antenne demi-onde d\'environ 1 mètre. Notre générateur calcule cela : il vous suffit de saisir la fréquence, de préciser si vous souhaitez un quart d\'onde, une demi-onde ou une onde complète, et vous obtenez la dimension exacte. Construisez votre antenne, accordez-la et connectez-vous avec le monde en utilisant simplement une radio et une antenne artisanale. C\'est une technologie accessible et résiliente qui survit aux conflits, aux catastrophes et aux pannes de courant.',
+      html: 'Comprendre comment calculer les antennes pour votre bande est essentiel. Un amateur souhaitant opérer sur 2 mètres (144-146 MHz) a besoin d\'une antenne demi-onde d\'environ 1 mètre. Notre générateur calcule cela: il vous suffit de saisir la fréquence, de préciser si vous souhaitez un quart d\'onde, une demi-onde ou une onde complète, et vous obtenez la dimension exacte. Construisez votre antenne, accordez-la et connectez-vous avec le monde en utilisant simplement une radio et une antenne artisanale. C\'est une technologie accessible et résiliente qui survit aux conflits, aux catastrophes et aux pannes de courant.',
     },
     {
       type: 'title',

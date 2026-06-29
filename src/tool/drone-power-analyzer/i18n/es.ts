@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -20,7 +20,7 @@ const faqItems = [
     answer: 'Sí. Para tomas cinematográficas fluidas y lentas, busca una relación de 2:1 a 3:1. Esto mantiene el drone estable y predecible. Cualquier valor inferior se vuelve difícil de controlar; cualquier valor superior se sentirá demasiado nervioso para movimientos lentos.',
   },
   {
-    question: '¿Qué pasa si mi relación es superior a 8:1?',
+    question: '¿Qué pasa si mi relación es superior a 8 a 1?',
     answer: 'Por encima de 8:1, tu drone es efectivamente una máquina de carreras: extremadamente reactivo y exigente de volar. Solo pilotos experimentados deberían intentar estos montajes. Es ideal para puertas de carrera y velocidad, pero peligroso en interiores.',
   },
   {
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinemático (2:1 – 4:1)</strong>: Pesado, estable, lento. Ideal para movimientos de cámara suaves y montajes que transportan carga.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: El punto de equilibrio ideal. Suficientemente reactivo para trucos, suficientemente estable para el control.',
-        '<strong>Carreras (5:1 – 8:1)</strong>: Rápido y ágil. Diseñado para puertas de velocidad y maniobras agresivas.',
+        '<strong>Cinemático (2:1 - 4:1)</strong>: Pesado, estable, lento. Ideal para movimientos de cámara suaves y montajes que transportan carga.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: El punto de equilibrio ideal. Suficientemente reactivo para trucos, suficientemente estable para el control.',
+        '<strong>Carreras (5:1 - 8:1)</strong>: Rápido y ágil. Diseñado para puertas de velocidad y maniobras agresivas.',
         '<strong>Carreras Pro (7:1+)</strong>: Rendimiento extremo. Solo para pilotos expertos en áreas abiertas.',
       ],
     },

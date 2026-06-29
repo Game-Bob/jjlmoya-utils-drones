@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'FPV drone kurulumunuz için kritik itme-ağırlık oranın�
 const faqItems = [
   {
     question: 'İtme-ağırlık oranı nedir ve neden önemlidir?',
-    answer: 'İtme-ağırlık oranı, dronunuzun üretebileceği toplam itme kuvvetinin toplam kalkış ağırlığına (AUW) bölünmesidir. Dronunuzun uçuş sırasında nasıl hissettireceğini belirleyen en önemli metriktir — yavaş ve stabil (sinematografi) ile ultra-tepkisel (yarış) arasında değişir.',
+    answer: 'İtme-ağırlık oranı, dronunuzun üretebileceği toplam itme kuvvetinin toplam kalkış ağırlığına (AUW) bölünmesidir. Dronunuzun uçuş sırasında nasıl hissettireceğini belirleyen en önemli metriktir - yavaş ve stabil (sinematografi) ile ultra-tepkisel (yarış) arasında değişir.',
   },
   {
     question: 'Freestyle uçuş için ideal oran ("sweet spot") nedir?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Oranım 8:1\'in üzerindeyse ne olur?',
-    answer: '8:1\'in üzerindeki oranlarda dronunuz tam bir yarış makinesidir — son derece tepkisel ve uçurması zordur. Sadece deneyimli pilotlar bu kurulumları denemelidir. Yarış kapıları ve hız denemeleri için harikadır, ancak iç mekanlarda tehlikelidir.',
+    answer: '8:1\'in üzerindeki oranlarda dronunuz tam bir yarış makinesidir - son derece tepkisel ve uçurması zordur. Sadece deneyimli pilotlar bu kurulumları denemelidir. Yarış kapıları ve hız denemeleri için harikadır, ancak iç mekanlarda tehlikelidir.',
   },
   {
     question: 'Batarya ağırlığını AUW\'ye dahil etmeli miyim?',
-    answer: 'Evet. AUW (Toplam Kalkış Ağırlığı), tüm bileşenlerin kurulu olduğu dronun toplam ağırlığıdır: gövde, motorlar, ESC\'ler, uçuş kontrol kartı, kamera, batarya, pervaneler — her şey. Anında ağırlık eklemek için batarya hazır ayarlarını kullanın.',
+    answer: 'Evet. AUW (Toplam Kalkış Ağırlığı), tüm bileşenlerin kurulu olduğu dronun toplam ağırlığıdır: gövde, motorlar, ESC\'ler, uçuş kontrol kartı, kamera, batarya, pervaneler - her şey. Anında ağırlık eklemek için batarya hazır ayarlarını kullanın.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Toplam Ağırlığı Ayarlayın',
-    text: 'Dronunuzun toplam kalkış ağırlığını (AUW) girin — gövde, motorlar, batarya, kamera, her şey. Anında ağırlık ayarı için batarya hazır ayarlarını kullanın.',
+    text: 'Dronunuzun toplam kalkış ağırlığını (AUW) girin - gövde, motorlar, batarya, kamera, her şey. Anında ağırlık ayarı için batarya hazır ayarlarını kullanın.',
   },
   {
     name: 'Sonuçları Okuyun',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: '{ratio}:1 oranıyla bu, yumuşak ve kontrollü hareketlere sahip ağır sinematik çekimler için idealdir. Yavaş ve planlı kamera çalışmaları için mükemmeldir.',
     recommendation_freestyle: '{ratio}:1 oranı, freestyle uçuş için ideal noktadır. Hareketler için stabiliteyi korurken mükemmel çeviklik sağlar.',
     recommendation_racing: '{ratio}:1 oranıyla performans freestyle alanındasınız. Dar alanlarda ve yüksek hızlı manevralarda gaz kontrolü kritiktir.',
-    recommendation_extreme: '{ratio}:1 oranıyla bu bir yarış makinesidir. Son derece tepkiseldir — sadece açık alanlarda deneyimli pilotlar içindir.',
+    recommendation_extreme: '{ratio}:1 oranıyla bu bir yarış makinesidir. Son derece tepkiseldir - sadece açık alanlarda deneyimli pilotlar içindir.',
     compareMode: 'Kurulumları Karşılaştır',
     scenario1: 'Kurulum A',
     scenario2: 'Kurulum B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Sinematik (2:1 – 4:1)</strong>: Ağır, stabil, yavaş. Yumuşak kamera hareketleri ve yük taşıyan kurulumlar için idealdir.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: Dengeli ideal nokta. Hareketler için yeterince tepkisel, kontrol için yeterince stabildir.',
-        '<strong>Yarış (5:1 – 8:1)</strong>: Hızlı ve çevik. Yarış kapıları ve agresif manevralar için tasarlanmıştır.',
+        '<strong>Sinematik (2:1 - 4:1)</strong>: Ağır, stabil, yavaş. Yumuşak kamera hareketleri ve yük taşıyan kurulumlar için idealdir.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: Dengeli ideal nokta. Hareketler için yeterince tepkisel, kontrol için yeterince stabildir.',
+        '<strong>Yarış (5:1 - 8:1)</strong>: Hızlı ve çevik. Yarış kapıları ve agresif manevralar için tasarlanmıştır.',
         '<strong>Pro Yarış (7:1+)</strong>: Ekstrem performans. Sadece açık alanlarda uzman pilotlar içindir.',
       ],
     },

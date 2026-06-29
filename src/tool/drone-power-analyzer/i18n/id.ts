@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'Hitung rasio dorong terhadap berat yang kritis untuk rakita
 const faqItems = [
   {
     question: 'Apa itu rasio dorong terhadap berat dan mengapa itu penting?',
-    answer: 'Rasio dorong terhadap berat (thrust-to-weight ratio) adalah total gaya dorong yang dapat dihasilkan drone Anda dibagi dengan berat total saat lepas landas (AUW). Ini adalah metrik terpenting yang menentukan bagaimana drone Anda akan terasa saat diterbangkan — dari lambat dan stabil (sinematografi) hingga ultra-responsif (balapan).',
+    answer: 'Rasio dorong terhadap berat (thrust-to-weight ratio) adalah total gaya dorong yang dapat dihasilkan drone Anda dibagi dengan berat total saat lepas landas (AUW). Ini adalah metrik terpenting yang menentukan bagaimana drone Anda akan terasa saat diterbangkan - dari lambat dan stabil (sinematografi) hingga ultra-responsif (balapan).',
   },
   {
     question: 'Berapa rasio "titik ideal" (sweet spot) untuk terbang freestyle?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Apa yang terjadi jika rasio saya di atas 8:1?',
-    answer: 'Di atas 8:1, drone Anda secara efektif adalah mesin balap — sangat reaktif dan menuntut keahlian terbang tinggi. Hanya pilot berpengalaman yang boleh mencoba rakitan ini. Sangat bagus untuk gate balapan dan adu kecepatan, tetapi berbahaya di dalam ruangan.',
+    answer: 'Di atas 8:1, drone Anda secara efektif adalah mesin balap - sangat reaktif dan menuntut keahlian terbang tinggi. Hanya pilot berpengalaman yang boleh mencoba rakitan ini. Sangat bagus untuk gate balapan dan adu kecepatan, tetapi berbahaya di dalam ruangan.',
   },
   {
     question: 'Apakah saya harus menyertakan berat baterai dalam AUW?',
-    answer: 'Ya. AUW (All-Up Weight) adalah berat total drone Anda dengan semua komponen terpasang: rangka, motor, ESC, flight controller, kamera, baterai, baling-baling — semuanya. Gunakan tombol preset baterai untuk penambahan berat secara instan.',
+    answer: 'Ya. AUW (All-Up Weight) adalah berat total drone Anda dengan semua komponen terpasang: rangka, motor, ESC, flight controller, kamera, baterai, baling-baling - semuanya. Gunakan tombol preset baterai untuk penambahan berat secara instan.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Atur Berat Total',
-    text: 'Masukkan berat total lepas landas (AUW) drone Anda — rangka, motor, baterai, kamera, semuanya. Gunakan preset baterai untuk penyesuaian berat instan.',
+    text: 'Masukkan berat total lepas landas (AUW) drone Anda - rangka, motor, baterai, kamera, semuanya. Gunakan preset baterai untuk penyesuaian berat instan.',
   },
   {
     name: 'Baca Hasil Anda',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Dengan rasio {ratio}:1, ini ideal untuk sinematografi beban berat dengan gerakan yang mulus dan terkendali. Sempurna untuk kerja kamera yang lambat dan terencana.',
     recommendation_freestyle: 'Dengan rasio {ratio}:1, ini adalah titik ideal untuk terbang freestyle. Kelincahan yang sangat baik dengan stabilitas yang tetap terjaga untuk trik.',
     recommendation_racing: 'Dengan rasio {ratio}:1, ini masuk wilayah performa freestyle. Manajemen throttle sangat kritis di ruang sempit dan manuver kecepatan tinggi.',
-    recommendation_extreme: 'Dengan rasio {ratio}:1, ini adalah mesin balap. Sangat reaktif — hanya untuk pilot berpengalaman di area terbuka.',
+    recommendation_extreme: 'Dengan rasio {ratio}:1, ini adalah mesin balap. Sangat reaktif - hanya untuk pilot berpengalaman di area terbuka.',
     compareMode: 'Bandingkan Rakitan',
     scenario1: 'Rakitan A',
     scenario2: 'Rakitan B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Sinematik (2:1 – 4:1)</strong>: Berat, stabil, lambat. Ideal untuk gerakan kamera yang mulus dan rakitan yang membawa beban.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: Titik ideal yang seimbang. Cukup responsif untuk trik, cukup stabil untuk kontrol.',
-        '<strong>Balapan (5:1 – 8:1)</strong>: Cepat dan lincah. Dirancang untuk gate balapan dan manuver agresif.',
+        '<strong>Sinematik (2:1 - 4:1)</strong>: Berat, stabil, lambat. Ideal untuk gerakan kamera yang mulus dan rakitan yang membawa beban.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: Titik ideal yang seimbang. Cukup responsif untuk trik, cukup stabil untuk kontrol.',
+        '<strong>Balapan (5:1 - 8:1)</strong>: Cepat dan lincah. Dirancang untuk gate balapan dan manuver agresif.',
         '<strong>Balapan Pro (7:1+)</strong>: Performa ekstrem. Hanya untuk pilot ahli di area terbuka.',
       ],
     },

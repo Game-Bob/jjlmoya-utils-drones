@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>시네마틱 (2:1 – 4:1)</strong>: 무겁고 안정적이며 느림. 부드러운 카메라 움직임과 페이로드를 운반하는 빌드에 적합.',
-        '<strong>프리스타일 (3.5:1 – 6.5:1)</strong>: 균형 잡힌 스윗 스팟. 트릭에는 충분히 반응하고 제어하기에는 충분히 안정적.',
-        '<strong>레이싱 (5:1 – 8:1)</strong>: 빠르고 민첩함. 레이싱 게이트 통과와 공격적인 기동을 위해 설계.',
+        '<strong>시네마틱 (2:1 - 4:1)</strong>: 무겁고 안정적이며 느림. 부드러운 카메라 움직임과 페이로드를 운반하는 빌드에 적합.',
+        '<strong>프리스타일 (3.5:1 - 6.5:1)</strong>: 균형 잡힌 스윗 스팟. 트릭에는 충분히 반응하고 제어하기에는 충분히 안정적.',
+        '<strong>레이싱 (5:1 - 8:1)</strong>: 빠르고 민첩함. 레이싱 게이트 통과와 공격적인 기동을 위해 설계.',
         '<strong>프로 레이싱 (7:1+)</strong>: 극한의 성능. 탁 트인 공간에서 전문가 파일럿 전용.',
       ],
     },

@@ -1,4 +1,4 @@
-import type { AntennaLengthCalculatorLocaleContent } from '../index';
+﻿import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -128,7 +128,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Hochfrequenz (RF) reist mit Lichtgeschwindigkeit (ca. 300.000 Kilometer pro Sekunde). Damit eine Antenne Energie optimal abgeben oder empfangen kann, muss ihre physische Größe in direktem Verhältnis zur Strecke stehen, die ein vollständiger Zyklus der Welle zurücklegt – der sogenannten <strong>Wellenlänge (λ)</strong>.',
+      html: 'Hochfrequenz (RF) reist mit Lichtgeschwindigkeit (ca. 300.000 Kilometer pro Sekunde). Damit eine Antenne Energie optimal abgeben oder empfangen kann, muss ihre physische Größe in direktem Verhältnis zur Strecke stehen, die ein vollständiger Zyklus der Welle zurücklegt - der sogenannten <strong>Wellenlänge (λ)</strong>.',
     },
     {
       type: 'paragraph',

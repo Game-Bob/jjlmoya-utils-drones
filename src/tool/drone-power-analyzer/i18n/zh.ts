@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,23 +9,23 @@ const description = '计算 FPV 无人机组装的关键推重比。获取即时
 const faqItems = [
   {
     question: '什么是推重比，为什么它很重要？',
-    answer: '推重比是指无人机能产生的总推力除以其起飞全重（AUW）。它是决定无人机飞行手感最重要的指标——从缓慢稳定（航拍）到极速响应（竞速）。',
+    answer: '推重比是指无人机能产生的总推力除以其起飞全重（AUW）。它是决定无人机飞行手感最重要的指标，从缓慢稳定（航拍）到极速响应（竞速）。',
   },
   {
-    question: '花飞（Freestyle）飞行的“黄金比例”是多少？',
+    question: '花飞（Freestyle）飞行的"黄金比例"是多少？',
     answer: '对于流畅的花飞飞行，黄金比例在 4:1 到 6:1 之间。4:1 的比例在提供良好稳定性的同时具有出色的灵活性，而 6:1 则响应极快，但在狭窄空间内需要更精细的油门控制。',
   },
   {
     question: '我可以将其用于航拍机组装吗？',
-    answer: '可以。对于流畅、缓慢的航拍镜头，目标比例应在 2:1 到 3:1 之间。这能保持无人机稳定且可预测。低于此比例将难以控制；高于此比例对于缓慢移动来说会显得过于“贼”。',
+    answer: '可以。对于流畅、缓慢的航拍镜头，目标比例应在 2:1 到 3:1 之间。这能保持无人机稳定且可预测。低于此比例将难以控制；高于此比例对于缓慢移动来说会显得过于"贼"。',
   },
   {
     question: '如果我的比例超过 8:1 会怎样？',
-    answer: '超过 8:1 时，你的无人机实际上是一台竞速机器——响应极其灵敏，对飞行技术要求很高。只有经验丰富的飞行员才应尝试此类组装。非常适合过旗门和速度赛，但在室内飞行很危险。',
+    answer: '超过 8:1 时，你的无人机实际上是一台竞速机器，响应极其灵敏，对飞行技术要求很高。只有经验丰富的飞行员才应尝试此类组装。非常适合过旗门和速度赛，但在室内飞行很危险。',
   },
   {
     question: '起飞全重（AUW）需要包含电池重量吗？',
-    answer: '需要。起飞全重（AUW）是无人机安装所有组件后的总重量：机架、电机、电调、飞控、摄像头、电池、桨叶——所有东西。使用电池预设按钮可即时添加重量。',
+    answer: '需要。起飞全重（AUW）是无人机安装所有组件后的总重量：机架、电机、电调、飞控、摄像头、电池、桨叶，所有东西。使用电池预设按钮可即时添加重量。',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: '设置总重量',
-    text: '输入无人机的起飞全重（AUW）——机架、电机、电池、摄像头等所有重量。使用电池预设进行即时重量调整。',
+    text: '输入无人机的起飞全重（AUW），机架、电机、电池、摄像头等所有重量。使用电池预设进行即时重量调整。',
   },
   {
     name: '查看结果',
@@ -123,13 +123,13 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: '{ratio}:1 的比例非常适合动作平稳、受控的重载航拍。是缓慢、精准镜头工作的完美选择。',
     recommendation_freestyle: '{ratio}:1 的比例是花飞飞行的黄金比例。在保持特技飞行所需稳定性的同时，具有极佳的灵活性。',
     recommendation_racing: '{ratio}:1 的比例属于高性能花飞领域。在狭窄空间和高速机动中，油门管理至关重要。',
-    recommendation_extreme: '{ratio}:1 的比例是一台竞速机器。响应极其灵敏——仅供经验丰富的飞行员在开阔区域飞行。',
+    recommendation_extreme: '{ratio}:1 的比例是一台竞速机器。响应极其灵敏，仅供经验丰富的飞行员在开阔区域飞行。',
     compareMode: '对比组装方案',
     scenario1: '方案 A',
     scenario2: '方案 B',
     addComparison: '添加对比',
     tooltipTWRatio: '推重比是总推力除以无人机重量。比例越高意味着加速度越快，操控响应越灵敏。',
-    tooltipFreestyle: '花飞飞行的“黄金比例”是 4:1 到 6:1，这在灵活性和操控性之间提供了最佳平衡。',
+    tooltipFreestyle: '花飞飞行的"黄金比例"是 4:1 到 6:1，这在灵活性和操控性之间提供了最佳平衡。',
     badge_unstable: '不稳定',
     badge_cinematic: '电影级',
     badge_sweetSpot: '黄金比例',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>电影级 (2:1 – 4:1)</strong>：重型、稳定、缓慢。非常适合平稳的相机移动和载重组装方案。',
-        '<strong>花飞 (3.5:1 – 6.5:1)</strong>：均衡的黄金比例。响应足以完成特技，稳定性足以进行控制。',
-        '<strong>竞速 (5:1 – 8:1)</strong>：快速且灵活。专为过旗门和激进机动而设计。',
+        '<strong>电影级 (2:1 - 4:1)</strong>：重型、稳定、缓慢。非常适合平稳的相机移动和载重组装方案。',
+        '<strong>花飞 (3.5:1 - 6.5:1)</strong>：均衡的黄金比例。响应足以完成特技，稳定性足以进行控制。',
+        '<strong>竞速 (5:1 - 8:1)</strong>：快速且灵活。专为过旗门和激进机动而设计。',
         '<strong>专业竞速 (7:1+)</strong>：极限性能。仅限专家级飞行员在开阔区域使用。',
       ],
     },
@@ -193,7 +193,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '请记住：比例越高并不代表“越好”。它代表“响应越快”。在竞速机上，这是必需的。在航拍机上，这反而可能是个负担。请根据需求审慎选择。',
+      html: '请记住：比例越高并不代表"越好"。它代表"响应越快"。在竞速机上，这是必需的。在航拍机上，这反而可能是个负担。请根据需求审慎选择。',
     },
   ],
   faq: faqItems,

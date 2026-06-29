@@ -1,4 +1,4 @@
-import type { GpsCoordinatesConverterLocaleContent } from '../index';
+﻿import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -181,15 +181,15 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Um erro minúsculo em que o decimal final fuja qual seria afinal sua implicação ? Olhe para esta grelha prática avaliando a zona do Equador e o fator em precisão da medição GPS : ',
+      html: 'Um erro minúsculo em que o decimal final fuja qual seria afinal sua implicação ? Olhe para esta grelha prática avaliando a zona do Equador e o fator em precisão da medição GPS: ',
     },
     {
       type: 'list',
       items: [
-        '<strong>Precisão Apenas À Primeira Cada ( 1 só decimal):</strong> (ex 40.1 ) , este ponto no horizonte significa uma gigantesca margem de desvio no mundo num alcance e erro tolerado num desfecho enorme  até na faixa ao entorno de um total aproximado superior a generosos :  De Cento E Onze Km de imprecisão !!.',
+        '<strong>Precisão Apenas À Primeira Cada ( 1 só decimal):</strong> (ex 40.1 ) , este ponto no horizonte significa uma gigantesca margem de desvio no mundo num alcance e erro tolerado num desfecho enorme  até na faixa ao entorno de um total aproximado superior a generosos:  De Cento E Onze Km de imprecisão !!.',
         '<strong>Com Um Precisão Levada Na Três Casas ( 3 Decimais):</strong> (  P.exe: ... 40.123), Agora limitamos e restringimos para estarmos em busca do seu multirotor ao menos  entre vizinhanças ou limites com erros que abrandam se a já 110. ( metros  ).',
         '<strong>Com As Precisões Levadas E Trabalhadas no patamar Cinco Zero ou Cincos Cifras numéricas :</strong>   Avançamos largamente para o limiar em que  uma medição afere distâncias a mais ou menos cerca entre um raio e área não  maior num de total com aproximação do valor do  1.1 / 1.5   metros de margens de dúvida e exatidão.',
-        '<strong>O Standard Super Avançado E O Que Vai Com os números e casas Decimais Na Patamar e Base  7 ao 8 ! :</strong> Quando visualizamos numéricas coordenadas estendendo o registro muito na base (  ex :   40.1234567 ) falamos dum mundo restrito usado no mapeamento profissional  a nível cirúrgico em centímetro usado em RTK de levantamentos a precisões que contêm níveis incríveis com erros reduzidíssimos da ordem dos 11 ou  10 Milímetros em acerto !!.',
+        '<strong>O Standard Super Avançado E O Que Vai Com os números e casas Decimais Na Patamar e Base  7 ao 8 ! :</strong> Quando visualizamos numéricas coordenadas estendendo o registro muito na base (  ex:   40.1234567 ) falamos dum mundo restrito usado no mapeamento profissional  a nível cirúrgico em centímetro usado em RTK de levantamentos a precisões que contêm níveis incríveis com erros reduzidíssimos da ordem dos 11 ou  10 Milímetros em acerto !!.',
       ],
     },
     {

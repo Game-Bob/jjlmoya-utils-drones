@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>シネマティック (2:1 – 4:1)</strong>: 重く、安定し、ゆっくり。スムーズなカメラの動きやペイロードを運ぶビルドに最適。',
-        '<strong>フリースタイル (3.5:1 – 6.5:1)</strong>: バランスの取れたスイートスポット。トリックには十分な反応性があり、コントロールには十分な安定性がある。',
-        '<strong>レース (5:1 – 8:1)</strong>: 高速で機敏。レースゲートやアグレッシブな操縦のために設計。',
+        '<strong>シネマティック (2:1 - 4:1)</strong>: 重く、安定し、ゆっくり。スムーズなカメラの動きやペイロードを運ぶビルドに最適。',
+        '<strong>フリースタイル (3.5:1 - 6.5:1)</strong>: バランスの取れたスイートスポット。トリックには十分な反応性があり、コントロールには十分な安定性がある。',
+        '<strong>レース (5:1 - 8:1)</strong>: 高速で機敏。レースゲートやアグレッシブな操縦のために設計。',
         '<strong>プロレース (7:1+)</strong>: 極限のパフォーマンス。オープンエリアでのエキスパートパイロット専用。',
       ],
     },

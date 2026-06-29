@@ -1,4 +1,4 @@
-import type { DroneFlightTimeLocaleContent } from '../index';
+﻿import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -175,7 +175,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'För en flygning vars tank (accar) rymmer ungefärligen upp emot gräns för avsagt tal d.v.s. ett batteri med mätfaktor ca - 2200 mAh, varav nedslagning ställts när varning av 20 ggr i säkerhet drar ner kraft över snittet där summan är i grova dag ca 15 Amperes kraftigt driv => Räkneskapens (2.2 * 0.8) / 15 * 60 ger ett total om närmsta angiven av flygvärdig timlängd per total om ca exakta : 7 min 4 sekunder (7.04 m)! ',
+      html: 'För en flygning vars tank (accar) rymmer ungefärligen upp emot gräns för avsagt tal d.v.s. ett batteri med mätfaktor ca - 2200 mAh, varav nedslagning ställts när varning av 20 ggr i säkerhet drar ner kraft över snittet där summan är i grova dag ca 15 Amperes kraftigt driv => Räkneskapens (2.2 * 0.8) / 15 * 60 ger ett total om närmsta angiven av flygvärdig timlängd per total om ca exakta: 7 min 4 sekunder (7.04 m)! ',
     },
     {
       type: 'title',
@@ -197,7 +197,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '<strong>Dessa så kallade whoop flygare och en bit the micro ones:</strong>  Agerar lågförbrukare de snurrar under knappa tak varpå amp om ca endast tre upptill 5 kan hittas dock ser du till dem en smal ram ur mAh om ca : 3 till 5hundra-där de sällan får flygdans runt en sträcka som är snarlik för dess liv och drar mer av den högre svinghastigheten (3-4 m snitt).',
+      html: '<strong>Dessa så kallade whoop flygare och en bit the micro ones:</strong>  Agerar lågförbrukare de snurrar under knappa tak varpå amp om ca endast tre upptill 5 kan hittas dock ser du till dem en smal ram ur mAh om ca: 3 till 5hundra-där de sällan får flygdans runt en sträcka som är snarlik för dess liv och drar mer av den högre svinghastigheten (3-4 m snitt).',
     },
     {
       type: 'paragraph',

@@ -1,4 +1,4 @@
-import type { GpsCoordinatesConverterLocaleContent } from '../index';
+﻿import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -171,7 +171,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
       items: [
         '<strong>Ritrovarlo Al Volo (Lost Drone):</strong> A video su OSD l\'ultimazione o dalla TX RC potrete carpire DMS non decifrabili, convertite qua in numeri DD poi in un past past inseriteli in GPS Maps ed il drone è recuperato',
         '<strong>Tralasciare Il Privato - In Mission Planner O INAV </strong> Se si devono trasferire rilievi catastali a zone ristrette dalle coordinate su foglio in dms vi dovrete tramutarli qui. Se i numeri sbordano la rotta, la zona a Mappature del vostro  software di piano d\'ispezione ( Mission Planning, QGround etc...) sconfinerà illegalmente il vicinato o peggio su di te. Usarlo in fase di setup traccia un rientro Sicuro.',
-        '<strong>Scritture in firmware : </strong> In impostazioni avanzatissime nel prompt su terminal CLI , in BetaFL non v\'è spazio in  memoria (RTH Rescue) ai punti fermi decimali e quindi dovete iniettargli le lunghezze a  Intero Grezzo formato Raw che quest\'interfaccia da in via subitanea.',
+        '<strong>Scritture in firmware: </strong> In impostazioni avanzatissime nel prompt su terminal CLI , in BetaFL non v\'è spazio in  memoria (RTH Rescue) ai punti fermi decimali e quindi dovete iniettargli le lunghezze a  Intero Grezzo formato Raw che quest\'interfaccia da in via subitanea.',
       ],
     },
     {

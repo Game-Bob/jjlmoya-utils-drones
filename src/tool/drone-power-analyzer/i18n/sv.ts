@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'Beräkna det kritiska kraft-vikt-förhållandet för ditt F
 const faqItems = [
   {
     question: 'Vad är kraft-vikt-förhållande och varför är det viktigt?',
-    answer: 'Kraft-vikt-förhållandet (Thrust-to-Weight ratio) är den totala dragkraften din drönare kan producera delat med dess totala startvikt (AUW). Det är det enskilt viktigaste mätvärdet som avgör hur din drönare känns att flyga – från långsam och stabil (cinematografi) till ultra-responsiv (racing).',
+    answer: 'Kraft-vikt-förhållandet (Thrust-to-Weight ratio) är den totala dragkraften din drönare kan producera delat med dess totala startvikt (AUW). Det är det enskilt viktigaste mätvärdet som avgör hur din drönare känns att flyga - från långsam och stabil (cinematografi) till ultra-responsiv (racing).',
   },
   {
     question: 'Vad är det ideala förhållandet ("sweet spot") för freestyle-flygning?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Vad händer om mitt förhållande är över 8:1?',
-    answer: 'Över 8:1 är din drönare i praktiken en racingmaskin – extremt reaktiv och krävande att flyga. Endast erfarna piloter bör försöka sig på dessa byggen. Utmärkt för racing-gates och hastighetskörningar, men farligt inomhus.',
+    answer: 'Över 8:1 är din drönare i praktiken en racingmaskin - extremt reaktiv och krävande att flyga. Endast erfarna piloter bör försöka sig på dessa byggen. Utmärkt för racing-gates och hastighetskörningar, men farligt inomhus.',
   },
   {
     question: 'Ska jag inkludera batterivikten i AUW?',
-    answer: 'Ja. AUW (All-Up Weight) är den totala vikten för din drönare med alla komponenter installerade: ram, motorer, ESC:er, flight controller, kamera, batteri, propellrar – allt. Använd batteri-presets för att lägga till vikt direkt.',
+    answer: 'Ja. AUW (All-Up Weight) är den totala vikten för din drönare med alla komponenter installerade: ram, motorer, ESC:er, flight controller, kamera, batteri, propellrar - allt. Använd batteri-presets för att lägga till vikt direkt.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Ställ in totalvikt',
-    text: 'Ange din drönares totala startvikt (AUW) – ram, motorer, batteri, kamera, allt. Använd batteri-presets för omedelbar viktjustering.',
+    text: 'Ange din drönares totala startvikt (AUW) - ram, motorer, batteri, kamera, allt. Använd batteri-presets för omedelbar viktjustering.',
   },
   {
     name: 'Läs av dina resultat',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Med ett förhållande på {ratio}:1 är detta idealiskt för tung cinematic-flygning med mjuka, kontrollerade rörelser. Perfekt för långsamt, medvetet kameraarbete.',
     recommendation_freestyle: 'Med ett förhållande på {ratio}:1 är detta det ideala läget för freestyle-flygning. Utmärkt rörlighet med bibehållen stabilitet för trick.',
     recommendation_racing: 'Med ett förhållande på {ratio}:1 befinner vi oss i prestanda-freestyle-territorium. Gasreglering är avgörande i trånga utrymmen och vid höghastighetsmanövrer.',
-    recommendation_extreme: 'Med ett förhållande på {ratio}:1 är detta en racingmaskin. Extremt reaktiv – endast för erfarna piloter i öppna områden.',
+    recommendation_extreme: 'Med ett förhållande på {ratio}:1 är detta en racingmaskin. Extremt reaktiv - endast för erfarna piloter i öppna områden.',
     compareMode: 'Jämför byggen',
     scenario1: 'Bygge A',
     scenario2: 'Bygge B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinematic (2:1 – 4:1)</strong>: Tung, stabil, långsam. Idealiskt för mjuka kamerarörelser och byggen som bär tung last.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: Det balanserade idealläget. Responsivt nog för trick, stabilt nog för kontroll.',
-        '<strong>Racing (5:1 – 8:1)</strong>: Snabb och rörlig. Designad för racing-gates och aggressiva manövrer.',
+        '<strong>Cinematic (2:1 - 4:1)</strong>: Tung, stabil, långsam. Idealiskt för mjuka kamerarörelser och byggen som bär tung last.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: Det balanserade idealläget. Responsivt nog för trick, stabilt nog för kontroll.',
+        '<strong>Racing (5:1 - 8:1)</strong>: Snabb och rörlig. Designad för racing-gates och aggressiva manövrer.',
         '<strong>Pro Racing (7:1+)</strong>: Extrem prestanda. Endast för expertpiloter i öppna områden.',
       ],
     },

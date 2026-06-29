@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'Calcule a relação empuxo-peso crítica para a sua montage
 const faqItems = [
   {
     question: 'O que é a relação empuxo-peso e por que ela é importante?',
-    answer: 'A relação empuxo-peso é o empuxo total que o seu drone pode produzir dividido pelo seu peso total de decolagem (AUW). É a métrica mais importante que determina como o seu drone se sentirá ao voar — de lento e estável (cinematografia) a ultra-responsivo (corrida).',
+    answer: 'A relação empuxo-peso é o empuxo total que o seu drone pode produzir dividido pelo seu peso total de decolagem (AUW). É a métrica mais importante que determina como o seu drone se sentirá ao voar - de lento e estável (cinematografia) a ultra-responsivo (corrida).',
   },
   {
     question: 'Qual é o "ponto ideal" (sweet spot) para voo freestyle?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'O que acontece se a minha relação for superior a 8:1?',
-    answer: 'Acima de 8:1, o seu drone é efetivamente uma máquina de corrida — extremamente reativo e exigente para pilotar. Apenas pilotos experientes devem tentar estas montagens. Ótimo para portões de corrida e velocidade, mas perigoso em interiores.',
+    answer: 'Acima de 8:1, o seu drone é efetivamente uma máquina de corrida - extremamente reativo e exigente para pilotar. Apenas pilotos experientes devem tentar estas montagens. Ótimo para portões de corrida e velocidade, mas perigoso em interiores.',
   },
   {
     question: 'Devo incluir o peso da bateria no AUW?',
-    answer: 'Sim. O AUW (All-Up Weight) é o peso total do seu drone com todos os componentes instalados: chassi, motores, ESCs, controlador de voo, câmera, bateria, hélices — tudo. Use os botões de predefinição de bateria para adição instantânea de peso.',
+    answer: 'Sim. O AUW (All-Up Weight) é o peso total do seu drone com todos os componentes instalados: chassi, motores, ESCs, controlador de voo, câmera, bateria, hélices - tudo. Use os botões de predefinição de bateria para adição instantânea de peso.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Definir Peso Total',
-    text: 'Insira o peso total de decolagem (AUW) do seu drone — chassi, motores, bateria, câmera, tudo. Use as predefinições de bateria para ajuste instantâneo de peso.',
+    text: 'Insira o peso total de decolagem (AUW) do seu drone - chassi, motores, bateria, câmera, tudo. Use as predefinições de bateria para ajuste instantâneo de peso.',
   },
   {
     name: 'Ler seus Resultados',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Com uma relação de {ratio}:1, isto é ideal para cinematografia de carga pesada com movimentos suaves e controlados. Perfeito para trabalhos de câmera lentos.',
     recommendation_freestyle: 'Com uma relação de {ratio}:1, este é o ponto ideal para o voo freestyle. Excelente agilidade mantendo a estabilidade para manobras.',
     recommendation_racing: 'Com uma relação de {ratio}:1, estamos em território de freestyle de alto desempenho. O controle do acelerador é crítico em espaços apertados.',
-    recommendation_extreme: 'Com uma relação de {ratio}:1, isto é uma máquina de corrida. Extremamente reativo — apenas para pilotos experientes em áreas abertas.',
+    recommendation_extreme: 'Com uma relação de {ratio}:1, isto é uma máquina de corrida. Extremamente reativo - apenas para pilotos experientes em áreas abertas.',
     compareMode: 'Comparar Montagens',
     scenario1: 'Montagem A',
     scenario2: 'Montagem B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinematográfico (2:1 – 4:1)</strong>: Pesado, estável, lento. Ideal para movimentos suaves de câmera e montagens que transportam carga.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: O ponto de equilíbrio ideal. Reativo o suficiente para manobras, estável o suficiente para controle.',
-        '<strong>Corrida (5:1 – 8:1)</strong>: Rápido e ágil. Projetado para portões de velocidade e manobras agressivas.',
+        '<strong>Cinematográfico (2:1 - 4:1)</strong>: Pesado, estável, lento. Ideal para movimentos suaves de câmera e montagens que transportam carga.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: O ponto de equilíbrio ideal. Reativo o suficiente para manobras, estável o suficiente para controle.',
+        '<strong>Corrida (5:1 - 8:1)</strong>: Rápido e ágil. Projetado para portões de velocidade e manobras agressivas.',
         '<strong>Corrida Pro (7:1+)</strong>: Desempenho extremo. Apenas para pilotos experientes em áreas abertas.',
       ],
     },

@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'Oblicz krytyczny stosunek ciągu do masy dla swojego drona 
 const faqItems = [
   {
     question: 'Co to jest stosunek ciągu do masy i dlaczego jest ważny?',
-    answer: 'Stosunek ciągu do masy to całkowity ciąg, jaki może wytworzyć twój dron, podzielony przez jego całkowitą masę startową (AUW). To najważniejszy parametr określający, jak dron będzie się prowadził w powietrzu — od powolnego i stabilnego (cinematografia) do ultra-reaktywnego (wyścigi).',
+    answer: 'Stosunek ciągu do masy to całkowity ciąg, jaki może wytworzyć twój dron, podzielony przez jego całkowitą masę startową (AUW). To najważniejszy parametr określający, jak dron będzie się prowadził w powietrzu - od powolnego i stabilnego (cinematografia) do ultra-reaktywnego (wyścigi).',
   },
   {
     question: 'Jaki jest idealny stosunek ("sweet spot") do lotów freestyle?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Co się stanie, jeśli mój stosunek przekroczy 8:1?',
-    answer: 'Powyżej 8:1 twój dron staje się maszyną wyścigową — ekstremalnie reaktywną i wymagającą w pilotażu. Tylko doświadczeni piloci powinni decydować się na takie buildy. Świetne do wyścigów i szybkich przelotów, ale niebezpieczne w pomieszczeniach.',
+    answer: 'Powyżej 8:1 twój dron staje się maszyną wyścigową - ekstremalnie reaktywną i wymagającą w pilotażu. Tylko doświadczeni piloci powinni decydować się na takie buildy. Świetne do wyścigów i szybkich przelotów, ale niebezpieczne w pomieszczeniach.',
   },
   {
     question: 'Czy muszę wliczać wagę baterii do AUW?',
-    answer: 'Tak. AUW (All-Up Weight) to całkowita waga drona ze wszystkimi zainstalowanymi komponentami: ramą, silnikami, regulatorami ESC, kontrolerem lotu, kamerą, baterią, śmigłami — wszystkim. Użyj przycisków szybkiego wyboru baterii, aby natychmiast dodać jej wagę.',
+    answer: 'Tak. AUW (All-Up Weight) to całkowita waga drona ze wszystkimi zainstalowanymi komponentami: ramą, silnikami, regulatorami ESC, kontrolerem lotu, kamerą, baterią, śmigłami - wszystkim. Użyj przycisków szybkiego wyboru baterii, aby natychmiast dodać jej wagę.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Ustaw całkowitą wagę',
-    text: 'Wprowadź całkowitą wagę startową (AUW) swojego drona — ramę, silniki, baterię, kamerę, wszystko. Skorzystaj z ustawień baterii dla natychmiastowej korekty wagi.',
+    text: 'Wprowadź całkowitą wagę startową (AUW) swojego drona - ramę, silniki, baterię, kamerę, wszystko. Skorzystaj z ustawień baterii dla natychmiastowej korekty wagi.',
   },
   {
     name: 'Odczytaj wyniki',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Stosunek {ratio}:1 jest idealny do ciężkich dronów kinowych, zapewniając płynne i kontrolowane ruchy. Perfekcyjny do powolnych, celowych ujęć.',
     recommendation_freestyle: 'Stosunek {ratio}:1 to idealny "sweet spot" dla freestyle\'u. Doskonała zwinność przy zachowaniu stabilności niezbędnej do trików.',
     recommendation_racing: 'Stosunek {ratio}:1 to terytorium wyczynowego freestyle\'u. Kontrola gazu jest kluczowa w ciasnych przestrzeniach i przy manewrach z dużą prędkością.',
-    recommendation_extreme: 'Stosunek {ratio}:1 to maszyna wyścigowa. Ekstremalnie reaktywny — tylko dla doświadczonych pilotów na otwartych przestrzeniach.',
+    recommendation_extreme: 'Stosunek {ratio}:1 to maszyna wyścigowa. Ekstremalnie reaktywny - tylko dla doświadczonych pilotów na otwartych przestrzeniach.',
     compareMode: 'Porównaj buildy',
     scenario1: 'Build A',
     scenario2: 'Build B',
@@ -161,15 +161,15 @@ export const content: DronePowerAnalyzerLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Profile lotu — wyjaśnienie',
+      text: 'Profile lotu - wyjaśnienie',
       level: 3,
     },
     {
       type: 'list',
       items: [
-        '<strong>Cinematic (2:1 – 4:1)</strong>: Ciężki, stabilny, powolny. Idealny do płynnych ruchów kamery i dronów z dużym obciążeniem.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: Zbalansowany "sweet spot". Wystarczająco reaktywny do trików, wystarczająco stabilny do kontroli.',
-        '<strong>Wyścigi (5:1 – 8:1)</strong>: Szybki i zwinny. Zaprojektowany do przelotów przez bramki i agresywnych manewrów.',
+        '<strong>Cinematic (2:1 - 4:1)</strong>: Ciężki, stabilny, powolny. Idealny do płynnych ruchów kamery i dronów z dużym obciążeniem.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: Zbalansowany "sweet spot". Wystarczająco reaktywny do trików, wystarczająco stabilny do kontroli.',
+        '<strong>Wyścigi (5:1 - 8:1)</strong>: Szybki i zwinny. Zaprojektowany do przelotów przez bramki i agresywnych manewrów.',
         '<strong>Pro Racing (7:1+)</strong>: Ekstremalne osiągi. Tylko dla ekspertów na otwartych przestrzeniach.',
       ],
     },
@@ -189,7 +189,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Zapytaj siebie: <em>Jak zamierzam latać?</em> Powolne ujęcia kinowe? Agresywny freestyle? Szybkie wyścigi? Odpowiedź określi twój idealny stosunek. Większość pilotów FPV celuje w przedział 4:1 – 6:1, ponieważ oferuje on najlepszy kompromis między kontrolą a emocjami.',
+      html: 'Zapytaj siebie: <em>Jak zamierzam latać?</em> Powolne ujęcia kinowe? Agresywny freestyle? Szybkie wyścigi? Odpowiedź określi twój idealny stosunek. Większość pilotów FPV celuje w przedział 4:1 - 6:1, ponieważ oferuje on najlepszy kompromis między kontrolą a emocjami.',
     },
     {
       type: 'paragraph',

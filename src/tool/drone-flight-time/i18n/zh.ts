@@ -1,4 +1,4 @@
-import type { DroneFlightTimeLocaleContent } from '../index';
+﻿import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -184,7 +184,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '请不要盲从“电量永远也不嫌多”的想法。企图为获得更多时长盲目累积巨大基数的做法反而会有报应到来，这就是常提及的效力递减之说。单靠增大电池两倍的扩容就想要取得二倍对应留空时间的行为常常因多余多出的自重要拉动使得旋翼机必须要比正常更高速度地维持马达轮换速度进而是更多能耗产生的代价，在这场相互掣肘的较量中如果逾越一定的红线反而不是助力而是成为累赘并降低统合性效率的关键痛处。',
+      html: '请不要盲从"电量永远也不嫌多"的想法。企图为获得更多时长盲目累积巨大基数的做法反而会有报应到来，这就是常提及的效力递减之说。单靠增大电池两倍的扩容就想要取得二倍对应留空时间的行为常常因多余多出的自重要拉动使得旋翼机必须要比正常更高速度地维持马达轮换速度进而是更多能耗产生的代价，在这场相互掣肘的较量中如果逾越一定的红线反而不是助力而是成为累赘并降低统合性效率的关键痛处。',
     },
     {
       type: 'paragraph',

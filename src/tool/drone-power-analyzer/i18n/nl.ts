@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'Bereken de cruciale stuwkracht-gewichtsverhouding voor je F
 const faqItems = [
   {
     question: 'Wat is de stuwkracht-gewichtsverhouding en waarom is het belangrijk?',
-    answer: 'De stuwkracht-gewichtsverhouding is de totale stuwkracht die je drone kan produceren gedeeld door het totale startgewicht (AUW). Het is de belangrijkste metriek die bepaalt hoe je drone aanvoelt tijdens het vliegen — van traag en stabiel (cinematografie) tot ultra-reactief (racing).',
+    answer: 'De stuwkracht-gewichtsverhouding is de totale stuwkracht die je drone kan produceren gedeeld door het totale startgewicht (AUW). Het is de belangrijkste metriek die bepaalt hoe je drone aanvoelt tijdens het vliegen - van traag en stabiel (cinematografie) tot ultra-reactief (racing).',
   },
   {
     question: 'Wat is de ideale verhouding ("sweet spot") voor freestyle vliegen?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Wat gebeurt er als mijn verhouding boven de 8:1 ligt?',
-    answer: 'Boven de 8:1 is je drone effectief een racemachine — extreem reactief en veeleisend om mee te vliegen. Alleen ervaren piloten zouden deze builds moeten proberen. Geweldig voor race-gates en speedruns, maar gevaarlijk binnenshuis.',
+    answer: 'Boven de 8:1 is je drone effectief een racemachine - extreem reactief en veeleisend om mee te vliegen. Alleen ervaren piloten zouden deze builds moeten proberen. Geweldig voor race-gates en speedruns, maar gevaarlijk binnenshuis.',
   },
   {
     question: 'Moet ik het batterijgewicht meerekenen in het AUW?',
-    answer: 'Ja. AUW (All-Up Weight) is het totale gewicht van je drone met alle componenten geïnstalleerd: frame, motoren, ESC\'s, flight controller, camera, batterij, props — alles. Gebruik de batterij-presets voor directe gewichtstoevoeging.',
+    answer: 'Ja. AUW (All-Up Weight) is het totale gewicht van je drone met alle componenten geïnstalleerd: frame, motoren, ESC\'s, flight controller, camera, batterij, props - alles. Gebruik de batterij-presets voor directe gewichtstoevoeging.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Stel Totaal Gewicht in',
-    text: 'Voer het totale startgewicht (AUW) van je drone in — frame, motoren, batterij, camera, alles. Gebruik de batterij-presets voor directe gewichtsaanpassing.',
+    text: 'Voer het totale startgewicht (AUW) van je drone in - frame, motoren, batterij, camera, alles. Gebruik de batterij-presets voor directe gewichtsaanpassing.',
   },
   {
     name: 'Lees je Resultaten',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Met een verhouding van {ratio}:1 is dit ideaal voor heavy-lift cinematografie met vloeiende, gecontroleerde bewegingen. Perfect voor traag, bewust camerawerk.',
     recommendation_freestyle: 'Met een verhouding van {ratio}:1 is dit de sweet spot voor freestyle vliegen. Uitstekende wendbaarheid met behoud van stabiliteit voor tricks.',
     recommendation_racing: 'Met een verhouding van {ratio}:1 bevinden we ons op het terrein van performance freestyle. Gasbeheersing is cruciaal in krappe ruimtes en bij manoeuvres op hoge snelheid.',
-    recommendation_extreme: 'Met een verhouding van {ratio}:1 is dit een racemachine. Extreem reactief — alleen voor ervaren piloten in open gebieden.',
+    recommendation_extreme: 'Met een verhouding van {ratio}:1 is dit een racemachine. Extreem reactief - alleen voor ervaren piloten in open gebieden.',
     compareMode: 'Builds Vergelijken',
     scenario1: 'Build A',
     scenario2: 'Build B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinematic (2:1 – 4:1)</strong>: Zwaar, stabiel, traag. Ideaal voor vloeiende camerabewegingen en builds die een payload dragen.',
-        '<strong>Freestyle (3.5:1 – 6.5:1)</strong>: De gebalanceerde sweet spot. Reactief genoeg voor tricks, stabiel genoeg voor controle.',
-        '<strong>Racing (5:1 – 8:1)</strong>: Snel en wendbaar. Ontworpen voor race-gates en agressieve manoeuvres.',
+        '<strong>Cinematic (2:1 - 4:1)</strong>: Zwaar, stabiel, traag. Ideaal voor vloeiende camerabewegingen en builds die een payload dragen.',
+        '<strong>Freestyle (3.5:1 - 6.5:1)</strong>: De gebalanceerde sweet spot. Reactief genoeg voor tricks, stabiel genoeg voor controle.',
+        '<strong>Racing (5:1 - 8:1)</strong>: Snel en wendbaar. Ontworpen voor race-gates en agressieve manoeuvres.',
         '<strong>Pro Racing (7:1+)</strong>: Extreme prestaties. Alleen voor expert-piloten in open gebieden.',
       ],
     },

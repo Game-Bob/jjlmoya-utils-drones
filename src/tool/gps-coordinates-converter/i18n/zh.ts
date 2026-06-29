@@ -1,4 +1,4 @@
-import type { GpsCoordinatesConverterLocaleContent } from '../index';
+﻿import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -155,7 +155,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: '发生这种“魔变”源于电路底层最淳朴的机理 —— 单片微处理器(MCU控制器)们处理纯粹“整数(Integer)”的能力和精准度其实远比对付带有小数点位那些“浮点数(Float)”的效能要快上、强上无数倍之多。他们常常选择干脆直接把前面科普过的那个十进制标准DD里的核心值去暴增乘上个 <strong>一千万倍 (即 10,000,000 会经常被简写作 1e7)</strong>，然后就此存活并互相倒腾。我们的计算器系统能在这极度复杂的纯机械无脑大整数堆里和常人能看懂的地标数据之间无缝衔接且随意进出切换重组！绝对可以说是分析拆解深奥航点及黑匣子信息的最强利器助手。',
+      html: '发生这种"魔变"源于电路底层最淳朴的机理，单片微处理器(MCU控制器)们处理纯粹"整数(Integer)"的能力和精准度其实远比对付带有小数点位那些"浮点数(Float)"的效能要快上、强上无数倍之多。他们常常选择干脆直接把前面科普过的那个十进制标准DD里的核心值去暴增乘上个 <strong>一千万倍 (即 10,000,000 会经常被简写作 1e7)</strong>，然后就此存活并互相倒腾。我们的计算器系统能在这极度复杂的纯机械无脑大整数堆里和常人能看懂的地标数据之间无缝衔接且随意进出切换重组！绝对可以说是分析拆解深奥航点及黑匣子信息的最强利器助手。',
     },
     {
       type: 'title',
@@ -171,7 +171,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
       items: [
         '<strong>悲情上演炸机之后的捞机寻找大作战 (Lost Drone Recovery):</strong> 当图传雪花甚至直接黑屏后，OSD(图传屏幕信息叠加展示)界面或是像睿思博得(Radiomaster)、黑羊Taranis接收控上的最终抢救显示数据界面内，经常停留着以原始DD或是比较别扭的组合 DMS 为形态残喘的遗留断点数据。飞手在现场极其迫切迅速将其还原调拨输入回通用易打点的Google 卫星视图好去把那昂贵的电子宠物从草丛灌木堆里打救回巢。',
         '<strong>大刀阔斧的航点勘察布局 (Waypoint Mission Planning):</strong> 在使用 QGroundControl、Mission Planner（MP地面站）一类的重型武装去布局飞行大业之时，零瑕疵是它的不二底线。若是能把从传统国土地理资源库的或者地方测量处手写得来的那种满布着D M S的材料坐标通通严丝合缝转化导入到地面站内指定的数字格式系统，那就相当于给自己规划上好一道确保飞机飞完地界同时不致以跨入违法非受权空域从而招引官司警察的完美保底屏障。',
-        '<strong>硬汉风格操作的固件底端注入:</strong> 部分对UI操控并不完善甚至硬核的机器在进行固件里手动于最基本端（CLI内）死死锁死“一键归巢指令(RTH)”标的源地时就非要认死理仅仅吃那些长如乱码、苛刻到精确至近千万分一地步那原始全长硬件型巨大整形数(Raw integer)。',
+        '<strong>硬汉风格操作的固件底端注入:</strong> 部分对UI操控并不完善甚至硬核的机器在进行固件里手动于最基本端（CLI内）死死锁死"一键归巢指令(RTH)"标的源地时就非要认死理仅仅吃那些长如乱码、苛刻到精确至近千万分一地步那原始全长硬件型巨大整形数(Raw integer)。',
       ],
     },
     {
@@ -214,7 +214,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
     {
       name: '打包提取收获果实供去使用',
-      text: '最后这一击就是直击于紧挨着您梦寐索求该心仪的终极样式右旁那个专有的便携提取按键上点上这这么一压，“嗒”地一下这宝贵的指令字符全数自动打包给进了我们剪贴记录里边去准备去奔袭诸如 Google地图导航框或者地面控MP里再或就是填回去向底层黑色深渊。',
+      text: '最后这一击就是直击于紧挨着您梦寐索求该心仪的终极样式右旁那个专有的便携提取按键上点上这这么一压，"嗒"地一下这宝贵的指令字符全数自动打包给进了我们剪贴记录里边去准备去奔袭诸如 Google地图导航框或者地面控MP里再或就是填回去向底层黑色深渊。',
     },
   ],
   schemas,

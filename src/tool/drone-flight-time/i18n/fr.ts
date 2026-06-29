@@ -1,4 +1,4 @@
-import type { DroneFlightTimeLocaleContent } from '../index';
+﻿import type { DroneFlightTimeLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -92,7 +92,7 @@ export const content: DroneFlightTimeLocaleContent = {
     powerWatts: 'Puissance (Watts)',
     efficiencyHint: 'En changeant les Ampères, les Watts sont recalculés selon la tension S.',
     estimatedEfficiency: 'Efficacité Estimée',
-    typicalEfficiencyHint: 'Typique : 4-6 (Racing), 8-12 (Cinématique/Longue Portée).',
+    typicalEfficiencyHint: 'Typique: 4-6 (Racing), 8-12 (Cinématique/Longue Portée).',
     safeFlight: 'Vol Sécurisé',
     totalEnergy: 'Énergie Totale',
     theoreticalTime: 'Temps Théorique (0%)',
@@ -104,7 +104,7 @@ export const content: DroneFlightTimeLocaleContent = {
   seo: [
     {
       type: 'title',
-      text: 'Calculateur de Temps de Vol pour Drones : Guide Complet de l\'Autonomie',
+      text: 'Calculateur de Temps de Vol pour Drones: Guide Complet de l\'Autonomie',
       level: 2,
     },
     {
@@ -113,7 +113,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Capacité de la Batterie : Les mAh Expliqués',
+      text: 'Capacité de la Batterie: Les mAh Expliqués',
       level: 3,
     },
     {
@@ -126,7 +126,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
     {
       type: 'title',
-      text: 'La Consommation de Courant : Ampérage en Vol',
+      text: 'La Consommation de Courant: Ampérage en Vol',
       level: 3,
     },
     {
@@ -136,15 +136,15 @@ export const content: DroneFlightTimeLocaleContent = {
     {
       type: 'list',
       items: [
-        'Vol Stationnaire : La consommation est minimale et constante, idéale pour la photographie.',
-        'Vol de Croisière : La consommation augmente légèrement en raison de la traînée aérodynamique.',
-        'Vol Agressif/FPV : Les pics de courant peuvent tripler la consommation moyenne en quelques secondes.',
-        'Poids du Drone : Chaque gramme supplémentaire nécessite plus de tours moteur pour générer de la poussée, augmentant l\'ampérage.',
+        'Vol Stationnaire: La consommation est minimale et constante, idéale pour la photographie.',
+        'Vol de Croisière: La consommation augmente légèrement en raison de la traînée aérodynamique.',
+        'Vol Agressif/FPV: Les pics de courant peuvent tripler la consommation moyenne en quelques secondes.',
+        'Poids du Drone: Chaque gramme supplémentaire nécessite plus de tours moteur pour générer de la poussée, augmentant l\'ampérage.',
       ],
     },
     {
       type: 'title',
-      text: 'Règle de Sécurité des 80% : Protéger la Chimie LiPo',
+      text: 'Règle de Sécurité des 80%: Protéger la Chimie LiPo',
       level: 3,
     },
     {
@@ -174,7 +174,7 @@ export const content: DroneFlightTimeLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Par exemple, si vous avez une batterie de 2200 mAh, que vous voulez atterrir à 20% (sécurité 0,8) et que votre drone consomme une moyenne de 15 Ampères, le calcul serait : (2,2 * 0,8) / 15 * 60 = 7,04 minutes de vol sûr.',
+      html: 'Par exemple, si vous avez une batterie de 2200 mAh, que vous voulez atterrir à 20% (sécurité 0,8) et que votre drone consomme une moyenne de 15 Ampères, le calcul serait: (2,2 * 0,8) / 15 * 60 = 7,04 minutes de vol sûr.',
     },
     {
       type: 'title',

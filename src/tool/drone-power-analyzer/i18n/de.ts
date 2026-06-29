@@ -1,4 +1,4 @@
-import type { DronePowerAnalyzerLocaleContent } from '../index';
+﻿import type { DronePowerAnalyzerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -9,7 +9,7 @@ const description = 'Berechnen Sie das kritische Schub-Gewichts-Verhältnis für
 const faqItems = [
   {
     question: 'Was ist das Schub-Gewichts-Verhältnis und warum ist es wichtig?',
-    answer: 'Das Schub-Gewichts-Verhältnis ist der Gesamtschub, den Ihre Drohne erzeugen kann, geteilt durch ihr Abfluggewicht (AUW). Es ist die wichtigste Kennzahl, die bestimmt, wie sich Ihre Drohne beim Fliegen anfühlt – von langsam und stabil (Cinematography) bis hin zu ultra-reaktiv (Racing).',
+    answer: 'Das Schub-Gewichts-Verhältnis ist der Gesamtschub, den Ihre Drohne erzeugen kann, geteilt durch ihr Abfluggewicht (AUW). Es ist die wichtigste Kennzahl, die bestimmt, wie sich Ihre Drohne beim Fliegen anfühlt - von langsam und stabil (Cinematography) bis hin zu ultra-reaktiv (Racing).',
   },
   {
     question: 'Was ist das ideale Verhältnis ("Sweet Spot") für Freestyle-Flüge?',
@@ -21,11 +21,11 @@ const faqItems = [
   },
   {
     question: 'Was passiert, wenn mein Verhältnis über 8:1 liegt?',
-    answer: 'Über 8:1 ist Ihre Drohne faktisch eine Rennmaschine – extrem reaktiv und anspruchsvoll zu fliegen. Nur erfahrene Piloten sollten solche Builds versuchen. Ideal für Renntore und Speed-Runs, aber gefährlich in Innenräumen.',
+    answer: 'Über 8:1 ist Ihre Drohne faktisch eine Rennmaschine - extrem reaktiv und anspruchsvoll zu fliegen. Nur erfahrene Piloten sollten solche Builds versuchen. Ideal für Renntore und Speed-Runs, aber gefährlich in Innenräumen.',
   },
   {
     question: 'Muss ich das Batteriegewicht in das AUW einbeziehen?',
-    answer: 'Ja. Das AUW (All-Up Weight) ist das Gesamtgewicht Ihrer Drohne mit allen installierten Komponenten: Rahmen, Motoren, ESCs, Flugsteuerung, Kamera, Batterie, Propeller – alles. Nutzen Sie die Batterie-Presets für eine sofortige Gewichtshinzufügung.',
+    answer: 'Ja. Das AUW (All-Up Weight) ist das Gesamtgewicht Ihrer Drohne mit allen installierten Komponenten: Rahmen, Motoren, ESCs, Flugsteuerung, Kamera, Batterie, Propeller - alles. Nutzen Sie die Batterie-Presets für eine sofortige Gewichtshinzufügung.',
   },
 ];
 
@@ -40,7 +40,7 @@ const howToSteps = [
   },
   {
     name: 'Gesamtgewicht festlegen',
-    text: 'Geben Sie das Abfluggewicht (AUW) Ihrer Drohne ein – Rahmen, Motoren, Batterie, Kamera, alles. Nutzen Sie die Batterie-Presets für eine sofortige Gewichtsanpassung.',
+    text: 'Geben Sie das Abfluggewicht (AUW) Ihrer Drohne ein - Rahmen, Motoren, Batterie, Kamera, alles. Nutzen Sie die Batterie-Presets für eine sofortige Gewichtsanpassung.',
   },
   {
     name: 'Ergebnisse ablesen',
@@ -123,7 +123,7 @@ export const content: DronePowerAnalyzerLocaleContent = {
     recommendation_cinematic: 'Mit einem Verhältnis von {ratio}:1 ist dies ideal für Heavy-Lift-Cinematography mit sanften, kontrollierten Bewegungen. Perfekt für langsame, bewusste Kameraarbeit.',
     recommendation_freestyle: 'Mit einem Verhältnis von {ratio}:1 ist dies der Sweet Spot für Freestyle-Flüge. Exzellente Agilität bei gleichbleibender Stabilität für Tricks und Manöver.',
     recommendation_racing: 'Mit einem Verhältnis von {ratio}:1 befinden wir uns im Bereich von Performance-Freestyle. Die Gaskontrolle ist in engen Räumen und bei Hochgeschwindigkeitsmanövern entscheidend.',
-    recommendation_extreme: 'Mit einem Verhältnis von {ratio}:1 ist dies eine Rennmaschine. Extrem reaktiv – nur für erfahrene Piloten in offenen Gebieten.',
+    recommendation_extreme: 'Mit einem Verhältnis von {ratio}:1 ist dies eine Rennmaschine. Extrem reaktiv - nur für erfahrene Piloten in offenen Gebieten.',
     compareMode: 'Builds vergleichen',
     scenario1: 'Build A',
     scenario2: 'Build B',
@@ -167,9 +167,9 @@ export const content: DronePowerAnalyzerLocaleContent = {
     {
       type: 'list',
       items: [
-        '<strong>Cinematic (2:1 – 4:1)</strong>: Schwer, stabil, langsam. Ideal für sanfte Kamerabewegungen und Builds, die Lasten tragen.',
-        '<strong>Freestyle (3,5:1 – 6,5:1)</strong>: Der ausgewogene Sweet Spot. Reaktionsschnell genug für Tricks, stabil genug für Kontrolle.',
-        '<strong>Racing (5:1 – 8:1)</strong>: Schnell und agil. Entwickelt für Renntore und aggressive Manöver.',
+        '<strong>Cinematic (2:1 - 4:1)</strong>: Schwer, stabil, langsam. Ideal für sanfte Kamerabewegungen und Builds, die Lasten tragen.',
+        '<strong>Freestyle (3,5:1 - 6,5:1)</strong>: Der ausgewogene Sweet Spot. Reaktionsschnell genug für Tricks, stabil genug für Kontrolle.',
+        '<strong>Racing (5:1 - 8:1)</strong>: Schnell und agil. Entwickelt für Renntore und aggressive Manöver.',
         '<strong>Pro Racing (7:1+)</strong>: Extreme Leistung. Nur für Expertenpiloten in offenen Gebieten.',
       ],
     },

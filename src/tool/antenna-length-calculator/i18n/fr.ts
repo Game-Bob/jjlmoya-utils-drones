@@ -1,4 +1,4 @@
-import type { AntennaLengthCalculatorLocaleContent } from '../index';
+﻿import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -123,7 +123,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Concepts Fondamentaux : Longueur d\'Onde et Résonance',
+      text: 'Concepts Fondamentaux: Longueur d\'Onde et Résonance',
       level: 3,
     },
     {
@@ -137,9 +137,9 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        'Cuivre dénudé : A un Vf d\'environ 0,95.',
-        'Câbles isolés (PVC) : L\'isolation ralentit l\'onde, abaissant le facteur à 0,92 ou moins.',
-        'Tiges de cuivre massif : Étant plus épaisses et conductrices, le facteur monte légèrement à 0,97.',
+        'Cuivre dénudé: A un Vf d\'environ 0,95.',
+        'Câbles isolés (PVC): L\'isolation ralentit l\'onde, abaissant le facteur à 0,92 ou moins.',
+        'Tiges de cuivre massif: Étant plus épaisses et conductrices, le facteur monte légèrement à 0,97.',
       ],
     },
     {
@@ -167,15 +167,15 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     {
       type: 'list',
       items: [
-        '5.8 GHz (Vidéo FPV) : Les longueurs sont minuscules (environ 12-13 mm pour le radiateur). Tout excès de soudure peut ruiner les performances.',
-        '2.4 GHz (Contrôle et Wi-Fi) : Une bande saturée où l\'efficacité de l\'antenne est la clé pour éviter la perte de liaison (failsafe).',
-        '868 MHz / 915 MHz (Longue Portée) : Utilisée par des systèmes comme Team BlackSheep Crossfire ou ExpressLRS. Les antennes ici sont plus grandes (environ 8 cm par bras) et permettent de traverser les obstacles plus facilement.',
-        '433 MHz (UHF) : L\'ancienne norme longue portée, avec de grandes antennes idéales pour les vols de plusieurs kilomètres.',
+        '5.8 GHz (Vidéo FPV): Les longueurs sont minuscules (environ 12-13 mm pour le radiateur). Tout excès de soudure peut ruiner les performances.',
+        '2.4 GHz (Contrôle et Wi-Fi): Une bande saturée où l\'efficacité de l\'antenne est la clé pour éviter la perte de liaison (failsafe).',
+        '868 MHz / 915 MHz (Longue Portée): Utilisée par des systèmes comme Team BlackSheep Crossfire ou ExpressLRS. Les antennes ici sont plus grandes (environ 8 cm par bras) et permettent de traverser les obstacles plus facilement.',
+        '433 MHz (UHF): L\'ancienne norme longue portée, avec de grandes antennes idéales pour les vols de plusieurs kilomètres.',
       ],
     },
     {
       type: 'title',
-      text: 'Référence Technique : Tableau SWR et Pertes',
+      text: 'Référence Technique: Tableau SWR et Pertes',
       level: 3,
     },
     {
@@ -204,7 +204,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Le danger d\'un SWR élevé : Protégez votre VTx',
+      text: 'Le danger d\'un SWR élevé: Protégez votre VTx',
       level: 3,
     },
     {
@@ -217,7 +217,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Harmoniques : Comprendre les Interférences',
+      text: 'Harmoniques: Comprendre les Interférences',
       level: 3,
     },
     {

@@ -1,9 +1,9 @@
-import type { GsdFlightPlannerLocaleContent } from '../index';
+﻿import type { GsdFlightPlannerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
 const slug = 'planificateur-vol-gsd';
-const title = 'Planificateur de Vol GSD : Calculateur de Distance d\'Échantillonnage au Sol';
+const title = 'Planificateur de Vol GSD: Calculateur de Distance d\'Échantillonnage au Sol';
 const description = 'Calculez la distance d\'échantillonnage au sol (GSD) pour vos missions de photogrammétrie. Supporte DJI, Autel et caméras personnalisées. Planification de vol avec indicateurs de qualité visuelle.';
 
 const faqItems = [
@@ -17,7 +17,7 @@ const faqItems = [
   },
   {
     question: 'De quelle GSD ai-je besoin selon le type de mission ?',
-    answer: 'Topographie de haute précision : 1-2 cm/px. Cartographie standard : 2-5 cm/px. Inspection et surveillance : 5-10 cm/px. Relevés visuels : 10+ cm/px. Choisissez en fonction des exigences de précision de votre projet.',
+    answer: 'Topographie de haute précision: 1-2 cm/px. Cartographie standard: 2-5 cm/px. Inspection et surveillance: 5-10 cm/px. Relevés visuels: 10+ cm/px. Choisissez en fonction des exigences de précision de votre projet.',
   },
   {
     question: 'Qu\'est-ce que le recouvrement d\'image et pourquoi est-ce important ?',
@@ -25,7 +25,7 @@ const faqItems = [
   },
   {
     question: 'Comment calculer l\'altitude de vol idéale ?',
-    answer: 'Utilisez ce calculateur : GSD souhaitée × distance focale ÷ largeur du capteur = altitude. Le calculateur effectue ce calcul automatiquement et affiche l\'altitude maximale de sécurité pour maintenir votre précision cible et éviter le flou de mouvement.',
+    answer: 'Utilisez ce calculateur: GSD souhaitée × distance focale ÷ largeur du capteur = altitude. Le calculateur effectue ce calcul automatiquement et affiche l\'altitude maximale de sécurité pour maintenir votre précision cible et éviter le flou de mouvement.',
   },
 ];
 
@@ -138,9 +138,9 @@ export const content: GsdFlightPlannerLocaleContent = {
     classStandard: 'Cartographie Standard',
     classInspection: 'Inspection et Surveillance',
     classVisual: 'Relevé Visuel',
-    ultraHighResAlert: 'Très haute résolution : assurez-vous d\'avoir assez de stockage et de puissance de calcul',
-    lowOverlapAlert: 'Recouvrement frontal sous 60 % : peut affecter la qualité du modèle 3D',
-    largeDatasetAlert: 'Volume de données très important : envisagez de diviser en plusieurs vols',
+    ultraHighResAlert: 'Très haute résolution: assurez-vous d\'avoir assez de stockage et de puissance de calcul',
+    lowOverlapAlert: 'Recouvrement frontal sous 60 %: peut affecter la qualité du modèle 3D',
+    largeDatasetAlert: 'Volume de données très important: envisagez de diviser en plusieurs vols',
     presetDjiMavic3e: 'DJI Mavic 3E',
     presetDjiMatrice300: 'DJI Matrice 300 RTK',
     presetAutelEvoII: 'Autel EVO II',
@@ -149,7 +149,7 @@ export const content: GsdFlightPlannerLocaleContent = {
   seo: [
     {
       type: 'title',
-      text: 'Planificateur de Vol GSD : Le Calculateur de Photogrammétrie Complet',
+      text: 'Planificateur de Vol GSD: Le Calculateur de Photogrammétrie Complet',
       level: 2,
     },
     {
@@ -190,12 +190,12 @@ export const content: GsdFlightPlannerLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Recouvrement : Pourquoi 60-80 % est l\'idéal',
+      text: 'Recouvrement: Pourquoi 60-80 % est l\'idéal',
       level: 3,
     },
     {
       type: 'paragraph',
-      html: 'Un faible recouvrement (20-40 %) économise la batterie mais risque de créer des trous dans la couverture. Un recouvrement élevé (80 %+) garantit une couverture complète mais prolonge la mission. La <strong>plage 60-80 %</strong> est le standard professionnel : elle assure une reconstruction 3D complète sans redondance excessive.',
+      html: 'Un faible recouvrement (20-40 %) économise la batterie mais risque de créer des trous dans la couverture. Un recouvrement élevé (80 %+) garantit une couverture complète mais prolonge la mission. La <strong>plage 60-80 %</strong> est le standard professionnel: elle assure une reconstruction 3D complète sans redondance excessive.',
     },
     {
       type: 'title',
@@ -204,7 +204,7 @@ export const content: GsdFlightPlannerLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Avant chaque vol, utilisez ce calculateur pour déterminer : l\'altitude exacte pour la GSD requise, le nombre de photos nécessaires, le temps total de mission et si le flou de mouvement est un risque. Avec ces données, vous exécuterez des missions précises et éviterez des erreurs coûteuses.',
+      html: 'Avant chaque vol, utilisez ce calculateur pour déterminer: l\'altitude exacte pour la GSD requise, le nombre de photos nécessaires, le temps total de mission et si le flou de mouvement est un risque. Avec ces données, vous exécuterez des missions précises et éviterez des erreurs coûteuses.',
     },
   ],
   faq: faqItems,

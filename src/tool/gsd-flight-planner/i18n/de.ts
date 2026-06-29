@@ -1,4 +1,4 @@
-import type { GsdFlightPlannerLocaleContent } from '../index';
+﻿import type { GsdFlightPlannerLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -163,7 +163,7 @@ export const content: GsdFlightPlannerLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Ob Sie Land vermessen, 3D-Modelle erstellen oder Infrastruktur überwachen – die GSD bestimmt den Detailgrad, den Sie erfassen können. Eine Mission mit 1 cm/px erfasst Details, die eine Mission mit 5 cm/px übersieht. Aber zu niedriges Fliegen verschwendet Akku und verlängert die Missionszeit unnötig.',
+      html: 'Ob Sie Land vermessen, 3D-Modelle erstellen oder Infrastruktur überwachen - die GSD bestimmt den Detailgrad, den Sie erfassen können. Eine Mission mit 1 cm/px erfasst Details, die eine Mission mit 5 cm/px übersieht. Aber zu niedriges Fliegen verschwendet Akku und verlängert die Missionszeit unnötig.',
     },
     {
       type: 'title',

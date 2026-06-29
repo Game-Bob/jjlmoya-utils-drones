@@ -1,4 +1,4 @@
-import type { AntennaLengthCalculatorLocaleContent } from '../index';
+﻿import type { AntennaLengthCalculatorLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -32,7 +32,7 @@ const howToSteps = [
   },
   {
     name: 'Nasıl Kurulacağına Kararılma Tipi',
-    text: 'Oluşturulacak türden seçeceğin için : Tam Takım ( ikiye oranlı dalgalık) 1 yada 2, mi Yoksam da sade basit Tek uç( çeyreklik yagıya denk gelen dikey düz) 1 veya 4  ü onayla.',
+    text: 'Oluşturulacak türden seçeceğin için: Tam Takım ( ikiye oranlı dalgalık) 1 yada 2, mi Yoksam da sade basit Tek uç( çeyreklik yagıya denk gelen dikey düz) 1 veya 4  ü onayla.',
   },
   {
     name: 'Kaplama Veya Kablonun Kendi Menşei Seçimi',
@@ -255,7 +255,7 @@ export const content: AntennaLengthCalculatorLocaleContent = {
     },
     {
       name: 'Nasıl Kurulacağına Kararılma Tipi',
-      text: 'Oluşturulacak türden seçeceğin için : Tam Takım ( ikiye oranlı dalgalık) 1 yada 2, mi Yoksam da sade basit Tek uç( çeyreklik yagıya denk gelen dikey düz) 1 veya 4  ü onayla.',
+      text: 'Oluşturulacak türden seçeceğin için: Tam Takım ( ikiye oranlı dalgalık) 1 yada 2, mi Yoksam da sade basit Tek uç( çeyreklik yagıya denk gelen dikey düz) 1 veya 4  ü onayla.',
     },
     {
       name: 'Kaplama Veya Kablonun Kendi Menşei Seçimi',

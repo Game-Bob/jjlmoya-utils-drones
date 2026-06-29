@@ -1,4 +1,4 @@
-import type { GpsCoordinatesConverterLocaleContent } from '../index';
+﻿import type { GpsCoordinatesConverterLocaleContent } from '../index';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
@@ -106,7 +106,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   seo: [
     {
       type: 'title',
-      text: 'Convertisseur de Coordonnées GPS : Du Décimal vers Degrés, Minutes et Secondes',
+      text: 'Convertisseur de Coordonnées GPS: Du Décimal vers Degrés, Minutes et Secondes',
       level: 2,
     },
     {
@@ -142,10 +142,10 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     {
       type: 'list',
       items: [
-        'Planification de Mission : Croisement des données des applications de vol mobiles avec les cartes topographiques officielles.',
-        'Recherche et Sauvetage : Communication de la position d\'une cible aux équipes de secours utilisant la radiofréquence et les coordonnées DMS.',
-        'Photogrammétrie : Vérification des métadonnées EXIF des images capturées par le capteur du drone.',
-        'Navigation FPV Longue Portée : Configuration d\'antennes directionnelles basées sur les coordonnées exactes de points géographiques clés.',
+        'Planification de Mission: Croisement des données des applications de vol mobiles avec les cartes topographiques officielles.',
+        'Recherche et Sauvetage: Communication de la position d\'une cible aux équipes de secours utilisant la radiofréquence et les coordonnées DMS.',
+        'Photogrammétrie: Vérification des métadonnées EXIF des images capturées par le capteur du drone.',
+        'Navigation FPV Longue Portée: Configuration d\'antennes directionnelles basées sur les coordonnées exactes de points géographiques clés.',
       ],
     },
     {
@@ -176,7 +176,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Latitude et Longitude : les Axes de la Terre',
+      text: 'Latitude et Longitude: les Axes de la Terre',
       level: 3,
     },
     {
@@ -189,12 +189,12 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Le Format Nautique : Degrés et Minutes Décimales',
+      text: 'Le Format Nautique: Degrés et Minutes Décimales',
       level: 3,
     },
     {
       type: 'paragraph',
-      html: 'Il existe un format hybride très populaire dans la communauté marine et nautique : les Degrés et Minutes Décimales (DM). Dans ce système, on conserve les degrés entiers mais le reste est exprimé en minutes avec décimales, en omettant les secondes. Exemple : 48° 51.365\' N.',
+      html: 'Il existe un format hybride très populaire dans la communauté marine et nautique: les Degrés et Minutes Décimales (DM). Dans ce système, on conserve les degrés entiers mais le reste est exprimé en minutes avec décimales, en omettant les secondes. Exemple: 48° 51.365\' N.',
     },
     {
       type: 'paragraph',
@@ -243,7 +243,7 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   faq: [
     {
       question: 'Quelle est la différence entre DD et DMS ?',
-      answer: 'DD (Degrés Décimaux) utilise un seul nombre avec des décimales (ex : 48.85). DMS (Degrés, Minutes, Secondes) divise le degré en fractions sexagésimales (ex : 48° 51\' 0").',
+      answer: 'DD (Degrés Décimaux) utilise un seul nombre avec des décimales (ex: 48.85). DMS (Degrés, Minutes, Secondes) divise le degré en fractions sexagésimales (ex: 48° 51\' 0").',
     },
     {
       question: 'Pourquoi utilise-t-on des coordonnées négatives ?',
