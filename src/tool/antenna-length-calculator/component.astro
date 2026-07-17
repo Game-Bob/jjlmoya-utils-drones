@@ -31,7 +31,7 @@ const materials = [
 
                     <div class="input-group">
                         <div class="input-with-unit">
-                            <input type="number" id="freqInput" value="868" step="1" min="1" max="10000" />
+                            <input type="number" id="freqInput" value="868" step="1" min="1" max="10000" aria-label={ui.signalParameters} />
                             <span class="unit">MHz</span>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ const materials = [
                         <h2>{ui.conductorMedium}</h2>
                     </div>
                     <div class="input-group">
-                        <select id="vfInput" class="custom-select-premium">
+                        <select id="vfInput" class="custom-select-premium" aria-label={ui.conductorMedium}>
                             {materials.map(m => (
                                 <option value={m.vf}>{m.label}</option>
                             ))}

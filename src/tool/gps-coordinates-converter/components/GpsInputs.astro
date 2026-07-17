@@ -16,11 +16,11 @@ import { Icon } from "astro-icon/components";
 
     <div id="dd-inputs" class="compact-inputs">
         <div class="input-block">
-            <label class="field-label">{ui.lat}</label>
+            <label class="field-label" for="latDD">{ui.lat}</label>
             <input type="text" id="latDD" class="tech-input" placeholder="40.4168" />
         </div>
         <div class="input-block">
-            <label class="field-label">{ui.lng}</label>
+            <label class="field-label" for="lngDD">{ui.lng}</label>
             <input type="text" id="lngDD" class="tech-input" placeholder="-3.7038" />
         </div>
     </div>
@@ -29,10 +29,10 @@ import { Icon } from "astro-icon/components";
         <div class="gms-group">
             <label class="field-label">{ui.latGMS}</label>
             <div class="compact-inputs">
-                <input type="number" id="latG" class="tech-input" placeholder="G" />
-                <input type="number" id="latM" class="tech-input" placeholder="M" />
-                <input type="number" id="latS" class="tech-input" placeholder="S" step="any" />
-                <select id="latH" class="tech-input">
+                <input type="number" id="latG" class="tech-input" placeholder="G" aria-label={`${ui.latGMS} - Degrees`} />
+                <input type="number" id="latM" class="tech-input" placeholder="M" aria-label={`${ui.latGMS} - Minutes`} />
+                <input type="number" id="latS" class="tech-input" placeholder="S" step="any" aria-label={`${ui.latGMS} - Seconds`} />
+                <select id="latH" class="tech-input" aria-label={`${ui.latGMS} - Hemisphere`}>
                     <option value="N">N</option>
                     <option value="S">S</option>
                 </select>
@@ -41,10 +41,10 @@ import { Icon } from "astro-icon/components";
         <div class="gms-group">
             <label class="field-label">{ui.lngGMS}</label>
             <div class="compact-inputs">
-                <input type="number" id="lngG" class="tech-input" placeholder="G" />
-                <input type="number" id="lngM" class="tech-input" placeholder="M" />
-                <input type="number" id="lngS" class="tech-input" placeholder="S" step="any" />
-                <select id="lngH" class="tech-input">
+                <input type="number" id="lngG" class="tech-input" placeholder="G" aria-label={`${ui.lngGMS} - Degrees`} />
+                <input type="number" id="lngM" class="tech-input" placeholder="M" aria-label={`${ui.lngGMS} - Minutes`} />
+                <input type="number" id="lngS" class="tech-input" placeholder="S" step="any" aria-label={`${ui.lngGMS} - Seconds`} />
+                <select id="lngH" class="tech-input" aria-label={`${ui.lngGMS} - Hemisphere`}>
                     <option value="E">E</option>
                     <option value="W">W</option>
                 </select>

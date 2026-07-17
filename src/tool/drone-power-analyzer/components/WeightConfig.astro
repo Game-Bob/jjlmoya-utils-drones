@@ -31,6 +31,7 @@ const { ui } = Astro.props;
       step="10"
       value="800"
       class="auw-slider"
+      aria-label={ui.auwLabel || "All-Up Weight (AUW)"}
       onchange="document.getElementById('auw').value = this.value; document.getElementById('auw').dispatchEvent(new Event('input'));"
     />
   </div>
