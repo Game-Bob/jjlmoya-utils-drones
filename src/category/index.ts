@@ -1,8 +1,8 @@
 import type { DronesCategoryEntry } from '../types';
-import { droneFlightTime } from '../tool/drone-flight-time/index';
-import { antennaLengthCalculator } from '../tool/antenna-length-calculator/index';
-import { gpsCoordinatesConverter } from '../tool/gps-coordinates-converter/index';
-import { dronePowerAnalyzer } from '../tool/drone-power-analyzer/index';
+import { droneFlightTime } from '../tool/drone-flight-time/entry';
+import { antennaLengthCalculator } from '../tool/antenna-length-calculator/entry';
+import { gpsCoordinatesConverter } from '../tool/gps-coordinates-converter/entry';
+import { dronePowerAnalyzer } from '../tool/drone-power-analyzer/entry';
 
 export const dronesCategory: DronesCategoryEntry = {
   icon: 'mdi:drone',
