@@ -1,6 +1,6 @@
 import type { BibliographyEntry } from '../../types';
 
-export const BIBLIOGRAPHY_ITEMS: BibliographyEntry[] = [
+export const bibliography: BibliographyEntry[] = [
   {
     name: 'Battery University - BU-409: Charging Lithium-ion',
     url: 'http://www.batteryuniversity.com/article/bu-409-charging-lithium-ion/',
