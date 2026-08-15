@@ -68,34 +68,34 @@ const ui = {
 const faqItems = [
   {
     question: 'Quale rapporto spinta peso è ideale per un drone FPV freestyle?',
-    answer: 'Per droni freestyle, un TWR compreso tra 8 a 1 e 12 a 1 offre l accelerazione necessaria per arrestare tuffi in caduta libera e superare virate strette.',
+    answer: "Per droni freestyle, un TWR compreso tra 8 a 1 e 12 a 1 offre l'accelerazione necessaria per arrestare tuffi in caduta libera e superare virate strette con agilità e stabilità.",
   },
   {
     question: 'Come influisce la curva non lineare del gas sul volo stazionario?',
-    answer: 'I motori brushless erogano spinta proporzionale al quadrato della velocità di rotazione. Il punto di hovering si colloca solitamente tra il 20 e il 35 per cento di corsa del gas.',
+    answer: "I motori brushless erogano spinta proporzionale al quadrato della velocità di rotazione. Il punto di hovering si colloca solitamente tra il 20 e il 35 per cento di corsa del gas per garantire sensibilità.",
   },
   {
-    question: 'Perché l inclinazione della telecamera FPV dipende dalla spinta?',
-    answer: 'I droni più veloci volano con un assetto inclinato in avanti. Per mantenere l orizzonte centrato nel visore FPV, i piloti inclinano la telecamera tra 35 e 50 gradi.',
+    question: "Perché l'inclinazione della telecamera FPV dipende dalla spinta?",
+    answer: "I droni più veloci volano con un assetto inclinato in avanti. Per mantenere l'orizzonte centrato nel visore FPV, i piloti inclinano la telecamera tra 35 e 50 gradi per una visibilità ottimale.",
   },
   {
     question: 'In che modo il numero di pale modifica il comportamento di volo?',
-    answer: 'Le eliche bipala massimizzano l autonomia e la velocità massima. Le tripala offrono il miglior equilibrio per il freestyle, mentre le quadripala aumentano l aderenza in curva.',
+    answer: "Le eliche bipala massimizzano l'autonomia e la velocità massima. Le tripala offrono il miglior equilibrio per il freestyle, mentre le quadripala aumentano l'aderenza e la capacità frenante in curva.",
   },
 ];
 
 const howToSteps = [
   {
     name: 'Inserire il peso del drone o scegliere un profilo',
-    text: 'Immetti il peso totale in ordine di volo inclusa la batteria e la telecamera in grammi.',
+    text: 'Immetti il peso totale in ordine di volo inclusa la batteria e la telecamera in grammi con precisione.',
   },
   {
     name: 'Configurare motori ed eliche',
-    text: 'Specifica il numero di motori, di pale e la spinta statica al banco dichiarata dal produttore.',
+    text: 'Specifica il numero di motori, di pale e la spinta statica al banco dichiarata dal produttore per ogni unità.',
   },
   {
     name: 'Regolare il comando gas in tempo reale',
-    text: 'Sposta il cursore del gas per visualizzare la spinta, le forze G e la posizione sulla curva di risposta.',
+    text: 'Sposta il cursore del gas per visualizzare la spinta, le forze G e la posizione sulla curva di risposta dinamica.',
   },
 ];
 
@@ -107,7 +107,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Il rapporto spinta peso (TWR) determina l accelerazione e la precisione di controllo nei droni multirotore. Nel volo acrobatico FPV, una riserva di potenza adeguata consente di recuperare manovre complesse con totale sicurezza.',
+    html: "Il rapporto spinta peso (TWR) determina l'accelerazione e la precisione di controllo nei droni multirotore. Nel volo acrobatico FPV, una riserva di potenza adeguata consente di recuperare manovre complesse con totale sicurezza ed eccellente fluidità.",
   },
   {
     type: 'title',
@@ -132,13 +132,13 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'I motori elettrici generano spinta con andamento esponenziale rispetto al comando. L ultimo 20 per cento di escursione del gas sviluppa oltre il 40 per cento della forza totale.',
+    html: "I motori elettrici generano spinta con andamento esponenziale rispetto al comando. L'ultimo 20 per cento di escursione del gas sviluppa oltre il 40 per cento della forza totale con altissima intensità.",
   },
   {
     type: 'list',
     items: [
       'Zona di hovering (20 a 35 per cento): Controllo fine per passaggi ravvicinati.',
-      'Zona di crociera (35 a 65 per cento): Volo rettilineo equilibrato con consumi contenuti.',
+      'Zona di crociera (35 a 65 per cento): Volo rettilineo equilibrato con consumi contenuti ed elevata efficienza.',
       'Zona di pieno gas (70 a 100 per cento): Massima spinta verticale con forze G elevate.',
     ],
   },
@@ -149,7 +149,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Per droni con TWR superiore a 10 a 1 è opportuno abilitare la funzione Throttle PID Attenuation (TPA) in Betaflight per prevenire oscillazioni a pieno gas.',
+    html: 'Per droni con TWR superiore a 10 a 1 è opportuno abilitare la funzione Throttle PID Attenuation (TPA) in Betaflight per prevenire oscillazioni a pieno gas e preservare la stabilità.',
   },
   {
     type: 'tip',
