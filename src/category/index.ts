@@ -5,6 +5,7 @@ import { gpsCoordinatesConverter } from '../tool/gps-coordinates-converter/entry
 import { dronePowerAnalyzer } from '../tool/drone-power-analyzer/entry';
 import { gsdFlightPlanner } from '../tool/gsd-flight-planner/entry';
 import { droneBatteryCRatingCalculator } from '../tool/drone-battery-c-rating-calculator/entry';
+import { fpvDroneThrustToWeightRatio } from '../tool/fpv-drone-thrust-to-weight-ratio/entry';
 
 export const dronesCategory: DronesCategoryEntry = {
   icon: 'mdi:drone',
@@ -15,6 +16,7 @@ export const dronesCategory: DronesCategoryEntry = {
     dronePowerAnalyzer,
     gsdFlightPlanner,
     droneBatteryCRatingCalculator,
+    fpvDroneThrustToWeightRatio,
   ],
   i18n: {
     es: () => import('./i18n/es').then((m) => m.content),

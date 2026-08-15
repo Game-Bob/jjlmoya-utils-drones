@@ -1,0 +1,16 @@
+---
+import { SEORenderer } from '@jjlmoya/utils-shared';
+import { fpvDroneThrustToWeightRatio } from './entry';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const loader = fpvDroneThrustToWeightRatio.i18n[locale] || fpvDroneThrustToWeightRatio.i18n.en;
+const content = await loader?.();
+if (!content) return null;
+---
+
+{content.seo?.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}

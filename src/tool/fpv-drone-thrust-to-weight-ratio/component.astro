@@ -1,0 +1,203 @@
+---
+import type { FpvDroneThrustToWeightRatioUI } from './ui';
+import { calculateTwrMetrics, type DroneTwrInputs } from './logic';
+import { renderTwrSVG } from './dom-views';
+import './fpv-drone-thrust-to-weight-ratio.css';
+
+interface Props {
+  ui: FpvDroneThrustToWeightRatioUI;
+}
+
+const { ui } = Astro.props;
+
+const defaultInputs: DroneTwrInputs = {
+  auwGrams: 680,
+  motorCount: 4,
+  thrustPerMotorGrams: 1950,
+  propellerSizeInches: 5.1,
+  propellerPitchInches: 4.3,
+  bladeCount: 3,
+  throttleStickPercent: 70,
+};
+
+const initialResults = calculateTwrMetrics(defaultInputs);
+const initialSvg = renderTwrSVG(defaultInputs, initialResults, ui);
+---
+
+<div class="sc-fpv-cockpit" id="fpv-drone-thrust-to-weight-ratio-root">
+  <div class="sc-cockpit-sidebar">
+    <div>
+      <div class="sc-cockpit-title">{ui.presetsHeader}</div>
+      <div class="sc-preset-group">
+        <button type="button" class="sc-preset-chip active" data-preset="freestyle5">{ui.freestyle5Preset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="freestyle35">{ui.freestyle35Preset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="whoop1s">{ui.whoop1sPreset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="longrange7">{ui.longrange7Preset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="cinelifter8">{ui.cinelifter8Preset}</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="sc-cockpit-title">{ui.specsHeader}</div>
+      <div class="sc-field-group">
+        <div class="sc-field-header">
+          <label for="input-auw">{ui.auwGramsLabel}</label>
+        </div>
+        <input type="number" id="input-auw" class="sc-input" value="680" min="10" max="15000" step="5" />
+        <input type="range" id="range-auw" class="sc-slider" value="680" min="20" max="2500" step="5" aria-label={ui.auwGramsLabel} />
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <label>{ui.motorCountLabel}</label>
+        <div class="sc-custom-select" data-custom-select="motor-count">
+          <div class="sc-select-trigger">
+            <span>4 Motors (Quadcopter)</span>
+            <svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="sc-select-dropdown">
+            <div class="sc-select-option active" data-value="4">4 Motors (Quadcopter)</div>
+            <div class="sc-select-option" data-value="6">6 Motors (Hexacopter)</div>
+            <div class="sc-select-option" data-value="8">8 Motors (Octocopter / X8)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <div class="sc-field-header">
+          <label for="input-thrust-motor">{ui.thrustPerMotorLabel}</label>
+        </div>
+        <input type="number" id="input-thrust-motor" class="sc-input" value="1950" min="10" max="10000" step="10" />
+        <input type="range" id="range-thrust-motor" class="sc-slider" value="1950" min="50" max="4000" step="25" aria-label={ui.thrustPerMotorLabel} />
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <label>{ui.bladeCountLabel}</label>
+        <div class="sc-custom-select" data-custom-select="blade-count">
+          <div class="sc-select-trigger">
+            <span>{ui.blade3Option}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="sc-select-dropdown">
+            <div class="sc-select-option" data-value="2">{ui.blade2Option}</div>
+            <div class="sc-select-option active" data-value="3">{ui.blade3Option}</div>
+            <div class="sc-select-option" data-value="4">{ui.blade4Option}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <div class="sc-field-header">
+          <label for="input-prop-size">{ui.propellerSizeLabel}</label>
+        </div>
+        <input type="number" id="input-prop-size" class="sc-input" value="5.1" min="1" max="15" step="0.1" />
+        <input type="range" id="range-prop-size" class="sc-slider" value="5.1" min="1.5" max="10" step="0.1" aria-label={ui.propellerSizeLabel} />
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <div class="sc-field-header">
+          <label for="input-prop-pitch">{ui.propellerPitchLabel}</label>
+        </div>
+        <input type="number" id="input-prop-pitch" class="sc-input" value="4.3" min="1" max="10" step="0.1" />
+        <input type="range" id="range-prop-pitch" class="sc-slider" value="4.3" min="1.5" max="6.5" step="0.1" aria-label={ui.propellerPitchLabel} />
+      </div>
+    </div>
+
+    <div class="sc-throttle-box">
+      <div class="sc-field-header">
+        <label for="range-throttle-stick" class="sc-throttle-label">{ui.throttleStickLabel}</label>
+        <span class="sc-throttle-badge" data-metric="stickPercentBadge">70%</span>
+      </div>
+      <input type="range" id="range-throttle-stick" class="sc-slider sc-throttle-slider" value="70" min="0" max="100" step="1" aria-label={ui.throttleStickLabel} />
+      <div class="sc-snap-group">
+        <button type="button" class="sc-snap-btn" data-snap="idle">{ui.snapIdleLabel}</button>
+        <button type="button" class="sc-snap-btn" data-snap="hover">{ui.snapHoverLabel}</button>
+        <button type="button" class="sc-snap-btn" data-snap="cruise">{ui.snapCruiseLabel}</button>
+        <button type="button" class="sc-snap-btn" data-snap="punch">{ui.snapPunchLabel}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sc-cockpit-telemetry">
+    <div class="sc-telemetry-topbar">
+      <div class="sc-cockpit-title" style="margin-bottom: 0;">{ui.telemetryHeader}</div>
+      <div class="sc-safety-badge status-accent" data-metric="agilityBadge">{ui.tierAcroProTitle}</div>
+    </div>
+
+    <div class="sc-hud-wrapper" data-element="svgContainer" set:html={initialSvg}></div>
+
+    <div class="sc-hud-metrics-grid">
+      <div class="sc-hud-card">
+        <div class="sc-hud-label">{ui.twrRatioLabel}</div>
+        <div class="sc-hud-val" data-metric="twrRatio">{initialResults.twrRatio.toFixed(2)} : 1</div>
+      </div>
+      <div class="sc-hud-card">
+        <div class="sc-hud-label">{ui.hoverThrottleLabel}</div>
+        <div class="sc-hud-val" data-metric="hoverThrottle">{initialResults.hoverThrottlePercent.toFixed(1)} %</div>
+      </div>
+      <div class="sc-hud-card highlight-cyan">
+        <div class="sc-hud-label">{ui.currentThrustLabel}</div>
+        <div class="sc-hud-val" data-metric="currentThrust">{initialResults.currentThrustGrams.toLocaleString()} g</div>
+      </div>
+      <div class="sc-hud-card highlight-purple">
+        <div class="sc-hud-label">{ui.instantGForceLabel}</div>
+        <div class="sc-hud-val" data-metric="instantGForce">{initialResults.instantGForce.toFixed(2)} G</div>
+      </div>
+      <div class="sc-hud-card">
+        <div class="sc-hud-label">{ui.zeroToHundredLabel}</div>
+        <div class="sc-hud-val" data-metric="zeroToHundred">{initialResults.zeroToHundredTimeSec.toFixed(2)} s</div>
+      </div>
+      <div class="sc-hud-card">
+        <div class="sc-hud-label">{ui.recommendedCamAngleLabel}</div>
+        <div class="sc-hud-val" data-metric="recommendedCamAngle">{initialResults.recommendedCamAngleDeg}°</div>
+      </div>
+      <div class="sc-hud-card">
+        <div class="sc-hud-label">{ui.windResistanceLabel}</div>
+        <div class="sc-hud-val" data-metric="windResistance">{initialResults.windResistanceKmh} km/h</div>
+      </div>
+      <div class="sc-hud-card">
+        <div class="sc-hud-label">{ui.totalMaxThrustLabel}</div>
+        <div class="sc-hud-val" data-metric="totalMaxThrust">{initialResults.totalMaxThrustGrams.toLocaleString()} g</div>
+      </div>
+    </div>
+
+    <div class="sc-tuning-grid">
+      <div class="sc-tuning-card">
+        <div class="sc-hud-label">{ui.tpaRecommendationLabel}</div>
+        <div class="sc-tuning-val" data-metric="tpaSetting">{initialResults.tuneAdvice.tpaSetting}</div>
+      </div>
+      <div class="sc-tuning-card">
+        <div class="sc-hud-label">{ui.dynamicIdleLabel}</div>
+        <div class="sc-tuning-val" data-metric="dynamicIdleSetting">{initialResults.tuneAdvice.dynamicIdleSetting}</div>
+      </div>
+      <div class="sc-tuning-card">
+        <div class="sc-hud-label">{ui.propwashRiskLabel}</div>
+        <div class="sc-tuning-val" data-metric="propwashRisk">{initialResults.tuneAdvice.propwashRisk}</div>
+      </div>
+    </div>
+
+    <div class="sc-flight-status-card">
+      <h4 data-metric="statusTitle">{ui.tierAcroProTitle}</h4>
+      <p data-metric="statusDesc">{ui.tierAcroProDesc}</p>
+    </div>
+  </div>
+</div>
+
+<script is:inline type="application/json" id="fpv-twr-ui-data" set:html={JSON.stringify(ui)}></script>
+
+<script>
+  import { FpvDroneThrustToWeightRatioController } from './controller';
+
+  function initController() {
+    const root = document.getElementById('fpv-drone-thrust-to-weight-ratio-root');
+    if (!root) return;
+    const uiEl = document.getElementById('fpv-twr-ui-data');
+    const uiData = uiEl ? JSON.parse(uiEl.textContent || '{}') : {};
+    new FpvDroneThrustToWeightRatioController(root, uiData);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initController);
+  } else {
+    initController();
+  }
+</script>
