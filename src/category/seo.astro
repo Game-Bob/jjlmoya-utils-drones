@@ -76,7 +76,7 @@ if (!content) return null;
       );
     }
     if (section.type === 'proscons') {
-      return <SEOProsCons title={section.title} items={section.items} proTitle={section.proTitle} conTitle={section.conTitle} />;
+      return <SEOProsCons title={section.title} items={section.items} />;
     }
     if (section.type === 'summary') {
       return <SEOSummary title={section.title} items={section.items} />;

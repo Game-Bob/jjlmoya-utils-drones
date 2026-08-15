@@ -1,0 +1,192 @@
+---
+import type { DroneBatteryCRatingCalculatorUI } from './ui';
+import { calculateBatteryMetrics, type BatteryInputs } from './logic';
+import { renderBatterySVG, formatTimeSeconds } from './dom-views';
+import './drone-battery-c-rating-calculator.css';
+
+interface Props {
+  ui: DroneBatteryCRatingCalculatorUI;
+}
+
+const { ui } = Astro.props;
+
+const defaultInputs: BatteryInputs = {
+  capacitymAh: 1300,
+  claimedCRating: 100,
+  cellCount: 6,
+  chemistry: 'lipo',
+  internalResistanceMOm: 4,
+  motorCount: 4,
+  peakMotorCurrentA: 35,
+  auxCurrentA: 1.5,
+};
+
+const initialResults = calculateBatteryMetrics(defaultInputs);
+const initialSvg = renderBatterySVG(defaultInputs, initialResults);
+---
+
+<div class="sc-main-card" id="drone-lipo-c-rating-calculator-root">
+  <div class="sc-sidebar">
+    <div>
+      <div class="sc-section-title">{ui.presetSelectLabel}</div>
+      <div class="sc-preset-group">
+        <button type="button" class="sc-preset-chip active" data-preset="freestyle5">{ui.freestyle5Preset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="racing5">{ui.racing5Preset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="cinewhoop">{ui.cinewhoopPreset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="whoop">{ui.whoopPreset}</button>
+        <button type="button" class="sc-preset-chip" data-preset="longrange7">{ui.longRange7Preset}</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="sc-section-title">{ui.lipoSpecsHeader}</div>
+      <div class="sc-field-group">
+        <div class="sc-field-header">
+          <label for="input-capacity">{ui.capacityLabel}</label>
+        </div>
+        <input type="number" id="input-capacity" class="sc-input" value="1300" min="50" max="25000" step="50" />
+        <input type="range" id="range-capacity" class="sc-slider" value="1300" min="300" max="5000" step="50" aria-label={ui.capacityLabel} />
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <div class="sc-field-header">
+          <label for="input-claimed-c">{ui.claimedCRatingLabel}</label>
+        </div>
+        <input type="number" id="input-claimed-c" class="sc-input" value="100" min="5" max="200" step="5" />
+        <input type="range" id="range-claimed-c" class="sc-slider" value="100" min="20" max="180" step="5" aria-label={ui.claimedCRatingLabel} />
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <label>{ui.cellCountLabel}</label>
+        <div class="sc-custom-select" data-custom-select="cell-count">
+          <div class="sc-select-trigger">
+            <span>6S (22.2V)</span>
+            <svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="sc-select-dropdown">
+            <div class="sc-select-option" data-value="1">1S (3.7V)</div>
+            <div class="sc-select-option" data-value="2">2S (7.4V)</div>
+            <div class="sc-select-option" data-value="3">3S (11.1V)</div>
+            <div class="sc-select-option" data-value="4">4S (14.8V)</div>
+            <div class="sc-select-option active" data-value="6">6S (22.2V)</div>
+            <div class="sc-select-option" data-value="8">8S (29.6V)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <label>{ui.chemistryLabel}</label>
+        <div class="sc-custom-select" data-custom-select="chemistry">
+          <div class="sc-select-trigger">
+            <span>LiPo (3.7V / 4.2V)</span>
+            <svg width="12" height="12" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="sc-select-dropdown">
+            <div class="sc-select-option active" data-value="lipo">LiPo (3.7V / 4.2V)</div>
+            <div class="sc-select-option" data-value="lihv">LiHV (3.8V / 4.35V)</div>
+            <div class="sc-select-option" data-value="liion">Li-Ion (3.6V / 4.2V)</div>
+            <div class="sc-select-option" data-value="life">LiFePO4 (3.3V / 3.65V)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <div class="sc-field-header">
+          <label for="input-ir">{ui.internalResistanceLabel}</label>
+        </div>
+        <input type="number" id="input-ir" class="sc-input" value="4" min="0.5" max="50" step="0.5" />
+        <input type="range" id="range-ir" class="sc-slider" value="4" min="1" max="25" step="0.5" aria-label={ui.internalResistanceLabel} />
+      </div>
+    </div>
+
+    <div>
+      <div class="sc-section-title">{ui.quadSpecsHeader}</div>
+      <div class="sc-field-group">
+        <label for="input-motor-count">{ui.motorCountLabel}</label>
+        <input type="number" id="input-motor-count" class="sc-input" value="4" min="1" max="8" step="1" />
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <div class="sc-field-header">
+          <label for="input-peak-current">{ui.peakMotorCurrentLabel}</label>
+        </div>
+        <input type="number" id="input-peak-current" class="sc-input" value="35" min="1" max="100" step="1" />
+        <input type="range" id="range-peak-current" class="sc-slider" value="35" min="5" max="75" step="1" aria-label={ui.peakMotorCurrentLabel} />
+      </div>
+
+      <div class="sc-field-group" style="margin-top: 0.8rem;">
+        <label for="input-aux-current">{ui.auxCurrentLabel}</label>
+        <input type="number" id="input-aux-current" class="sc-input" value="1.5" min="0" max="10" step="0.1" />
+      </div>
+    </div>
+  </div>
+
+  <div class="sc-display-panel">
+    <div class="sc-header-bar">
+      <div class="sc-section-title" style="margin-bottom: 0;">{ui.resultsHeader}</div>
+      <div class="sc-safety-badge status-optimal" data-metric="safetyBadge">{ui.statusOptimalTitle}</div>
+    </div>
+
+    <div class="sc-svg-wrapper" data-element="svgContainer" set:html={initialSvg}></div>
+
+    <div class="sc-results-grid">
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.realisticMaxCurrentLabel}</div>
+        <div class="sc-metric-value" data-metric="realisticMaxCurrent">{initialResults.realisticMaxCurrentA.toFixed(1)} A</div>
+      </div>
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.realisticCRatingLabel}</div>
+        <div class="sc-metric-value" data-metric="realisticCRating">{initialResults.realisticCRating} C</div>
+      </div>
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.totalPeakDrawLabel}</div>
+        <div class="sc-metric-value" data-metric="totalPeakDraw">{initialResults.totalPeakDrawA.toFixed(1)} A</div>
+      </div>
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.voltageSagLabel}</div>
+        <div class="sc-metric-value" data-metric="voltageSag">-{initialResults.voltageSagV.toFixed(2)} V</div>
+      </div>
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.sagNominalVoltageLabel}</div>
+        <div class="sc-metric-value" data-metric="sagNominalVoltage">{initialResults.sagNominalVoltageV.toFixed(1)} V</div>
+      </div>
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.flightTimeFullThrottleLabel}</div>
+        <div class="sc-metric-value" data-metric="flightTimeFullThrottle">{formatTimeSeconds(initialResults.flightTimeFullThrottleSec)}</div>
+      </div>
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.flightTimeHoverLabel}</div>
+        <div class="sc-metric-value" data-metric="flightTimeHover">{formatTimeSeconds(initialResults.flightTimeHoverSec)}</div>
+      </div>
+      <div class="sc-metric-card">
+        <div class="sc-metric-label">{ui.claimedMaxCurrentLabel}</div>
+        <div class="sc-metric-value" data-metric="claimedMaxCurrent">{initialResults.claimedMaxCurrentA.toFixed(1)} A</div>
+      </div>
+    </div>
+
+    <div class="sc-status-box">
+      <h4 data-metric="statusTitle">{ui.statusOptimalTitle}</h4>
+      <p data-metric="statusDesc">{ui.statusOptimalDesc}</p>
+    </div>
+  </div>
+</div>
+
+<script is:inline type="application/json" id="lipo-c-rating-ui-data" set:html={JSON.stringify(ui)}></script>
+
+<script>
+  import { DroneBatteryCRatingCalculatorController } from './controller';
+
+  function initController() {
+    const root = document.getElementById('drone-lipo-c-rating-calculator-root');
+    if (!root) return;
+    const uiEl = document.getElementById('lipo-c-rating-ui-data');
+    const uiData = uiEl ? JSON.parse(uiEl.textContent || '{}') : {};
+    new DroneBatteryCRatingCalculatorController(root, uiData);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initController);
+  } else {
+    initController();
+  }
+</script>

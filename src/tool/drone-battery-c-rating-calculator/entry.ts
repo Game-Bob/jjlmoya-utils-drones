@@ -1,21 +1,12 @@
-import type { DronesCategoryEntry } from '../types';
-import { droneFlightTime } from '../tool/drone-flight-time/entry';
-import { antennaLengthCalculator } from '../tool/antenna-length-calculator/entry';
-import { gpsCoordinatesConverter } from '../tool/gps-coordinates-converter/entry';
-import { dronePowerAnalyzer } from '../tool/drone-power-analyzer/entry';
-import { gsdFlightPlanner } from '../tool/gsd-flight-planner/entry';
-import { droneBatteryCRatingCalculator } from '../tool/drone-battery-c-rating-calculator/entry';
+import type { DronesToolEntry, ToolLocaleContent } from '../../types';
+import type { DroneBatteryCRatingCalculatorUI } from './ui';
 
-export const dronesCategory: DronesCategoryEntry = {
-  icon: 'mdi:drone',
-  tools: [
-    droneFlightTime,
-    antennaLengthCalculator,
-    gpsCoordinatesConverter,
-    dronePowerAnalyzer,
-    gsdFlightPlanner,
-    droneBatteryCRatingCalculator,
-  ],
+export type { DroneBatteryCRatingCalculatorUI };
+export type DroneBatteryCRatingCalculatorLocaleContent = ToolLocaleContent<DroneBatteryCRatingCalculatorUI>;
+
+export const droneBatteryCRatingCalculator: DronesToolEntry<DroneBatteryCRatingCalculatorUI> = {
+  id: 'drone-battery-c-rating-calculator',
+  icons: { bg: 'mdi:battery-charging-100', fg: 'mdi:flash-auto' },
   i18n: {
     es: () => import('./i18n/es').then((m) => m.content),
     en: () => import('./i18n/en').then((m) => m.content),

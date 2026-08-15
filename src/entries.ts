@@ -8,10 +8,22 @@ export { dronePowerAnalyzer } from './tool/drone-power-analyzer/entry';
 export type { DronePowerAnalyzerUI, DronePowerAnalyzerLocaleContent } from './tool/drone-power-analyzer/entry';
 export { gsdFlightPlanner } from './tool/gsd-flight-planner/entry';
 export type { GsdFlightPlannerUI, GsdFlightPlannerLocaleContent } from './tool/gsd-flight-planner/entry';
+export { droneBatteryCRatingCalculator } from './tool/drone-battery-c-rating-calculator/entry';
+export type { DroneBatteryCRatingCalculatorUI, DroneBatteryCRatingCalculatorLocaleContent } from './tool/drone-battery-c-rating-calculator/entry';
 export { dronesCategory } from './category';
+
 import { antennaLengthCalculator } from './tool/antenna-length-calculator/entry';
 import { droneFlightTime } from './tool/drone-flight-time/entry';
 import { gpsCoordinatesConverter } from './tool/gps-coordinates-converter/entry';
 import { dronePowerAnalyzer } from './tool/drone-power-analyzer/entry';
 import { gsdFlightPlanner } from './tool/gsd-flight-planner/entry';
-export const ALL_ENTRIES = [antennaLengthCalculator, droneFlightTime, gpsCoordinatesConverter, dronePowerAnalyzer, gsdFlightPlanner];
+import { droneBatteryCRatingCalculator } from './tool/drone-battery-c-rating-calculator/entry';
+
+export const ALL_ENTRIES = [
+  antennaLengthCalculator,
+  droneFlightTime,
+  gpsCoordinatesConverter,
+  dronePowerAnalyzer,
+  gsdFlightPlanner,
+  droneBatteryCRatingCalculator,
+];
