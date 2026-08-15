@@ -1,17 +1,6 @@
 ---
-import { BIBLIOGRAPHY_ITEMS } from './bibliography';
+import { Bibliography as BibliographyComponent } from "@jjlmoya/utils-shared";
+import { bibliography } from "./bibliography";
 ---
 
-<div class="sc-bibliography">
-  <ul>
-    {
-      BIBLIOGRAPHY_ITEMS.map((item) => (
-        <li>
-          <a href={item.url} target="_blank" rel="noopener noreferrer">
-            {item.name}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+<BibliographyComponent links={bibliography} />
