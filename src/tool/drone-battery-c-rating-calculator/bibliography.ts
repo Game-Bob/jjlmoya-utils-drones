@@ -14,3 +14,5 @@ export const bibliography: BibliographyEntry[] = [
     url: 'https://betaflight.com/docs/wiki/guides/current/Battery',
   },
 ];
+
+export const BIBLIOGRAPHY_ITEMS = bibliography;
