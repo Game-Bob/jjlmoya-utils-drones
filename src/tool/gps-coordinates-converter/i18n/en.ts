@@ -242,6 +242,11 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   ],
   faq: faqItems,
   bibliography,
-  howTo: [],
+  howTo: [
+    { name: 'Identify the format', text: 'Decide whether your coordinate is in decimal degrees, degrees-minutes-seconds, or the hardware-style format.' },
+    { name: 'Enter the coordinate', text: 'Paste or type the value into the matching field. The conversion updates automatically as you edit it.' },
+    { name: 'Check the results', text: 'Review the other two fields and confirm that the latitude, longitude, signs, and hemisphere are correct.' },
+    { name: 'Copy and use the value', text: 'Use the copy button for the format you need, then paste the result into a map, terminal, or mission-planning tool.' },
+  ],
   schemas,
 };

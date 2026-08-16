@@ -259,6 +259,11 @@ export const content: GpsCoordinatesConverterLocaleContent = {
     },
   ],
   bibliography,
-  howTo: [],
+  howTo: [
+    { name: 'Identifier le format', text: 'Vérifiez si la coordonnée est en degrés décimaux, en degrés-minutes-secondes ou dans le format utilisé par le matériel.' },
+    { name: 'Saisir la coordonnée', text: 'Collez ou saisissez la valeur dans le champ correspondant. La conversion se met à jour automatiquement pendant la saisie.' },
+    { name: 'Vérifier les résultats', text: "Contrôlez les deux autres champs et vérifiez la latitude, la longitude, les signes et l'hémisphère." },
+    { name: 'Copier et utiliser la valeur', text: 'Utilisez le bouton de copie du format souhaité, puis collez le résultat dans une carte, un terminal ou un outil de planification.' },
+  ],
   schemas,
 };

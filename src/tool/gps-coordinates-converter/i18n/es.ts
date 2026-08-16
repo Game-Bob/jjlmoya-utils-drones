@@ -242,6 +242,11 @@ export const content: GpsCoordinatesConverterLocaleContent = {
   ],
   faq: faqItems,
   bibliography,
-  howTo: [],
+  howTo: [
+    { name: 'Identifica el formato', text: 'Comprueba si la coordenada está en grados decimales, grados-minutos-segundos o en el formato utilizado por el hardware.' },
+    { name: 'Introduce la coordenada', text: 'Pega o escribe el valor en el campo correspondiente. La conversión se actualiza automáticamente mientras lo editas.' },
+    { name: 'Revisa los resultados', text: 'Comprueba los otros dos campos y verifica la latitud, la longitud, los signos y el hemisferio.' },
+    { name: 'Copia y utiliza el valor', text: 'Pulsa el botón de copiar del formato que necesites y pega el resultado en un mapa, terminal o herramienta de planificación.' },
+  ],
   schemas,
 };
