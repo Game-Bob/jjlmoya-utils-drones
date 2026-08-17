@@ -8,39 +8,39 @@ const description = 'mAh kapasitesine ve akım tüketimine göre dronunuzun uçu
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: 'Gerçek uçuş süresi neden hesaplanandan daha kısadır?',
+    answer: 'Hesaplayıcı sabit tüketim varsayar. Sert manevralar, karşı rüzgar ve pil aşınması gerçek uçuş süresini %30\'a kadar azaltabilir.',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: 'Drone\'umu hangi voltajda indirmeliyim?',
+    answer: 'İdeal olarak, dinlenme halinde hücre başına voltaj 3,5 V - 3,6 V seviyesine düştüğünde inin. Bu, önerilen %20 kalan kapasiteye karşılık gelir.',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'Drone\'lar için LiPo mu yoksa Li-Ion piller mi daha iyidir?',
+    answer: 'LiPo piller yüksek anlık güç sağlar ve yarış ile akrobasi için idealdir. Li-Ion hücreler daha uzun dayanır ancak daha düşük çıkış gücüne sahiptir ve uzun, dengeli uçuşlara uygundur.',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: 'Hücre sayısı (S) uçuş süresini nasıl etkiler?',
+    answer: 'Daha fazla hücre voltajı ve gücü artırır, ancak ağırlığı da artırır. Motorlar bu voltaja göre optimize edilmişse daha verimli olabilirler, fakat hücre sayısı tek başına daha uzun süreyi garanti etmez.',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: 'Kapasiteyi belirleyin',
+    text: 'Pil etiketini kontrol edin ve mAh değerini bulun (örneğin 1500, 2200 veya 4500).',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: 'Akım tüketimini tahmin edin',
+    text: 'Drone\'unuzun ortalama akım tüketimini girin. Bu değeri bir test uçuşundan sonra OSD telemetrisinde bulabilirsiniz.',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: 'Güvenlik payını ayarlayın',
+    text: 'Pili korumak ve iniş payı bırakmak için %20 ayırmanızı öneririz (değeri %80 olarak ayarlayın).',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: 'Sonucu görüntüleyin',
+    text: 'Havada güvenle kalabileceğiniz kesin süreyi dakika ve saniye olarak görüntüleyin.',
   },
 ];
 

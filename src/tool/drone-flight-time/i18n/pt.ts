@@ -8,39 +8,39 @@ const description = 'Calcule quanto tempo o seu drone pode voar com base na capa
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: 'Por que o tempo de voo real é menor que o calculado?',
+    answer: 'A calculadora considera um consumo constante. Manobras bruscas, ventos contrários e desgaste da bateria podem reduzir o tempo de voo real em até 30%.',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: 'Com que tensão devo pousar o drone?',
+    answer: 'Idealmente, pouse quando a tensão cair para 3,5 V - 3,6 V por célula, em repouso. Isso corresponde aos 20% de capacidade restante recomendados.',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'As baterias LiPo ou Li-Ion são melhores para drones?',
+    answer: 'As LiPo oferecem alta potência instantânea, ideal para corridas e acrobacias. As células Li-Ion têm maior autonomia, mas menor potência de saída, sendo ideais para voos longos e estáveis.',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: 'Como o número de células (S) afeta o tempo de voo?',
+    answer: 'Mais células aumentam a tensão e a potência, mas também o peso. Se os motores forem otimizados para essa tensão, podem ser mais eficientes, mas o número de células por si só não garante mais tempo de voo.',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: 'Identifique a capacidade',
+    text: 'Verifique a etiqueta da bateria e procure o valor em mAh (por exemplo, 1500, 2200 ou 4500).',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: 'Estime o consumo de corrente',
+    text: 'Introduza o consumo médio de corrente do drone. Pode encontrá-lo na telemetria OSD após um voo de teste.',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: 'Ajuste a margem de segurança',
+    text: 'Recomendamos deixar 20% de reserva, definindo o valor para 80%, para proteger a bateria e criar uma margem para aterragem.',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: 'Veja o resultado',
+    text: 'Veja o tempo exato, em minutos e segundos, durante o qual pode permanecer no ar com segurança.',
   },
 ];
 

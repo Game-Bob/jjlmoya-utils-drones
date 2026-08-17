@@ -8,39 +8,39 @@ const description = 'mAh容量と消費電流に基づいて、ドローンの�
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: '実際の飛行時間が計算値より短いのはなぜですか？',
+    answer: 'この計算機は消費電力が一定であると仮定します。急な操縦、向かい風、バッテリーの劣化により、実際の飛行時間は最大30%短くなることがあります。',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: 'ドローンは何ボルトで着陸すべきですか？',
+    answer: '理想的には、安静時にセルあたり3.5V - 3.6Vまで電圧が下がったら着陸します。これは推奨される残量20%に相当します。',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'ドローンにはLiPoとLi-Ionのどちらが適していますか？',
+    answer: 'LiPoは瞬間的な出力が高く、レースやアクロバットに適しています。Li-Ionは持続時間が長い一方、出力が低く、長時間の安定した飛行に適しています。',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: 'セル数（S）は飛行時間にどう影響しますか？',
+    answer: 'セル数が増えると電圧と出力は上がりますが、重量も増えます。その電圧に合わせてモーターが最適化されていれば効率は上がりますが、セル数だけで飛行時間が長くなるとは限りません。',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: '容量を確認',
+    text: 'バッテリーのラベルでmAh値（例: 1500、2200、4500）を確認します。',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: '消費電流を見積もる',
+    text: 'ドローンの平均消費電流を入力します。テスト飛行後のOSDテレメトリーで確認できます。',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: '安全マージンを調整',
+    text: 'バッテリー保護と着陸余裕のため、20%を残すように設定します（80%に設定）。',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: '結果を確認',
+    text: '安全に飛行できる時間を分と秒で表示します。',
   },
 ];
 

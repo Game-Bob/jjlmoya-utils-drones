@@ -8,39 +8,39 @@ const description = 'Bereken hoe lang uw drone kan vliegen op basis van mAh-capa
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: 'Waarom is de werkelijke vliegtijd korter dan berekend?',
+    answer: 'De calculator gaat uit van een constant verbruik. Scherpe manoeuvres, tegenwind en batterijslijtage kunnen de werkelijke vliegtijd met maximaal 30% verkorten.',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: 'Bij welke spanning moet ik mijn drone laten landen?',
+    answer: 'Land idealiter wanneer de spanning in rust daalt tot 3,5 V - 3,6 V per cel. Dit komt overeen met de aanbevolen resterende capaciteit van 20%.',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'Zijn LiPo- of Li-Ion-accu\'s beter voor drones?',
+    answer: 'LiPo-accu\'s leveren veel direct vermogen, ideaal voor racen en acrobatiek. Li-Ion-cellen hebben een langere gebruiksduur maar een lager uitgangsvermogen, ideaal voor lange, gelijkmatige vluchten.',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: 'Welke invloed heeft het aantal cellen (S) op de vliegtijd?',
+    answer: 'Meer cellen verhogen spanning en vermogen, maar ook het gewicht. Als de motoren op die spanning zijn geoptimaliseerd, kunnen ze efficiënter werken, maar alleen het aantal cellen garandeert geen langere vliegtijd.',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: 'Capaciteit controleren',
+    text: 'Controleer het batterijlabel en zoek de mAh-waarde (bijv. 1500, 2200, 4500).',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: 'Stroomverbruik schatten',
+    text: 'Voer het gemiddelde stroomverbruik van uw drone in. U vindt dit in de OSD-telemetrie na een testvlucht.',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: 'Veiligheidsmarge aanpassen',
+    text: 'Laat 20% over (stel 80% in) om de batterij te beschermen en een landingsbuffer te behouden.',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: 'Resultaat bekijken',
+    text: 'Bekijk de exacte tijd in minuten en seconden waarin u veilig in de lucht kunt blijven.',
   },
 ];
 

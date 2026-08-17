@@ -8,39 +8,39 @@ const description = 'Oblicz, jak długo Twój dron może latać na podstawie poj
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: 'Dlaczego rzeczywisty czas lotu jest krótszy od obliczonego?',
+    answer: 'Kalkulator zakłada stałe zużycie. Gwałtowne manewry, wiatr czołowy i zużycie akumulatora mogą skrócić rzeczywisty czas lotu nawet o 30%.',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: 'Przy jakim napięciu powinienem wylądować dronem?',
+    answer: 'Najlepiej lądować, gdy napięcie spadnie do 3,5-3,6 V na ogniwo w spoczynku. Odpowiada to zalecanemu pozostawieniu 20% pojemności.',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'Czy do dronów lepsze są akumulatory LiPo czy Li-Ion?',
+    answer: 'LiPo zapewniają wysoką moc chwilową, idealną do wyścigów i akrobacji. Ogniwa Li-Ion mają dłuższy czas pracy, ale niższą moc wyjściową, dlatego nadają się do długich, spokojnych lotów.',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: 'Jak liczba ogniw (S) wpływa na czas lotu?',
+    answer: 'Większa liczba ogniw zwiększa napięcie i moc, ale także masę. Jeśli silniki są zoptymalizowane pod to napięcie, mogą pracować wydajniej, ale sama liczba ogniw nie gwarantuje dłuższego lotu.',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: 'Określ pojemność',
+    text: 'Sprawdź etykietę akumulatora i znajdź wartość mAh (np. 1500, 2200, 4500).',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: 'Oszacuj pobór prądu',
+    text: 'Wprowadź średni pobór prądu drona. Możesz go znaleźć w telemetrii OSD po locie testowym.',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: 'Dostosuj margines bezpieczeństwa',
+    text: 'Pozostaw 20% (ustaw 80%), aby chronić akumulator i zapewnić zapas na lądowanie.',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: 'Wyświetl wynik',
+    text: 'Zobacz dokładny czas w minutach i sekundach, przez który możesz bezpiecznie pozostać w powietrzu.',
   },
 ];
 

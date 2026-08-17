@@ -8,39 +8,39 @@ const description = 'Рассчитайте время полета вашего
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: 'Почему фактическое время полёта меньше расчётного?',
+    answer: 'Калькулятор предполагает постоянное потребление. Резкие манёвры, встречный ветер и износ аккумулятора могут сократить фактическое время полёта до 30%.',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: 'При каком напряжении нужно посадить дрон?',
+    answer: 'В идеале садитесь, когда напряжение в состоянии покоя снизится до 3,5-3,6 В на элемент. Это соответствует рекомендуемому остаточному заряду 20%.',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'Какие аккумуляторы лучше для дронов: LiPo или Li-Ion?',
+    answer: 'LiPo обеспечивают высокую мгновенную мощность, что идеально для гонок и акробатики. Li-Ion имеют большую продолжительность работы, но меньшую выходную мощность и подходят для длительных спокойных полётов.',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: 'Как количество элементов (S) влияет на время полёта?',
+    answer: 'Большее количество элементов повышает напряжение и мощность, но также увеличивает вес. Если моторы оптимизированы под это напряжение, они могут работать эффективнее, однако одно только количество элементов не гарантирует более длительный полёт.',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: 'Определите ёмкость',
+    text: 'Проверьте маркировку аккумулятора и найдите значение в мА·ч, например 1500, 2200 или 4500.',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: 'Оцените потребление тока',
+    text: 'Введите среднее потребление тока дроном. Найти его можно в телеметрии OSD после тестового полёта.',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: 'Настройте запас безопасности',
+    text: 'Оставьте 20% заряда, установив значение 80%, чтобы защитить аккумулятор и сохранить запас для посадки.',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: 'Получите результат',
+    text: 'Просмотрите точное время в минутах и секундах, в течение которого можно безопасно оставаться в воздухе.',
   },
 ];
 

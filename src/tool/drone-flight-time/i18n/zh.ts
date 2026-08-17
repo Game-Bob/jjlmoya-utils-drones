@@ -8,39 +8,39 @@ const description = '根据mAh容量和耗电量计算无人机的飞行时间�
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: '为什么实际飞行时间比计算时间短？',
+    answer: '计算器假设耗电量保持不变。剧烈机动、逆风和电池老化都可能使实际飞行时间最多缩短30%。',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: '无人机应在什么电压下着陆？',
+    answer: '理想情况下，静置时每节电池电压降至3.5V - 3.6V时着陆。这相当于建议保留20%的剩余容量。',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'LiPo和Li-Ion电池哪种更适合无人机？',
+    answer: 'LiPo可提供较高的瞬时功率，适合竞速和特技飞行。Li-Ion电芯续航更长但输出功率较低，适合长时间平稳飞行。',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: '电芯数量（S）如何影响飞行时间？',
+    answer: '增加电芯会提高电压和功率，但也会增加重量。如果电机针对该电压进行了优化，效率可能更高，但仅凭电芯数量并不能保证飞行时间更长。',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: '确认容量',
+    text: '检查电池标签并找到mAh容量值（例如1500、2200或4500）。',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: '估算电流消耗',
+    text: '输入无人机的平均耗电电流。测试飞行后可以在OSD遥测数据中找到该数值。',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: '调整安全余量',
+    text: '建议保留20%的电量（设置为80%），以保护电池并为着陆留出余量。',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: '查看结果',
+    text: '查看可以安全留空的准确时间，结果以分钟和秒显示。',
   },
 ];
 

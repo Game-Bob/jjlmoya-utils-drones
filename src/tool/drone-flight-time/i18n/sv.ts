@@ -8,39 +8,39 @@ const description = 'Beräkna hur länge din drönare kan flyga baserat på mAh-
 
 const faqItems = [
   {
-    question: 'Why is actual flight time lower than calculated?',
-    answer: 'The calculator assumes constant consumption. Sharp maneuvers, headwinds, and battery wear can reduce actual flight time by up to 30%.',
+    question: 'Varför är den faktiska flygtiden kortare än den beräknade?',
+    answer: 'Kalkylatorn förutsätter konstant förbrukning. Häftiga manövrer, motvind och batterislitage kan minska den faktiska flygtiden med upp till 30%.',
   },
   {
-    question: 'At what voltage should I land my drone?',
-    answer: 'Ideally, land when the voltage drops to 3.5V - 3.6V per cell (at rest). This corresponds to the recommended 20% remaining capacity.',
+    question: 'Vid vilken spänning bör jag landa drönaren?',
+    answer: 'Landa helst när spänningen i vila sjunker till 3,5-3,6 V per cell. Det motsvarar rekommenderad återstående kapacitet på 20%.',
   },
   {
-    question: 'Are LiPo or Li-Ion batteries better for drones?',
-    answer: 'LiPos offer high instantaneous power (ideal for racing and acrobatics). Li-Ion cells have longer endurance but lower power output (ideal for long, steady flights).',
+    question: 'Är LiPo- eller Li-Ion-batterier bättre för drönare?',
+    answer: 'LiPo-batterier ger hög momentan effekt och passar för racing och akrobatik. Li-Ion-celler har längre uthållighet men lägre uteffekt och passar för långa, lugna flygningar.',
   },
   {
-    question: 'How does the cell count (S) affect flight time?',
-    answer: 'More cells increase voltage and power, but also weight. If motors are optimized for that voltage, they can be more efficient, but cell count alone does not guarantee more time.',
+    question: 'Hur påverkar antalet celler (S) flygtiden?',
+    answer: 'Fler celler ökar spänning och effekt, men också vikten. Om motorerna är optimerade för spänningen kan de bli effektivare, men antalet celler i sig garanterar inte längre flygtid.',
   },
 ];
 
 const howToSteps = [
   {
-    name: 'Identify Capacity',
-    text: 'Check your battery label and look for the mAh value (e.g., 1500, 2200, 4500).',
+    name: 'Identifiera kapaciteten',
+    text: 'Kontrollera batteriets etikett och leta efter mAh-värdet, till exempel 1500, 2200 eller 4500.',
   },
   {
-    name: 'Estimate Current Draw',
-    text: 'Enter the average amperage your drone consumes. You can find this in your OSD telemetry after a test flight.',
+    name: 'Uppskatta strömförbrukningen',
+    text: 'Ange drönarens genomsnittliga strömförbrukning. Du hittar den i OSD-telemetrin efter en testflygning.',
   },
   {
-    name: 'Adjust Safety Margin',
-    text: 'We recommend leaving 20% (set to 80%) to protect the battery and provide a landing buffer.',
+    name: 'Justera säkerhetsmarginalen',
+    text: 'Lämna 20% i reserv genom att ange 80%, så skyddas batteriet och du får en buffert för landning.',
   },
   {
-    name: 'Get the Result',
-    text: 'View the exact time in minutes and seconds that you can safely stay in the air.',
+    name: 'Visa resultatet',
+    text: 'Se den exakta tiden i minuter och sekunder som du säkert kan stanna i luften.',
   },
 ];
 
