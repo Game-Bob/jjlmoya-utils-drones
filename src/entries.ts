@@ -12,6 +12,8 @@ export { droneBatteryCRatingCalculator } from './tool/drone-battery-c-rating-cal
 export type { DroneBatteryCRatingCalculatorUI, DroneBatteryCRatingCalculatorLocaleContent } from './tool/drone-battery-c-rating-calculator/entry';
 export { fpvDroneThrustToWeightRatio } from './tool/fpv-drone-thrust-to-weight-ratio/entry';
 export type { FpvDroneThrustToWeightRatioUI, FpvDroneThrustToWeightRatioLocaleContent } from './tool/fpv-drone-thrust-to-weight-ratio/entry';
+export { droneMotorPropellerCalculator } from './tool/drone-motor-propeller-calculator/entry';
+export type { DroneMotorPropellerUI, DroneMotorPropellerLocaleContent } from './tool/drone-motor-propeller-calculator/entry';
 export { dronesCategory } from './category';
 
 import { antennaLengthCalculator } from './tool/antenna-length-calculator/entry';
@@ -21,6 +23,7 @@ import { dronePowerAnalyzer } from './tool/drone-power-analyzer/entry';
 import { gsdFlightPlanner } from './tool/gsd-flight-planner/entry';
 import { droneBatteryCRatingCalculator } from './tool/drone-battery-c-rating-calculator/entry';
 import { fpvDroneThrustToWeightRatio } from './tool/fpv-drone-thrust-to-weight-ratio/entry';
+import { droneMotorPropellerCalculator } from './tool/drone-motor-propeller-calculator/entry';
 
 export const ALL_ENTRIES = [
   antennaLengthCalculator,
@@ -30,4 +33,5 @@ export const ALL_ENTRIES = [
   gsdFlightPlanner,
   droneBatteryCRatingCalculator,
   fpvDroneThrustToWeightRatio,
+  droneMotorPropellerCalculator,
 ];

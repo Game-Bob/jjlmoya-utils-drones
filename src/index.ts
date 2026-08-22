@@ -21,4 +21,4 @@ export { ANTENNA_LENGTH_CALCULATOR_TOOL } from './tool/antenna-length-calculator
 export { GPS_COORDINATES_CONVERTER_TOOL } from './tool/gps-coordinates-converter/index';
 export { DRONE_POWER_ANALYZER_TOOL } from './tool/drone-power-analyzer/index';
 export { GSD_FLIGHT_PLANNER_TOOL } from './tool/gsd-flight-planner/index';
-
+export { DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL } from './tool/drone-motor-propeller-calculator/index';

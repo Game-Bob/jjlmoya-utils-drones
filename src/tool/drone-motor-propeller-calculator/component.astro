@@ -1,0 +1,109 @@
+---
+import type { DroneMotorPropellerUI } from './ui';
+
+interface Props {
+  ui: DroneMotorPropellerUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="drone-motor-tool" data-drone-motor-calculator data-unit="metric">
+  <script is:inline type="application/json" data-drone-motor-ui set:html={JSON.stringify(ui)}></script>
+  <div class="tool-controls">
+    <section class="setup-card presets-card" aria-labelledby="presets-title">
+      <div class="eyebrow">{ui.presetsHeader}</div>
+      <div class="preset-row" id="presets-title">
+        <button type="button" class="preset-button" data-preset="tiny-cruiser">{ui.presetTinyCruiser}</button>
+        <button type="button" class="preset-button is-selected" data-preset="freestyle">{ui.presetFreestyle}</button>
+        <button type="button" class="preset-button" data-preset="long-range">{ui.presetLongRange}</button>
+        <button type="button" class="preset-button" data-preset="cinelifter">{ui.presetCinelifter}</button>
+      </div>
+    </section>
+
+    <section class="setup-card unit-card" aria-labelledby="unit-title">
+      <div class="eyebrow" id="unit-title">{ui.unitHeader}</div>
+      <div class="unit-toggle" role="group" aria-label={ui.unitHeader}>
+        <button type="button" class="unit-button is-selected" data-unit="metric" aria-pressed="true">{ui.metricUnit}</button>
+        <button type="button" class="unit-button" data-unit="imperial" aria-pressed="false">{ui.imperialUnit}</button>
+      </div>
+    </section>
+
+    <section class="setup-card specs-card" aria-labelledby="setup-title">
+      <div class="section-heading">
+        <div class="eyebrow">01</div>
+        <h2 id="setup-title">{ui.setupHeader}</h2>
+      </div>
+      <div class="input-grid">
+        <label class="field"><span>{ui.motorKvLabel}</span><input data-field="motorKv" type="number" value="1950" min="100" max="10000" step="50" inputmode="decimal" /><small>KV</small></label>
+        <label class="field"><span>{ui.batteryVoltageLabel}</span><input data-field="batteryVoltage" type="number" value="22.2" min="1" max="60" step="0.1" inputmode="decimal" /><small>V</small></label>
+        <label class="field"><span>{ui.propDiameterLabel}</span><input data-field="propDiameterInches" type="number" value="5.1" min="1" max="30" step="0.1" inputmode="decimal" /><small data-unit-label="length">in</small></label>
+        <label class="field"><span>{ui.propPitchLabel}</span><input data-field="propPitchInches" type="number" value="4.3" min="0.5" max="25" step="0.1" inputmode="decimal" /><small data-unit-label="length">in</small></label>
+        <div class="choice-field"><span>{ui.bladeCountLabel}</span><div class="choice-row" role="group" aria-label={ui.bladeCountLabel}><button type="button" data-choice="bladeCount" data-value="2" aria-pressed="false">{ui.twoBlades}</button><button type="button" class="is-selected" data-choice="bladeCount" data-value="3" aria-pressed="true">{ui.threeBlades}</button><button type="button" data-choice="bladeCount" data-value="4" aria-pressed="false">{ui.fourBlades}</button></div></div>
+        <div class="choice-field"><span>{ui.motorCountLabel}</span><div class="choice-row" role="group" aria-label={ui.motorCountLabel}><button type="button" data-choice="motorCount" data-value="2" aria-pressed="false">{ui.twoMotors}</button><button type="button" class="is-selected" data-choice="motorCount" data-value="4" aria-pressed="true">{ui.fourMotors}</button><button type="button" data-choice="motorCount" data-value="6" aria-pressed="false">{ui.sixMotors}</button><button type="button" data-choice="motorCount" data-value="8" aria-pressed="false">{ui.eightMotors}</button></div></div>
+        <label class="field field-wide"><span>{ui.droneWeightLabel}</span><input data-field="droneWeightGrams" type="number" value="700" min="1" max="50000" step="10" inputmode="decimal" /><small data-unit-label="mass">g</small></label>
+      </div>
+    </section>
+
+    <section class="setup-card bench-card" aria-labelledby="bench-title">
+      <div class="section-heading">
+        <div class="eyebrow">02</div>
+        <h2 id="bench-title">{ui.benchDataHeader} <span>{ui.optionalLabel}</span></h2>
+      </div>
+      <div class="input-grid bench-grid">
+        <label class="field"><span>{ui.benchThrustLabel}</span><input data-field="benchThrustGrams" type="number" value="1900" min="1" max="30000" step="10" inputmode="decimal" /><small data-unit-label="mass">g</small></label>
+        <label class="field"><span>{ui.benchVoltageLabel}</span><input data-field="benchVoltage" type="number" value="22.2" min="1" max="60" step="0.1" inputmode="decimal" /><small>V</small></label>
+      </div>
+      <div class="bench-foot">
+        <p class="fine-print"><span data-output="source-note">{ui.benchBasedLabel}</span></p>
+        <button type="button" class="clear-button" data-action="clear-bench">{ui.clearBenchData}</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="results-card" aria-labelledby="results-title">
+    <div class="results-topline">
+      <div>
+        <div class="eyebrow">03</div>
+        <h2 id="results-title">{ui.resultsHeader}</h2>
+      </div>
+      <div class="status-pill" data-output="status" aria-live="polite">{ui.headroomStatus}</div>
+    </div>
+    <div class="wind-tunnel">
+      <div class="tunnel-label tunnel-label-top">{ui.thrustAxisLabel}</div>
+      <div class="thrust-stream stream-left"></div>
+      <div class="thrust-stream stream-right"></div>
+      <div class="rotor-stage" data-role="rotor-stage">
+        <div class="rotor-shadow"></div>
+        <div class="rotor-disc">
+          <span class="rotor-blade blade-one"></span>
+          <span class="rotor-blade blade-two"></span>
+          <span class="rotor-blade blade-three"></span>
+          <span class="rotor-blade blade-four"></span>
+          <span class="rotor-hub"></span>
+        </div>
+        <div class="rotor-readout"><strong data-output="loaded-rpm">15,000 rpm</strong><span>{ui.sceneCaption}</span></div>
+      </div>
+      <div class="weight-marker"><span class="marker-line"></span><span>{ui.weightAxisLabel}</span></div>
+      <div class="lift-beam"><span></span></div>
+    </div>
+    <p class="status-advice" data-output="status-advice" aria-live="polite">{ui.headroomAdvice}</p>
+    <div class="result-grid">
+      <div class="result-cell accent"><span>{ui.thrustPerMotorLabel}</span><strong data-output="thrust-per-motor">1,900 g</strong></div>
+      <div class="result-cell accent"><span>{ui.totalThrustLabel}</span><strong data-output="total-thrust">7,600 g</strong></div>
+      <div class="result-cell"><span>{ui.pitchSpeedLabel}</span><strong data-output="pitch-speed">1,250 km/h</strong></div>
+      <div class="result-cell"><span>{ui.totalPowerLabel}</span><strong data-output="total-power">1,200 W</strong></div>
+      <div class="result-cell"><span>{ui.totalCurrentLabel}</span><strong data-output="total-current">54 A</strong></div>
+      <div class="result-cell"><span>{ui.thrustMarginLabel}</span><strong data-output="thrust-margin">986%</strong></div>
+      <div class="result-cell"><span>{ui.hoverThrottleLabel}</span><strong data-output="hover-throttle">30%</strong></div>
+    </div>
+    <div class="notes-row"><p>{ui.safetyNote}</p><p>{ui.modelNote}</p></div>
+  </section>
+</div>
+
+<script>
+  import { initDroneMotorPropellerCalculator } from './controller';
+
+  const root = document.querySelector<HTMLElement>('[data-drone-motor-calculator]');
+  if (root) initDroneMotorPropellerCalculator(root);
+</script>
