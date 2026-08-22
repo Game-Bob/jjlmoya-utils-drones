@@ -1,12 +1,15 @@
 ---
-import type { SEOSection } from '../../types';
 import { SEORenderer } from '@jjlmoya/utils-shared';
+import type { KnownLocale } from '../../types';
+import { droneMotorPropellerCalculator } from './entry';
 
 interface Props {
-  content: SEOSection[];
+  locale?: KnownLocale;
 }
 
-const { content } = Astro.props;
+const { locale = 'es' } = Astro.props;
+const content = await droneMotorPropellerCalculator.i18n[locale]?.();
+if (!content) return null;
 ---
 
-<SEORenderer content={{ locale: 'en', sections: content }} />
+{content.seo?.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}
