@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Verktyg och Kalkylatorer för Drönare och Radioamatörer',
-  description: 'Optimera dina flygningar och din kommunikation med kostnadsfria onlineverktyg. Flygtidskalkylatorer, batteritidsestimering, GPS-koordinatkonverterare och antennlängder för radiofrekvens.',
+  description: 'Gratis onlineverktyg för drönarflygning och radio: beräkna flygtid, batteritid, GPS-koordinater och antennlängd.',
   seo: [
     {
       type: 'title',

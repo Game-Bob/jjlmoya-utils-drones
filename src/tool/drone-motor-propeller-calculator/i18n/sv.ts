@@ -137,7 +137,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Propellerdragkraft beror på luftdensitet och form. Uppmätta testbänksdata ger den mest exakta kalibreringen.',
+    html: 'Propellerdragkraft beror på luftdensitet och form. Uppmätta testbänksdata ger den mest exakta kalibreringen. Använd resultatet för att jämföra motorer och propellrar under samma förhållanden. Total vikt, spänning under belastning, reglage och montering påverkar dragkraft och ström. Mät temperatur och förbrukning på testbänken, lämna marginal före första flygningen och verifiera alltid den egna modellen. Dokumentera mätningarna så att du kan följa ändringar i konfigurationen.',
   },
   {
     type: 'tip',

@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Herramientas y Calculadoras para Drones y Radioaficionados',
-  description: 'Optimiza tus vuelos y tus comunicaciones con herramientas gratuitas online. Calculadoras de tiempo de vuelo, autonomía batería, conversores de coordenadas GPS y longitudes de antena para radiofrecuencia.',
+  description: 'Herramientas online gratuitas para planificar vuelos de drones y radio: calcula tiempo de vuelo, batería, coordenadas GPS y antenas.',
   seo: [
     {
       type: 'title',

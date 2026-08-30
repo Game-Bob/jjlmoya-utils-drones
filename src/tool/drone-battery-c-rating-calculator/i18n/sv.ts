@@ -133,7 +133,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Olika flygstilar kräver olika strömprofiler. 5-tums freestyle-drönare skapar toppar på över 120 Ampere, medan 7-tums long range-drönare kräver jämn effektivitet. Rätt anpassning förhindrar plötsliga strömavbrott i luften.',
+    html: 'Olika flygstilar kräver olika strömprofiler. 5-tums freestyle-drönare skapar toppar på över 120 Ampere, medan 7-tums long range-drönare kräver jämn effektivitet. Rätt anpassning förhindrar plötsliga strömavbrott i luften. Jämför det beräknade C-värdet med den verkliga strömmen i din modell och ta hänsyn till batteriets ålder, temperatur och kabellängd. Resultatet hjälper dig att välja ett rimligt belastningsområde, men gör alltid ett kontrollerat test och övervaka cellernas temperatur före flygning.',
   },
   {
     type: 'tip',

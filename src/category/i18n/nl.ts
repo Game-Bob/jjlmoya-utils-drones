@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Tools en Calculators voor Drones en Radioamateurs',
-  description: 'Optimaliseer uw vluchten en communicatie met gratis online tools. Flugtijdcalculators, batterijduurmeters, GPS-coördinatenconverters en antennelengtecalculators voor radiofrequenties.',
+  description: 'Gratis online tools voor dronevluchten en radio: bereken vliegtijd, batterijduur, GPS-coördinaten en antennelengte.',
   seo: [
     {
       type: 'title',

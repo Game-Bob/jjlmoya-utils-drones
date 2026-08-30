@@ -149,7 +149,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'TWR si 10 a 1 in üzerinde olan dronlar için tam gazdaki titreşimleri önlemek adına Betaflight Throttle PID Attenuation (TPA) özelliğinin etkinleştirilmesi önerilir.',
+    html: 'TWR si 10 a 1 in üzerinde olan dronlar için tam gazdaki titreşimleri önlemek adına Betaflight Throttle PID Attenuation (TPA) özelliğinin etkinleştirilmesi önerilir. İtki-ağırlık oranını yapılandırmaları karşılaştırmak için kullanın; kalkış ağırlığını, yük altındaki voltajı, gerçek tüketimi ve uçuş tarzınız için gereken payı da hesaba katın. Kontrollü bir test, zorlu koşullarda uçmadan önce modelin tepkisini doğrulamanıza yardımcı olur. Sonuçları farklı gaz seviyelerinde karşılaştırmak, kontrol ve uçuş süresini daha gerçekçi değerlendirmeyi sağlar.',
   },
   {
     type: 'tip',

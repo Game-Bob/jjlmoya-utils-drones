@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Drone ve Radyo Amatörleri İçin Araçlar ve Hesaplayıcılar',
-  description: 'Ücretsiz çevrimiçi araçlarla uçuşlarınızı ve iletişiminizi optimize edin. Uçuş süresi hesaplayıcıları, pil ömrü tahmini, GPS koordinat dönüştürücüleri ve radyo frekansı için anten uzunlukları.',
+  description: 'Drone uçuşu ve telsiz planlaması için ücretsiz araçlar: uçuş süresini, pil ömrünü, GPS koordinatlarını ve anten uzunluğunu hesaplayın.',
   seo: [
     {
       type: 'title',

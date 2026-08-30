@@ -137,7 +137,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Daya dorong baling baling bergantung pada kerapatan udara dan bentuk bilah. Data uji nyata memberikan kalibrasi paling akurat.',
+    html: 'Daya dorong baling baling bergantung pada kerapatan udara dan bentuk bilah. Data uji nyata memberikan kalibrasi paling akurat. Gunakan hasil ini untuk membandingkan motor dan baling-baling dalam kondisi yang sama. Berat total, tegangan saat dibebani, pengendali, dan pemasangan dapat mengubah daya dorong serta arus. Ukur suhu dan konsumsi di bangku uji, sisakan cadangan sebelum penerbangan pertama, dan verifikasi konfigurasi Anda sendiri.',
   },
   {
     type: 'tip',

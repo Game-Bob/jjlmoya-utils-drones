@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Drone and Ham Radio Tools and Calculators',
-  description: 'Optimize your flight and communications with free online tools. Flight time calculators, battery life estimations, GPS coordinate converters, and antenna length for radio frequency.',
+  description: 'Free online tools for drone flight and radio planning: estimate flight time, battery life, GPS coordinates, and antenna length.',
   seo: [
     {
       type: 'title',

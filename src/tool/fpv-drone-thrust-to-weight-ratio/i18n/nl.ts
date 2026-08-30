@@ -149,7 +149,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Voor drones met een TWR hoger dan 10 op 1 is het verstandig om Throttle PID Attenuation (TPA) in te stellen in Betaflight om trillingen bij volgas te voorkomen.',
+    html: 'Voor drones met een TWR hoger dan 10 op 1 is het verstandig om Throttle PID Attenuation (TPA) in te stellen in Betaflight om trillingen bij volgas te voorkomen. Gebruik de stuwkracht-gewichtsverhouding om configuraties onder dezelfde omstandigheden te vergelijken. Houd rekening met het startgewicht, de spanning onder belasting, het werkelijke verbruik en de gewenste reserve. Een gecontroleerde test laat zien hoe het model reageert voordat je in veeleisende omstandigheden vliegt.',
   },
   {
     type: 'tip',

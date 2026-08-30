@@ -149,7 +149,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Untuk drone dengan TWR di atas 10 banding 1, disarankan mengaktifkan Throttle PID Attenuation (TPA) pada Betaflight guna mencegah osilasi motor pada kecepatan tinggi.',
+    html: 'Untuk drone dengan TWR di atas 10 banding 1, disarankan mengaktifkan Throttle PID Attenuation (TPA) pada Betaflight guna mencegah osilasi motor pada kecepatan tinggi. Gunakan rasio dorong terhadap berat untuk membandingkan konfigurasi dalam kondisi yang sama. Perhitungkan berat saat lepas landas, tegangan ketika dibebani, konsumsi nyata, dan cadangan yang dibutuhkan untuk gaya terbang Anda. Uji secara terkendali sebelum terbang dalam kondisi berat.',
   },
   {
     type: 'tip',

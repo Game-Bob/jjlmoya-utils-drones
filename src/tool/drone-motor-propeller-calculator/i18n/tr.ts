@@ -137,7 +137,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Pervane itişi hava yoğunluğuna ve geometriye bağlıdır. Ölçülen test verileri en doğru kalibrasyonu sağlar.',
+    html: 'Pervane itişi hava yoğunluğuna ve geometriye bağlıdır. Ölçülen test verileri en doğru kalibrasyonu sağlar. Sonucu aynı koşullarda motor ve pervane seçeneklerini karşılaştırmak için kullanın. Toplam ağırlık, yük altındaki voltaj, hız kontrol cihazı ve montaj şekli itişi ve akımı değiştirir. Test standında sıcaklık ile tüketimi ölçün ve ilk uçuştan önce güvenli bir pay bırakın. Başka bir modelin verilerini yalnızca referans kabul ederek kendi kurulumunuzu ayrıca doğrulayın.',
   },
   {
     type: 'tip',

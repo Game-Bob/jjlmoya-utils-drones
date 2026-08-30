@@ -149,7 +149,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Per droni con TWR superiore a 10 a 1 è opportuno abilitare la funzione Throttle PID Attenuation (TPA) in Betaflight per prevenire oscillazioni a pieno gas e preservare la stabilità.',
+    html: 'Per droni con TWR superiore a 10 a 1 è opportuno abilitare la funzione Throttle PID Attenuation (TPA) in Betaflight per prevenire oscillazioni a pieno gas e preservare la stabilità. Il rapporto spinta peso è un riferimento per confrontare configurazioni, non una garanzia di comportamento in volo. Considera il peso pronto al decollo, il consumo reale, la temperatura delle celle e il margine necessario per il tuo stile di pilotaggio. Una prova controllata permette di verificare la risposta prima di usare il drone in condizioni impegnative.',
   },
   {
     type: 'tip',

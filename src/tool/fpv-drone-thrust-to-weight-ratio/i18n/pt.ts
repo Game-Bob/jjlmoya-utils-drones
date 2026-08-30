@@ -149,7 +149,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Para drones com TWR superior a 10 para 1, recomenda-se configurar a atenuação Throttle PID Attenuation (TPA) no Betaflight para evitar vibrações indesejadas em linha reta.',
+    html: 'Para drones com TWR superior a 10 para 1, recomenda-se configurar a atenuação Throttle PID Attenuation (TPA) no Betaflight para evitar vibrações indesejadas em linha reta. A relação empuxo-peso serve para comparar configurações, mas não prevê sozinha o comportamento em voo. Considere o peso pronto para decolar, o consumo real, a temperatura das células e a margem necessária para seu estilo de pilotagem. Compare o empuxo em diferentes níveis de aceleração, registre as medições e faça ajustes graduais antes de voar em condições exigentes.',
   },
   {
     type: 'tip',

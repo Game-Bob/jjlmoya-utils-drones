@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Drohnen und Funkamateur Tools & Rechner',
-  description: 'Optimieren Sie Ihre Flüge und Kommunikation mit kostenlosen Online-Tools. Flugzeitrechner, Akkulaufzeit-Schätzer, GPS-Koordinaten-Konverter und Antennenlängen-Rechner für Hochfrequenz.',
+  description: 'Kostenlose Online-Rechner für Drohnenflüge und Funk: Flugzeit, Akkulaufzeit, GPS-Koordinaten und Antennenlänge schnell prüfen.',
   seo: [
     {
       type: 'title',

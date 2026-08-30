@@ -147,7 +147,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Propellerschub hängt von der Luftdichte und Geometrie ab. Reale Prüfstandsdaten des Herstellers ermöglichen die genaueste Kalibrierung des Rechners.',
+    html: 'Propellerschub hängt von der Luftdichte und Geometrie ab. Reale Prüfstandsdaten des Herstellers ermöglichen die genaueste Kalibrierung des Rechners. Vergleichen Sie mehrere Motor-Propeller-Kombinationen unter denselben Bedingungen. Gesamtgewicht, Spannung unter Last und tatsächlicher Wirkungsgrad verändern Schub und Stromaufnahme. Nutzen Sie die Berechnung nicht ungeprüft für ein anderes Modell: Messen Sie Strom und Temperatur am Prüfstand und lassen Sie vor dem Erstflug ausreichend Reserve.',
   },
   {
     type: 'tip',

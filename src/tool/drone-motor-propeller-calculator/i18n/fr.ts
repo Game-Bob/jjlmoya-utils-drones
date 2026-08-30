@@ -147,7 +147,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'La poussée dépend de la géométrie de hélice et de la densité de l air. Un point de mesure réel apporte la meilleure calibration.',
+    html: 'La poussée dépend de la géométrie de l hélice et de la densité de l air. Un point de mesure réel apporte la meilleure calibration. Utilisez les résultats pour comparer plusieurs couples moteur-hélice dans les mêmes conditions. Le poids total, la tension sous charge et le rendement réel peuvent modifier la poussée et le courant. Faites un essai sur banc, surveillez la température et gardez une marge avant le premier vol.',
   },
   {
     type: 'tip',

@@ -133,7 +133,7 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Farklı uçuş tarzları farklı güç profilleri gerektirir. 5 inç serbest uçuş dronları 120 Amper üzeri ani akım sıçramaları oluştururken 7 inç uzun menzil dronları sabit verimlilik arar. Doğru pil eşleşmesi havadaki ani kapanmaları önler.',
+    html: 'Farklı uçuş tarzları farklı güç profilleri gerektirir. 5 inç serbest uçuş dronları 120 Amper üzeri ani akım sıçramaları oluştururken 7 inç uzun menzil dronları sabit verimlilik arar. Doğru pil eşleşmesi havadaki ani kapanmaları önler. Hesaplanan C değerini gerçek kurulumun akımıyla karşılaştırırken pilin yaşı, sıcaklığı ve kablo uzunluğunu da değerlendirin. Uçuş süresi, kapasite ve gerçek tüketim birlikte ele alınmalıdır. Hesaplama paketleri karşılaştırmak için bir başlangıç noktasıdır; üretici sınırlarını, bağlantıları ve güvenli iniş için bırakılacak enerji payını ayrıca kontrol edin.',
   },
   {
     type: 'tip',

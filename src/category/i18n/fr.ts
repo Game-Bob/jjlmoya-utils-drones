@@ -3,7 +3,7 @@
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Outils et Calculateurs pour Drones et Radioamateurs',
-  description: 'Optimisez vos vols et vos communications avec des outils en ligne gratuits. Calculateurs de temps de vol, autonomie de batterie, convertisseurs de coordonnées GPS et longueurs d\'antenne pour la radiofréquence.',
+  description: 'Outils en ligne gratuits pour préparer vos vols et votre radio; durée de vol, autonomie, coordonnées GPS et longueur d\'antenne.',
   seo: [
     {
       type: 'title',

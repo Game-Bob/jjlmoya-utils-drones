@@ -149,12 +149,12 @@ const seoSections: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'För drönare med TWR över 10 till 1 rekommenderas att aktivera Throttle PID Attenuation (TPA) i Betaflight för att eliminera vibrationer vid fullgas.',
+    html: 'För drönare med TWR över 10 till 1 rekommenderas att aktivera Throttle PID Attenuation (TPA) i Betaflight för att minska vibrationer vid fullgas. Använd förhållandet mellan dragkraft och vikt för att jämföra konfigurationer under samma förhållanden. Ta hänsyn till startvikt, spänning under belastning, verklig förbrukning och den reserv som behövs för din flygstil. Ett kontrollerat test visar hur modellen reagerar innan flygning i krävande miljöer.',
   },
   {
     type: 'tip',
     title: 'Tips för Betaflight TPA Inställning',
-    html: 'Ställ in TPA brytpunkt på 1250 eller 1350 med en dämpning på 0.65 för att säkerställa perfekt stabilitet på snabba raksträckor.',
+    html: 'Ställ in TPA-brytpunkten på 1250 eller 1350 med en dämpning på 0.65 och kontrollera resultatet med en kontrollerad provflygning.',
   },
 ];
 

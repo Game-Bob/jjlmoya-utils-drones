@@ -137,7 +137,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'O empuxo da hélice depende da geometria e densidade do ar. Dados de teste medidos oferecem a melhor calibração.',
+    html: 'O empuxo da hélice depende da geometria e densidade do ar. Dados de teste medidos oferecem a melhor calibração. Use o resultado para comparar combinações nas mesmas condições, considerando peso, tensão sob carga, controlador e instalação. Meça corrente e temperatura em bancada e ajuste a configuração gradualmente antes do primeiro voo. Não transfira automaticamente um valor de outro modelo: bateria, montagem e eficiência real também alteram o resultado.',
   },
   {
     type: 'tip',

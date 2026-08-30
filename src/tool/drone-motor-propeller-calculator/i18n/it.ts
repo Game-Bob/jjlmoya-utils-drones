@@ -137,7 +137,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'La spinta dell elica dipende dalla densità dell aria e dalla geometria. Un dato di banco reale offre la calibrazione più accurata.',
+    html: 'La spinta dell elica dipende dalla densità dell aria e dalla geometria. Un dato di banco reale offre la calibrazione più accurata. Usa il risultato per confrontare più combinazioni nelle stesse condizioni, senza trasferire automaticamente un dato da un modello all\'altro. Peso, tensione sotto carico, regolatore e installazione cambiano spinta e corrente. Misura temperatura e assorbimento al banco, poi modifica la configurazione per gradi.',
   },
   {
     type: 'tip',

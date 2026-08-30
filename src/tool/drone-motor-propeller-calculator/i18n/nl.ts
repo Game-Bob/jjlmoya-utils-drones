@@ -137,7 +137,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Propellerstuwkracht hangt af van de luchtdichtheid en vorm. Een echt testpunt biedt de nauwkeurigste kalibratie.',
+    html: 'Propellerstuwkracht hangt af van de luchtdichtheid en vorm. Een echt testpunt biedt de nauwkeurigste kalibratie. Gebruik de uitkomst om motoren en propellers onder dezelfde omstandigheden te vergelijken. Gewicht, spanning onder belasting, regelaar en installatie veranderen de stuwkracht en stroom. Meet temperatuur en verbruik op de testbank en houd reserve voor de eerste vlucht. Gebruik waarden van een ander model daarom alleen als vergelijking.',
   },
   {
     type: 'tip',

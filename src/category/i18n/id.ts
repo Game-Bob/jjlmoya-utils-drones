@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Alat dan Kalkulator untuk Drone dan Amatir Radio',
-  description: 'Optimalkan penerbangan dan komunikasi Anda dengan alat online gratis. Kalkulator waktu terbang, estimasi otonomi baterai, konverter koordinat GPS, dan panjang antena untuk frekuensi radio.',
+  description: 'Alat online gratis untuk merencanakan penerbangan drone dan radio: hitung waktu terbang, daya baterai, koordinat GPS, dan panjang antena.',
   seo: [
     {
       type: 'title',

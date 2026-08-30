@@ -137,7 +137,7 @@ const seo: SEOSection[] = [
   },
   {
     type: 'paragraph',
-    html: 'Ciąg śmigła zależy od gęstości powietrza i kształtu łopat. Rzeczywisty pomiar z hamowni zapewnia najwyższą dokładność.',
+    html: 'Ciąg śmigła zależy od gęstości powietrza i kształtu łopat. Rzeczywisty pomiar z hamowni zapewnia najwyższą dokładność. Użyj wyniku do porównania silników i śmigieł w tych samych warunkach. Masa, napięcie pod obciążeniem, regulator i montaż zmieniają ciąg oraz prąd. Zmierz temperaturę i pobór na stanowisku, a przed pierwszym lotem zostaw bezpieczny zapas. Traktuj dane z innego modelu wyłącznie jako punkt odniesienia i sprawdź całą konfigurację przed użyciem.',
   },
   {
     type: 'tip',

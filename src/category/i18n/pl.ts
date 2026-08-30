@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'drones',
   title: 'Narzędzia i Kalkulatory dla Dronów i Krótkofalowców',
-  description: 'Optymaulizuj swoje loty i komunikację dzięki bezpłatnym narzędziom online. Kalkulatory czasu lotu, autonomii baterii, konwertery współrzędnych GPS i długości anten dla radiofrekwencji.',
+  description: 'Bezpłatne narzędzia online do planowania lotów dronem i łączności: czas lotu, bateria, współrzędne GPS oraz długość anteny.',
   seo: [
     {
       type: 'title',
