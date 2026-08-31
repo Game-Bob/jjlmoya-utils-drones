@@ -1,0 +1,229 @@
+---
+import type { DroneMissionBatteryReservePlannerUI } from './ui';
+
+interface Props {
+  ui?: DroneMissionBatteryReservePlannerUI;
+  content?: { ui: DroneMissionBatteryReservePlannerUI };
+}
+
+const props = Astro.props;
+const ui: DroneMissionBatteryReservePlannerUI = props.ui || props.content?.ui || ({} as DroneMissionBatteryReservePlannerUI);
+---
+
+<div class="drone-mission-battery-reserve-planner" id="drone-mission-planner-root">
+  <div class="planner-top-bar">
+    <div class="presets-section">
+      <span class="presets-label">{ui.inputs?.presetLabel || 'Quick Mission Presets'}</span>
+      <div class="presets-flex">
+        <button type="button" class="preset-pill" data-preset="mappingSurvey">
+          <span class="preset-name">{ui.presets?.mappingSurvey || 'Mapping Survey'}</span>
+          <span class="preset-meta">6S 10000mAh • 8km • 10m {ui.presets?.surveyMeta || 'survey'}</span>
+        </button>
+        <button type="button" class="preset-pill" data-preset="fpvRecon">
+          <span class="preset-name">{ui.presets?.fpvRecon || 'FPV Recon'}</span>
+          <span class="preset-meta">4S 3000mAh • 6km • 2m {ui.presets?.scoutMeta || 'scout'}</span>
+        </button>
+        <button type="button" class="preset-pill" data-preset="cinematicInspection">
+          <span class="preset-name">{ui.presets?.cinematicInspection || 'Cinematic Inspection'}</span>
+          <span class="preset-meta">4S 5000mAh • 2.5km • 8m {ui.presets?.hoverMeta || 'hover'}</span>
+        </button>
+        <button type="button" class="preset-pill" data-preset="microRecon">
+          <span class="preset-name">{ui.presets?.microRecon || 'Micro Scout'}</span>
+          <span class="preset-meta">2S 850mAh • 1km • 3m {ui.presets?.hoverMeta || 'hover'}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="unit-switch-group">
+      <button type="button" class="unit-btn active" id="unit-btn-metric">{ui.inputs?.metricLabel || 'Metric'}</button>
+      <button type="button" class="unit-btn" id="unit-btn-imperial">{ui.inputs?.imperialLabel || 'Imperial'}</button>
+    </div>
+  </div>
+
+  <div class="planner-main-grid">
+    <div class="planner-controls-panel">
+      <h3 class="panel-heading">{ui.sections?.batteryPropulsion || '1. Battery & Propulsion'}</h3>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-capacity">{ui.inputs?.batteryCapacityLabel || 'Battery Capacity'}</label>
+          <div class="control-val-display"><span id="val-disp-capacity">10000</span> mAh</div>
+        </div>
+        <div class="slider-with-number">
+          <input type="range" id="slider-capacity" aria-label="Battery Capacity Slider" min="500" max="30000" step="100" value="10000" class="tactile-slider" />
+          <input type="number" id="input-capacity" value="10000" min="100" max="100000" step="100" class="tactile-number" />
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-voltage">{ui.inputs?.batteryVoltageLabel || 'Nominal Voltage'}</label>
+          <div class="control-val-display"><span id="val-disp-voltage">22.2</span> V</div>
+        </div>
+        <div class="voltage-chips-row">
+          <button type="button" class="voltage-chip" data-v="11.1">3S (11.1V)</button>
+          <button type="button" class="voltage-chip" data-v="14.8">4S (14.8V)</button>
+          <button type="button" class="voltage-chip active" data-v="22.2">6S (22.2V)</button>
+          <button type="button" class="voltage-chip" data-v="44.4">12S (44.4V)</button>
+        </div>
+        <div class="slider-with-number" style="margin-top: 8px;">
+          <input type="range" id="slider-voltage" aria-label="Nominal Voltage Slider" min="3.7" max="60" step="0.1" value="22.2" class="tactile-slider" />
+          <input type="number" id="input-voltage" value="22.2" min="1" max="100" step="0.1" class="tactile-number" />
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-current">{ui.inputs?.averageCurrentLabel || 'Average Hover Cruise Current'}</label>
+          <div class="control-val-display"><span id="val-disp-current">18.0</span> A</div>
+        </div>
+        <div class="slider-with-number">
+          <input type="range" id="slider-current" aria-label="Average Current Slider" min="1" max="100" step="0.5" value="18" class="tactile-slider" />
+          <input type="number" id="input-current" value="18" min="0.1" max="500" step="0.5" class="tactile-number" />
+        </div>
+      </div>
+
+      <h3 class="panel-heading" style="margin-top: 24px;">{ui.sections?.flightAtmosphere || '2. Flight Profile & Atmosphere'}</h3>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-speed">{ui.inputs?.cruiseSpeedLabel || 'Airspeed Cruise Speed'}</label>
+          <div class="control-val-display"><span id="val-disp-speed">45</span> <span class="unit-label-speed">km/h</span></div>
+        </div>
+        <div class="slider-with-number">
+          <input type="range" id="slider-speed" aria-label="Cruise Speed Slider" min="10" max="150" step="1" value="45" class="tactile-slider" />
+          <input type="number" id="input-speed" value="45" min="1" max="300" step="1" class="tactile-number" />
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-distance">{ui.inputs?.oneWayDistanceLabel || 'One-Way Transit Distance'}</label>
+          <div class="control-val-display"><span id="val-disp-distance">6.0</span> <span class="unit-label-dist">km</span></div>
+        </div>
+        <div class="slider-with-number">
+          <input type="range" id="slider-distance" aria-label="One-Way Distance Slider" min="0.5" max="30" step="0.5" value="6" class="tactile-slider" />
+          <input type="number" id="input-distance" value="6" min="0.1" max="200" step="0.5" class="tactile-number" />
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-target-hover">{ui.inputs?.targetHoverTimeLabel || 'Target Area Operational Duration'}</label>
+          <div class="control-val-display"><span id="val-disp-target-hover">5.0</span> min</div>
+        </div>
+        <div class="slider-with-number">
+          <input type="range" id="slider-target-hover" aria-label="Target Hover Duration Slider" min="0" max="30" step="0.5" value="5" class="tactile-slider" />
+          <input type="number" id="input-target-hover" value="5" min="0" max="120" step="0.5" class="tactile-number" />
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-wind-speed">{ui.inputs?.windSpeedLabel || 'Ambient Wind Speed'}</label>
+          <div class="control-val-display"><span id="val-disp-wind">12</span> <span class="unit-label-speed">km/h</span></div>
+        </div>
+        <div class="slider-with-number">
+          <input type="range" id="slider-wind-speed" aria-label="Wind Speed Slider" min="0" max="60" step="1" value="12" class="tactile-slider" />
+          <input type="number" id="input-wind-speed" value="12" min="0" max="120" step="1" class="tactile-number" />
+        </div>
+      </div>
+
+      <div class="control-row">
+        <label>{ui.inputs?.windDirectionLabel || 'Wind Heading Relative to Outbound'}</label>
+        <div class="wind-dir-segmented">
+          <button type="button" class="wind-seg-btn active" data-dir="headwind">
+            <span class="wind-tag font-mono">HEAD</span>
+            <span>{ui.inputs?.windHeadwindLabel || 'Headwind Outbound'}</span>
+          </button>
+          <button type="button" class="wind-seg-btn" data-dir="tailwind">
+            <span class="wind-tag font-mono">TAIL</span>
+            <span>{ui.inputs?.windTailwindLabel || 'Tailwind Outbound'}</span>
+          </button>
+          <button type="button" class="wind-seg-btn" data-dir="crosswind">
+            <span class="wind-tag font-mono">CROSS</span>
+            <span>{ui.inputs?.windCrosswindLabel || 'Crosswind'}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-header">
+          <label for="input-reserve">{ui.inputs?.reservePolicyLabel || 'Safety Reserve Buffer'}</label>
+          <div class="control-val-display"><span id="val-disp-reserve">20</span>%</div>
+        </div>
+        <div class="slider-with-number">
+          <input type="range" id="slider-reserve" aria-label="Safety Reserve Buffer Slider" min="10" max="40" step="1" value="20" class="tactile-slider" />
+          <input type="number" id="input-reserve" value="20" min="5" max="50" step="1" class="tactile-number" />
+        </div>
+      </div>
+    </div>
+
+    <div class="planner-telemetry-panel">
+      <div id="res-status-banner" class="status-banner status-banner--optimal">
+        <div class="status-icon-dot"></div>
+        <div class="status-banner-text">
+          <span class="status-banner-title" id="res-status-title">{ui.statusBadges?.optimalTitle || 'OPTIMAL ENERGY RESERVE MARGIN'}</span>
+          <span class="status-banner-subtitle" id="res-status-subtitle">{ui.statusBadges?.optimalSubtitle || 'Safe flight envelope with sufficient landing reserve margin'}</span>
+        </div>
+      </div>
+
+      <div class="telemetry-artwork-box" id="res-svg-wrapper"></div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-label">{ui.results?.totalAutonomyTime || 'Total Autonomy'}</span>
+          <span class="metric-value" id="res-autonomy">24.0 min</span>
+          <span class="metric-sub font-mono" id="res-sag-loss">Voltage sag: -11.1 Wh</span>
+        </div>
+
+        <div class="metric-card highlight-card">
+          <span class="metric-label">{ui.results?.maxSafeMissionRadius || 'Point of No Return'}</span>
+          <span class="metric-value" id="res-max-radius">12.5 km</span>
+          <span class="metric-sub">{ui.results?.maxRadiusSubLabel || 'Max safe radius w/ target hover'}</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-label">{ui.results?.outboundLegTime || 'Outbound Duration'}</span>
+          <span class="metric-value" id="res-outbound-time">10.9 min</span>
+          <span class="metric-sub" id="res-outbound-power">Power: 472 W</span>
+        </div>
+
+        <div class="metric-card">
+          <span class="metric-label">{ui.results?.returnLegTime || 'Return Duration'}</span>
+          <span class="metric-value" id="res-return-time">7.6 min</span>
+          <span class="metric-sub" id="res-return-power">Power: 360 W</span>
+        </div>
+      </div>
+
+      <div class="touchdown-energy-card">
+        <div class="touchdown-info">
+          <span class="touchdown-title">{ui.results?.remainingEnergyLanding || 'Estimated Touchdown Battery'}</span>
+          <span class="touchdown-value" id="res-landing-energy">47.7% (105.9 Wh)</span>
+        </div>
+        <div class="touchdown-progress-track">
+          <div class="touchdown-progress-bar" id="res-landing-bar" style="width: 47.7%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline type="application/json" id="drone-mission-planner-ui-data" set:html={JSON.stringify(ui)} />
+
+<script>
+  import { loadSavedInputs } from './storage';
+  import { bindPlannerController } from './controller';
+  import type { DroneMissionBatteryReservePlannerUI } from './ui';
+
+  const root = document.getElementById('drone-mission-planner-root');
+  const dataEl = document.getElementById('drone-mission-planner-ui-data');
+
+  if (root && dataEl && dataEl.textContent) {
+    try {
+      const ui: DroneMissionBatteryReservePlannerUI = JSON.parse(dataEl.textContent);
+      const initial = loadSavedInputs();
+      bindPlannerController(root, initial, ui);
+    } catch {}
+  }
+</script>

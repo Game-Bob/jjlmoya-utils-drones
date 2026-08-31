@@ -8,6 +8,7 @@ import { DRONE_BATTERY_C_RATING_CALCULATOR_TOOL } from './tool/drone-battery-c-r
 import { FPV_DRONE_THRUST_TO_WEIGHT_RATIO_TOOL } from './tool/fpv-drone-thrust-to-weight-ratio/index';
 import { DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL } from './tool/drone-motor-propeller-calculator/index';
 import { FPV_DRONE_SPEED_CALCULATOR_TOOL } from './tool/fpv-drone-speed-calculator/index';
+import { DRONE_MISSION_BATTERY_RESERVE_PLANNER_TOOL } from './tool/drone-mission-battery-reserve-planner/index';
 import type { ToolDefinition } from './types';
 
 export const ALL_TOOLS: ToolDefinition[] = [
@@ -20,6 +21,7 @@ export const ALL_TOOLS: ToolDefinition[] = [
   FPV_DRONE_THRUST_TO_WEIGHT_RATIO_TOOL,
   DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL,
   FPV_DRONE_SPEED_CALCULATOR_TOOL,
+  DRONE_MISSION_BATTERY_RESERVE_PLANNER_TOOL,
 ];
 
 export {
@@ -32,4 +34,6 @@ export {
   FPV_DRONE_THRUST_TO_WEIGHT_RATIO_TOOL,
   DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL,
   FPV_DRONE_SPEED_CALCULATOR_TOOL,
+  DRONE_MISSION_BATTERY_RESERVE_PLANNER_TOOL,
 };
+

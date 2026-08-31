@@ -16,6 +16,8 @@ export { droneMotorPropellerCalculator } from './tool/drone-motor-propeller-calc
 export type { DroneMotorPropellerUI, DroneMotorPropellerLocaleContent } from './tool/drone-motor-propeller-calculator/entry';
 export { fpvDroneSpeedCalculator } from './tool/fpv-drone-speed-calculator/entry';
 export type { FpvDroneSpeedUI, FpvDroneSpeedLocaleContent } from './tool/fpv-drone-speed-calculator/entry';
+export { droneMissionBatteryReservePlanner } from './tool/drone-mission-battery-reserve-planner/entry';
+export type { DroneMissionBatteryReservePlannerUI, DroneMissionBatteryReservePlannerLocaleContent } from './tool/drone-mission-battery-reserve-planner/entry';
 export { dronesCategory } from './category';
 
 import { antennaLengthCalculator } from './tool/antenna-length-calculator/entry';
@@ -27,6 +29,7 @@ import { droneBatteryCRatingCalculator } from './tool/drone-battery-c-rating-cal
 import { fpvDroneThrustToWeightRatio } from './tool/fpv-drone-thrust-to-weight-ratio/entry';
 import { droneMotorPropellerCalculator } from './tool/drone-motor-propeller-calculator/entry';
 import { fpvDroneSpeedCalculator } from './tool/fpv-drone-speed-calculator/entry';
+import { droneMissionBatteryReservePlanner } from './tool/drone-mission-battery-reserve-planner/entry';
 
 export const ALL_ENTRIES = [
   antennaLengthCalculator,
@@ -38,4 +41,5 @@ export const ALL_ENTRIES = [
   fpvDroneThrustToWeightRatio,
   droneMotorPropellerCalculator,
   fpvDroneSpeedCalculator,
+  droneMissionBatteryReservePlanner,
 ];
