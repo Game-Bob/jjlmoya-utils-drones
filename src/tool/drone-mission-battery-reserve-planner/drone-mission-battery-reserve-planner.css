@@ -1,431 +1,392 @@
 .drone-mission-battery-reserve-planner {
-  --n-surface: #0a0f1d;
-  --n-surface-card: #151d30;
-  --n-surface-elevated: #1e293b;
-  --n-surface-subtle: #0f172a;
-  --n-border: #2e3d5c;
-  --n-text-primary: #f8fafc;
-  --n-text-secondary: #94a3b8;
-  --n-brand: #3b82f6;
-  --n-brand-hover: #2563eb;
-  --n-accent: #8b5cf6;
-  --n-success: #10b981;
-  --n-warning: #f59e0b;
-  --n-danger: #ef4444;
-
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  color: var(--n-text-primary);
-  background-color: var(--n-surface);
-  border: 1px solid var(--n-border);
-  border-radius: 20px;
-  padding: 24px;
-  max-width: 1140px;
-  margin: 0 auto;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-.drone-mission-battery-reserve-planner .planner-top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--n-border);
-  margin-bottom: 20px;
-}
-
-.drone-mission-battery-reserve-planner .presets-section {
-  flex: 1;
-}
-
-.drone-mission-battery-reserve-planner .unit-switch-group {
-  display: flex;
-  background-color: var(--n-surface-subtle);
-  border: 1px solid var(--n-border);
-  border-radius: 10px;
-  padding: 3px;
-}
-
-.drone-mission-battery-reserve-planner .unit-btn {
-  background: none;
-  border: none;
-  color: var(--n-text-secondary);
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.drone-mission-battery-reserve-planner .unit-btn.active {
-  background-color: var(--n-brand);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-.drone-mission-battery-reserve-planner .planner-presets-bar {
-  margin-bottom: 24px;
-}
-
-.drone-mission-battery-reserve-planner .presets-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--n-text-secondary);
-  margin-bottom: 10px;
-}
-
-.drone-mission-battery-reserve-planner .presets-flex {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 12px;
-}
-
-.drone-mission-battery-reserve-planner .preset-pill {
-  background-color: var(--n-surface-card);
-  border: 1px solid var(--n-border);
-  border-radius: 12px;
-  padding: 12px 14px;
-  cursor: pointer;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  text-align: left;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--n-surface-card, #0d1322);
+  border: 1px solid var(--n-border, #1e293b);
+  color: var(--n-text-primary, #f8fafc);
+}
+
+.drone-mission-battery-reserve-planner * {
+  box-sizing: border-box;
+}
+
+.planner-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--n-border, #1e293b);
+}
+
+.presets-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.presets-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--n-text-secondary, #94a3b8);
+}
+
+.presets-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preset-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--n-surface-subtle, #151d30);
+  border: 1px solid var(--n-border, #2e3d5c);
+  color: var(--n-text-primary, #f8fafc);
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.drone-mission-battery-reserve-planner .preset-pill:hover {
-  border-color: var(--n-brand);
-  background-color: var(--n-surface-elevated);
-  transform: translateY(-2px);
+.preset-pill:hover {
+  background: var(--n-surface-hover, #1e2942);
+  border-color: var(--n-brand, #3b82f6);
 }
 
-.drone-mission-battery-reserve-planner .preset-name {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--n-text-primary);
+.preset-name {
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.drone-mission-battery-reserve-planner .preset-meta {
-  font-size: 0.75rem;
-  color: var(--n-text-secondary);
+.preset-meta {
+  font-size: 10px;
+  color: var(--n-text-secondary, #94a3b8);
 }
 
-.drone-mission-battery-reserve-planner .planner-main-grid {
+.unit-switch-group {
+  display: flex;
+  background: var(--n-surface-subtle, #151d30);
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid var(--n-border, #2e3d5c);
+}
+
+.unit-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--n-text-secondary, #94a3b8);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.unit-btn.active {
+  background: var(--n-brand, #3b82f6);
+  color: #fff;
+}
+
+.planner-main-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
-@media (max-width: 900px) {
-  .drone-mission-battery-reserve-planner .planner-main-grid {
+@media (max-width: 860px) {
+  .planner-main-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.drone-mission-battery-reserve-planner .planner-controls-panel,
-.drone-mission-battery-reserve-planner .planner-telemetry-panel {
-  background-color: var(--n-surface-card);
-  border: 1px solid var(--n-border);
-  border-radius: 16px;
-  padding: 20px;
+.planner-controls-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.drone-mission-battery-reserve-planner .panel-heading {
-  font-size: 1rem;
+.panel-heading {
+  margin: 0;
+  font-size: 13px;
   font-weight: 700;
-  margin: 0 0 16px 0;
-  color: var(--n-text-primary);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--n-border);
+  color: var(--n-brand-light, #60a5fa);
 }
 
-.drone-mission-battery-reserve-planner .control-row {
-  margin-bottom: 18px;
+.control-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.drone-mission-battery-reserve-planner .control-header {
+.control-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
 }
 
-.drone-mission-battery-reserve-planner .control-header label,
-.drone-mission-battery-reserve-planner .control-row > label {
-  font-size: 0.85rem;
+.control-header label {
+  font-size: 13px;
   font-weight: 600;
-  color: var(--n-text-primary);
 }
 
-.drone-mission-battery-reserve-planner .control-val-display {
-  font-size: 0.9rem;
+.control-val-display {
+  font-size: 13px;
   font-weight: 700;
-  color: var(--n-brand);
+  color: var(--n-brand, #3b82f6);
 }
 
-.drone-mission-battery-reserve-planner .slider-with-number {
+.slider-with-number {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.drone-mission-battery-reserve-planner .tactile-slider {
+.tactile-slider {
   flex: 1;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 8px;
-  border-radius: 4px;
-  background: var(--n-surface-subtle);
-  outline: none;
-  border: 1px solid var(--n-border);
-}
-
-.drone-mission-battery-reserve-planner .tactile-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--n-brand);
+  accent-color: var(--n-brand, #3b82f6);
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
-  border: 2px solid #fff;
 }
 
-.drone-mission-battery-reserve-planner .tactile-number {
-  width: 80px;
-  background-color: var(--n-surface-subtle);
-  border: 1px solid var(--n-border);
-  border-radius: 8px;
-  color: var(--n-text-primary);
-  padding: 6px 10px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  text-align: right;
-  outline: none;
+.tactile-number {
+  width: 72px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--n-surface-subtle, #151d30);
+  border: 1px solid var(--n-border, #2e3d5c);
+  color: var(--n-text-primary, #f8fafc);
+  font-size: 13px;
+  font-weight: 600;
+  text-anchor: end;
 }
 
-.drone-mission-battery-reserve-planner .voltage-chips-row {
+.voltage-chips-row {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
 }
 
-.drone-mission-battery-reserve-planner .voltage-chip {
-  background-color: var(--n-surface-subtle);
-  border: 1px solid var(--n-border);
-  color: var(--n-text-secondary);
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.8rem;
+.voltage-chip {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  background: var(--n-surface-subtle, #151d30);
+  border: 1px solid var(--n-border, #2e3d5c);
+  color: var(--n-text-secondary, #94a3b8);
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.drone-mission-battery-reserve-planner .voltage-chip.active {
-  background-color: var(--n-brand);
+.voltage-chip.active {
+  background: var(--n-brand, #3b82f6);
+  border-color: var(--n-brand, #3b82f6);
   color: #fff;
-  border-color: var(--n-brand);
 }
 
-.drone-mission-battery-reserve-planner .wind-dir-segmented {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.wind-dir-segmented {
+  display: flex;
   gap: 8px;
-  margin-top: 8px;
 }
 
-.drone-mission-battery-reserve-planner .wind-seg-btn {
-  background-color: var(--n-surface-subtle);
-  border: 1px solid var(--n-border);
-  color: var(--n-text-secondary);
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
+.wind-seg-btn {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  font-size: 0.78rem;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--n-surface-subtle, #151d30);
+  border: 1px solid var(--n-border, #2e3d5c);
+  color: var(--n-text-secondary, #94a3b8);
+  font-size: 11px;
   font-weight: 600;
-  text-align: center;
-  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.drone-mission-battery-reserve-planner .wind-seg-btn.active {
-  background-color: rgba(59, 130, 246, 0.2);
-  border-color: var(--n-brand);
-  color: var(--n-text-primary);
+.wind-seg-btn.active {
+  border-color: var(--n-brand, #3b82f6);
+  color: var(--n-text-primary, #f8fafc);
+  background: var(--n-surface-hover, #1e2942);
 }
 
-.drone-mission-battery-reserve-planner .wind-tag {
-  font-size: 0.7rem;
+.wind-tag {
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.05em;
-  background-color: var(--n-surface-elevated);
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: var(--n-brand);
+  color: var(--n-brand, #3b82f6);
 }
 
-.drone-mission-battery-reserve-planner .status-banner {
+.planner-telemetry-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.status-banner {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
+  gap: 12px;
+  padding: 14px 16px;
   border-radius: 12px;
-  margin-bottom: 20px;
+  border: 1px solid var(--n-border, #2e3d5c);
 }
 
-.drone-mission-battery-reserve-planner .status-banner--optimal {
-  background-color: rgba(16, 185, 129, 0.15);
-  border: 1px solid #10b981;
+.status-banner-optimal {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
-.drone-mission-battery-reserve-planner .status-banner--tight {
-  background-color: rgba(245, 158, 11, 0.15);
-  border: 1px solid #f59e0b;
+.status-banner-tight {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
-.drone-mission-battery-reserve-planner .status-banner--critical,
-.drone-mission-battery-reserve-planner .status-banner--exceeded {
-  background-color: rgba(239, 68, 68, 0.15);
-  border: 1px solid #ef4444;
+.status-banner-critical {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
-.drone-mission-battery-reserve-planner .status-icon-dot {
-  width: 12px;
-  height: 12px;
+.status-banner-exceeded {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.status-icon-dot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: currentColor;
-
-  .status-banner--optimal & {
-    background-color: #10b981;
-    box-shadow: 0 0 10px #10b981;
-  }
-  .status-banner--tight & {
-    background-color: #f59e0b;
-    box-shadow: 0 0 10px #f59e0b;
-  }
-  .status-banner--critical &,
-  .status-banner--exceeded & {
-    background-color: #ef4444;
-    box-shadow: 0 0 10px #ef4444;
-  }
+  background: currentcolor;
 }
 
-.drone-mission-battery-reserve-planner .status-banner-title {
-  display: block;
-  font-size: 0.9rem;
+.status-banner-optimal .status-icon-dot {
+  background: #10b981;
+}
+
+.status-banner-tight .status-icon-dot {
+  background: #f59e0b;
+}
+
+.status-banner-critical .status-icon-dot,
+.status-banner-exceeded .status-icon-dot {
+  background: #ef4444;
+}
+
+.status-banner-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-banner-title {
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--n-text-primary);
+  letter-spacing: 0.02em;
 }
 
-.drone-mission-battery-reserve-planner .status-banner-subtitle {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--n-text-secondary);
+.status-banner-subtitle {
+  font-size: 11px;
+  color: var(--n-text-secondary, #94a3b8);
 }
 
-.drone-mission-battery-reserve-planner .telemetry-artwork-box {
-  margin-bottom: 20px;
+.telemetry-artwork-box {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.drone-mission-battery-reserve-planner .mission-telemetry-svg {
+.mission-telemetry-svg {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.drone-mission-battery-reserve-planner .metrics-grid {
+.metrics-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-bottom: 20px;
 }
 
-.drone-mission-battery-reserve-planner .metric-card {
-  background-color: var(--n-surface-subtle);
-  border: 1px solid var(--n-border);
-  border-radius: 12px;
-  padding: 14px;
+.metric-card {
   display: flex;
   flex-direction: column;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--n-surface-subtle, #151d30);
+  border: 1px solid var(--n-border, #1e293b);
 }
 
-.drone-mission-battery-reserve-planner .highlight-card {
-  border-color: var(--n-brand);
-  background-color: rgba(59, 130, 246, 0.08);
+.highlight-card {
+  border-color: var(--n-brand, #3b82f6);
+  background: rgba(59, 130, 246, 0.06);
 }
 
-.drone-mission-battery-reserve-planner .metric-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--n-text-secondary);
-  margin-bottom: 4px;
+.metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--n-text-secondary, #94a3b8);
 }
 
-.drone-mission-battery-reserve-planner .metric-value {
-  font-size: 1.25rem;
+.metric-value {
+  font-size: 18px;
   font-weight: 800;
-  color: var(--n-text-primary);
+  margin: 4px 0 2px;
+  color: var(--n-text-primary, #f8fafc);
 }
 
-.drone-mission-battery-reserve-planner .metric-sub {
-  font-size: 0.75rem;
-  color: var(--n-text-secondary);
-  margin-top: 4px;
+.metric-sub {
+  font-size: 10px;
+  color: var(--n-text-secondary, #94a3b8);
 }
 
-.drone-mission-battery-reserve-planner .touchdown-energy-card {
-  background-color: var(--n-surface-subtle);
-  border: 1px solid var(--n-border);
-  border-radius: 12px;
-  padding: 16px;
+.touchdown-energy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--n-surface-subtle, #151d30);
+  border: 1px solid var(--n-border, #1e293b);
 }
 
-.drone-mission-battery-reserve-planner .touchdown-info {
+.touchdown-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
 
-.drone-mission-battery-reserve-planner .touchdown-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--n-text-primary);
+.touchdown-title {
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.drone-mission-battery-reserve-planner .touchdown-value {
-  font-size: 0.95rem;
+.touchdown-value {
+  font-size: 13px;
   font-weight: 800;
-  color: var(--n-brand);
+  color: var(--n-brand-light, #60a5fa);
 }
 
-.drone-mission-battery-reserve-planner .touchdown-progress-track {
+.touchdown-progress-track {
   width: 100%;
-  height: 10px;
-  background-color: var(--n-surface-card);
-  border-radius: 5px;
+  height: 8px;
+  border-radius: 4px;
+  background: #0f172a;
   overflow: hidden;
-  border: 1px solid var(--n-border);
 }
 
-.drone-mission-battery-reserve-planner .touchdown-progress-bar {
+.touchdown-progress-bar {
   height: 100%;
-  background-color: #10b981;
-  border-radius: 5px;
-  transition: width 0.3s ease, background-color 0.3s ease;
+  border-radius: 4px;
+  transition: width 0.3s ease;
 }

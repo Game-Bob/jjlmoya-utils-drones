@@ -127,82 +127,70 @@ export function determineMissionStatus(
   return 'optimal';
 }
 
-function calculateTransitLegs(
-  inputs: MissionInputs,
-  baseWatts: number,
-  outboundSpeed: number,
-  returnSpeed: number,
-  outboundPower: number,
-  returnPower: number
-) {
-  const dist = Math.max(0, inputs.oneWayDistanceKm);
-  const outboundTimeMin = (dist / outboundSpeed) * 60;
-  const returnTimeMin = (dist / returnSpeed) * 60;
-  const hoverTimeMin = Math.max(0, inputs.targetHoverTimeMin);
+interface LegParams {
+  distKm: number;
+  hoverMin: number;
+  baseWatts: number;
+  outboundSpeed: number;
+  returnSpeed: number;
+  outboundPower: number;
+  returnPower: number;
+}
 
-  const outboundEnergyWh = (outboundTimeMin / 60) * outboundPower;
-  const hoverEnergyWh = (hoverTimeMin / 60) * baseWatts;
-  const returnEnergyWh = (returnTimeMin / 60) * returnPower;
+function calculateTransitLegs(p: LegParams) {
+  const outboundTimeMin = (p.distKm / p.outboundSpeed) * 60;
+  const returnTimeMin = (p.distKm / p.returnSpeed) * 60;
+  const outboundEnergyWh = (outboundTimeMin / 60) * p.outboundPower;
+  const hoverEnergyWh = (p.hoverMin / 60) * p.baseWatts;
+  const returnEnergyWh = (returnTimeMin / 60) * p.returnPower;
 
   return {
-    outboundTimeMin,
-    returnTimeMin,
-    hoverTimeMin,
-    totalMissionTimeMin: outboundTimeMin + hoverTimeMin + returnTimeMin,
-    outboundEnergyWh,
-    hoverEnergyWh,
-    returnEnergyWh,
+    outboundTimeMin, returnTimeMin, hoverTimeMin: p.hoverMin,
+    totalMissionTimeMin: outboundTimeMin + p.hoverMin + returnTimeMin,
+    outboundEnergyWh, hoverEnergyWh, returnEnergyWh,
     totalUsedWh: outboundEnergyWh + hoverEnergyWh + returnEnergyWh,
   };
 }
 
-function calculateSafeRadius(
-  usableWh: number,
-  hoverWh: number,
-  outboundPower: number,
-  returnPower: number,
-  outboundSpeed: number,
-  returnSpeed: number
-): number {
-  const transitEnergyWh = Math.max(0, usableWh - hoverWh);
-  const energyPerKm = (outboundPower / outboundSpeed) + (returnPower / returnSpeed);
-  return energyPerKm > 0 ? Math.max(0, transitEnergyWh / energyPerKm) : 0;
+interface SafeRadiusParams {
+  usableWh: number;
+  hoverWh: number;
+  outboundPower: number;
+  returnPower: number;
+  outboundSpeed: number;
+  returnSpeed: number;
+}
+
+function calculateSafeRadius(p: SafeRadiusParams): number {
+  const transitWh = Math.max(0, p.usableWh - p.hoverWh);
+  const perKm = (p.outboundPower / p.outboundSpeed) + (p.returnPower / p.returnSpeed);
+  return perKm > 0 ? Math.max(0, transitWh / perKm) : 0;
 }
 
 export function calculateMissionReserve(inputs: MissionInputs): MissionResults {
-  const energy = calculateEnergyMetrics(inputs);
-  const speeds = computeEffectiveSpeeds(Math.max(1, inputs.cruiseSpeedKmh), Math.max(0, inputs.windSpeedKmh), inputs.windDirection);
-  const powers = calculateWindPowerPenalty(energy.basePowerDrawWatts, Math.max(1, inputs.cruiseSpeedKmh), Math.max(0, inputs.windSpeedKmh), inputs.windDirection);
-  const legs = calculateTransitLegs(inputs, energy.basePowerDrawWatts, speeds.outbound, speeds.returnLeg, powers.outboundPower, powers.returnPower);
-  const maxSafeRadiusKm = calculateSafeRadius(energy.usableEnergyWh, legs.hoverEnergyWh, powers.outboundPower, powers.returnPower, speeds.outbound, speeds.returnLeg);
+  const e = calculateEnergyMetrics(inputs);
+  const s = computeEffectiveSpeeds(Math.max(1, inputs.cruiseSpeedKmh), Math.max(0, inputs.windSpeedKmh), inputs.windDirection);
+  const p = calculateWindPowerPenalty(e.basePowerDrawWatts, Math.max(1, inputs.cruiseSpeedKmh), Math.max(0, inputs.windSpeedKmh), inputs.windDirection);
+  const legs = calculateTransitLegs({
+    distKm: Math.max(0, inputs.oneWayDistanceKm), hoverMin: Math.max(0, inputs.targetHoverTimeMin),
+    baseWatts: e.basePowerDrawWatts, outboundSpeed: s.outbound, returnSpeed: s.returnLeg,
+    outboundPower: p.outboundPower, returnPower: p.returnPower,
+  });
+  const maxSafeRadiusKm = calculateSafeRadius({
+    usableWh: e.usableEnergyWh, hoverWh: legs.hoverEnergyWh, outboundPower: p.outboundPower,
+    returnPower: p.returnPower, outboundSpeed: s.outbound, returnSpeed: s.returnLeg,
+  });
 
-  const remainingWh = energy.totalEnergyWh - legs.totalUsedWh;
-  const remainingPct = (remainingWh / energy.totalEnergyWh) * 100;
-  const statusKey = determineMissionStatus(remainingWh, energy.reserveEnergyWh, energy.totalEnergyWh);
-
+  const remWh = e.totalEnergyWh - legs.totalUsedWh;
   return {
-    totalEnergyWh: energy.totalEnergyWh,
-    usableEnergyWh: energy.usableEnergyWh,
-    reserveEnergyWh: energy.reserveEnergyWh,
-    basePowerDrawWatts: energy.basePowerDrawWatts,
-    outboundPowerWatts: powers.outboundPower,
-    returnPowerWatts: powers.returnPower,
-    totalAutonomyMinutes: energy.totalAutonomyMinutes,
-    outboundSpeedKmh: speeds.outbound,
-    returnSpeedKmh: speeds.returnLeg,
-    outboundTimeMinutes: legs.outboundTimeMin,
-    targetHoverTimeMinutes: legs.hoverTimeMin,
-    returnTimeMinutes: legs.returnTimeMin,
-    totalMissionTimeMinutes: legs.totalMissionTimeMin,
-    outboundEnergyWh: legs.outboundEnergyWh,
-    targetHoverEnergyWh: legs.hoverEnergyWh,
-    returnEnergyWh: legs.returnEnergyWh,
-    missionEnergyUsedWh: legs.totalUsedWh,
-    remainingEnergyLandingWh: remainingWh,
-    remainingEnergyLandingPercent: remainingPct,
-    maxSafeRadiusKm,
-    voltageSagWhLoss: energy.voltageSagWhLoss,
-    statusKey,
+    totalEnergyWh: e.totalEnergyWh, usableEnergyWh: e.usableEnergyWh, reserveEnergyWh: e.reserveEnergyWh,
+    basePowerDrawWatts: e.basePowerDrawWatts, outboundPowerWatts: p.outboundPower, returnPowerWatts: p.returnPower,
+    totalAutonomyMinutes: e.totalAutonomyMinutes, outboundSpeedKmh: s.outbound, returnSpeedKmh: s.returnLeg,
+    outboundTimeMinutes: legs.outboundTimeMin, targetHoverTimeMinutes: legs.hoverTimeMin, returnTimeMinutes: legs.returnTimeMin,
+    totalMissionTimeMinutes: legs.totalMissionTimeMin, outboundEnergyWh: legs.outboundEnergyWh, targetHoverEnergyWh: legs.hoverEnergyWh,
+    returnEnergyWh: legs.returnEnergyWh, missionEnergyUsedWh: legs.totalUsedWh, remainingEnergyLandingWh: remWh,
+    remainingEnergyLandingPercent: (remWh / e.totalEnergyWh) * 100, maxSafeRadiusKm, voltageSagWhLoss: e.voltageSagWhLoss,
+    statusKey: determineMissionStatus(remWh, e.reserveEnergyWh, e.totalEnergyWh),
   };
 }
 
