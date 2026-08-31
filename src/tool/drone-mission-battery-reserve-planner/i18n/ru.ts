@@ -2,7 +2,7 @@ import type { DroneMissionBatteryReservePlannerLocaleContent } from '../entry';
 import type { WithContext, SoftwareApplication, FAQPage, HowTo } from 'schema-dts';
 import { bibliography } from '../bibliography';
 
-const slug = 'drone-mission-battery-reserve-planner';
+const slug = 'planirovshchik-rezerva-batarei-misiya-drona';
 const title = 'Планировщик Резерва Батареи для Миссий Дронов';
 const description = 'Рассчитайте безопасный резерв батареи для возврата домой, влияние встречного ветра и максимальный радиус полета БПЛА.';
 
