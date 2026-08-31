@@ -22,3 +22,4 @@ export { GPS_COORDINATES_CONVERTER_TOOL } from './tool/gps-coordinates-converter
 export { DRONE_POWER_ANALYZER_TOOL } from './tool/drone-power-analyzer/index';
 export { GSD_FLIGHT_PLANNER_TOOL } from './tool/gsd-flight-planner/index';
 export { DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL } from './tool/drone-motor-propeller-calculator/index';
+export { FPV_DRONE_SPEED_CALCULATOR_TOOL } from './tool/fpv-drone-speed-calculator/index';

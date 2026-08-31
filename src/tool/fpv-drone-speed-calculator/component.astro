@@ -1,0 +1,115 @@
+---
+import type { FpvDroneSpeedUI } from './ui';
+
+interface Props {
+  ui: FpvDroneSpeedUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="fpv-speed-tool" data-fpv-speed-calculator data-unit="metric">
+  <script is:inline type="application/json" data-fpv-speed-ui set:html={JSON.stringify(ui)}></script>
+
+  <div class="speed-brief">
+    <div>
+      <span class="brief-kicker">{ui.calculateFromLabel}</span>
+      <p>{ui.assumptionsText}</p>
+    </div>
+    <div class="unit-switch" role="group" aria-label={ui.unitsLabel}>
+      <button type="button" class="unit-button is-selected" data-unit="metric" aria-pressed="true">{ui.metricUnit}</button>
+      <button type="button" class="unit-button" data-unit="imperial" aria-pressed="false">{ui.imperialUnit}</button>
+    </div>
+  </div>
+
+  <section class="flight-deck" aria-labelledby="speed-inputs-title">
+    <div class="control-rail">
+      <div class="rail-heading">
+        <span class="brief-kicker">{ui.inputsLabel}</span>
+        <h2 id="speed-inputs-title">{ui.presetsLabel}</h2>
+      </div>
+      <div class="preset-track">
+        <button type="button" class="preset-button" data-preset="racing">{ui.presetRacing}</button>
+        <button type="button" class="preset-button is-selected" data-preset="freestyle">{ui.presetFreestyle}</button>
+        <button type="button" class="preset-button" data-preset="cruiser">{ui.presetCruiser}</button>
+      </div>
+      <div class="input-list">
+        <label class="input-row"><span>{ui.motorKvLabel}</span><input data-field="motorKv" type="number" min="100" max="10000" step="50" inputmode="decimal" /><small>KV</small></label>
+        <label class="input-row"><span>{ui.batteryVoltageLabel}</span><input data-field="batteryVoltage" type="number" min="1" max="80" step="0.1" inputmode="decimal" /><small>V</small></label>
+        <label class="input-row"><span>{ui.propellerPitchLabel}</span><input data-field="propellerPitchInches" type="number" min="0.5" max="25" step="0.1" inputmode="decimal" /><small>in</small></label>
+        <label class="input-row"><span>{ui.efficiencyLabel}</span><input data-field="efficiencyPercent" type="number" min="50" max="98" step="1" inputmode="decimal" /><small>%</small></label>
+        <label class="input-row"><span>{ui.aircraftMassLabel}</span><input data-field="aircraftMassGrams" type="number" min="1" max="50000" step="10" inputmode="decimal" /><small data-unit-label="mass">g</small></label>
+      </div>
+    </div>
+
+    <div class="speed-orchestra">
+      <div class="speed-orchestra-header">
+        <div>
+          <span class="brief-kicker">{ui.resultsLabel}</span>
+          <h2>{ui.speedLaneLabel}</h2>
+        </div>
+        <div class="diagnosis" data-output="diagnosis" aria-live="polite">{ui.diagnosisPlanning}</div>
+      </div>
+
+      <div class="speed-lane" aria-label={ui.speedLaneLabel}>
+        <div class="lane-grid" aria-hidden="true"></div>
+        <div class="lane-horizon" aria-hidden="true"></div>
+        <div class="lane-header">
+          <span>{ui.speedLaneLabel}</span>
+          <span><b data-output="speed-axis-start">{ui.speedAxisStart}</b><i></i><b data-output="speed-axis-end">{ui.speedAxisEnd}</b></span>
+        </div>
+        <div class="speed-comparison">
+          <div class="comparison-scale" aria-hidden="true">
+            <span data-output="speed-axis-start">{ui.speedAxisStart}</span>
+            <span data-output="speed-axis-mid">150 km/h</span>
+            <span data-output="speed-axis-end">{ui.speedAxisEnd}</span>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><span>{ui.estimatedSpeedLabel}</span><strong data-output="estimated-speed">178 km/h</strong></div>
+            <div class="comparison-track"><i class="comparison-fill comparison-fill-estimated"></i></div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><span>{ui.pitchSpeedLabel}</span><strong data-output="pitch-speed">217 km/h</strong></div>
+            <div class="comparison-track"><i class="comparison-fill comparison-fill-pitch"></i></div>
+          </div>
+          <div class="comparison-gap"><span>{ui.slipLabel}</span><strong data-output="speed-gap">39 km/h</strong><small data-output="slip">18%</small></div>
+        </div>
+      </div>
+
+      <div class="speed-readouts">
+        <div class="hero-readout"><strong data-output="estimated-speed">178 km/h</strong><span>{ui.estimatedSpeedLabel}</span></div>
+        <div class="readout"><strong data-output="pitch-speed">217 km/h</strong><span>{ui.pitchSpeedLabel}</span></div>
+        <div class="readout"><strong data-output="loaded-rpm">36,000 rpm</strong><span>{ui.loadedRpmLabel}</span></div>
+      </div>
+
+      <p class="diagnosis-advice" data-output="diagnosis-advice" aria-live="polite">{ui.diagnosisPlanningAdvice}</p>
+
+      <section class="sensitivity" aria-labelledby="sensitivity-title">
+        <div class="subheading"><span class="brief-kicker">{ui.sensitivityLabel}</span><h3 id="sensitivity-title">{ui.propellerPitchLabel}</h3></div>
+        <div class="sensitivity-row">
+          <div class="sensitivity-point"><span>{ui.lowerPitchLabel}</span><strong data-output="lower-speed">158 km/h</strong><small data-output="lower-pitch">3.8 in</small><div class="sensitivity-bar"><i data-bar="lower"></i></div></div>
+          <div class="sensitivity-point is-current"><span>{ui.selectedPitchLabel}</span><strong data-output="current-speed">178 km/h</strong><small data-output="current-pitch">4.3 in</small><div class="sensitivity-bar"><i data-bar="current"></i></div></div>
+          <div class="sensitivity-point"><span>{ui.higherPitchLabel}</span><strong data-output="higher-speed">199 km/h</strong><small data-output="higher-pitch">4.8 in</small><div class="sensitivity-bar"><i data-bar="higher"></i></div></div>
+        </div>
+      </section>
+
+      <div class="metric-strip">
+        <div><span>{ui.noLoadRpmLabel}</span><strong data-output="no-load-rpm">43,290 rpm</strong></div>
+        <div><span>{ui.slipLabel}</span><strong data-output="slip">18%</strong></div>
+        <div><span>{ui.loadEffectLabel}</span><strong data-output="load-effect">7%</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="assumptions-row">
+    <p><strong>{ui.assumptionsLabel}</strong> {ui.assumptionsText}</p>
+    <p>{ui.safetyText}</p>
+  </div>
+</div>
+
+<script>
+  import { initFpvDroneSpeedCalculator } from './controller';
+
+  const root = document.querySelector<HTMLElement>('[data-fpv-speed-calculator]');
+  if (root) initFpvDroneSpeedCalculator(root);
+</script>
