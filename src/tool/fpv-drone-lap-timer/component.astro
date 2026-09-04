@@ -1,0 +1,136 @@
+---
+import type { FpvDroneLapTimerUI } from './ui';
+import { DEFAULT_CONFIG, calculateSessionMetrics, computeLapRecords } from './logic';
+import { renderTelemetryScene, renderLapTable } from './dom-views';
+import './fpv-drone-lap-timer.css';
+
+interface Props {
+  ui: FpvDroneLapTimerUI;
+}
+
+const { ui } = Astro.props;
+
+const initialLaps = computeLapRecords([], DEFAULT_CONFIG.trackLengthM, DEFAULT_CONFIG.batteryCapacityMah);
+const initialMetrics = calculateSessionMetrics([], DEFAULT_CONFIG.trackLengthM, DEFAULT_CONFIG.batteryCapacityMah);
+const initialTelemetryHtml = renderTelemetryScene({
+  metrics: initialMetrics,
+  laps: initialLaps,
+  currentLapNumber: 1,
+  targetLaps: DEFAULT_CONFIG.targetLaps,
+  status: 'idle',
+  ui,
+});
+const initialTableHtml = renderLapTable(initialLaps, ui);
+---
+
+<div class="fpv-lap-timer-card" data-fpv-lap-timer>
+  <script is:inline type="application/json" data-fpv-lap-timer-ui set:html={JSON.stringify(ui)}></script>
+
+  <aside class="fpv-lap-timer-sidebar" aria-labelledby="fpv-lap-timer-setup-title">
+    <div class="fpv-lap-timer-sidebar-header">
+      <span class="fpv-lap-timer-kicker">OSD CONFIG</span>
+      <h3 id="fpv-lap-timer-setup-title" class="fpv-lap-timer-sidebar-title">{ui.setupHeading}</h3>
+    </div>
+
+    <div class="fpv-lap-timer-presets" role="group" aria-label="Session Presets">
+      <button type="button" class="fpv-lap-timer-preset active" data-preset="multigp">{ui.presetMultiGpLabel}</button>
+      <button type="button" class="fpv-lap-timer-preset" data-preset="whoop">{ui.presetWhoopLabel}</button>
+      <button type="button" class="fpv-lap-timer-preset" data-preset="sprint">{ui.presetSprintLabel}</button>
+    </div>
+
+    <div class="fpv-lap-timer-fields">
+      <label class="fpv-lap-timer-field">
+        <span class="fpv-lap-timer-field-label">{ui.trackLengthLabel} <small>({ui.trackLengthUnit})</small></span>
+        <input id="fpv-lap-timer-track-length" type="number" min="10" max="2000" step="5" value={DEFAULT_CONFIG.trackLengthM} />
+      </label>
+
+      <label class="fpv-lap-timer-field">
+        <span class="fpv-lap-timer-field-label">{ui.targetLapsLabel} <small>({ui.targetLapsUnit})</small></span>
+        <input id="fpv-lap-timer-target-laps" type="number" min="0" max="50" step="1" value={DEFAULT_CONFIG.targetLaps} />
+      </label>
+
+      <label class="fpv-lap-timer-field">
+        <span class="fpv-lap-timer-field-label">{ui.batteryCapacityLabel} <small>({ui.batteryCapacityUnit})</small></span>
+        <input id="fpv-lap-timer-battery" type="number" min="100" max="10000" step="50" value={DEFAULT_CONFIG.batteryCapacityMah} />
+      </label>
+
+      <label class="fpv-lap-timer-field">
+        <span class="fpv-lap-timer-field-label">{ui.debounceThresholdLabel} <small>({ui.debounceThresholdUnit})</small></span>
+        <input id="fpv-lap-timer-debounce" type="number" min="1" max="10" step="0.5" value="3.0" />
+      </label>
+
+      <label class="fpv-lap-timer-checkbox">
+        <input id="fpv-lap-timer-sound" type="checkbox" checked />
+        <span>{ui.soundEnabledLabel}</span>
+      </label>
+    </div>
+
+    <div class="fpv-lap-timer-specs-card">
+      <div class="fpv-lap-timer-spec-row">
+        <span>{ui.completedLapsLabel}</span>
+        <strong id="fpv-lap-timer-stat-completed" class="font-mono">0</strong>
+      </div>
+      <div class="fpv-lap-timer-spec-row">
+        <span>{ui.averageLapHeading}</span>
+        <strong id="fpv-lap-timer-stat-avg" class="font-mono">--</strong>
+      </div>
+      <div class="fpv-lap-timer-spec-row">
+        <span>{ui.estimatedSpeedHeading}</span>
+        <strong id="fpv-lap-timer-stat-speed" class="font-mono">--</strong>
+      </div>
+    </div>
+  </aside>
+
+  <div class="fpv-lap-timer-stage">
+    <section class="fpv-lap-timer-hud" aria-label="Race Stopwatch Display">
+      <div class="fpv-lap-timer-hud-bar">
+        <div class="fpv-lap-timer-chip fpv-lap-timer-status-chip">
+          <span class="fpv-lap-timer-status-dot"></span>
+          <span id="fpv-lap-timer-status-text">{ui.statusIdle}</span>
+        </div>
+        <div class="fpv-lap-timer-chip fpv-lap-timer-lap-chip">
+          <span id="fpv-lap-timer-hud-lap">{ui.lapNumberPrefix} 1 / {DEFAULT_CONFIG.targetLaps}</span>
+        </div>
+      </div>
+
+      <div class="fpv-lap-timer-digits font-mono" aria-live="off">00:00.000</div>
+      <div class="fpv-lap-timer-hud-sublabel">{ui.currentLapHeading}</div>
+    </section>
+
+    <section class="fpv-lap-timer-trigger-box" aria-label="Timing Controls">
+      <button type="button" class="fpv-lap-timer-giant-btn" disabled aria-keyshortcuts="Space">
+        <span class="fpv-lap-timer-btn-caption">{ui.recordLapButton}</span>
+      </button>
+      <div class="fpv-lap-timer-hint">{ui.spacebarHint}</div>
+
+      <div class="fpv-lap-timer-controls">
+        <button type="button" class="fpv-lap-timer-btn fpv-lap-timer-btn-primary" id="fpv-lap-timer-btn-start">{ui.startCountdownButton}</button>
+        <button type="button" class="fpv-lap-timer-btn" id="fpv-lap-timer-btn-pause" style="display: none;">{ui.pauseTimerButton}</button>
+        <button type="button" class="fpv-lap-timer-btn" id="fpv-lap-timer-btn-reset">{ui.resetTimerButton}</button>
+      </div>
+    </section>
+
+    <section class="fpv-lap-timer-telemetry-mount" set:html={initialTelemetryHtml}></section>
+
+    <section class="fpv-lap-timer-table-mount" set:html={initialTableHtml}></section>
+
+    <footer class="fpv-lap-timer-footer">
+      <button type="button" class="fpv-lap-timer-btn" id="fpv-lap-timer-export-csv">{ui.exportCsvButton}</button>
+      <button type="button" class="fpv-lap-timer-btn" id="fpv-lap-timer-copy-summary">{ui.copySummaryButton}</button>
+      <span class="fpv-lap-timer-notice" id="fpv-lap-timer-copy-notice" style="display: none;">{ui.copiedNotice}</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  import { initializeLapTimer } from './controller';
+
+  const root = document.querySelector<HTMLElement>('[data-fpv-lap-timer]');
+  const scriptData = root?.querySelector<HTMLScriptElement>('[data-fpv-lap-timer-ui]');
+  if (root && scriptData) {
+    try {
+      const parsedUi = JSON.parse(scriptData.textContent || '{}');
+      initializeLapTimer(root, parsedUi);
+    } catch {}
+  }
+</script>

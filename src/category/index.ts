@@ -9,6 +9,7 @@ import { fpvDroneThrustToWeightRatio } from '../tool/fpv-drone-thrust-to-weight-
 import { droneMotorPropellerCalculator } from '../tool/drone-motor-propeller-calculator/entry';
 import { fpvDroneSpeedCalculator } from '../tool/fpv-drone-speed-calculator/entry';
 import { droneMissionBatteryReservePlanner } from '../tool/drone-mission-battery-reserve-planner/entry';
+import { fpvDroneLapTimer } from '../tool/fpv-drone-lap-timer/entry';
 
 export const dronesCategory: DronesCategoryEntry = {
   icon: 'mdi:drone',
@@ -23,6 +24,7 @@ export const dronesCategory: DronesCategoryEntry = {
     droneMotorPropellerCalculator,
     fpvDroneSpeedCalculator,
     droneMissionBatteryReservePlanner,
+    fpvDroneLapTimer,
   ],
   i18n: {
     es: () => import('./i18n/es').then((m) => m.content),

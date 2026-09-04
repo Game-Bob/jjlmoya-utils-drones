@@ -9,6 +9,7 @@ import { FPV_DRONE_THRUST_TO_WEIGHT_RATIO_TOOL } from './tool/fpv-drone-thrust-t
 import { DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL } from './tool/drone-motor-propeller-calculator/index';
 import { FPV_DRONE_SPEED_CALCULATOR_TOOL } from './tool/fpv-drone-speed-calculator/index';
 import { DRONE_MISSION_BATTERY_RESERVE_PLANNER_TOOL } from './tool/drone-mission-battery-reserve-planner/index';
+import { FPV_DRONE_LAP_TIMER_TOOL } from './tool/fpv-drone-lap-timer/index';
 import type { ToolDefinition } from './types';
 
 export const ALL_TOOLS: ToolDefinition[] = [
@@ -22,6 +23,7 @@ export const ALL_TOOLS: ToolDefinition[] = [
   DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL,
   FPV_DRONE_SPEED_CALCULATOR_TOOL,
   DRONE_MISSION_BATTERY_RESERVE_PLANNER_TOOL,
+  FPV_DRONE_LAP_TIMER_TOOL,
 ];
 
 export {
@@ -35,5 +37,6 @@ export {
   DRONE_MOTOR_PROPELLER_CALCULATOR_TOOL,
   FPV_DRONE_SPEED_CALCULATOR_TOOL,
   DRONE_MISSION_BATTERY_RESERVE_PLANNER_TOOL,
+  FPV_DRONE_LAP_TIMER_TOOL,
 };
 
