@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { antennaLengthCalculator } from './entry';
 export * from './entry';
 export const ANTENNA_LENGTH_CALCULATOR_TOOL: ToolDefinition = {
