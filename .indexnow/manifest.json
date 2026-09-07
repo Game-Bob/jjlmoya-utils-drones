@@ -1,725 +1,725 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-07T06:24:27.990Z",
+  "generatedAt": "2026-09-07T19:58:44.341Z",
   "pages": {
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/drohne-motor-propeller-rechner/": {
-      "hash": "6849e56b712b8add6c9dbffc8d346829abc1010a50fa18359a40daf60bcbc66a",
+      "hash": "f498845314179f62dd600987aee4a95161d9b44b74c7fa343666ab6c4fd3c742",
       "route": "/de/werkzeuge/kategorien/drones/drohne-motor-propeller-rechner/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/drohnen-flugzeit-rechner/": {
-      "hash": "70a222a2fe1e73896ffc5c2bc1e798e72b1e2266a8aebe1e68c6e578ac23d904",
+      "hash": "7480bef5d35dd4c8e7cc4a84c34abec622da576b7e68e5c911b27f9bb343d422",
       "route": "/de/werkzeuge/kategorien/drones/drohnen-flugzeit-rechner/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/drohnen-leistungs-analysator/": {
-      "hash": "4db291949aaee7bb1e9c95b75f35ca89320072bacbd899b21e3eb400ac2ca7e4",
+      "hash": "95c9d838ed94c3530c1564508ae268a532c08edea54de87764a6742b8ced8ce5",
       "route": "/de/werkzeuge/kategorien/drones/drohnen-leistungs-analysator/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/drohnen-missions-akku-reserve-planer/": {
-      "hash": "791c5e5e8c964d1eb5927b9f0cc3289f183435bbba86606e4e7bba1d279080f5",
+      "hash": "d6769de36d62e8487cae82d6ce40ae63505538845ad8a6920642578cbd11fa1c",
       "route": "/de/werkzeuge/kategorien/drones/drohnen-missions-akku-reserve-planer/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/fpv-drohnen-geschwindigkeitsrechner/": {
-      "hash": "ee405e4b9889342f2f64aeb24c38057af25b9389388545b47a1e3e18366bed81",
+      "hash": "3d488bcf9e3231fb23f924a62bb8eb3724d2400f1a82e0b758ca13cb3ab2ceb9",
       "route": "/de/werkzeuge/kategorien/drones/fpv-drohnen-geschwindigkeitsrechner/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/fpv-drohnen-renn-rundenzaehler/": {
-      "hash": "33f95474e34780dbeecbc4073eb68f9ee36b25227d45c99e5e2e24cb4e48e19e",
+      "hash": "ba52a43dfb63325faad2200c69e90bce8aebe26ec9c84a9fd6f8b5e425b4c352",
       "route": "/de/werkzeuge/kategorien/drones/fpv-drohnen-renn-rundenzaehler/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/fpv-drohnen-schub-gewicht-verhaeltnis-rechner/": {
-      "hash": "9c3da0f7bd5da0d567ddf813837bb0f20e6e9720d0333bd1942dcbdd9d2ad298",
+      "hash": "9c2c26f42eed62ec55529aa147f4656f4320cd633cb0b251750659db31b2b42c",
       "route": "/de/werkzeuge/kategorien/drones/fpv-drohnen-schub-gewicht-verhaeltnis-rechner/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/gps-koordinaten-umrechner/": {
-      "hash": "b33ef54a22ed34d0d0bde15024137b5c2e51b1eb16474ab2f9e2ccaef5d1469e",
+      "hash": "373908a6960eb515a4da2024e1c064c3ad461c4b600b333d6d22e4a6e57cf521",
       "route": "/de/werkzeuge/kategorien/drones/gps-koordinaten-umrechner/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/gsd-flugplaner/": {
-      "hash": "e4d9d15b5b87003b336d69f18c166960861a45bf18a39effea4b8be046289f1f",
+      "hash": "03d884fb9aa858040d768f3ddf0bb8276561f6c8ab2ed3bf6b6935c714e4a969",
       "route": "/de/werkzeuge/kategorien/drones/gsd-flugplaner/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/": {
-      "hash": "822ce3e6a8f9bef38590bbf9a5e24e8cff09b7a68a83519986fc69d33e39571a",
+      "hash": "bb095f06c49580a3e1012f1ef482d1f369752b9beab14a58fbdbf522c044f2ca",
       "route": "/de/werkzeuge/kategorien/drones/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/lipo-c-rate-rechner-drohne/": {
-      "hash": "f05925f037f669267b9f0f068174cd7ef2509ee8e0b36b20fdabb5271fb8d3b2",
+      "hash": "156da2eba07d339a17695164dec5bb81276ebbab95ce5388bc6e19df307bd555",
       "route": "/de/werkzeuge/kategorien/drones/lipo-c-rate-rechner-drohne/"
     },
     "https://www.gamebob.dev/de/werkzeuge/kategorien/drones/rf-antennenlaenge-rechner/": {
-      "hash": "56f15d09ef95547408685a40098e7ec91393f820a6b5ce255f8c2b71a0974270",
+      "hash": "cacc3076060b10aea17d75903587948a90d8c291c79985010b83882ebbaacc19",
       "route": "/de/werkzeuge/kategorien/drones/rf-antennenlaenge-rechner/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/antenna-length-calculator/": {
-      "hash": "ed601cb40ae6e351d1f4360851a7d652622967b6bb715543b1cf3ca9ed7f338a",
+      "hash": "b8876bf8ac75dbe7e7943608083d72f311941309ef19c666e66883013597c2db",
       "route": "/en/utilities/categories/drones/antenna-length-calculator/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/drone-battery-c-rating-calculator/": {
-      "hash": "612e9e99817380368e077b9f8bde80249a2e8ff0c7c5d594a1abda85d6452c76",
+      "hash": "d8a0e3382594d7366221131d2650f82c5ef7bdefe2ff34f77109af423afa228c",
       "route": "/en/utilities/categories/drones/drone-battery-c-rating-calculator/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/drone-flight-time-calculator/": {
-      "hash": "8783bcc9633a8cbd63b1e31034280f6cf69fbf8f018a9378dc566b4ae3efdd97",
+      "hash": "6c9f852c43af20a3519aa962a48278fe1de5b5fa355270fd2afa7a2d43057fa2",
       "route": "/en/utilities/categories/drones/drone-flight-time-calculator/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/drone-mission-battery-reserve-planner/": {
-      "hash": "a51b895d6a7ef0d9cb4563fe1cbc0058c0b4134174039a6bcb7df65b577b42a1",
+      "hash": "5f9064fb7b3c6ddd083b6e3b2019a1d63a42872ed190fd5fa4f3e26514d1a209",
       "route": "/en/utilities/categories/drones/drone-mission-battery-reserve-planner/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/drone-motor-propeller-calculator/": {
-      "hash": "2e4eacb9f19e8dbed8933679ea03105eccbb0576596dd28b5da7c84d1f943172",
+      "hash": "82361740a4776245216e754c78e617b0b8865c710666aacb80cbf24ce4f5be24",
       "route": "/en/utilities/categories/drones/drone-motor-propeller-calculator/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/drone-power-analyzer/": {
-      "hash": "893e094cf245ae87cac3275ea4d201af7c3b45d7fa0d04fbb8a2dbd0d96d31af",
+      "hash": "270a3c08f54d1ce11bf979f5d5352098f640fb904841dbd8be49ab329e87252c",
       "route": "/en/utilities/categories/drones/drone-power-analyzer/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/fpv-drone-lap-timer/": {
-      "hash": "3f7c41f34aa0608baa73f39c15eafece8a109ddedacb245a6953c505b96d4cd9",
+      "hash": "489a945b182d72f572e1014444278f4b9afb6c3333cccf5d4f152002b476abb7",
       "route": "/en/utilities/categories/drones/fpv-drone-lap-timer/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/fpv-drone-speed-calculator/": {
-      "hash": "e489c9e330d539d170d41a559b8cfc3efe22a4e468ea82795595016ffcd064ba",
+      "hash": "13101ab352782b40e6087644e5d94ce2bb6b5433f43604e4af812a6cd5e97dff",
       "route": "/en/utilities/categories/drones/fpv-drone-speed-calculator/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/": {
-      "hash": "e154b1554799af32102600d54157dcc6258c3e2c90d4030840b07645671ced03",
+      "hash": "484674ffdafde2e6d81d2a2b33e78e5339f29fe379aa7b0bb5ec6c01dcd37752",
       "route": "/en/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/gps-coordinates-converter/": {
-      "hash": "1bd1b653c50d5d4b509a45338ad4235c2723c3adef6c7dcfb533c2504f66f26b",
+      "hash": "d648bc3eb6e248f1bd68fd44e2bc983038782351339fa11b5753436362cf9f45",
       "route": "/en/utilities/categories/drones/gps-coordinates-converter/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/gsd-flight-planner/": {
-      "hash": "ffdbbe8c29ecd79e03f7ec2ffc5f26c23aad75c2e6a9dfd1cce886041e9d062f",
+      "hash": "27f88dca708c0ff38419e926752d7d29b04037ab4af2cddafdfd9b5c8350257e",
       "route": "/en/utilities/categories/drones/gsd-flight-planner/"
     },
     "https://www.gamebob.dev/en/utilities/categories/drones/": {
-      "hash": "08bdb3a395790e156b1394f492d05d7c82591f516db519a14c53086a2645513e",
+      "hash": "2320c686079c4ef67c8adf3fb79fa752ff0178cf2e2c2174df0aa4767a98765c",
       "route": "/en/utilities/categories/drones/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/analyseur-puissance-drone/": {
-      "hash": "e16b462b8ff3414a3eee04b94cb3a13457505f5c1aa18110a8ed92c89e5090a2",
+      "hash": "41c770ae483a0002358c0c2cd00f52b3435c90dde194ecff67dcd2ac9142691f",
       "route": "/fr/utilitaires/categories/drones/analyseur-puissance-drone/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/calculateur-longueur-antenne/": {
-      "hash": "3fe6038e092f80fb66e92fbbdaef1d037a9962ff361e298c4222ef34ff0b28c7",
+      "hash": "fbec536d06a996f98abf6d0de91ee01a4c699969b748871186724af9d370c0be",
       "route": "/fr/utilitaires/categories/drones/calculateur-longueur-antenne/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/calculateur-moteur-helice-drone/": {
-      "hash": "2bace8b7b9bd08952ee135943946d462a013145e55e986f57bd084b598061a59",
+      "hash": "83190ad6d7fc59fb4b8d145ae8bb230d75a5816a51e61ec08a77992c5d0cee9c",
       "route": "/fr/utilitaires/categories/drones/calculateur-moteur-helice-drone/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/calculateur-rapport-poussee-poids-drone-fpv/": {
-      "hash": "1f7e00d65b98793213567e866055321a6f9fb7ffd03edc5f12ed8d23f7c88f17",
+      "hash": "04c1527fa5318c2145e8de49213d2c2eb328c9a8ab64b86b04f58cf29e0b1cf2",
       "route": "/fr/utilitaires/categories/drones/calculateur-rapport-poussee-poids-drone-fpv/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/calculateur-taux-c-batterie-lipo-drone/": {
-      "hash": "1d5c3de4e213259a70e671a750d9ee1f630c23a52fe1091a0db5876149b8595a",
+      "hash": "176829eca981dfdeb3940f8b5ac7556e3fd5fd631c0d68d48f8534c7dace10af",
       "route": "/fr/utilitaires/categories/drones/calculateur-taux-c-batterie-lipo-drone/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/calculateur-temps-vol-drone/": {
-      "hash": "e9cf95df5f6beb12e4767d099af231a22ba99e4a8e82e3bcd64968911661121b",
+      "hash": "79bc4c9a18b8a35876c03203558348fdfd4bcc864d8bfa6b0ec31b38aa5b44ac",
       "route": "/fr/utilitaires/categories/drones/calculateur-temps-vol-drone/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/calculateur-vitesse-drone-fpv/": {
-      "hash": "b6c0dd62adf97c6040039e0c5fe422e2cb7ddd755c1059f625c876c9b28c9100",
+      "hash": "69f7575b0b7745e40d38e427e64b48342efc6c1819af9cdb7bc83f7f6926be64",
       "route": "/fr/utilitaires/categories/drones/calculateur-vitesse-drone-fpv/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/chronometre-tours-course-drone-fpv/": {
-      "hash": "89324b322e900eab3f27e9ed682d7da1ccd24e16e5c4a9d3e83df09e121880c9",
+      "hash": "7cc57cb6ff0c8339c1a47a389e7de74421045027135b0b0749213325d9aa4481",
       "route": "/fr/utilitaires/categories/drones/chronometre-tours-course-drone-fpv/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/conversisseur-coordonnees-gps/": {
-      "hash": "3df9a2f86581f5c0746f6450e22922d9141940ed029b03a2af86c90b495d250a",
+      "hash": "3772cc1874b572032339dc128febdc36535c19171dc6960f63f555cb9f496304",
       "route": "/fr/utilitaires/categories/drones/conversisseur-coordonnees-gps/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/": {
-      "hash": "5edbc5b98788e8c01078dda56faf4917b90b1be1fe60415922e084740ed16df4",
+      "hash": "f04adbf1fc7c5b2d0f8076ed8c7438e21c350dcf165e6eef8a7886302023e894",
       "route": "/fr/utilitaires/categories/drones/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/planificateur-reserve-batterie-mission-drone/": {
-      "hash": "7057cdffd2c3b53b7ef753482a1b4a2b1dd9cdefc6adad32e5a209b1b725d74f",
+      "hash": "ec4d48b0338466009609145c0733348b4f012d0fef75f362304e8df5af4530ab",
       "route": "/fr/utilitaires/categories/drones/planificateur-reserve-batterie-mission-drone/"
     },
     "https://www.gamebob.dev/fr/utilitaires/categories/drones/planificateur-vol-gsd/": {
-      "hash": "a6fcb97c74d1db1629b2002f1c7a7aab534cf4475b5718f5e71a813a1b278fd1",
+      "hash": "61f328b9254384ce5114282d3e6a474fbf0f44225019cc5a2a053d8b3287eea5",
       "route": "/fr/utilitaires/categories/drones/planificateur-vol-gsd/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/": {
-      "hash": "260b6df0c3f2ef4fbb5014dcdb032a8266325c864c60bd7b4b23224408eab4f9",
+      "hash": "49a06c025360f72ebdf2d71048dd2f0c08bad2cefd0033fcd2e27a3f0ead1d0e",
       "route": "/id/utilitas/kategori/drones/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/kalkulator-kecepatan-drone-fpv/": {
-      "hash": "76148c1ec20182e5c86b5a0ff999a472849c2c5861af4f8e8d29f783061edff1",
+      "hash": "5475e4e996a9f25d71670f238f7d4ecd9636f8f783b454899d6ed17857004219",
       "route": "/id/utilitas/kategori/drones/kalkulator-kecepatan-drone-fpv/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/kalkulator-motor-dan-baling-baling-drone/": {
-      "hash": "0a6b76def459b1061ed873da29f66fd2641ce644a559fcaa77bd5cc9c42a8448",
+      "hash": "4b1189b420218f239794fe2d3a0d318fd630b5cdb4f947ba44bce29ad2025588",
       "route": "/id/utilitas/kategori/drones/kalkulator-motor-dan-baling-baling-drone/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/kalkulator-panjang-antena/": {
-      "hash": "73e1f18103679155ad757215e330f51f513317689f9198e6af4e059aa5686692",
+      "hash": "9515a939c2ef48acdb5810abb72e06161eb3510c0aaf34be2b0db8ec15823f1a",
       "route": "/id/utilitas/kategori/drones/kalkulator-panjang-antena/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/kalkulator-rasio-daya-dorong-terhadap-berat-drone-fpv/": {
-      "hash": "b4b1c5184917ece62d08ca99639276a4bdbd1ea490f14d68692beb11d31f14df",
+      "hash": "bc796e7800f8aedf7d50b15d0ad0dafc701f66c9eb11848e28f26522d29f1402",
       "route": "/id/utilitas/kategori/drones/kalkulator-rasio-daya-dorong-terhadap-berat-drone-fpv/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/kalkulator-rating-c-baterai-lipo-drone/": {
-      "hash": "4da4d85a4ba2c8198f61e267744c66706f0c89e7d774adcf6a044937171bc7f4",
+      "hash": "3d1217685a6277bc125016cbb4ae26fadfd607c4e4dddb2ebdbe3d72dd85ee6d",
       "route": "/id/utilitas/kategori/drones/kalkulator-rating-c-baterai-lipo-drone/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/kalkulator-waktu-terbang-drone/": {
-      "hash": "e73be4ede4267a2072f2c249de554d94e1538036ebb3b688c1d89744f9bf3e88",
+      "hash": "d382f314f00dc267eab4dbdbbe1aac70ce4cdf2f08d5ca963bc9dc39d1258960",
       "route": "/id/utilitas/kategori/drones/kalkulator-waktu-terbang-drone/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/konverter-koordinat-gps/": {
-      "hash": "4881f89a961253aac2460b5728d394324e15edba58d891e5a2fba3e2239c1075",
+      "hash": "035745b82049fbd24d7c8435f1491f68bc7fb2b3f69afddb0e9af2cc1549e382",
       "route": "/id/utilitas/kategori/drones/konverter-koordinat-gps/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/penganalisis-daya-drone/": {
-      "hash": "8e583f0c22cc2675acaf675292a60c16c09103d42bf8d80138c6b4164c46642e",
+      "hash": "766ad02a0c10de50a91beccd4931a8a0e79b181d2e11e1784775526dc65a5645",
       "route": "/id/utilitas/kategori/drones/penganalisis-daya-drone/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/penghitung-waktu-putaran-balap-drone-fpv/": {
-      "hash": "2cd937eddde60eb04cf8e67fd9bc9b4fc06c49892e56823c751c2d7fdd7968c8",
+      "hash": "29a17ffda88b371ded5eb86628dddee7960ee90da3a278cc7d0a63d1546b5644",
       "route": "/id/utilitas/kategori/drones/penghitung-waktu-putaran-balap-drone-fpv/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/perencana-cadangan-baterai-misi-drone/": {
-      "hash": "93156159bea083c6b156a56a355e7e6632f176068432574e41bba7c896626d70",
+      "hash": "53af55e82ffa0e325a9bdcf38d9e31d18aec2034e192b27aaa8fabc560d98b7d",
       "route": "/id/utilitas/kategori/drones/perencana-cadangan-baterai-misi-drone/"
     },
     "https://www.gamebob.dev/id/utilitas/kategori/drones/perencana-terbang-gsd/": {
-      "hash": "40ec0cb75d138f0776b2524d98bdc46f65d17f8b1445ad2b86f71092d0556713",
+      "hash": "40c15a32d9c13bec69994ce88e5104c2aa31199abbd03dea078b1ae975d32d3e",
       "route": "/id/utilitas/kategori/drones/perencana-terbang-gsd/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/analizzatore-potenza-drone/": {
-      "hash": "7d40915b5e5be1d98e30e7c395db4202b6730ba2f68daad091ef2ed44f84dded",
+      "hash": "87c00b3204289ab707c224020458e2436a672a14b9676b9667a5ebb6ef2a1ffe",
       "route": "/it/utilita/categorie/drones/analizzatore-potenza-drone/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/calcolatore-lunghezza-antenna/": {
-      "hash": "088ebbf62b9288f0a3c322dbb73ba207b8c46af6894225ffeb8ecf6562f60152",
+      "hash": "cc755d660fd05b3fca1e3db18035592c610903a0b61a95847115f7d06fd87f50",
       "route": "/it/utilita/categorie/drones/calcolatore-lunghezza-antenna/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/calcolatore-motore-elica-drone/": {
-      "hash": "f3a3e8eb4c268881d7352bf92c7eff0bff614c8b3b6f3c084d76a3f8e6dacce6",
+      "hash": "b1d2ddd1c6379a517623023b9ee2ab1a231754e14d3b04ab44e74932eee1ac41",
       "route": "/it/utilita/categorie/drones/calcolatore-motore-elica-drone/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/calcolatore-rapporto-spinta-peso-drone-fpv/": {
-      "hash": "8a83cca5f9da9b9d7adc546aabd9d7ba126160bb1d59c1e81fbfee2c1048a6f9",
+      "hash": "9ffe4fbe628a12e26dd44f7a4436c8cf4e008975634998a808baa09e67487215",
       "route": "/it/utilita/categorie/drones/calcolatore-rapporto-spinta-peso-drone-fpv/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/calcolatore-tasso-c-batteria-lipo-drone/": {
-      "hash": "7846ae097f535187df6df56c992e6d9ecb910bd7eed9100cf56bd406ead9d39c",
+      "hash": "efd51b4723899af87be91d28c5fb1d4824343449393fd784c2d1b55f161d2b4c",
       "route": "/it/utilita/categorie/drones/calcolatore-tasso-c-batteria-lipo-drone/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/calcolatore-tempo-volo-drone/": {
-      "hash": "530f4c087a7245d319e59270a2657d5c222b5924566803327f90253186717836",
+      "hash": "8b71310fb3a50e6d265ef593b0ca38608f621e2b40c92199d1e2a8f7a6496561",
       "route": "/it/utilita/categorie/drones/calcolatore-tempo-volo-drone/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/calcolatore-velocita-drone-fpv/": {
-      "hash": "eb00821eb48f554b4b42910cb9d26896064580108cc70d70032da3a51317433d",
+      "hash": "d6cca4d36c0a5e4ed4c0353db6984ac9de68f9b6db78172c1b09350c1204b8a4",
       "route": "/it/utilita/categorie/drones/calcolatore-velocita-drone-fpv/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/convertitore-coordinate-gps/": {
-      "hash": "db805f157439da07ab18e8fb8010bd833fd606cd6506ee4367bc836577165237",
+      "hash": "7674a3020ff383e56c4758899d467f4a7dfbfac2018b3a9f9ed707355639bc06",
       "route": "/it/utilita/categorie/drones/convertitore-coordinate-gps/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/cronometro-giri-gare-droni-fpv/": {
-      "hash": "dd43cbb5d397ec01b0ade2fe5072eab011c556a68a909c619de5cf8066bc13bf",
+      "hash": "7157dbe6aba5c862079133a80c86e846f2dcdafcb297c2f5f903fdbf58eac52d",
       "route": "/it/utilita/categorie/drones/cronometro-giri-gare-droni-fpv/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/": {
-      "hash": "e01a89dbf793d5971a26bbc6fda4142be9a06a68f52ead3db1e1e18b32787b8f",
+      "hash": "c79999ea4b049f2227398723ddb35afd04a59fdcb489d07f2aca469c1eb0f537",
       "route": "/it/utilita/categorie/drones/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/pianificatore-riserva-batteria-missione-drone/": {
-      "hash": "14817fc98059742309033d820c35d7a0443447f726af31fc34da9b780c4785a9",
+      "hash": "111608a48f8a5539eed4ccd36a75fb45cf2dd7483299531cd57c73e50c4dd037",
       "route": "/it/utilita/categorie/drones/pianificatore-riserva-batteria-missione-drone/"
     },
     "https://www.gamebob.dev/it/utilita/categorie/drones/pianificatore-volo-gsd/": {
-      "hash": "f117b7dfbc579d22382500e57584bdf21048ef2a941414b9c131704237b51343",
+      "hash": "8e6eb95d958f93f91278c4ab5ee57195d785b2c3dbc240e965dfe5eb2789eb75",
       "route": "/it/utilita/categorie/drones/pianificatore-volo-gsd/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/antenna-length-calculator/": {
-      "hash": "c64fe45db480ed80914fe934c8ea192ea80105f6d5350ecb2e815f5a27fcd620",
+      "hash": "4a8a819caeac99b1343753b02f4078d85e5e30059fb2985955db709ef5d7d399",
       "route": "/ja/utilities/categories/drones/antenna-length-calculator/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/drone-battery-c-rating-calculator/": {
-      "hash": "459f38b6e5e480a4cda38a3611e0f37a8fd74413eacfa6f4aaf340585d75e094",
+      "hash": "207c3a9fecd232bcad7bf7fe0168aa01af5548a35b968d94e680c3b736468121",
       "route": "/ja/utilities/categories/drones/drone-battery-c-rating-calculator/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/drone-flight-time-calculator/": {
-      "hash": "df9c4c7811ed05f2c8841651c3508de76d75d2ec69d60f7763b060c7e6f9729c",
+      "hash": "816edd72ca59bc4e38c0434b5ced8aba742a11b8ae089a4f4f73a05a5cd12fe7",
       "route": "/ja/utilities/categories/drones/drone-flight-time-calculator/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/drone-mission-battery-reserve-planner/": {
-      "hash": "cbbf35ab9d902364a2ef073bd3307f2532df7d0e385244b024065fd19ebf1f01",
+      "hash": "531e7a06a313f865e2fc4e7425e102890ecb589c4979e45447c9d2d7f76b53c6",
       "route": "/ja/utilities/categories/drones/drone-mission-battery-reserve-planner/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/drone-motor-propeller-calculator/": {
-      "hash": "23ede2c686497b087e0ee51147cdff4fb04ffca7cf50076bcb9ba046845582e0",
+      "hash": "9f35d86e6631fa2fa74ddb201bee570e0cdf4fa2184f925729b8710df722f5a3",
       "route": "/ja/utilities/categories/drones/drone-motor-propeller-calculator/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/drone-power-analyzer/": {
-      "hash": "81dcba6d19f028ad1ffe0bf1242a9620efe96edb1dbf27ffc998d2b1b9c3a55f",
+      "hash": "37f6e6644f83d8756bd823950cb9f31ff3c66f04e6c677cd13490424a09e8b77",
       "route": "/ja/utilities/categories/drones/drone-power-analyzer/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/fpv-drone-lap-timer/": {
-      "hash": "3da939e5c73337bed4d9e1693264675df8196570e5d71b80035ef21c05693d2b",
+      "hash": "c931281e1178853aec0d00df9c41d4b2dab4983f1560adff351acbdffdbc0770",
       "route": "/ja/utilities/categories/drones/fpv-drone-lap-timer/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/fpv-drone-speed-calculator/": {
-      "hash": "2f21ea9e1959e2196e9ebd3c0b1e8ab98e20d172883cfd3145ef5c0155bdc198",
+      "hash": "d4ac5cc25ed51e7d5a2eaa9568d2e20b7a243f5fb4fd42138239340b35ed2e72",
       "route": "/ja/utilities/categories/drones/fpv-drone-speed-calculator/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/": {
-      "hash": "e866ec7fe11ddcdbcf3a57721e00a0cd5298477cc99135dcb17bda4162953992",
+      "hash": "fe8dff88222ca8da12cebe83b3371e50a0efbf695a6ab296c029c6a57c42497a",
       "route": "/ja/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/gps-coordinates-converter/": {
-      "hash": "a36fb191030925d4e7f4b2cc1750d5fc1e0bea3c869991f20e56b946c9250119",
+      "hash": "9146fef528bd01029450be5c32433146f73c7f31f1490257d4b76787ee63a3ae",
       "route": "/ja/utilities/categories/drones/gps-coordinates-converter/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/gsd-flight-planner/": {
-      "hash": "389678730a12d329e5cd32823b599db459497213aae900d007cb9fd872a82b01",
+      "hash": "5b3c22d8e5ab847df3bcab8c5f3ae2575babb6907f1d4959328a0abfa7373400",
       "route": "/ja/utilities/categories/drones/gsd-flight-planner/"
     },
     "https://www.gamebob.dev/ja/utilities/categories/drones/": {
-      "hash": "e0725ba30cf5e357343236aa4efe2ef73241828e0adae916e1f75c9b17b92d6d",
+      "hash": "dd01f3a5ceab9cf8653ecdaf55408985a59a5393e74c9e58af4afde9e18b0f6b",
       "route": "/ja/utilities/categories/drones/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/antenna-length-calculator/": {
-      "hash": "d02a4aec95713c1606497ea21ead44bcb4229e9adc68f1de756c13eb1fe187e7",
+      "hash": "b47e929d67b9451493c0b64b654a19a0ff9984eb4911930b8f8a324c59552065",
       "route": "/ko/utilities/categories/drones/antenna-length-calculator/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/drone-battery-c-rating-calculator/": {
-      "hash": "d2663ac174d3727d9e1017424fb1ed2925d869e28620e6254690f292f65476fe",
+      "hash": "300ebb08e414aa7cb244ce2ca0a916c6aa7c8da90cec0dd74d61689d732ef065",
       "route": "/ko/utilities/categories/drones/drone-battery-c-rating-calculator/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/drone-flight-time-calculator/": {
-      "hash": "d4b40bd747e51cba66beef94fb165257a0ad49d728566ca927f763303878c340",
+      "hash": "390fff60e56171ce2e9136708dc18f62682a3943c6c8742a721f3ee05fb89869",
       "route": "/ko/utilities/categories/drones/drone-flight-time-calculator/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/drone-mission-battery-reserve-planner/": {
-      "hash": "3886d7856ba44f7392c960be78879da983b4f02c82ec9cdaafea4f8f20802b18",
+      "hash": "e94ae575d4f9e9093ea0fcfc2c33f85fb1f6d0a2a662806db02e15760ce97494",
       "route": "/ko/utilities/categories/drones/drone-mission-battery-reserve-planner/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/drone-motor-propeller-calculator/": {
-      "hash": "ef2af7f574e141de14c13757645fb5b91d7c08cd8cb6d51884a5cc757e5d9a58",
+      "hash": "af1f9a66c2160aca4f792486dc42488ee747874845072d209c6a50b3096872e4",
       "route": "/ko/utilities/categories/drones/drone-motor-propeller-calculator/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/drone-power-analyzer/": {
-      "hash": "14687946e799f02b7a905d0cc33859f997c35154ff95f1b5a6b8668f3819ed84",
+      "hash": "359347bb0982ce3000dd88669a953b8e010daa3a8b4312f283d7dded8341a2ba",
       "route": "/ko/utilities/categories/drones/drone-power-analyzer/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/fpv-drone-lap-timer/": {
-      "hash": "e94a57c031feb375d735414a3531704b7a280a1284aac595db4c21e8b4840d0b",
+      "hash": "f87bb2846ddce0c4e0a8633bef7976d35df36e7caaf23255004adce633105f44",
       "route": "/ko/utilities/categories/drones/fpv-drone-lap-timer/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/fpv-drone-speed-calculator/": {
-      "hash": "de5f6acc22f22002640843c048f7c8c1a40ee7d3c310739e5ea13d24b3a62462",
+      "hash": "a7c261de59a238c4e00de6a4edce84064600346baf2fd3a666d61ef90f20c119",
       "route": "/ko/utilities/categories/drones/fpv-drone-speed-calculator/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/": {
-      "hash": "f64c355c7716b1859c57fa9c27b1676b50962b0d2e78c5cc2bdfed08e275f932",
+      "hash": "ef3195bcab8e7a4d5b76e97ce767bb250967b293fc7ea76f70f42e2891b304c0",
       "route": "/ko/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/gps-coordinates-converter/": {
-      "hash": "0523026886b02cd214f5d47114ef89728402487ec995e792b53a53671d08701e",
+      "hash": "875fd0df870b30245d2d522863cf81c6a2b0fa845332c693bf6b8c30df5e03bd",
       "route": "/ko/utilities/categories/drones/gps-coordinates-converter/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/gsd-flight-planner/": {
-      "hash": "d302a1fa8c2a80958be988a893f2cd3bcca0219c76754ff533ada188519fd5bf",
+      "hash": "b683e8186392a26ae7df3caf236dd2caaef929c8366e9c67d0b89ef426c9f84c",
       "route": "/ko/utilities/categories/drones/gsd-flight-planner/"
     },
     "https://www.gamebob.dev/ko/utilities/categories/drones/": {
-      "hash": "ea0ca3e0616f9b4937f0a26e39848689ac003cfefd7b0cd5ea5c444eb91cf6fe",
+      "hash": "023350adf69a1bfa7f281e97916ceb80e3a29a0d80a748b0180ec1456714c70d",
       "route": "/ko/utilities/categories/drones/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/dron-missie-accureserve-planner/": {
-      "hash": "b5e0bc6d3b64d13c070049c49ee5c75db1cad59a1b7c55403b381c92d8dcf21e",
+      "hash": "71d56d41e71c4846f9a4bf9c5c9a723c7409b0c7353d468949539246622eb322",
       "route": "/nl/hulpmiddelen/categorieen/drones/dron-missie-accureserve-planner/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/drone-vermogen-analysator/": {
-      "hash": "4797391edb2135f3091864b75b11ed22f6ad32b542d1caed794c052c342f4ef7",
+      "hash": "004981c198c67bd153e4474c15f1d0f7d40701f72606d02dd0d30d01ee353f53",
       "route": "/nl/hulpmiddelen/categorieen/drones/drone-vermogen-analysator/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/drone-vliegtijd-calculator/": {
-      "hash": "fcada830f552639c2809424b157e989a155d119f8de04456da95c1d967603026",
+      "hash": "0e4bc52ae51596996f57c6ca3405e652d7309b7f97bcba8fe01bf8344fe485ea",
       "route": "/nl/hulpmiddelen/categorieen/drones/drone-vliegtijd-calculator/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/fpv-drone-race-rondetimer/": {
-      "hash": "17b4fd2eb841714bbf2207e71e381091cc66c7c83afd08e5df658d8b6fa9eb3d",
+      "hash": "dc90b697b767086533789e149263d987d7183543d067a639096f573fe850f4e4",
       "route": "/nl/hulpmiddelen/categorieen/drones/fpv-drone-race-rondetimer/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/fpv-drone-snelheidscalculator/": {
-      "hash": "ec489d1bc79dc42fa3c962a7424f07807793cd8757935b6d278d804d8d574949",
+      "hash": "f4c8335110572e45cc93e301a3d6462637db13065533fea5d0107345014b3406",
       "route": "/nl/hulpmiddelen/categorieen/drones/fpv-drone-snelheidscalculator/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/fpv-drone-stuwkracht-gewicht-verhouding-calculator/": {
-      "hash": "8fd47ae1e8a53d3fa824e90a6aa6e587ecda0970212ba76dc791847ee9348945",
+      "hash": "5ab1c252b008522a0038de8d98dc24d0fe249d5e2cfb71cae88d601d6f035dea",
       "route": "/nl/hulpmiddelen/categorieen/drones/fpv-drone-stuwkracht-gewicht-verhouding-calculator/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/gps-coordinaten-converter/": {
-      "hash": "0b28eec06d1a48547aca13fe146030e2b0705ef00863226723d8a013fd82c977",
+      "hash": "d5e4ae9a747ecfab2c7255f237716f46c87ce099a0eb2e313637246cfdca5868",
       "route": "/nl/hulpmiddelen/categorieen/drones/gps-coordinaten-converter/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/gsd-vluchtplanner/": {
-      "hash": "3207eb856fc1d008d43baf610808269b2c49a311f10cb898a238ffd0f7970213",
+      "hash": "59bca4fb9e018f3e53a5696c297685a2476e500174d279b1df87f5cf8ba3e81d",
       "route": "/nl/hulpmiddelen/categorieen/drones/gsd-vluchtplanner/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/": {
-      "hash": "92e3230e7cb541a1a42e8a6fd36439154a4f586869377d4945d3b3b35848b5fa",
+      "hash": "e52e1ccb56081f5f95f987dd286b0391a44e899e991e2cdecf0b25d75ef63cd3",
       "route": "/nl/hulpmiddelen/categorieen/drones/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/lipo-c-waarde-rechner-drone/": {
-      "hash": "72362b88f7cafd24c76efd8005753e088ff73ccc44faa2b9ef8e0f67196ecdde",
+      "hash": "5eb6908f9c58833e5ded5fddb1f79da011d57acc5b43258b14c36686c303761a",
       "route": "/nl/hulpmiddelen/categorieen/drones/lipo-c-waarde-rechner-drone/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/rekenmachine-dronemotor-en-propeller/": {
-      "hash": "8c3dd501a90bc8539f1d3fd0336f4fe9e46614519bb203c9bdfbab97349ea3c6",
+      "hash": "cca2a762a66614a17d1c2f78230dc8c9304d1c76f13ca64ec5f62ff0717ffe34",
       "route": "/nl/hulpmiddelen/categorieen/drones/rekenmachine-dronemotor-en-propeller/"
     },
     "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/drones/rf-antenne-lengte-calculator/": {
-      "hash": "995943cf6a84525114fd3bdcdfb2b2c11b329fe0c6ea13d2c8db68ac81cb115e",
+      "hash": "9404442dbe34f182272f4aef8ece25471b54fe1ea4bf6647481fe7b91cb53693",
       "route": "/nl/hulpmiddelen/categorieen/drones/rf-antenne-lengte-calculator/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/analizator-mocy-drona/": {
-      "hash": "ad6efe598c50f94a728e8cfffda88fd0c0c6c415c4c21a53d090880a3feb323b",
+      "hash": "187dc0a29fed5abf14427e00010d48e309033ce894632e9b2fbf427cfe163b10",
       "route": "/pl/narzedzia/kategorie/drones/analizator-mocy-drona/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/": {
-      "hash": "506ece2c467bf8cdcecd419a18f934e75e620e598e90e3241382db388a0ddd34",
+      "hash": "4b1edb886689c3cc9e20411e3174928d41fd6ee09ec58e0a3065cbba84e265b6",
       "route": "/pl/narzedzia/kategorie/drones/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/kalkulator-czasu-lotu-drona/": {
-      "hash": "9dfb97e998a7a54e27aa1d58ec4b059d8785e8b23c6e858b6a6361c803f94e96",
+      "hash": "6f60674a360a5338d7d78e64aad7778738133731a067ccb57b39fede9dbc7813",
       "route": "/pl/narzedzia/kategorie/drones/kalkulator-czasu-lotu-drona/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/kalkulator-dlugosci-anteny/": {
-      "hash": "7beb0baecd9e69e6ebe780fe0c2c06a1106548c714593aa19f6f871006d93e0a",
+      "hash": "4aeed2b4c4419648fb3c535452a714c489f2bbeb10e2fada1ccebaed99c8418b",
       "route": "/pl/narzedzia/kategorie/drones/kalkulator-dlugosci-anteny/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/kalkulator-pradu-rozladowania-lipo-dron/": {
-      "hash": "aa981d79ab67208d5714b61b7f0da5204f2d6c57b645ebd44545853496d1ea8c",
+      "hash": "c03895930a3bd4480314617f4129944057a78081f3db498472ec1b388a0bcceb",
       "route": "/pl/narzedzia/kategorie/drones/kalkulator-pradu-rozladowania-lipo-dron/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/kalkulator-predkosci-drona-fpv/": {
-      "hash": "c8ad0b9b14bc6d2dbf3fc089eabf71460395138ad478094151a31ffcf08a154e",
+      "hash": "649ceb1f4d42ad9ee47a6a6bb6594eba286a4f3a77d505016987e17f62e88a13",
       "route": "/pl/narzedzia/kategorie/drones/kalkulator-predkosci-drona-fpv/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/kalkulator-silnika-i-migla-drona/": {
-      "hash": "6ba227fb0732451972f988bbe7e76b174d0d6ef4c2db9be20dfddc40de6b3e74",
+      "hash": "56d72f370980e1a569aa80cdf40d66b77adbcc4c8bc6c715d43d6f242acfb649",
       "route": "/pl/narzedzia/kategorie/drones/kalkulator-silnika-i-migla-drona/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/kalkulator-stosunku-ciagu-do-masy-drona-fpv/": {
-      "hash": "4eaba4d03dcb0937463970b94dc877e993e8b62e2b1e55132c3de3eb5d8cdf48",
+      "hash": "2acf06c30d54d7ed262902cb3405c1f3d90d6f90dc3af05dce683dab421fe174",
       "route": "/pl/narzedzia/kategorie/drones/kalkulator-stosunku-ciagu-do-masy-drona-fpv/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/konwerter-wspolrzednych-gps/": {
-      "hash": "0b47bbc49f9444cf40b900a1e4ae02325d4c7ec58cfd382b7767fa5ac8a03a19",
+      "hash": "b0b2bd8575ac867f87f6c9648b73cd77d614bfb65b1e843dfc2c2c96a89b7dcc",
       "route": "/pl/narzedzia/kategorie/drones/konwerter-wspolrzednych-gps/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/planer-lotu-gsd/": {
-      "hash": "502f116f895e961c60db9fcbff59a49069ef0ea111be61e5e84574059bc91ad4",
+      "hash": "12cfa877aca41f65b80a560f397e5a27a0df22196e0577060cd0a332b59d2a12",
       "route": "/pl/narzedzia/kategorie/drones/planer-lotu-gsd/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/planer-rezerwy-baterii-misji-drona/": {
-      "hash": "9f15a6e6a7a8d25d05f787ca1b71ce949b2823b8986c101a20d383256434907b",
+      "hash": "3cf274afc0ccb1438f6f73b121007ddd4a77f73f831889fef35ab3555185c672",
       "route": "/pl/narzedzia/kategorie/drones/planer-rezerwy-baterii-misji-drona/"
     },
     "https://www.gamebob.dev/pl/narzedzia/kategorie/drones/stoper-okrazen-wyscigow-dronow-fpv/": {
-      "hash": "79c1bcabfc6bcaecf6f6648a6fc39aaafbd98f40814f735eda9e4a1b5946d93b",
+      "hash": "b2e7b0c767b9b8d29afa38f9c7e91b83c656f653ee205d1dc5cbc9627c374c42",
       "route": "/pl/narzedzia/kategorie/drones/stoper-okrazen-wyscigow-dronow-fpv/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/analisador-potencia-drone/": {
-      "hash": "df7243100f7bb889c2251a1177e2a8f6d7fd48d68ec2777645f2c54f82edb099",
+      "hash": "9e1947877c8fe56b0d92559258b214ce26e7474b2cbf563d06e2be28ea38d30f",
       "route": "/pt/utilidades/categorias/drones/analisador-potencia-drone/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/calculadora-comprimento-antena/": {
-      "hash": "9348eec5b6441ca8c4b1484f752b53c335ea7a95ae176b8044fe3f0a4fec14bd",
+      "hash": "0b385944d97fb905c9f806cda7546b845afb49524ed8828c982d73ad006c4e6a",
       "route": "/pt/utilidades/categorias/drones/calculadora-comprimento-antena/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/calculadora-motor-helice-drone/": {
-      "hash": "883a5503f25e11106dff2213b56ddcb874cf00cfa72c61c7d02f74b0d9586fcc",
+      "hash": "d758146274a931bca9a8b6073087d8b869dd28b30c376858f83903cdf0eee3a7",
       "route": "/pt/utilidades/categorias/drones/calculadora-motor-helice-drone/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/calculadora-relacao-empuxo-peso-drone-fpv/": {
-      "hash": "bdebe118fb3791471acff9e0776294bac82ec9ddf419385dce8df4c0d9a316a3",
+      "hash": "cc33caa237074f175dcf3a79a605784abc4ae6a8103854488bce6bab375541aa",
       "route": "/pt/utilidades/categorias/drones/calculadora-relacao-empuxo-peso-drone-fpv/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/calculadora-taxa-c-bateria-lipo-drone/": {
-      "hash": "120a10ec410ee677e865e8135fa779cbf793cb21a88223c3a968ee4dae5b32d1",
+      "hash": "f915701b3e0e40ee33a5d8eeb98e5b59e4e315e35f896d5d3a0d1e5ef98b5ade",
       "route": "/pt/utilidades/categorias/drones/calculadora-taxa-c-bateria-lipo-drone/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/calculadora-tempo-voo-drone/": {
-      "hash": "7107d1d19b277d3b64246e1d0adfdeb5c8b2c9f4987b6e4e4adf128d4c560345",
+      "hash": "f711aea6e187199eadb173afe54e00178f4d9cc4455dc18de8df16b82bb8a29e",
       "route": "/pt/utilidades/categorias/drones/calculadora-tempo-voo-drone/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/calculadora-velocidade-drone-fpv/": {
-      "hash": "9b26cd23d75f08aed35c78a3d984c65353bb231d5bd1a2aefeeb43454c0af6e0",
+      "hash": "bfb7f567123670f9200d9a7ae04fc49cc5771ac5b2f43ce656d6c662a08036b7",
       "route": "/pt/utilidades/categorias/drones/calculadora-velocidade-drone-fpv/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/conversor-de-coordenadas-gps/": {
-      "hash": "f8de4a977f6c5f01e8a0f4b1f963764c488c546876299a9af00243602d7a2144",
+      "hash": "86226836e5316244a934d76351d1daf5af4fa6c91f684895b4e4e10d858198a2",
       "route": "/pt/utilidades/categorias/drones/conversor-de-coordenadas-gps/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/cronometro-voltas-corrida-drone-fpv/": {
-      "hash": "5c3ffb4f570e3e9cee60fb53ae054eb29344362510af8e79a0d7614bd75c52cf",
+      "hash": "4d1af19287897ca641bac72792c8723c0c7b6a6c748634761380c0eb9e342002",
       "route": "/pt/utilidades/categorias/drones/cronometro-voltas-corrida-drone-fpv/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/": {
-      "hash": "efb817a2f83cfd3b83ec90f32975ebc1a6393f372dd10722c7b53953e49f8295",
+      "hash": "86698933ad59f7cf20f48695db3b4fa9dc3861626e13b72d8ef52a0cc354857e",
       "route": "/pt/utilidades/categorias/drones/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/planejador-reserva-bateria-missao-drone/": {
-      "hash": "96675ec3464a7b8f05e20f85108be95c6ba447a31667c164657819f7e2320613",
+      "hash": "98778f9a12b586c9eff749de918a8385ee45783f0bcbc5b58d97921c74d752fe",
       "route": "/pt/utilidades/categorias/drones/planejador-reserva-bateria-missao-drone/"
     },
     "https://www.gamebob.dev/pt/utilidades/categorias/drones/planejador-voo-gsd/": {
-      "hash": "0d58dcd3825d85d67e4bb09fb62feb3303196681cd0b17a247d35fa628ee633f",
+      "hash": "bb95a081e892ce7863e953b28fbd4f7ced1c0411e89ccef8b8802176cf35ee89",
       "route": "/pt/utilidades/categorias/drones/planejador-voo-gsd/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/analizator-moshnosti-drona/": {
-      "hash": "6471b5f35962a2dcf97a5962e61b0c5e95ed4fd08dbcaf23aa24c9559d9b7bd1",
+      "hash": "f6c9ddf5f33fc12e9df18ed209d049d013280ff11db0d35ef4109abbd8eff296",
       "route": "/ru/instrumenty/kategorii/drones/analizator-moshnosti-drona/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/": {
-      "hash": "765748f09ec27474e00bda097b954a49192658891811a418c8b9f0207df5ef98",
+      "hash": "f3d419caf0bf6057541c08fe623a1053ad148ec2b9f122369d287ceac2fb077b",
       "route": "/ru/instrumenty/kategorii/drones/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/kalkulyator-dliny-antenny/": {
-      "hash": "5cb2657589f9a221b8aa0e4b64634a9c9b3369f442ff7f147b1d3193110fa780",
+      "hash": "c596fbfd27c52b9ec81bb1303f0b69ebca240a7984fcd94f94258e30df0c14d4",
       "route": "/ru/instrumenty/kategorii/drones/kalkulyator-dliny-antenny/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/kalkulyator-motora-i-vinta-drona/": {
-      "hash": "4e52e242eb542adbc3497df401e9f89bf9314973d10bd65857f1ea5d322027ee",
+      "hash": "bb4da62a01ec5148b4bdc66834a9e161c9bde8cf484cbc218b9c3fc31b8bbc32",
       "route": "/ru/instrumenty/kategorii/drones/kalkulyator-motora-i-vinta-drona/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/kalkulyator-skorosti-fpv-drona/": {
-      "hash": "66d2bd592ce3e450d723bf435e1e05d8b146ee6b39c0ae4fa8cf502818120e2c",
+      "hash": "a64be0569de64adddbe425dca91a8f1b04e7fa98df40aa231679fc8914b9c739",
       "route": "/ru/instrumenty/kategorii/drones/kalkulyator-skorosti-fpv-drona/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/kalkulyator-toka-razryada-lipo-dron/": {
-      "hash": "dba01a0498bcfb0281aa7d9b6a6071bb8d4c3f7d8b64ddb9f48728274134d1cb",
+      "hash": "ed17588f511461987177a0ddea40317b99b9ea5c74ebfaec94f29775cbfa1e75",
       "route": "/ru/instrumenty/kategorii/drones/kalkulyator-toka-razryada-lipo-dron/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/kalkulyator-tyagovooruzhennosti-fpv-drona/": {
-      "hash": "b8f0ca21c9d70e55f527256aca26698ad3bc454352a45a3de3a67a53cabb5239",
+      "hash": "9ecdc7d91c4649687ec91f2dd619e1caddf2e889e43c9d27b54ae074b6a7e3ff",
       "route": "/ru/instrumenty/kategorii/drones/kalkulyator-tyagovooruzhennosti-fpv-drona/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/kalkulyator-vremeni-polyota-drona/": {
-      "hash": "1b55bb34a7fa5fbbe4041375f92e4f84e640868b6e6a9abf1b863f7ddff98080",
+      "hash": "0d56251cfd1aab0e50d55c3dbbe3107357ab0b52e3412ce447753a2f5cccd19f",
       "route": "/ru/instrumenty/kategorii/drones/kalkulyator-vremeni-polyota-drona/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/konverter-gps-koordinat/": {
-      "hash": "cf1afaee26cd758373380c632ec0dcc9b4656fee996e71b7da1b77238dfcae73",
+      "hash": "df1532606ff442aa9bac3b07289216cf5227e2bd59b6db3f10f22d045c535a18",
       "route": "/ru/instrumenty/kategorii/drones/konverter-gps-koordinat/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/planirovshchik-poletov-gsd/": {
-      "hash": "e27109bbb86896c2d80026750e225ccc92d13c450463481b0a2e3357cf1eb3eb",
+      "hash": "0c7929ea2a758e0054b646f9f1281e2bb7eebf8d932075c4e9ce44148c63e4b9",
       "route": "/ru/instrumenty/kategorii/drones/planirovshchik-poletov-gsd/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/planirovshchik-rezerva-batarei-misiya-drona/": {
-      "hash": "5b517b8bacd91d25f5503904d2d83fb8444f898ebde9ca47b65a4a9608a41327",
+      "hash": "9fcd746d577f7325dbda24ebdead8069305cd88db7994cbf2a6e0dcb3e5ba554",
       "route": "/ru/instrumenty/kategorii/drones/planirovshchik-rezerva-batarei-misiya-drona/"
     },
     "https://www.gamebob.dev/ru/instrumenty/kategorii/drones/sekundomer-krugov-gonok-fpv-dronov/": {
-      "hash": "eca8029abea26c6ab7b79c166c9f4a749ea391de8d09d5badcac8d3af1e33407",
+      "hash": "04bbe5da33dc42f42f6c5b57ea4ba235d817b7efe5cc4d45e94682edaa0b8b74",
       "route": "/ru/instrumenty/kategorii/drones/sekundomer-krugov-gonok-fpv-dronov/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/dron-uppdrag-batterireserv-planerare/": {
-      "hash": "899343b868a60a67014130ed0784f666aa0456ea7cd334e3dfcdc016c366d977",
+      "hash": "4461bc0912e35d690c94e520bcea552b152b5aca5e0d7a08fa53659aae8d1180",
       "route": "/sv/verktyg/kategorier/drones/dron-uppdrag-batterireserv-planerare/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/drona-kraft-analysator/": {
-      "hash": "053027a47573b904242356f3397d508ba7ef4536834adb4e96b335011dfea5c4",
+      "hash": "a91bca8edb88d536222e1d2ad060778792d0522d8e0b7e12bdd31a24b4c1c6a1",
       "route": "/sv/verktyg/kategorier/drones/drona-kraft-analysator/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/dronare-flygtid-kalkylator/": {
-      "hash": "1f277e614e45c8f53e061039d5bf1ab2563dbc21d689302b7e34ad7b87963fd3",
+      "hash": "6c551aa38988d3b0616846adc5b0d1d19f5778c94de841a63d50f1aab58a008f",
       "route": "/sv/verktyg/kategorier/drones/dronare-flygtid-kalkylator/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/fpv-dronare-dragkraft-vikt-forhallande-kalkylator/": {
-      "hash": "b5df59d10bd4a25f16d19140dfa0273e5c6814e5f3f5d1f7700c443e0c738ca2",
+      "hash": "f857395b6e86eda115ca1e8ccd3d9c5258ebc433394b91119deb588aabfc0c22",
       "route": "/sv/verktyg/kategorier/drones/fpv-dronare-dragkraft-vikt-forhallande-kalkylator/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/fpv-dronerace-varvtidtagare/": {
-      "hash": "f152fd0469ec3e0943379bcabfa4dbe3a246c1baf741297dcadea02b7743e6b8",
+      "hash": "e3d784b0369b95bb44d52cc43a05b63d5a77dd92429631a3bfc0c3ca102c614c",
       "route": "/sv/verktyg/kategorier/drones/fpv-dronerace-varvtidtagare/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/gps-koordinat-omvandlare/": {
-      "hash": "ddea8d847fd2931749daa1cfc709cb7d2c76fa2f32bf78d643e63f0e7871c882",
+      "hash": "70d4dd69f7cbe35ecc1f37a906b052bd0e9718359918620de312e73896b9681a",
       "route": "/sv/verktyg/kategorier/drones/gps-koordinat-omvandlare/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/gsd-flygplanerare/": {
-      "hash": "a53c9c36555106d5b86365653b1a0756be5565bd3983bc37b5db81c6a89e8be2",
+      "hash": "bdf2dd26538c370d8a43640f6d41942c152c23af94f3b872950aa674640d593d",
       "route": "/sv/verktyg/kategorier/drones/gsd-flygplanerare/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/hastighetsraknare-fpv-dronare/": {
-      "hash": "cc7a73609471d777949596182d7695983ccdf7b3a29bd3cd77462569e6a8d09f",
+      "hash": "afb26e91eefc42d5ad15f272afc33adb0c04019211f9774cb49732aeb62ac75b",
       "route": "/sv/verktyg/kategorier/drones/hastighetsraknare-fpv-dronare/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/": {
-      "hash": "2a6a9b8c6f75edbe7a7ee2c1cc4ae6f4e63d5ef1667175feb96e8648689168d1",
+      "hash": "4ef62b753db44d15b9003eeb8abed222651aa8770ee69fa8f26f7ffbefb79307",
       "route": "/sv/verktyg/kategorier/drones/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/kalkylator-dronarmotor-och-propeller/": {
-      "hash": "64a1ba1b63d199e96f81def80a63492bdfa5497786f16305f457bf79be6471f5",
+      "hash": "af896b82a2573afb5d07c1aae016d60c9a2653a73c4b09c8e58da6e4b5866440",
       "route": "/sv/verktyg/kategorier/drones/kalkylator-dronarmotor-och-propeller/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/lipo-c-varde-raknare-dronare/": {
-      "hash": "0055da42f3520f8dc238dd8eee46bb92b7804a612d2b3a638f5545a4568df879",
+      "hash": "9f6720b12ec7f0154242529e7db6f9d0d2dda3bf86e01ed8833ac996834564cb",
       "route": "/sv/verktyg/kategorier/drones/lipo-c-varde-raknare-dronare/"
     },
     "https://www.gamebob.dev/sv/verktyg/kategorier/drones/rf-antennlangd-kalkylator/": {
-      "hash": "c0e452003bdc8a8ba40128ceb897c11d338c5ca655de03940a80cb8d34be9336",
+      "hash": "c3f88317a0060861af34d8baca7f50b138ff01a5fb16b54370913f4ec9279fdb",
       "route": "/sv/verktyg/kategorier/drones/rf-antennlangd-kalkylator/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/dron-gorev-pil-rezerv-planlayici/": {
-      "hash": "1e52f89f77526ca3e2de6498975f96c767999313f31fd97196204bd157138950",
+      "hash": "39b471429cefe7a3d340845c146d25c26847ad2438b07ae2751ae1e0366bd2f4",
       "route": "/tr/araclar/kategoriler/drones/dron-gorev-pil-rezerv-planlayici/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/dron-lipo-pil-c-degeri-hesaplayici/": {
-      "hash": "296cfb27621fcec3a685eb9b049ff5e819a571d44fa75b043f2a71296667aaf2",
+      "hash": "35ff27580b6c7170c4885b9a3f1c95eeb90c5d5f78eae0da146d62c06f5eea4d",
       "route": "/tr/araclar/kategoriler/drones/dron-lipo-pil-c-degeri-hesaplayici/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/dron-motor-ve-pervane-hesaplayici/": {
-      "hash": "d5c7e20e49aacd8e865b3a2856e75246bf73d05b3c5825155a0760048f1ca4f9",
+      "hash": "12e8de1f51f9b912165870ecd2ac5bf4e661e52aa5b9a75567d6b3ca67f1720b",
       "route": "/tr/araclar/kategoriler/drones/dron-motor-ve-pervane-hesaplayici/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/drone-ucus-suresi-hesaplayici/": {
-      "hash": "c4f61e0c5168c403e33dfa32111009bb7ef02be75cb712cb59726695a1f23bac",
+      "hash": "b4c7b61e3eceeb1b82eddc6db7b56a7a9b6a006344e9a45454ad499bbc7ba8fe",
       "route": "/tr/araclar/kategoriler/drones/drone-ucus-suresi-hesaplayici/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/fpv-dron-itme-agirlik-orani-hesaplayici/": {
-      "hash": "b69872c5414ea42d9029b784364b2e29e9d8547a699fb59329a6dad5d7828b77",
+      "hash": "885aa29b34f1618325c0c9c53f2008b3b27e72937d341541c68e9aa07397cf4b",
       "route": "/tr/araclar/kategoriler/drones/fpv-dron-itme-agirlik-orani-hesaplayici/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/fpv-dron-yarisi-tur-kronometresi/": {
-      "hash": "2f701ca0aab0417a28e12d0edf75442684ae548d315cb582b02922eac823c384",
+      "hash": "b9d3da4551b070adcaa7b873da89fa5f869500fc811faf1ca8a18b2dbdb77fc8",
       "route": "/tr/araclar/kategoriler/drones/fpv-dron-yarisi-tur-kronometresi/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/fpv-drone-hiz-hesaplayici/": {
-      "hash": "b94faf48f9d3405920133f0591797fb03045add5787d48751a0e4afc555b5dc3",
+      "hash": "963b08a73513f0a50b98739998f9e046603270044337364aa8e6774805256cb2",
       "route": "/tr/araclar/kategoriler/drones/fpv-drone-hiz-hesaplayici/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/gps-koordinat-donusturucu/": {
-      "hash": "956cd2a1e68a64948ee2587b2e3fddce67c9f6a8a278dc79cd9b364f281a87f6",
+      "hash": "c9f5885ed30bb4d9e80f61a0cc904cebdabc710936e4bf57f281e8f373a640d6",
       "route": "/tr/araclar/kategoriler/drones/gps-koordinat-donusturucu/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/gsd-ucus-planlayici/": {
-      "hash": "7bddedc3c2c02450101e062b8e1239300149d78b741129e4848e97783fdc2bb5",
+      "hash": "0d20e995477b53daa6593aa09eeecc15a0d3de9b9f56c36025e15c59744a6b61",
       "route": "/tr/araclar/kategoriler/drones/gsd-ucus-planlayici/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/": {
-      "hash": "3672eaffc78f8c20fcac44d483b69e104a9e9aa1662210b23d2c4a791341cef1",
+      "hash": "771459e6a365b3652ea2678f1411269dd21788ed0e0f764a33db001864ad8747",
       "route": "/tr/araclar/kategoriler/drones/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/insansiz-guc-analizi/": {
-      "hash": "8dd733034db64da70f226ebf06cf5919966e2f3c29a1fafaadebf9db90b5b34b",
+      "hash": "b0426c228bff7fa0c1186104e2326c77a09007f5e3820e7992ca0652410c7654",
       "route": "/tr/araclar/kategoriler/drones/insansiz-guc-analizi/"
     },
     "https://www.gamebob.dev/tr/araclar/kategoriler/drones/rf-anten-uzunlugu-hesaplayici/": {
-      "hash": "f7ac50496fc7201f848656664bd40a562e26558138ceddb869254b766d14ac0f",
+      "hash": "6dfdbd3204cd1d92cd57b4a8569c09484bc9201d1702ea570214e6dab2f2349b",
       "route": "/tr/araclar/kategoriler/drones/rf-anten-uzunlugu-hesaplayici/"
     },
     "https://www.jjlmoya.es/utilidades/analizador-potencia-dron/": {
-      "hash": "0a6f0e820cfcf525c704dbd8ebfddc11b0b4e13dea37667e1fd6468690d616bd",
+      "hash": "b47a08a083402ef4af36c51808367030eac8763da106e24440486ed01c5ac790",
       "route": "/utilidades/analizador-potencia-dron/"
     },
     "https://www.jjlmoya.es/utilidades/calculadora-empuje-motor-helices-dron/": {
-      "hash": "1a94bfb783b086aac21ed1050c4c39e566f7a8b3e9bd83050db011fee22057b3",
+      "hash": "7cb8cbe1a3164880c1e572d6d7e8652f9d28e7f0d55caf72d3098411499f0851",
       "route": "/utilidades/calculadora-empuje-motor-helices-dron/"
     },
     "https://www.jjlmoya.es/utilidades/calculadora-longitud-antena/": {
-      "hash": "d505660839937768ac72860c8c61df71104fea7ec6d4107712860ec486d0a7cb",
+      "hash": "da8140f886ba29f9072b420267fe856cfbcc39375764fee273dfffaf0115979e",
       "route": "/utilidades/calculadora-longitud-antena/"
     },
     "https://www.jjlmoya.es/utilidades/calculadora-relacion-empuje-peso-drone-fpv/": {
-      "hash": "9e715af229d0cd25ed756d058c6ed55c56fd12077d8cf212c937db4b15c0a640",
+      "hash": "84d8ab372152f400fb5bc23b9524df63e3003622c40613ba0ecc281d110be942",
       "route": "/utilidades/calculadora-relacion-empuje-peso-drone-fpv/"
     },
     "https://www.jjlmoya.es/utilidades/calculadora-tasa-c-bateria-lipo-dron/": {
-      "hash": "fd9fc24ed0f8b8c9ba2872709e919f41c9cfd874d3ab46888045056b12b5005f",
+      "hash": "e721935ee85a407e0c7af835536feee722f44d1057c51980f8f4bbe99d372b0b",
       "route": "/utilidades/calculadora-tasa-c-bateria-lipo-dron/"
     },
     "https://www.jjlmoya.es/utilidades/calculadora-tiempo-vuelo-dron/": {
-      "hash": "7901d583f82c3f4a1dd44165971ed08adc12c6373b7bd705d374a7532b87806f",
+      "hash": "858b6737904441eb45603ee647c75edc35814fdb8f84e04a8f8047b7ecfaacee",
       "route": "/utilidades/calculadora-tiempo-vuelo-dron/"
     },
     "https://www.jjlmoya.es/utilidades/calculadora-velocidad-drone-fpv/": {
-      "hash": "98a21f74703eb77607e426eecedd5dd2988070b3e1c62e47d239b29014ecc65b",
+      "hash": "97abfdfe3203413b1056fc8425254a00552af2510d4ac40d88ae5651a6ae29a1",
       "route": "/utilidades/calculadora-velocidad-drone-fpv/"
     },
     "https://www.jjlmoya.es/utilidades/categorias/drones/": {
-      "hash": "0b8f6073e1ce3e18d37df975147a3764491a44ecbbfce0a6733a70a374c975d4",
+      "hash": "a624771923285bec454ef262fdcdff1dfab9dec37335e17425ec0b73eda9466f",
       "route": "/utilidades/categorias/drones/"
     },
     "https://www.jjlmoya.es/utilidades/conversor-coordenadas-gps/": {
-      "hash": "1a34e9ddc4c763cc223b183640c04f19457a449a6cdce66f4db12b529f0bb2d3",
+      "hash": "bc126ba28b42fbe56d0abe5b77df519fb99b68ff9ff15497ef2498883f63c135",
       "route": "/utilidades/conversor-coordenadas-gps/"
     },
     "https://www.jjlmoya.es/utilidades/cronometro-vueltas-dron-fpv/": {
-      "hash": "23722ae755cca5abab8db0830377b9687842a48fd2e2ad4e47128ffc58811056",
+      "hash": "75ad59616e9478de747be31f2cb5d4dc73e5cf9bce581307326e235cb457a597",
       "route": "/utilidades/cronometro-vueltas-dron-fpv/"
     },
     "https://www.jjlmoya.es/utilidades/planificador-reserva-bateria-mision-drone/": {
-      "hash": "f3771f53a3f92899c8b60cd3eb6a4e7a0389d4f295a69ce80e1a447d6f42cdaf",
+      "hash": "ac2076b0cb0483bda040980a286a3322c6f13b3e5242d7fb1cf1a42d23d41d73",
       "route": "/utilidades/planificador-reserva-bateria-mision-drone/"
     },
     "https://www.jjlmoya.es/utilidades/planificador-vuelo-gsd/": {
-      "hash": "45dfa855bc99b561bb58e76a41227f33711f9bd1e29d51511246b6e225e16cd9",
+      "hash": "0acba3f232a18a75c76f76b5456946d61e1aafe9f7a3507b34652a5cb0495909",
       "route": "/utilidades/planificador-vuelo-gsd/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/antenna-length-calculator/": {
-      "hash": "7fe41c58bd92a97ea48d1f48b79fe3004b99940724aa9b37e490f10d34b9f83a",
+      "hash": "6413f1c4ef71e74bf7e2763e4711bd886396e44666c05343953e47b9ed3c7678",
       "route": "/zh/utilities/categories/drones/antenna-length-calculator/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/drone-battery-c-rating-calculator/": {
-      "hash": "c7baf71368c65cc43425a6ee906a4f2761f8c110d46a757b1be6ab21ae7c8f1d",
+      "hash": "dc601b461125a036070f4a06ca56267affcca756608f8b1a41d928e2889c47e2",
       "route": "/zh/utilities/categories/drones/drone-battery-c-rating-calculator/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/drone-flight-time-calculator/": {
-      "hash": "01fba744ae584b93ee1f659a1f4b9b0e68ba7cb77349f194e291db9e9abccfc4",
+      "hash": "7b9c025a0bc48392534c0b79e7b49a1ffcd5688baacf8962fd38b80b4ea9f25a",
       "route": "/zh/utilities/categories/drones/drone-flight-time-calculator/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/drone-mission-battery-reserve-planner/": {
-      "hash": "9bcac5f6fcbc15c0e30b1549d9708c39cb2648630094223eda55c4112c75c770",
+      "hash": "b21d0e9bd839f00ab1fb9bab1a334da216d08b11a231e63df41d4d1597461c06",
       "route": "/zh/utilities/categories/drones/drone-mission-battery-reserve-planner/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/drone-motor-propeller-calculator/": {
-      "hash": "4171f8a501746275a3a802652f4caa43d8d12722b57afad335ae52499abfd4ef",
+      "hash": "0a6f5120d9bf5c1f4492e83b26f46e046dcc52488c64846e1c293001f870c591",
       "route": "/zh/utilities/categories/drones/drone-motor-propeller-calculator/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/drone-power-analyzer/": {
-      "hash": "532f94e4e588fb6dd40189652619783b3359f6999909488e7f2c6ae2207a2caf",
+      "hash": "c0bc0f3a6081acc9ec8737e7e0cba4d3be8801648089eaf253f971c07c85e214",
       "route": "/zh/utilities/categories/drones/drone-power-analyzer/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/fpv-drone-lap-timer/": {
-      "hash": "7cfc8083d0833e4447981bda300f9a62db0adcff3f02f800c7110db09a7a1ae5",
+      "hash": "bd1c433e2153ecc8de6c58bd37a116bdd5473fc27051d809ddcdca6b16a6effe",
       "route": "/zh/utilities/categories/drones/fpv-drone-lap-timer/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/fpv-drone-speed-calculator/": {
-      "hash": "b7c0c1a03191127a64d06e7057c835c9c7729158475885433e12e4dade1904a6",
+      "hash": "a63aa6c34cc18dc46349cf33664a626eaa73b6bda4c0630fedd218c88c185800",
       "route": "/zh/utilities/categories/drones/fpv-drone-speed-calculator/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/": {
-      "hash": "1b73003e4b779ad15b2eafe38bd1c9923d466fe856ce3e3569345f5602b2a5bd",
+      "hash": "7247f5ff1bec6711bbc4dfa8ec07d5889966f707f60cb5a9d9b6fa15e68685bb",
       "route": "/zh/utilities/categories/drones/fpv-drone-thrust-to-weight-ratio/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/gps-coordinates-converter/": {
-      "hash": "caf61d89aee455fb17ada807766d3ef6f1f41412cb7553026dd8110592e1aefa",
+      "hash": "6f5fc03b5e6158dedaabd5b13c4af8c6498177097e91ed3d79a1ac00fc969110",
       "route": "/zh/utilities/categories/drones/gps-coordinates-converter/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/gsd-flight-planner/": {
-      "hash": "6a47ccaaf508d0b8b22ab7db648c74c6a9d8e6a2f304fb10c80a9811295fb134",
+      "hash": "941d2002d32279d3b8bb6d66fa474b91e481a7fd851b7186ccbbf9973aec22ea",
       "route": "/zh/utilities/categories/drones/gsd-flight-planner/"
     },
     "https://www.gamebob.dev/zh/utilities/categories/drones/": {
-      "hash": "7e79444b1b530398a4b3956a40627439c407790ea6be738db805bdab7b76cacb",
+      "hash": "e6e0c648999b8ae2c149e8cce2277d50f9e3a8d190507e5cce750a982c9b472a",
       "route": "/zh/utilities/categories/drones/"
     }
   }
