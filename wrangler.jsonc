@@ -11,6 +11,10 @@
             "zone_name": "jjlmoya.es"
         },
         {
+            "pattern": "www.jjlmoya.es/utilidades/cronometro-vueltas-dron-fpv*",
+            "zone_name": "jjlmoya.es"
+        },
+        {
             "pattern": "www.jjlmoya.es/utilidades/calculadora-longitud-antena*",
             "zone_name": "jjlmoya.es"
         },
