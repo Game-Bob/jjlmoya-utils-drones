@@ -51,13 +51,13 @@
     },
     "dependencies": {
         "@iconify-json/mdi": "^1.2.3",
+        "@jjlmoya/identity": "0.6.0",
         "@jjlmoya/prompagate": "^1.1.0",
+        "@jjlmoya/tracking": "0.2.0",
         "@jjlmoya/utils-shared": "1.5.0",
         "astro": "^6.1.2",
         "astro-icon": "^1.1.0",
-        "chart.js": "^4.5.1",
-        "@jjlmoya/identity": "0.4.0",
-        "@jjlmoya/tracking": "0.2.0"
+        "chart.js": "^4.5.1"
     },
     "peerDependencies": {
         "leaflet": "^1.9.4"
